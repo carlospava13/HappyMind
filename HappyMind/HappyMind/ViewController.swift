@@ -12,30 +12,25 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    var audioPlayer: AVAudioPlayer!
-    
+    var player: AVPlayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let apiClient = ApiClient()
-        apiClient.getSongs { (result) in
-            switch result {
-            case .success(let url):
-                do {
-                    self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    //guard let player = audioPlayer else { return }
 
-                    self.audioPlayer.prepareToPlay()
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        let url = URL(string: "https://audio.clyp.it/uch2mlgn.mp3?Expires=1601357251&Signature=rIcNT6FYm9~voV93sKfKuDv~nQFuSIfHLt3vofDE7K3QWqcbARCnQXGEJcNMz11AJHv4PN0Q9R2ejCJak4WuH9tEkIC3fsmqLwyklce9HbHhHk1d70h1eAghUH1bRwQWyLWVGkgSFfpEwRMXGgXppvSkdU0z51KlkjoUsmzbHq0_&Key-Pair-Id=APKAJ4AMQB3XYIRCZ5PA")!
+        let playerItem = CachingPlayerItem(url: url)
+        playerItem.delegate = self   
+        player = AVPlayer(playerItem: playerItem)
+        player.automaticallyWaitsToMinimizeStalling = false
     }
 
     @IBAction func onPlay(_ sender: Any) {
-        audioPlayer.play()
+        player.play()
     }
 }
 
+extension ViewController: CachingPlayerItemDelegate {
+    func progress(_ value: Float) {
+        print(value)
+    }
+}

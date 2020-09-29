@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1533FDA2522BE1E002A2FEB /* CachingPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1533FD92522BE1E002A2FEB /* CachingPlayerItem.swift */; };
+		D1533FDC2522C371002A2FEB /* ResourceLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1533FDB2522C371002A2FEB /* ResourceLoaderDelegate.swift */; };
+		D1533FDE2522C584002A2FEB /* CachingPlayerItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1533FDD2522C584002A2FEB /* CachingPlayerItemDelegate.swift */; };
 		D1535E08251FDBF700FF375D /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1535DFE251FDBF700FF375D /* HappyMindData.framework */; };
 		D1535E0D251FDBF700FF375D /* HappyMindDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535E0C251FDBF700FF375D /* HappyMindDataTests.swift */; };
 		D1535E0F251FDBF700FF375D /* HappyMindData.h in Headers */ = {isa = PBXBuildFile; fileRef = D1535E01251FDBF700FF375D /* HappyMindData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D1535E1A251FDE1700FF375D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535E19251FDE1700FF375D /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,13 +26,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1533FD92522BE1E002A2FEB /* CachingPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingPlayerItem.swift; sourceTree = "<group>"; };
+		D1533FDB2522C371002A2FEB /* ResourceLoaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoaderDelegate.swift; sourceTree = "<group>"; };
+		D1533FDD2522C584002A2FEB /* CachingPlayerItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingPlayerItemDelegate.swift; sourceTree = "<group>"; };
 		D1535DFE251FDBF700FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535E01251FDBF700FF375D /* HappyMindData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HappyMindData.h; sourceTree = "<group>"; };
 		D1535E02251FDBF700FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1535E07251FDBF700FF375D /* HappyMindDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyMindDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535E0C251FDBF700FF375D /* HappyMindDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindDataTests.swift; sourceTree = "<group>"; };
 		D1535E0E251FDBF700FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1535E19251FDE1700FF375D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,9 @@
 		D1535E18251FDE0400FF375D /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
-				D1535E19251FDE1700FF375D /* ApiClient.swift */,
+				D1533FD92522BE1E002A2FEB /* CachingPlayerItem.swift */,
+				D1533FDB2522C371002A2FEB /* ResourceLoaderDelegate.swift */,
+				D1533FDD2522C584002A2FEB /* CachingPlayerItemDelegate.swift */,
 			);
 			path = ApiClient;
 			sourceTree = "<group>";
@@ -207,7 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1535E1A251FDE1700FF375D /* ApiClient.swift in Sources */,
+				D1533FDA2522BE1E002A2FEB /* CachingPlayerItem.swift in Sources */,
+				D1533FDE2522C584002A2FEB /* CachingPlayerItemDelegate.swift in Sources */,
+				D1533FDC2522C371002A2FEB /* ResourceLoaderDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
