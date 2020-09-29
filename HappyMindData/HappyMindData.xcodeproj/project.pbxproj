@@ -10,6 +10,7 @@
 		D1535E08251FDBF700FF375D /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1535DFE251FDBF700FF375D /* HappyMindData.framework */; };
 		D1535E0D251FDBF700FF375D /* HappyMindDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535E0C251FDBF700FF375D /* HappyMindDataTests.swift */; };
 		D1535E0F251FDBF700FF375D /* HappyMindData.h in Headers */ = {isa = PBXBuildFile; fileRef = D1535E01251FDBF700FF375D /* HappyMindData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1535E1A251FDE1700FF375D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535E19251FDE1700FF375D /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		D1535E07251FDBF700FF375D /* HappyMindDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyMindDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535E0C251FDBF700FF375D /* HappyMindDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindDataTests.swift; sourceTree = "<group>"; };
 		D1535E0E251FDBF700FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1535E19251FDE1700FF375D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		D1535E00251FDBF700FF375D /* HappyMindData */ = {
 			isa = PBXGroup;
 			children = (
+				D1535E18251FDE0400FF375D /* ApiClient */,
 				D1535E01251FDBF700FF375D /* HappyMindData.h */,
 				D1535E02251FDBF700FF375D /* Info.plist */,
 			);
@@ -84,6 +87,14 @@
 				D1535E0E251FDBF700FF375D /* Info.plist */,
 			);
 			path = HappyMindDataTests;
+			sourceTree = "<group>";
+		};
+		D1535E18251FDE0400FF375D /* ApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				D1535E19251FDE1700FF375D /* ApiClient.swift */,
+			);
+			path = ApiClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 				TargetAttributes = {
 					D1535DFD251FDBF700FF375D = {
 						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 					};
 					D1535E06251FDBF700FF375D = {
 						CreatedOnToolsVersion = 11.7;
@@ -195,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1535E1A251FDE1700FF375D /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +353,7 @@
 		D1535E13251FDBF700FF375D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F6QB93LRJD;
@@ -356,6 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlos.HappyMindData;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +379,7 @@
 		D1535E14251FDBF700FF375D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F6QB93LRJD;
@@ -388,6 +404,7 @@
 		D1535E16251FDBF700FF375D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6QB93LRJD;
 				INFOPLIST_FILE = HappyMindDataTests/Info.plist;
@@ -406,6 +423,7 @@
 		D1535E17251FDBF700FF375D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6QB93LRJD;
 				INFOPLIST_FILE = HappyMindDataTests/Info.plist;

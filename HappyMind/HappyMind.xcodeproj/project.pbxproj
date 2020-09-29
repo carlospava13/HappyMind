@@ -18,6 +18,8 @@
 		D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1535DCF251FDA8800FF375D /* LaunchScreen.storyboard */; };
 		D1535DDC251FDA8800FF375D /* HappyMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DDB251FDA8800FF375D /* HappyMindTests.swift */; };
 		D1535DE7251FDA8800FF375D /* HappyMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */; };
+		D1535E1C251FE03900FF375D /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; };
+		D1535E1D251FE03900FF375D /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E4507A9F2FB5C85B55E261AA /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4650FAB1E67C520EB444AD36 /* Pods_HappyMind_HappyMindUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,20 @@
 			remoteInfo = HappyMind;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1535E1E251FE03900FF375D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D1535E1D251FE03900FF375D /* HappyMindData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0CE670121D1B3AD167E555EF /* Pods-HappyMind-HappyMindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.release.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +78,7 @@
 		D1535DE2251FDA8800FF375D /* HappyMindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyMindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindUITests.swift; sourceTree = "<group>"; };
 		D1535DE8251FDA8800FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA412BF6BF7AE9E858C2ECC /* Pods-HappyMindTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				237C0AF20E08604873BE336B /* Pods_HappyMind.framework in Frameworks */,
+				D1535E1C251FE03900FF375D /* HappyMindData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +114,7 @@
 		1671FB5E5CA44C3919697D32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1535E1B251FE03900FF375D /* HappyMindData.framework */,
 				17C5F40C339D690259B4D755 /* Pods_HappyMind.framework */,
 				4650FAB1E67C520EB444AD36 /* Pods_HappyMind_HappyMindUITests.framework */,
 				3309C2D8C77943B21BD70A88 /* Pods_HappyMindTests.framework */,
@@ -168,7 +187,6 @@
 				DBA412BF6BF7AE9E858C2ECC /* Pods-HappyMindTests.debug.xcconfig */,
 				6E427B5D423890CB15891FD3 /* Pods-HappyMindTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -183,6 +201,7 @@
 				D1535DBA251FDA8600FF375D /* Sources */,
 				D1535DBB251FDA8600FF375D /* Frameworks */,
 				D1535DBC251FDA8600FF375D /* Resources */,
+				D1535E1E251FE03900FF375D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
