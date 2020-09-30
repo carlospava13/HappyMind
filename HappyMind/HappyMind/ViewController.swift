@@ -27,6 +27,11 @@ class ViewController: UIViewController {
     @IBAction func onPlay(_ sender: Any) {
         player.play()
     }
+    
+    @IBAction func onPush(_ sender: Any) {
+        let viewController = CategoryViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension ViewController: CachingPlayerItemDelegate {

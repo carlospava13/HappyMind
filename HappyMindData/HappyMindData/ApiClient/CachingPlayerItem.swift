@@ -72,31 +72,6 @@ public  class CachingPlayerItem: AVPlayerItem {
 
     }
 
-    /// Is used for playing from Data.
-    init(data: Data, mimeType: String, fileExtension: String) {
-
-        guard let fakeUrl = URL(string: cachingPlayerItemScheme + "://whatever/file.\(fileExtension)") else {
-            fatalError("internal inconsistency")
-        }
-
-        self.url = fakeUrl
-        self.initialScheme = nil
-
-        resourceLoaderDelegate.mediaData = data
-        resourceLoaderDelegate.playingFromData = true
-        resourceLoaderDelegate.mimeType = mimeType
-
-        let asset = AVURLAsset(url: fakeUrl)
-        asset.resourceLoader.setDelegate(resourceLoaderDelegate, queue: DispatchQueue.main)
-        super.init(asset: asset, automaticallyLoadedAssetKeys: nil)
-        resourceLoaderDelegate.owner = self
-
-        addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(playbackStalledHandler), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: self)
-
-    }
-
     // MARK: KVO
 
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
