@@ -16,7 +16,7 @@ final class CategoryCoordinator: BaseCoordinator {
     override func start() {
         let moduleInput = CategoryConfigurator.ModuleInput(coordinator: self)
         let module = CategoryConfigurator.module(moduleInput: moduleInput)
-        router.present(module, animated: false)
+        router.setRootModule(module)
     }
 }
 
