@@ -9,6 +9,16 @@
 import UIKit
 
 final class CategoryPresenter: BasePresenter {
+    
+    struct InputDependencies {
+        weak var coordinator: CategoryCoordinatorDelegate?
+    }
+    
+    private var inputDependencies: InputDependencies
+    
+    init(inputDependencies: InputDependencies) {
+        self.inputDependencies = inputDependencies
+    }
 
     private var ownView: CategoryView! {
         view as? CategoryView

@@ -18,3 +18,9 @@ extension UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.orange]
     }
 }
+
+extension UIViewController: Presentable {
+    func toPresent() -> UIViewController {
+        return self
+    }
+}

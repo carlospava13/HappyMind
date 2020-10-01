@@ -20,15 +20,14 @@ final class CategoryViewController: BaseViewController {
         CategoryDataSource(identifierCell: .categoryCell)
     }()
 
-    private var ownPresenter: CategoryPresenterType? = {
-        CategoryPresenter()
-    }()
+    private var ownPresenter: CategoryPresenterType! {
+        presenter as? CategoryPresenterType
+    }
 
     override func viewDidLoad() {
         setNavigationTransparent(title: .localized(.happyMindTitle))
         view.backgroundColor = .white
         view.addSubview(collectionView)
-        presenter = ownPresenter
         ownPresenter?.bind(self)
         setupCollectionView()
         setupConstraints()
