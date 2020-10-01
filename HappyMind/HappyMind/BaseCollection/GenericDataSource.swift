@@ -11,7 +11,7 @@ import UIKit
 class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var identifierCell: String
-    private var data: [Section<T>] = [] 
+    var data: [Section<T>] = [] 
 
     init(identifierCell: CollectionViewCellIdentifier = .defaultCell) {
         self.identifierCell = identifierCell.rawValue

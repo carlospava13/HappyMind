@@ -17,6 +17,13 @@ final class SubCategoryCell: BaseCollectionCell<SubCategoryModel> {
         return view
     }()
 
+    private lazy var containerImageView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +42,7 @@ final class SubCategoryCell: BaseCollectionCell<SubCategoryModel> {
         super.init(frame: frame)
         setupView()
         setupContainerViewConstraints()
+        setContainerImageView()
         setupConstraints()
     }
 
@@ -45,8 +53,8 @@ final class SubCategoryCell: BaseCollectionCell<SubCategoryModel> {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         imageView.roundCorners(corners: .allCorners, radius: 10)
-        imageView.addElevation()
-        containerView.addShadow()
+        containerImageView.roundCorners(corners: .allCorners, radius: 10)
+        containerImageView.addElevation(color: .red)
     }
 
     func setupView() {
@@ -62,17 +70,27 @@ final class SubCategoryCell: BaseCollectionCell<SubCategoryModel> {
             ])
     }
 
-    func setupConstraints() {
-        containerView.addSubview(imageView)
-        containerView.addSubview(categoryNameLabel)
+    private func setContainerImageView() {
+        containerView.addSubview(containerImageView)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
-            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
-            categoryNameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
-            categoryNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            categoryNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+            containerImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            containerImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            containerImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            containerImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+            ])
+    }
+
+    func setupConstraints() {
+        containerImageView.addSubview(imageView)
+        imageView.addSubview(categoryNameLabel)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: containerImageView.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: containerImageView.leadingAnchor, constant: 8),
+            imageView.trailingAnchor.constraint(equalTo: containerImageView.trailingAnchor, constant: -8),
+            imageView.bottomAnchor.constraint(equalTo: containerImageView.bottomAnchor, constant: -8),
+            categoryNameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -16),
+            categoryNameLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
+            categoryNameLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -16)
             ])
         layoutIfNeeded()
     }

@@ -6,8 +6,17 @@
 //  Copyright © 2020 Carlos Pava. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol SubCategoryDelegate: AnyObject  {
+    func didSelect(_ item: SubCategoryModel)
+}
 
 final class SubCategoryDataSource: GenericDataSource<SubCategoryCell,SubCategoryModel> {
     
+    weak var subCategoryDelegate: SubCategoryDelegate?
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        subCategoryDelegate?.didSelect(data[indexPath.section].data[indexPath.row])
+    }
 }

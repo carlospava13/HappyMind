@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CategoryCellDelegate: AnyObject {
+    func didSelect(_ item: SubCategoryModel)
+}
+
 final class CategoryCell: BaseCollectionCell<CategoryModel> {
 
     private lazy var containerView: UIView = {
@@ -32,6 +36,8 @@ final class CategoryCell: BaseCollectionCell<CategoryModel> {
     private lazy var dataSource: SubCategoryDataSource = {
         SubCategoryDataSource(identifierCell: .defaultCell)
     }()
+    
+    weak var categoryCellDelegate: CategoryCellDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -85,10 +91,17 @@ final class CategoryCell: BaseCollectionCell<CategoryModel> {
             forCellWithReuseIdentifier: identifierCell.rawValue)
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
+        dataSource.subCategoryDelegate = self
     }
 
     override func setData(_ data: CategoryModel) {
         categoryNameLabel.text = data.title
         dataSource.setData([data.subcategories])
+    }
+}
+
+extension CategoryCell: SubCategoryDelegate {
+    func didSelect(_ item: SubCategoryModel) {
+        categoryCellDelegate?.didSelect(item)
     }
 }

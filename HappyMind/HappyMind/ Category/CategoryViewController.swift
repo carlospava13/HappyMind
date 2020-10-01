@@ -50,11 +50,18 @@ final class CategoryViewController: BaseViewController {
             forCellWithReuseIdentifier: identifierCell.rawValue)
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
+        dataSource.categoryDelegate = self
     }
 }
 
 extension CategoryViewController: CategoryView {
     func setData(_ categories: [Section<CategoryModel>]) {
         dataSource.setData(categories)
+    }
+}
+
+extension CategoryViewController: CategoryDelegate {
+    func didSelect(_ item: SubCategoryModel) {
+        print("Item = \(item)")
     }
 }
