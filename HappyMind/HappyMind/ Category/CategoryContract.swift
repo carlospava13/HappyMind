@@ -13,5 +13,5 @@ protocol CategoryPresenterType: BasePresenterType {
 }
 
 protocol CategoryView: BaseView {
-    func setData(_ categories: [CategoryModel])
+    func setData(_ categories: [Section<CategoryModel>])
 }

@@ -8,25 +8,30 @@
 
 import UIKit
 
-class GenericDataSource<Cell:BaseCollectionCell<T>, T>: GenericDinamic<T>, UICollectionViewDataSource, UICollectionViewDelegate {
+class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var identifierCell: String
+    private var data: [Section<T>] = [] 
 
     init(identifierCell: CollectionViewCellIdentifier = .defaultCell) {
         self.identifierCell = identifierCell.rawValue
     }
+    
+    func setData(_ data: [Section<T>]) {
+        self.data = data
+    }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.value.count
+        return data[section].data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as! Cell
-        cell.setData(data.value[indexPath.row])
+        cell.setData(data[indexPath.section].data[indexPath.row])
         return cell
     }
 
@@ -35,11 +40,4 @@ class GenericDataSource<Cell:BaseCollectionCell<T>, T>: GenericDinamic<T>, UICol
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) { }
 
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) { }
-
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as? Cell else {
-//            return UICollectionViewCell()
-//        }
-//        return cell
-//    }
 }

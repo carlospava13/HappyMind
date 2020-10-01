@@ -31,8 +31,8 @@ class CollectionViewHorizontalCustom: UICollectionViewFlowLayout {
     init(display: CollectionDisplay) {
         super.init()
         self.display = display
-        self.minimumLineSpacing = 10
-        self.minimumInteritemSpacing = 10
+        self.minimumLineSpacing = 0
+        self.minimumInteritemSpacing = 0
     }
 
     required init?(coder: NSCoder) {
@@ -60,10 +60,10 @@ class CollectionViewHorizontalCustom: UICollectionViewFlowLayout {
                 itemSize = CGSize(width: collectionView.frame.width, height: height)
             }
         case .gridCuston(let height):
-            scrollDirection = .vertical
+            scrollDirection = .horizontal
             if let collectionView = collectionView {
                 let optimisedWidth = (collectionView.frame.width - minimumInteritemSpacing) / 2
-                self.itemSize = CGSize(width: optimisedWidth, height: height) // keep as square
+                self.itemSize = CGSize(width: height, height: height) // keep as square
             }
         }
     }

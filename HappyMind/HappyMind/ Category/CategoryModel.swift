@@ -9,6 +9,11 @@
 import UIKit
 
 struct CategoryModel {
+    let title: String
+    let subcategories: Section<SubCategoryModel>
+}
+
+struct SubCategoryModel {
     let name: String
     let image: UIImage
 }

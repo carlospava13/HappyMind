@@ -12,14 +12,14 @@ final class CategoryViewController: BaseViewController {
 
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(100)
+        collectionView.setHeight(250)
         return collectionView
     }()
 
     private var dataSource: CategoryDataSource = {
         CategoryDataSource(identifierCell: .categoryCell)
     }()
-    
+
     private var ownPresenter: CategoryPresenterType? = {
         CategoryPresenter()
     }()
@@ -38,8 +38,8 @@ final class CategoryViewController: BaseViewController {
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: guides.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
             ])
     }
@@ -50,14 +50,11 @@ final class CategoryViewController: BaseViewController {
             forCellWithReuseIdentifier: identifierCell.rawValue)
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
-        dataSource.data.addAndNotify(observer: self, completionHandler: { [weak self] in
-            self?.collectionView.reloadData()
-        })
     }
 }
 
 extension CategoryViewController: CategoryView {
-    func setData(_ categories: [CategoryModel]) {
-        dataSource.data.value = categories
+    func setData(_ categories: [Section<CategoryModel>]) {
+        dataSource.setData(categories)
     }
 }
