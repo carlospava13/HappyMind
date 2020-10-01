@@ -20,6 +20,9 @@
 		D1535DE7251FDA8800FF375D /* HappyMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */; };
 		D1535E1C251FE03900FF375D /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; };
 		D1535E1D251FE03900FF375D /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
+		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
+		D191F34F2526341100A78126 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191F3512526341100A78126 /* Localizable.strings */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
 		D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */; };
 		D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */; };
@@ -98,6 +101,9 @@
 		D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindUITests.swift; sourceTree = "<group>"; };
 		D1535DE8251FDA8800FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
+		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		D191F353252634BD00A78126 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHorizontalCustom.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				D1535DCF251FDA8800FF375D /* LaunchScreen.storyboard */,
 				D1535DD2251FDA8800FF375D /* Info.plist */,
 				D1535DCA251FDA8600FF375D /* HappyMind.xcdatamodeld */,
+				D191F3512526341100A78126 /* Localizable.strings */,
 			);
 			path = HappyMind;
 			sourceTree = "<group>";
@@ -261,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				D1EF978D25255BCA00B738B0 /* UIView+Shadow.swift */,
+				D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */,
+				D191F34925262E6B00A78126 /* LocalizableStrings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -396,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */,
+				D191F34F2526341100A78126 /* Localizable.strings in Resources */,
 				D1535DCE251FDA8800FF375D /* Assets.xcassets in Resources */,
 				D1535DC9251FDA8600FF375D /* Main.storyboard in Resources */,
 			);
@@ -506,7 +516,9 @@
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
 				D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */,
+				D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */,
 				D1EF978925254A4400B738B0 /* Section.swift in Sources */,
+				D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */,
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1EF97852525341A00B738B0 /* CategoryPresenter.swift in Sources */,
@@ -565,6 +577,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		D191F3512526341100A78126 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D191F353252634BD00A78126 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -572,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -632,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
