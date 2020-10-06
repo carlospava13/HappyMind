@@ -19,6 +19,8 @@
 		D1535DE7251FDA8800FF375D /* HappyMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */; };
 		D1535E1C251FE03900FF375D /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; };
 		D1535E1D251FE03900FF375D /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC075252D21D700C69DDA /* UIImage+assets.swift */; };
+		D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC077252D221700C69DDA /* AssetsResources.swift */; };
 		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
 		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
 		D191F34F2526341100A78126 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191F3512526341100A78126 /* Localizable.strings */; };
@@ -106,6 +108,8 @@
 		D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindUITests.swift; sourceTree = "<group>"; };
 		D1535DE8251FDA8800FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15FC075252D21D700C69DDA /* UIImage+assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+assets.swift"; sourceTree = "<group>"; };
+		D15FC077252D221700C69DDA /* AssetsResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResources.swift; sourceTree = "<group>"; };
 		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		D191F353252634BD00A78126 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				D1EF978D25255BCA00B738B0 /* UIView+Shadow.swift */,
 				D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */,
 				D191F34925262E6B00A78126 /* LocalizableStrings.swift */,
+				D15FC075252D21D700C69DDA /* UIImage+assets.swift */,
+				D15FC077252D221700C69DDA /* AssetsResources.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
 				D1EF977F2525290700B738B0 /* CategoryDataSource.swift in Sources */,
+				D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
 				D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
@@ -561,6 +568,7 @@
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
+				D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */,
 				D1EF97852525341A00B738B0 /* CategoryPresenter.swift in Sources */,
 				D1EF978325252D4F00B738B0 /* CategoryModel.swift in Sources */,
 				D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */,

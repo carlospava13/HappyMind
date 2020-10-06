@@ -9,12 +9,14 @@
 import UIKit
 
 extension UIView {
-    func addShadow() {
-        layer.cornerRadius = 4
+    func addShadow(cornerRadius: CGFloat = 0) {
+        layer.cornerRadius = cornerRadius
+        layer.backgroundColor = UIColor.white.cgColor
         layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOpacity = 1
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 2
+        layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.8
+        layer.masksToBounds = false
     }
 
     func addElevation(color: UIColor = .gray) {
