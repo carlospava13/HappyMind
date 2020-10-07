@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,13 @@
 		D1535E1D251FE03900FF375D /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1535E1B251FE03900FF375D /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC075252D21D700C69DDA /* UIImage+assets.swift */; };
 		D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC077252D221700C69DDA /* AssetsResources.swift */; };
+		D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC07A252D289600C69DDA /* LoginViewController.swift */; };
+		D15FC07D252D28B900C69DDA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC07C252D28B900C69DDA /* LoginPresenter.swift */; };
+		D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC07E252D28CF00C69DDA /* LoginContract.swift */; };
+		D15FC082252D291A00C69DDA /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC081252D291A00C69DDA /* LoginCoordinator.swift */; };
+		D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC083252D292400C69DDA /* LoginConfigurator.swift */; };
+		D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC086252D2D1900C69DDA /* LoginContainerView.swift */; };
+		D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC088252D3DD600C69DDA /* UITextField+Components.swift */; };
 		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
 		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
 		D191F34F2526341100A78126 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191F3512526341100A78126 /* Localizable.strings */; };
@@ -110,6 +117,13 @@
 		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15FC075252D21D700C69DDA /* UIImage+assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+assets.swift"; sourceTree = "<group>"; };
 		D15FC077252D221700C69DDA /* AssetsResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResources.swift; sourceTree = "<group>"; };
+		D15FC07A252D289600C69DDA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D15FC07C252D28B900C69DDA /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		D15FC07E252D28CF00C69DDA /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
+		D15FC081252D291A00C69DDA /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		D15FC083252D292400C69DDA /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
+		D15FC086252D2D1900C69DDA /* LoginContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainerView.swift; sourceTree = "<group>"; };
+		D15FC088252D3DD600C69DDA /* UITextField+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Components.swift"; sourceTree = "<group>"; };
 		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		D191F353252634BD00A78126 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -207,6 +221,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D15FC079252D288400C69DDA /* Login */,
 				D191F3542526352A00A78126 /* BaseCoordinator */,
 				D1EF978C25255BB300B738B0 /* Helpers */,
 				D1EF97772525268F00B738B0 /* Base */,
@@ -240,6 +255,35 @@
 				D1535DE8251FDA8800FF375D /* Info.plist */,
 			);
 			path = HappyMindUITests;
+			sourceTree = "<group>";
+		};
+		D15FC079252D288400C69DDA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D15FC085252D2D0500C69DDA /* LoginContainerView */,
+				D15FC080252D290900C69DDA /* Coordinator */,
+				D15FC07A252D289600C69DDA /* LoginViewController.swift */,
+				D15FC07C252D28B900C69DDA /* LoginPresenter.swift */,
+				D15FC07E252D28CF00C69DDA /* LoginContract.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D15FC080252D290900C69DDA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D15FC081252D291A00C69DDA /* LoginCoordinator.swift */,
+				D15FC083252D292400C69DDA /* LoginConfigurator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D15FC085252D2D0500C69DDA /* LoginContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				D15FC086252D2D1900C69DDA /* LoginContainerView.swift */,
+			);
+			path = LoginContainerView;
 			sourceTree = "<group>";
 		};
 		D191F3542526352A00A78126 /* BaseCoordinator */ = {
@@ -310,6 +354,7 @@
 				D191F34925262E6B00A78126 /* LocalizableStrings.swift */,
 				D15FC075252D21D700C69DDA /* UIImage+assets.swift */,
 				D15FC077252D221700C69DDA /* AssetsResources.swift */,
+				D15FC088252D3DD600C69DDA /* UITextField+Components.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +393,7 @@
 				D1535DBB251FDA8600FF375D /* Frameworks */,
 				D1535DBC251FDA8600FF375D /* Resources */,
 				D1535E1E251FE03900FF375D /* Embed Frameworks */,
+				6678B44A782BA771BE78BEC0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,6 +431,7 @@
 				D1535DDE251FDA8800FF375D /* Sources */,
 				D1535DDF251FDA8800FF375D /* Frameworks */,
 				D1535DE0251FDA8800FF375D /* Resources */,
+				5FA280C5F618FB28063BA4B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -511,6 +558,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5FA280C5F618FB28063BA4B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6678B44A782BA771BE78BEC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		76ABE389C117A8B3CC0E5DD6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,9 +623,11 @@
 			files = (
 				D1EF977B252526C100B738B0 /* BasePresenter.swift in Sources */,
 				D191F35C252635AE00A78126 /* MainRouter.swift in Sources */,
+				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
 				D1EF978125252D2200B738B0 /* CategoryCell.swift in Sources */,
+				D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */,
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
@@ -552,10 +635,13 @@
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
 				D1EF977F2525290700B738B0 /* CategoryDataSource.swift in Sources */,
+				D15FC07D252D28B900C69DDA /* LoginPresenter.swift in Sources */,
 				D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
 				D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
+				D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */,
+				D15FC082252D291A00C69DDA /* LoginCoordinator.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
 				D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */,
@@ -563,11 +649,13 @@
 				D191F3562526355800A78126 /* BaseCoordinator.swift in Sources */,
 				D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */,
 				D191F35A2526358E00A78126 /* RouterType.swift in Sources */,
+				D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */,
 				D1EF978925254A4400B738B0 /* Section.swift in Sources */,
 				D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */,
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
+				D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */,
 				D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */,
 				D1EF97852525341A00B738B0 /* CategoryPresenter.swift in Sources */,
 				D1EF978325252D4F00B738B0 /* CategoryModel.swift in Sources */,

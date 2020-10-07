@@ -1,5 +1,5 @@
 //
-//  AssetsResources.swift
+//  LoginContract.swift
 //  HappyMind
 //
 //  Created by Carlos Pava on 6/10/20.
@@ -8,7 +8,10 @@
 
 import Foundation
 
-enum AssetsResources: String {
-    case icon
-    case iconSena
+protocol LoginPresenterType: BasePresenterType {
+    func setLogin()
+}
+
+protocol LoginView: BaseView {
+    
 }

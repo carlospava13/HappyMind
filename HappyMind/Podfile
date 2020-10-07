@@ -6,7 +6,8 @@ target 'HappyMind' do
   use_frameworks!
 
   # Pods for HappyMind
-
+  pod 'TPKeyboardAvoiding', '~> 1.3'
+  
   target 'HappyMindTests' do
     inherit! :search_paths
     # Pods for testing
