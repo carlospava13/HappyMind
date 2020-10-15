@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import HappyMindCore
 protocol CategoryDelegate: AnyObject {
     func didSelect(_ item: SubCategoryModel)
 }
 
-final class CategoryDataSource: GenericDataSource<CategoryCell, CategoryModel> {
+final class CategoryDataSource: GenericDataSource<CategoryCell, HappyMindCore.Category> {
     
     weak var categoryDelegate: CategoryDelegate?
     
@@ -20,13 +20,13 @@ final class CategoryDataSource: GenericDataSource<CategoryCell, CategoryModel> {
         guard let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as? CategoryCell else {
             return UICollectionViewCell()
         }
-        cell.categoryCellDelegate = self
+        //cell.categoryCellDelegate = self
         return cell
     }
 }
 
-extension CategoryDataSource: CategoryCellDelegate {
-    func didSelect(_ item: SubCategoryModel) {
-         categoryDelegate?.didSelect(item)
-    }
-}
+//extension CategoryDataSource: CategoryCellDelegate {
+//    func didSelect(_ item: SubCategoryModel) {
+//         categoryDelegate?.didSelect(item)
+//    }
+//}

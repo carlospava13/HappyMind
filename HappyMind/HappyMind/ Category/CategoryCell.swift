@@ -7,12 +7,10 @@
 //
 
 import UIKit
+import HappyMindCore
+import SDWebImage
 
-protocol CategoryCellDelegate: AnyObject {
-    func didSelect(_ item: SubCategoryModel)
-}
-
-final class CategoryCell: BaseCollectionCell<CategoryModel> {
+final class CategoryCell: BaseCollectionCell<HappyMindCore.Category> {
 
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -21,42 +19,40 @@ final class CategoryCell: BaseCollectionCell<CategoryModel> {
         return view
     }()
 
-    private lazy var categoryNameLabel: UILabel = {
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .red
+        return imageView
+    }()
+
+    private lazy var nameCategoryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: "Calibri", size: 28)
+        label.textColor = .white
         return label
     }()
-
-    private lazy var collectionView: CollectionView = {
-        CollectionView(frame: .zero, layout: .gridCuston(190))
-    }()
-
-    private lazy var dataSource: SubCategoryDataSource = {
-        SubCategoryDataSource(identifierCell: .defaultCell)
-    }()
-    
-    weak var categoryCellDelegate: CategoryCellDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
         setupContainerViewConstraints()
-        setCategoryNameLabelConstraints()
-        setCollectionViewConstraints()
-        setupCollectionView()
+        setImageViewConstraints()
+        setNameCategoryLabelConstraints()
+        addLayer()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    func setupView() {
+    private func setupView() {
         contentView.addSubview(containerView)
     }
 
-    func setupContainerViewConstraints() {
+    private func setupContainerViewConstraints() {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -65,43 +61,32 @@ final class CategoryCell: BaseCollectionCell<CategoryModel> {
             ])
     }
 
-    func setCategoryNameLabelConstraints() {
-        containerView.addSubview(categoryNameLabel)
+    private func setImageViewConstraints() {
+        containerView.addSubview(imageView)
         NSLayoutConstraint.activate([
-            categoryNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
-            categoryNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            categoryNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            categoryNameLabel.heightAnchor.constraint(equalToConstant: 30)
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
             ])
     }
 
-    func setCollectionViewConstraints() {
-        containerView.addSubview(collectionView)
+    private func setNameCategoryLabelConstraints() {
+        containerView.addSubview(nameCategoryLabel)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: categoryNameLabel.bottomAnchor, constant: 8),
-            collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
-            ])
+            nameCategoryLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 8),
+            nameCategoryLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8),
+            nameCategoryLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -8)
+        ])
     }
-
-    func setupCollectionView() {
-        let identifierCell = CollectionViewCellIdentifier.defaultCell
-        collectionView.register(SubCategoryCell.self,
-            forCellWithReuseIdentifier: identifierCell.rawValue)
-        collectionView.dataSource = dataSource
-        collectionView.delegate = dataSource
-        dataSource.subCategoryDelegate = self
+    
+    override func setData(_ data: HappyMindCore.Category) {
+        nameCategoryLabel.text = data.name
+        imageView.image = UIImage(named: "category1")
+        
     }
-
-    override func setData(_ data: CategoryModel) {
-        categoryNameLabel.text = data.title
-        dataSource.setData([data.subcategories])
-    }
-}
-
-extension CategoryCell: SubCategoryDelegate {
-    func didSelect(_ item: SubCategoryModel) {
-        categoryCellDelegate?.didSelect(item)
+    
+    private func addLayer() {
+        imageView.addShadow(cornerRadius: 20)
     }
 }

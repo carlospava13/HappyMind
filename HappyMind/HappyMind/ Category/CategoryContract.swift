@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+import HappyMindCore
 protocol CategoryPresenterType: BasePresenterType {
     
 }
 
 protocol CategoryView: BaseView {
-    func setData(_ categories: [Section<CategoryModel>])
+    func setData(_ categories: [Section<HappyMindCore.Category>])
 }

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import HappyMindCore
 final class CategoryViewController: BaseViewController {
 
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(250)
+        collectionView.setHeight(90)
         return collectionView
     }()
 
@@ -55,8 +55,9 @@ final class CategoryViewController: BaseViewController {
 }
 
 extension CategoryViewController: CategoryView {
-    func setData(_ categories: [Section<CategoryModel>]) {
+    func setData(_ categories: [Section<HappyMindCore.Category>]) {
         dataSource.setData(categories)
+        collectionView.reloadData()
     }
 }
 

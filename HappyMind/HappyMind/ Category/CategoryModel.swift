@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import HappyMindCore
 
 struct CategoryModel {
     let title: String
-    let subcategories: Section<SubCategoryModel>
+    let subcategories: Section<HappyMindCore.Category>
 }
 
 struct SubCategoryModel {

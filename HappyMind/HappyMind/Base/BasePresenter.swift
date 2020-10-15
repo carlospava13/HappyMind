@@ -6,10 +6,11 @@
 //  Copyright © 2020 Carlos Pava. All rights reserved.
 //
 
-import Foundation
-
+import Combine
 
 class BasePresenter: BasePresenterType {
+    
+    var subscriptions = Set<AnyCancellable>()
 
     weak var view: BaseView?
 

@@ -5,7 +5,10 @@
       location = "group:HappyMind.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../HappyMindData/HappyMindData.xcodeproj">
+      location = "group:HappyMindCore/HappyMindCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HappyMindData/HappyMindData.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
