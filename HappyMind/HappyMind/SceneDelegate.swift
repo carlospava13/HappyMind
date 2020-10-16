@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import HappyMindData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -58,7 +58,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func makeCoordinator() -> LoginCoordinator {
-        return LoginCoordinator(router: MainRouter())
+        let repositoryModule = RepositoryModule(service:BaseService())
+        let interactorModule = InteractorModule(repositoryModule: repositoryModule)
+        return LoginCoordinator(router: MainRouter(), interactorModule: interactorModule)
     }
 }
 

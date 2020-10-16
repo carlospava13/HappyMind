@@ -10,14 +10,14 @@ import Combine
 
 public final class CategoryRepository: CategoryRepositoryType {
     
-    private let apiClient: BaseAPIClientType
+    private let service: BaseService
     
-    public init(apiClient: BaseAPIClientType) {
-        self.apiClient = apiClient
+    public init(service: BaseService) {
+        self.service = service
     }
     
     public func getCategories() -> AnyPublisher<CategoriesDTO, DifferentError> {
         let endpoint = Endpoint(method: .get, relativePath: "category")
-        return apiClient.request(endpoint)
+        return service.apiClient.request(endpoint)
     }
 }

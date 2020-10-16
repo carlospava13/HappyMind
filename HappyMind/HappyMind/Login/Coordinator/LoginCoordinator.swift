@@ -13,6 +13,14 @@ protocol LoginCoordinatorDelegate: AnyObject {
 }
 
 final class LoginCoordinator: BaseCoordinator {
+    private let interactorModule: InteractorModule
+    
+    init(router: RouterType,
+        interactorModule: InteractorModule) {
+        self.interactorModule = interactorModule
+        super.init(router: router)
+    }
+
     override func start() {
         let moduleInput = LoginConfigurator.ModuleInput(coordinator: self)
         let module = LoginConfigurator.module(moduleInput: moduleInput)
@@ -20,7 +28,8 @@ final class LoginCoordinator: BaseCoordinator {
     }
 
     private func setCategories() {
-        let moduleInput = CategoryConfigurator.ModuleInput(coordinator: self)
+        let moduleInput = CategoryConfigurator.ModuleInput(coordinator: self,
+                                                           interactorModule: interactorModule)
         let module = CategoryConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module)
     }

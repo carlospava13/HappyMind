@@ -9,7 +9,7 @@
 import Foundation
 
 public final class BaseService {
-    var apiClient: BaseAPIClientType
+    public let apiClient: BaseAPIClientType
     
     public init(apiClient: BaseAPIClientType = BaseAPIClient()) {
         self.apiClient = apiClient

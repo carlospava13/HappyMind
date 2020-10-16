@@ -9,6 +9,6 @@
 
 import Combine
 
-protocol CategoryRepositoryType {
+public protocol CategoryRepositoryType {
     func getCategories() -> AnyPublisher<CategoriesDTO, DifferentError>
 }
