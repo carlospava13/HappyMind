@@ -14,14 +14,14 @@ final class LoginConfigurator {
 
         let applicationViewController = LoginViewController()
         let dependencies = createDependencies(
-            coordinator: moduleInput.coordinator)
+            coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule)
         let presenter = LoginPresenter(inputDependencies: dependencies)
         applicationViewController.presenter = presenter
         return applicationViewController
     }
 
-    private static func createDependencies(coordinator: LoginCoordinatorDelegate?) -> LoginPresenter.InputDependencies {
-        return LoginPresenter.InputDependencies(coordinator: coordinator)
+    private static func createDependencies(coordinator: LoginCoordinatorDelegate?, interactorModule: InteractorModule) -> LoginPresenter.InputDependencies {
+        return LoginPresenter.InputDependencies(coordinator: coordinator, loginInteractor: interactorModule.loginInteractor)
     }
 
     static func module(moduleInput: LoginConfigurator.ModuleInput) -> (UIViewController) {
@@ -31,5 +31,6 @@ final class LoginConfigurator {
 extension LoginConfigurator {
     struct ModuleInput {
         weak var coordinator: LoginCoordinatorDelegate?
+        let interactorModule: InteractorModule
     }
 }

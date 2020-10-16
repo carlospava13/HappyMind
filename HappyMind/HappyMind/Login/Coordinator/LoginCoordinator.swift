@@ -22,7 +22,7 @@ final class LoginCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let moduleInput = LoginConfigurator.ModuleInput(coordinator: self)
+        let moduleInput = LoginConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
         let module = LoginConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module)
     }

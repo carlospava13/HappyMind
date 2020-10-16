@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F6172252539359100B7D9D8 /* LoginRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6172242539359100B7D9D8 /* LoginRepositoryType.swift */; };
+		6F617227253935BD00B7D9D8 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F617226253935BD00B7D9D8 /* LoginRepository.swift */; };
+		6F617229253938E700B7D9D8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F617228253938E700B7D9D8 /* User.swift */; };
 		6FE1D0222537B9CB00E78A4C /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0182537B9CB00E78A4C /* HappyMindData.framework */; };
 		6FE1D0272537B9CB00E78A4C /* HappyMindDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D0262537B9CB00E78A4C /* HappyMindDataTests.swift */; };
 		6FE1D0292537B9CB00E78A4C /* HappyMindData.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE1D01B2537B9CB00E78A4C /* HappyMindData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		43AE150050759CA6C3E6862B /* Pods-HappyMindData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindData.release.xcconfig"; path = "Target Support Files/Pods-HappyMindData/Pods-HappyMindData.release.xcconfig"; sourceTree = "<group>"; };
+		6F6172242539359100B7D9D8 /* LoginRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryType.swift; sourceTree = "<group>"; };
+		6F617226253935BD00B7D9D8 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		6F617228253938E700B7D9D8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6FE1D0182537B9CB00E78A4C /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE1D01B2537B9CB00E78A4C /* HappyMindData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HappyMindData.h; sourceTree = "<group>"; };
 		6FE1D01C2537B9CB00E78A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6FE1D0372537BA4100E78A4C /* Category.swift */,
+				6F617228253938E700B7D9D8 /* User.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				6FE1D0492537BA4E00E78A4C /* CategoryRepository.swift */,
+				6F617226253935BD00B7D9D8 /* LoginRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */,
+				6F6172242539359100B7D9D8 /* LoginRepositoryType.swift */,
 			);
 			path = RepositoryTypes;
 			sourceTree = "<group>";
@@ -325,13 +334,16 @@
 				6FE1D0432537BA4100E78A4C /* BaseAPIClientType.swift in Sources */,
 				6FE1D0402537BA4100E78A4C /* Category.swift in Sources */,
 				6FE1D0472537BA4100E78A4C /* Endpoint.swift in Sources */,
+				6F617227253935BD00B7D9D8 /* LoginRepository.swift in Sources */,
 				6FE1D0502537BA4E00E78A4C /* ApiError.swift in Sources */,
 				6FE1D0442537BA4100E78A4C /* BaseAPIConstants.swift in Sources */,
 				6FE1D0412537BA4100E78A4C /* ResourceLoaderDelegate.swift in Sources */,
 				6FE1D0462537BA4100E78A4C /* CachingPlayerItem.swift in Sources */,
+				6F617229253938E700B7D9D8 /* User.swift in Sources */,
 				6FE1D0522537BA4E00E78A4C /* CategoryRepositoryType.swift in Sources */,
 				6FE1D04F2537BA4E00E78A4C /* CategoryRepository.swift in Sources */,
 				6FE1D0452537BA4100E78A4C /* CachingPlayerItemDelegate.swift in Sources */,
+				6F6172252539359100B7D9D8 /* LoginRepositoryType.swift in Sources */,
 				6FE1D0422537BA4100E78A4C /* BaseAPIClient.swift in Sources */,
 				6FE1D0512537BA4E00E78A4C /* BaseService.swift in Sources */,
 			);

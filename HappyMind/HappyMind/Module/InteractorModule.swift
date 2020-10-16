@@ -17,6 +17,10 @@ final class InteractorModule {
         self.repositoryModule = repositoryModule
     }
 
+    lazy var loginInteractor: LoginInteractor = {
+        LoginInteractor(repository: repositoryModule.loginRepository)
+    }()
+
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {
         GetCategoriesInteractor(repository: repositoryModule.categoryRepository)
     }()

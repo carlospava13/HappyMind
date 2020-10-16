@@ -18,12 +18,6 @@ final class LoginViewController: BaseViewController {
         return scrollView
     }()
 
-    private lazy var imageBackgroundView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
     private lazy var containerView: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +39,6 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupScrollViewConstraints()
-        setupImageBackgroundViewConstraints()
         setupContainerViewConstraints()
         setLoginContainerViewConstraints()
     }
@@ -58,18 +51,6 @@ final class LoginViewController: BaseViewController {
             scrollView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: guides.bottomAnchor)
-            ])
-    }
-
-    private func setupImageBackgroundViewConstraints() {
-        scrollView.addSubview(imageBackgroundView)
-        NSLayoutConstraint.activate([
-            imageBackgroundView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            imageBackgroundView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            imageBackgroundView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            imageBackgroundView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            imageBackgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            imageBackgroundView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
             ])
     }
 
@@ -92,7 +73,6 @@ final class LoginViewController: BaseViewController {
             loginContainerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
             ])
     }
-
 }
 
 extension LoginViewController: LoginView {
@@ -101,6 +81,6 @@ extension LoginViewController: LoginView {
 
 extension LoginViewController: LoginContainerDelegate {
     func login(email: String, password: String) {
-        ownPresenter.setLogin()
+        ownPresenter.setLogin(email: email, password: password)
     }
 }

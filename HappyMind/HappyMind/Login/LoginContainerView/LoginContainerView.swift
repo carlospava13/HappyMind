@@ -21,12 +21,14 @@ final class LoginContainerView: UIView {
         return view
     }()
 
-    private lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(resource: .iconSena)
-        return imageView
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.calibriFont(size: 30)
+        label.textColor = .orange
+        label.text = "FelizMente"
+        label.textAlignment = .center
+        return label
     }()
 
     private lazy var stackView: UIStackView = {
@@ -42,6 +44,7 @@ final class LoginContainerView: UIView {
         let textField = UITextField()
         textField.placeholder = "Correo"
         textField.layer.cornerRadius = 10
+        textField.font = UIFont.calibriFont()
         textField.addBorder()
         textField.addLeftPadding()
         return textField
@@ -52,6 +55,7 @@ final class LoginContainerView: UIView {
         textField.placeholder = "Contraseña"
         textField.layer.cornerRadius = 10
         textField.isSecureTextEntry = true
+        textField.font = UIFont.calibriFont()
         textField.addBorder()
         textField.addLeftPadding()
         return textField
@@ -61,6 +65,7 @@ final class LoginContainerView: UIView {
         let button = UIButton()
         button.setTitle("Iniciar Sessión", for: .normal)
         button.addTarget(self, action: #selector(onLogin), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.calibriFont(size: 20)
         button.backgroundColor = .orange
         button.layer.cornerRadius = 10
         return button
@@ -91,19 +96,19 @@ final class LoginContainerView: UIView {
     }
 
     private func setImageViewConstraints() {
-        containerView.addSubview(imageView)
+        containerView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
-            imageView.widthAnchor.constraint(equalToConstant: 100)
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
             ])
     }
 
     private func setStackViewConstraints() {
         containerView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 80),
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 80),
             stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05FEBB0928C2D2FE736067BE /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92902A84A1E01DBC1601D34E /* Pods_HappyMind_HappyMindUITests.framework */; };
 		225535CC3D31DE2B59E56FEA /* Pods_HappyMindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C823620CD5C83999A8C9D1FA /* Pods_HappyMindTests.framework */; };
+		6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */; };
 		6F97262725390CD700913342 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262625390CD700913342 /* InteractorModule.swift */; };
 		6F97262925390D0500913342 /* RepositoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262825390D0500913342 /* RepositoryModule.swift */; };
 		6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -104,6 +105,7 @@
 		37FEE6B7C9C7B509684236CB /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		60BAD417A5AC0D021C6B8867 /* Pods-HappyMindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.release.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B53403EA147D0082E7EF6C7 /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Calibri.swift"; sourceTree = "<group>"; };
 		6F97262625390CD700913342 /* InteractorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorModule.swift; sourceTree = "<group>"; };
 		6F97262825390D0500913342 /* RepositoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModule.swift; sourceTree = "<group>"; };
 		6FE1CFCE2537B4F300E78A4C /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,6 +389,7 @@
 				D15FC075252D21D700C69DDA /* UIImage+assets.swift */,
 				D15FC077252D221700C69DDA /* AssetsResources.swift */,
 				D15FC088252D3DD600C69DDA /* UITextField+Components.swift */,
+				6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
+				6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
 				D1EF977F2525290700B738B0 /* CategoryDataSource.swift in Sources */,
 				D15FC07D252D28B900C69DDA /* LoginPresenter.swift in Sources */,

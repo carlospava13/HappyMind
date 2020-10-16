@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import HappyMindCore
 
 final class LoginPresenter: BasePresenter {
     
     struct InputDependencies {
         weak var coordinator: LoginCoordinatorDelegate?
+        let loginInteractor: LoginInteractor
     }
     
     private let inputDependencies: InputDependencies
@@ -22,7 +24,11 @@ final class LoginPresenter: BasePresenter {
 }
 
 extension LoginPresenter: LoginPresenterType {
-    func setLogin() {
-        inputDependencies.coordinator?.showCategories()
+    func setLogin(email: String, password: String) {
+        inputDependencies.loginInteractor.execute(LoginParams(email: email.lowercased(), password: password)).sink(receiveCompletion: { (completion) in
+            print(completion)
+        }) { (user) in
+            print(user)
+        }.store(in: &subscriptions)
     }
 }

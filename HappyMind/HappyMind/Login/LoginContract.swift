@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LoginPresenterType: BasePresenterType {
-    func setLogin()
+    func setLogin(email: String, password: String)
 }
 
 protocol LoginView: BaseView {

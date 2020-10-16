@@ -17,6 +17,10 @@ final class RepositoryModule {
         self.service = service
     }
 
+    lazy var loginRepository: LoginRepositoryType = {
+        LoginRepository(service: service)
+    }()
+
     lazy var categoryRepository: CategoryRepositoryType = {
         CategoryRepository(service: service)
     }()
