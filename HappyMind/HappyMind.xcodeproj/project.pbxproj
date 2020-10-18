@@ -53,6 +53,7 @@
 		D1C4315D253CFD0300DA44A6 /* WelcomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */; };
 		D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315F253CFD7600DA44A6 /* GenericCell.swift */; };
 		D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */; };
+		D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
 		D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */; };
 		D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */; };
@@ -168,6 +169,7 @@
 		D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDataSource.swift; sourceTree = "<group>"; };
 		D1C4315F253CFD7600DA44A6 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
+		D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeHeader.swift; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHorizontalCustom.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				D1C4315A253CFCB700DA44A6 /* WelcomeObject.swift */,
 				D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */,
 				D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */,
+				D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
+				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
 				D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */,
 				D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */,
 				D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */,

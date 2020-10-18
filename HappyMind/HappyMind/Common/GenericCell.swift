@@ -51,7 +51,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.addShadow(cornerRadius: 20)
+        imageView.addShadow(cornerRadius: 5)
     }
 
     private func setupContainerViewConstraints() {

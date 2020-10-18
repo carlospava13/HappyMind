@@ -9,6 +9,7 @@
 import UIKit
 import HappyMindCore
 import HappyMindData
+
 final class CategoryPresenter: BasePresenter {
 
     struct InputDependencies {

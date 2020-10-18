@@ -23,7 +23,7 @@ final class WelcomePresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
-    
+
     override func viewDidLoad() {
         populateData()
     }
@@ -34,11 +34,15 @@ final class WelcomePresenter: BasePresenter {
             WelcomeObject(title: "Categoria2"),
             WelcomeObject(title: "Categoria3"),
             WelcomeObject(title: "Categoria4"),
-            WelcomeObject(title: "Categoria5")]
+            WelcomeObject(title: "Categoria5"),
+            WelcomeObject(title: "Categoria6"),
+            WelcomeObject(title: "Categoria7"),
+            WelcomeObject(title: "Categoria8"),
+            WelcomeObject(title: "Categoria9")]
         ownView.setData([Section<WelcomeObject>(data: data, title: nil)])
     }
 }
 
 extension WelcomePresenter: WelcomePresenterType {
-    
+
 }

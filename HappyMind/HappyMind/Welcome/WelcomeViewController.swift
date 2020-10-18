@@ -47,6 +47,9 @@ final class WelcomeViewController: BaseViewController {
         let identifierCell = CollectionViewCellIdentifier.categoryCell
         collectionView.register(WelcomeCell.self,
             forCellWithReuseIdentifier: identifierCell.rawValue)
+        collectionView.register(WelcomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "WelcomeHeader")
+        collectionView.bounces = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
     }

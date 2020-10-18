@@ -11,12 +11,12 @@ import UIKit
 class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var identifierCell: String
-    var data: [Section<T>] = [] 
+    var data: [Section<T>] = []
 
     init(identifierCell: CollectionViewCellIdentifier = .defaultCell) {
         self.identifierCell = identifierCell.rawValue
     }
-    
+
     func setData(_ data: [Section<T>]) {
         self.data = data
     }
@@ -40,4 +40,14 @@ class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) { }
 
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) { }
+
+    func collectionView(_ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath) -> UICollectionReusableView {
+        UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize.zero
+    }
 }
