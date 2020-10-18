@@ -21,6 +21,10 @@ final class RepositoryModule {
         LoginRepository(service: service)
     }()
 
+    lazy var localStorageRepository: LocalStorageRepositoryType = {
+        LocalStorageRepository()
+    }()
+
     lazy var categoryRepository: CategoryRepositoryType = {
         CategoryRepository(service: service)
     }()

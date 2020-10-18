@@ -18,7 +18,8 @@ final class InteractorModule {
     }
 
     lazy var loginInteractor: LoginInteractor = {
-        LoginInteractor(repository: repositoryModule.loginRepository)
+        LoginInteractor(repository: repositoryModule.loginRepository,
+                        localStorageRepository: repositoryModule.localStorageRepository)
     }()
 
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {
