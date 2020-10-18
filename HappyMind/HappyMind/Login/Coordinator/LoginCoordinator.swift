@@ -10,6 +10,7 @@ import Foundation
 
 protocol LoginCoordinatorDelegate: AnyObject {
     func showCategories()
+    func showWelcomeFlow()
 }
 
 final class LoginCoordinator: BaseCoordinator {
@@ -33,6 +34,12 @@ final class LoginCoordinator: BaseCoordinator {
         let module = CategoryConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module)
     }
+    
+    private func setWelcomeFlow() {
+        let moduleInput = WelcomeConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
+        let module = WelcomeConfigurator.module(moduleInput: moduleInput)
+        router.setRootModule(module)
+    }
 }
 
 extension LoginCoordinator: LoginCoordinatorDelegate {
@@ -40,8 +47,16 @@ extension LoginCoordinator: LoginCoordinatorDelegate {
         router.dismissModule(animated: true, completion: nil)
         setCategories()
     }
+    
+    func showWelcomeFlow() {
+        setWelcomeFlow()
+    }
 }
 
 extension LoginCoordinator: CategoryCoordinatorDelegate {
 
+}
+
+extension LoginCoordinator: WelcomeCoordinatorDelegate {
+    
 }

@@ -34,7 +34,7 @@ extension LoginPresenter: LoginPresenterType {
             case .failure(let error):
                 self.ownView.show(error)
             case .finished:
-                self.inputDependencies.coordinator?.showCategories()
+                self.inputDependencies.coordinator?.showWelcomeFlow()
             }
         }) { (user) in
             print(user)
