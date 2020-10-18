@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (5.2.1)
-  - SDWebImage (5.9.0):
-    - SDWebImage/Core (= 5.9.0)
-  - SDWebImage/Core (5.9.0)
+  - Alamofire (5.2.2)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
   - TPKeyboardAvoiding (1.3.4)
 
 DEPENDENCIES:
@@ -17,10 +17,10 @@ SPEC REPOS:
     - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
-  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   TPKeyboardAvoiding: 7c2187e2338052b2c5be4a8052f297fdb124e261
 
 PODFILE CHECKSUM: ddaba7dbe501ed32c22c070162d57479468c7f26
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0.beta.1

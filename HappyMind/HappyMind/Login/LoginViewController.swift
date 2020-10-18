@@ -81,6 +81,7 @@ extension LoginViewController: LoginView {
 
 extension LoginViewController: LoginContainerDelegate {
     func login(email: String, password: String) {
+        view.endEditing(true)
         ownPresenter.setLogin(email: email, password: password)
     }
 }

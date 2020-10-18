@@ -26,7 +26,7 @@ final class LoginContainerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.calibriFont(size: 30)
         label.textColor = .orange
-        label.text = "FelizMente"
+        label.text = .localized(.happyMindTitle)
         label.textAlignment = .center
         return label
     }()
@@ -42,7 +42,7 @@ final class LoginContainerView: UIView {
 
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Correo"
+        textField.placeholder = .localized(.email)
         textField.layer.cornerRadius = 10
         textField.font = UIFont.calibriFont()
         textField.addBorder()
@@ -52,7 +52,7 @@ final class LoginContainerView: UIView {
 
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Contraseña"
+        textField.placeholder = .localized(.password)
         textField.layer.cornerRadius = 10
         textField.isSecureTextEntry = true
         textField.font = UIFont.calibriFont()
@@ -63,7 +63,7 @@ final class LoginContainerView: UIView {
 
     private lazy var loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Iniciar Sessión", for: .normal)
+        button.setTitle(.localized(.login), for: .normal)
         button.addTarget(self, action: #selector(onLogin), for: .touchUpInside)
         button.titleLabel?.font = UIFont.calibriFont(size: 20)
         button.backgroundColor = .orange

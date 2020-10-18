@@ -6,3 +6,6 @@
   Copyright © 2020 Carlos Pava. All rights reserved.
 */
 "happymind" = "FelizMente";
+"email" = "Correo";
+"password" = "Contraseña";
+"login" = "Inciar Sesión";

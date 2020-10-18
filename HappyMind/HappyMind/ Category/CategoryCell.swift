@@ -41,7 +41,6 @@ final class CategoryCell: BaseCollectionCell<HappyMindCore.Category> {
         setupContainerViewConstraints()
         setImageViewConstraints()
         setNameCategoryLabelConstraints()
-        addLayer()
     }
 
     required init?(coder: NSCoder) {
@@ -50,6 +49,11 @@ final class CategoryCell: BaseCollectionCell<HappyMindCore.Category> {
 
     private func setupView() {
         contentView.addSubview(containerView)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.addShadow(cornerRadius: 20)
     }
 
     private func setupContainerViewConstraints() {
@@ -77,16 +81,10 @@ final class CategoryCell: BaseCollectionCell<HappyMindCore.Category> {
             nameCategoryLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 8),
             nameCategoryLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8),
             nameCategoryLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -8)
-        ])
+            ])
     }
-    
+
     override func setData(_ data: HappyMindCore.Category) {
         nameCategoryLabel.text = data.name
-        imageView.image = UIImage(named: "category1")
-        
-    }
-    
-    private func addLayer() {
-        imageView.addShadow(cornerRadius: 20)
     }
 }
