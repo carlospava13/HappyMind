@@ -16,4 +16,11 @@ class BaseViewController: UIViewController, BaseView {
         super.viewDidLoad()
         presenter?.viewDidLoad()
     }
+    
+    func show(_ error: Error) {
+        let alerViewController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alerViewController.addAction(cancel)
+        present(alerViewController, animated: true, completion: nil)
+    }
 }

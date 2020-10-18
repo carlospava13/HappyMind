@@ -38,6 +38,7 @@ final class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        ownPresenter.bind(self)
         setupScrollViewConstraints()
         setupContainerViewConstraints()
         setLoginContainerViewConstraints()

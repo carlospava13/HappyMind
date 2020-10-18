@@ -16,6 +16,10 @@ final class LoginPresenter: BasePresenter {
         let loginInteractor: LoginInteractor
     }
     
+    private var ownView: LoginView! {
+        view as? LoginView
+    }
+    
     private let inputDependencies: InputDependencies
     
     init(inputDependencies: InputDependencies) {
@@ -26,7 +30,12 @@ final class LoginPresenter: BasePresenter {
 extension LoginPresenter: LoginPresenterType {
     func setLogin(email: String, password: String) {
         inputDependencies.loginInteractor.execute(LoginParams(email: email.lowercased(), password: password)).sink(receiveCompletion: { (completion) in
-            print(completion)
+            switch completion {
+            case .failure(let error):
+                self.ownView.show(error)
+            case .finished:
+                self.inputDependencies.coordinator?.showCategories()
+            }
         }) { (user) in
             print(user)
         }.store(in: &subscriptions)
