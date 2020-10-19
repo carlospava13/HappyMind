@@ -7,16 +7,17 @@
 //
 
 import UIKit
-
+import SkeletonView
 final class WelcomeViewController: BaseViewController {
 
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
         collectionView.setHeight(90)
+        collectionView.isSkeletonable = true
         return collectionView
     }()
 
-    private var dataSource: WelcomeDataSource = {
+    private lazy var dataSource: WelcomeDataSource = {
         WelcomeDataSource(identifierCell: .categoryCell)
     }()
 
@@ -31,8 +32,8 @@ final class WelcomeViewController: BaseViewController {
         setupConstraints()
         setupCollectionView()
         setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange(), textColor: .white)
-        super.viewDidLoad()
         setupSkipButton()
+        super.viewDidLoad()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -76,6 +77,14 @@ final class WelcomeViewController: BaseViewController {
 }
 
 extension WelcomeViewController: WelcomeView {
+    func showSkeleton() {
+        collectionView.showAnimatedGradientSkeleton()
+    }
+
+    func hideSkeleton() {
+        collectionView.hideSkeleton()
+    }
+
     func setData(_ welcomeList: [Section<WelcomeObject>]) {
         dataSource.setData(welcomeList)
         collectionView.reloadData()

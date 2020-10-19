@@ -44,6 +44,11 @@
 		D191F35E252635C800A78126 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F35D252635C800A78126 /* Presentable.swift */; };
 		D191F3612526370000A78126 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3602526370000A78126 /* CategoryCoordinator.swift */; };
 		D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3622526377300A78126 /* CategoryConfigurator.swift */; };
+		D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71CE253E577300D89D14 /* ApplicationViewController.swift */; };
+		D1AC71D1253E578100D89D14 /* ApplicationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D0253E578100D89D14 /* ApplicationContract.swift */; };
+		D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D2253E579100D89D14 /* ApplicationPresenter.swift */; };
+		D1AC71D7253E57C100D89D14 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D6253E57C100D89D14 /* ApplicationCoordinator.swift */; };
+		D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */; };
 		D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */; };
 		D1C43152253CF92E00DA44A6 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */; };
 		D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43153253CF93900DA44A6 /* WelcomeContract.swift */; };
@@ -161,6 +166,11 @@
 		D191F35D252635C800A78126 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		D191F3602526370000A78126 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		D191F3622526377300A78126 /* CategoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryConfigurator.swift; sourceTree = "<group>"; };
+		D1AC71CE253E577300D89D14 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		D1AC71D0253E578100D89D14 /* ApplicationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContract.swift; sourceTree = "<group>"; };
+		D1AC71D2253E579100D89D14 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
+		D1AC71D6253E57C100D89D14 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfigurator.swift; sourceTree = "<group>"; };
 		D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		D1C43153253CF93900DA44A6 /* WelcomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContract.swift; sourceTree = "<group>"; };
@@ -276,6 +286,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D1AC71CD253E575D00D89D14 /* ApplicationViewController */,
 				D1C4315E253CFD6700DA44A6 /* Common */,
 				D1C4314E253CF90C00DA44A6 /* Welcome */,
 				6F97262525390CCA00913342 /* Module */,
@@ -363,6 +374,26 @@
 				D191F3622526377300A78126 /* CategoryConfigurator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D1AC71CD253E575D00D89D14 /* ApplicationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1AC71D5253E579D00D89D14 /* Configurator */,
+				D1AC71CE253E577300D89D14 /* ApplicationViewController.swift */,
+				D1AC71D0253E578100D89D14 /* ApplicationContract.swift */,
+				D1AC71D2253E579100D89D14 /* ApplicationPresenter.swift */,
+			);
+			path = ApplicationViewController;
+			sourceTree = "<group>";
+		};
+		D1AC71D5253E579D00D89D14 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				D1AC71D6253E57C100D89D14 /* ApplicationCoordinator.swift */,
+				D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		D1C4314E253CF90C00DA44A6 /* Welcome */ = {
@@ -720,12 +751,15 @@
 				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
+				D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */,
 				D1EF978125252D2200B738B0 /* CategoryCell.swift in Sources */,
 				D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */,
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
+				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
+				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
@@ -750,6 +784,7 @@
 				D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */,
 				D1EF978925254A4400B738B0 /* Section.swift in Sources */,
 				D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */,
+				D1AC71D7253E57C100D89D14 /* ApplicationCoordinator.swift in Sources */,
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
@@ -768,6 +803,7 @@
 				6F97262725390CD700913342 /* InteractorModule.swift in Sources */,
 				D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */,
 				D1EF97872525346C00B738B0 /* CategoryContract.swift in Sources */,
+				D1AC71D1253E578100D89D14 /* ApplicationContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

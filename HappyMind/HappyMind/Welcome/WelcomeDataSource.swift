@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -14,6 +15,10 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
 
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "WelcomeHeader", for: indexPath) as! WelcomeHeader
+//            if let title = data[indexPath.section].title {
+//                headerView.set(title: title)
+//            }
+            
             return headerView
 
         default:
@@ -21,9 +26,10 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
         }
     }
 
-//    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: UIScreen.main.bounds.width, height: 200)
-//    }
+    override func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? {
+        return "WelcomeHeader"
+    }
+
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
         // Get the view for the first header
@@ -34,5 +40,17 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
         return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
             withHorizontalFittingPriority: .required, // Width is fixed
             verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+    }
+
+    override func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+
+    override func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        CollectionViewCellIdentifier.categoryCell.rawValue
+    }
+
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
     }
 }

@@ -10,6 +10,8 @@ import Foundation
 
 protocol WelcomeView: BaseView {
     func setData(_ welcomeList: [Section<WelcomeObject>])
+    func showSkeleton()
+    func hideSkeleton()
 }
 
 protocol WelcomePresenterType: BasePresenterType {

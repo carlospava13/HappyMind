@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SkeletonView
 
 class GenericCell<T>: BaseCollectionCell<T> {
 
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.isSkeletonable = true
         return view
     }()
 
@@ -21,7 +22,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .red
+        imageView.isSkeletonable = true
         return imageView
     }()
 
@@ -30,11 +31,13 @@ class GenericCell<T>: BaseCollectionCell<T> {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.calibriFont()
         label.textColor = .black
+        label.isSkeletonable = true
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        isSkeletonable = true
         setupView()
         setupContainerViewConstraints()
         setImageViewConstraints()
