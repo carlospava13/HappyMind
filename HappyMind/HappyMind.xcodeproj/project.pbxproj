@@ -54,6 +54,7 @@
 		D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315F253CFD7600DA44A6 /* GenericCell.swift */; };
 		D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */; };
 		D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */; };
+		D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43165253D15B400DA44A6 /* UIColor+Color.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
 		D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */; };
 		D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */; };
@@ -170,6 +171,7 @@
 		D1C4315F253CFD7600DA44A6 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
 		D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeHeader.swift; sourceTree = "<group>"; };
+		D1C43165253D15B400DA44A6 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHorizontalCustom.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				D15FC077252D221700C69DDA /* AssetsResources.swift */,
 				D15FC088252D3DD600C69DDA /* UITextField+Components.swift */,
 				6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */,
+				D1C43165253D15B400DA44A6 /* UIColor+Color.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
 				D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */,
 				D15FC082252D291A00C69DDA /* LoginCoordinator.swift in Sources */,
+				D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
 				D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,

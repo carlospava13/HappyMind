@@ -9,3 +9,7 @@
 "email" = "Correo";
 "password" = "Contraseña";
 "login" = "Inciar Sesión";
+
+//MARK: Welcome
+"welcome" = "Bienvenido";
+"skip" = "Saltar";

@@ -111,9 +111,9 @@ final class MainRouter: NSObject, RouterType {
 
     func setRootModule(
         _ module: Presentable,
-        hideBar: Bool) {
+        hideBar: Bool, animated: Bool = false) {
         completions.forEach { $0.value() }
-        navigationController.setViewControllers([module.toPresent()], animated: false)
+        navigationController.setViewControllers([module.toPresent()], animated: animated)
         navigationController.isNavigationBarHidden = hideBar
     }
 

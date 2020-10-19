@@ -30,7 +30,23 @@ final class WelcomeViewController: BaseViewController {
         ownPresenter?.bind(self)
         setupConstraints()
         setupCollectionView()
+        setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange(), textColor: .white)
         super.viewDidLoad()
+        setupSkipButton()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    private func setupSkipButton() {
+        let skipButton = UIButton(type: .custom)
+        skipButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        skipButton.setTitle(.localized(.skip), for: .normal)
+        skipButton.titleLabel?.font = UIFont.calibriFont()
+        skipButton.addTarget(self, action: #selector(onSkip), for: .touchUpInside)
+        skipButton.titleLabel?.textColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: skipButton)
     }
 
     func setupConstraints() {
@@ -42,7 +58,7 @@ final class WelcomeViewController: BaseViewController {
             collectionView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
             ])
     }
-    
+
     func setupCollectionView() {
         let identifierCell = CollectionViewCellIdentifier.categoryCell
         collectionView.register(WelcomeCell.self,
@@ -52,6 +68,10 @@ final class WelcomeViewController: BaseViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
+    }
+
+    @objc func onSkip() {
+
     }
 }
 

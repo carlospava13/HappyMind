@@ -11,9 +11,11 @@ import Foundation
 extension String {
     enum Localized: String {
         case happyMindTitle = "happymind"
-        case email = "email"
-        case password = "password"
-        case login = "login"
+        case email
+        case password
+        case login
+        case welcome
+        case skip
     }
 
 
