@@ -10,7 +10,7 @@ import HappyMindCore
 
 final class ApplicationPresenter: BasePresenter {
 
-    var ownView: ApplicationView! {
+    private var ownView: ApplicationView! {
         view as? ApplicationView
     }
 

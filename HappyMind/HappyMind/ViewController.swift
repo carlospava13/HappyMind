@@ -16,10 +16,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .asbestos
         let url = URL(string: "https://audio.clyp.it/uch2mlgn.mp3?Expires=1601357251&Signature=rIcNT6FYm9~voV93sKfKuDv~nQFuSIfHLt3vofDE7K3QWqcbARCnQXGEJcNMz11AJHv4PN0Q9R2ejCJak4WuH9tEkIC3fsmqLwyklce9HbHhHk1d70h1eAghUH1bRwQWyLWVGkgSFfpEwRMXGgXppvSkdU0z51KlkjoUsmzbHq0_&Key-Pair-Id=APKAJ4AMQB3XYIRCZ5PA")!
         let playerItem = CachingPlayerItem(url: url)
-        playerItem.delegate = self   
+        //playerItem.delegate = self   
         player = AVPlayer(playerItem: playerItem)
         player.automaticallyWaitsToMinimizeStalling = false
     }

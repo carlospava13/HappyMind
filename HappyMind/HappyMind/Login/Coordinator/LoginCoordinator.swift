@@ -16,6 +16,18 @@ protocol LoginCoordinatorDelegate: AnyObject {
 final class LoginCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
 
+    private lazy var welcomeCoordinator: BaseCoordinator = {
+        let coordinator = WelcomeCoordinator(router: router, interactorModule: interactorModule)
+        addDependency(coordinator)
+        return coordinator
+    }()
+
+    private lazy var categoryCoordinator: BaseCoordinator = {
+        let coordinator = CategoryCoordinator(router: router, interactorModule: interactorModule)
+        addDependency(coordinator)
+        return coordinator
+    }()
+
     init(router: RouterType,
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
@@ -27,33 +39,20 @@ final class LoginCoordinator: BaseCoordinator {
         let module = LoginConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module, hideBar: true, animated: false)
     }
-
-    private func setCategories() {
-        let moduleInput = CategoryConfigurator.ModuleInput(coordinator: self,
-            interactorModule: interactorModule)
-        let module = CategoryConfigurator.module(moduleInput: moduleInput)
-        router.setRootModule(module)
-    }
-
-    private func setWelcomeFlow() {
-        let moduleInput = WelcomeConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
-        let module = WelcomeConfigurator.module(moduleInput: moduleInput)
-        router.setRootModule(module, hideBar: false, animated: true)
-    }
 }
 
 extension LoginCoordinator: LoginCoordinatorDelegate {
     func showCategories() {
         router.dismissModule(animated: true, completion: {
             self.finishFlow?()
-            self.setCategories()
+            self.categoryCoordinator.start()
         })
     }
 
     func showWelcomeFlow() {
         router.dismissModule(animated: true, completion: {
             self.finishFlow?()
-            self.setWelcomeFlow()
+            self.welcomeCoordinator.start()
         })
     }
 }
@@ -63,5 +62,7 @@ extension LoginCoordinator: CategoryCoordinatorDelegate {
 }
 
 extension LoginCoordinator: WelcomeCoordinatorDelegate {
+    func showPlayerViewController() {
 
+    }
 }

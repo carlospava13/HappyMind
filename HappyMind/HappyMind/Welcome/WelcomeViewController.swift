@@ -67,6 +67,7 @@ final class WelcomeViewController: BaseViewController {
         collectionView.register(WelcomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "WelcomeHeader")
         collectionView.bounces = false
         collectionView.showsVerticalScrollIndicator = false
+        dataSource.delegate = self
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
     }
@@ -88,5 +89,11 @@ extension WelcomeViewController: WelcomeView {
     func setData(_ welcomeList: [Section<WelcomeObject>]) {
         dataSource.setData(welcomeList)
         collectionView.reloadData()
+    }
+}
+
+extension WelcomeViewController: WelcomeDataSourceDelegate {
+    func didSelected(welcome: WelcomeObject) {
+        ownPresenter.didSelected()
     }
 }

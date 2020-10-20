@@ -12,6 +12,7 @@ class BaseCoordinator: CoordinatorType {
     var childCoordinators: [CoordinatorType] = []
     var finishFlow: (() -> Void)?
     var router: RouterType
+    weak var removeReferenceDelegete: RemoveReferenceDelegate?
     
     init(router: RouterType) {
         self.router = router

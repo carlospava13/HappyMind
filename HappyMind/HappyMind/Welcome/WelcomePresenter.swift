@@ -27,7 +27,7 @@ final class WelcomePresenter: BasePresenter {
     }
 
     override func viewDidLoad() {
-        setFirtTimeInteractor()
+        //setFirtTimeInteractor()
         populateData()
     }
     
@@ -44,7 +44,7 @@ final class WelcomePresenter: BasePresenter {
 
     func populateData() {
         ownView.showSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.ownView.hideSkeleton()
             let data = [
                 WelcomeObject(title: "Categoria1"),
@@ -62,5 +62,7 @@ final class WelcomePresenter: BasePresenter {
 }
 
 extension WelcomePresenter: WelcomePresenterType {
-
+    func didSelected() {
+        inputDependencies.coordinator?.showPlayerViewController()
+    }
 }

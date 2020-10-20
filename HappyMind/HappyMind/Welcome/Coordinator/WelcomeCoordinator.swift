@@ -9,16 +9,19 @@
 import Foundation
 
 protocol WelcomeCoordinatorDelegate: AnyObject {
-    
+    func showPlayerViewController()
 }
 
 final class WelcomeCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
+    
+    private var playerCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
+        setPlayerCoodinator()
     }
     
     override func start() {
@@ -26,8 +29,30 @@ final class WelcomeCoordinator: BaseCoordinator {
         let module = WelcomeConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module)
     }
+    
+    func setPlayerCoodinator() {
+        let playerCoordinator = AudioPlayerCoodinator(router: router, interactorModule: interactorModule)
+        playerCoordinator.removeReferenceDelegete = self
+        addDependency(playerCoordinator)
+        self.playerCoordinator = playerCoordinator
+    }
 }
 
 extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
-    
+    func showPlayerViewController() {
+        playerCoordinator?.start()
+        
+    }
+}
+
+extension WelcomeCoordinator: RemoveReferenceDelegate {
+    func removeReference(_ coodinator: BaseCoordinator) {
+        removeDependency(coodinator)
+        switch coodinator {
+        case is AudioPlayerCoodinator:
+            playerCoordinator = nil
+        default:
+            break
+        }
+    }
 }

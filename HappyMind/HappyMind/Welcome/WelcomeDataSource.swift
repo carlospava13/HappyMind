@@ -9,7 +9,14 @@
 import UIKit
 import SkeletonView
 
+protocol WelcomeDataSourceDelegate: AnyObject {
+    func didSelected(welcome: WelcomeObject)
+}
+
 final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
+    
+    weak var delegate: WelcomeDataSourceDelegate?
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
 
@@ -43,7 +50,7 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
     }
 
     override func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
 
     override func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -52,5 +59,9 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
 
     func numSections(in collectionSkeletonView: UICollectionView) -> Int {
         return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelected(welcome: data[indexPath.section].data[indexPath.row])
     }
 }

@@ -61,7 +61,7 @@ class ResourceLoaderDelegate: NSObject, AVAssetResourceLoaderDelegate, URLSessio
         mediaData?.append(data)
         buffer.append(data)
         let percentageDownloaded = Float(buffer.length) / Float(expectedContentLength)
-        owner?.delegate?.progress?(percentageDownloaded)
+        //owner?.delegate?.progress?(percentageDownloaded)
         processPendingRequests()
         owner?.delegate?.playerItem?(owner!, didDownloadBytesSoFar: mediaData!.count, outOf: Int(dataTask.countOfBytesExpectedToReceive))
     }

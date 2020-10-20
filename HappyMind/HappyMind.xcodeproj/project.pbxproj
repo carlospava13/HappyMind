@@ -34,6 +34,7 @@
 		D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC083252D292400C69DDA /* LoginConfigurator.swift */; };
 		D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC086252D2D1900C69DDA /* LoginContainerView.swift */; };
 		D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC088252D3DD600C69DDA /* UITextField+Components.swift */; };
+		D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */; };
 		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
 		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
 		D191F34F2526341100A78126 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D191F3512526341100A78126 /* Localizable.strings */; };
@@ -44,11 +45,17 @@
 		D191F35E252635C800A78126 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F35D252635C800A78126 /* Presentable.swift */; };
 		D191F3612526370000A78126 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3602526370000A78126 /* CategoryCoordinator.swift */; };
 		D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F3622526377300A78126 /* CategoryConfigurator.swift */; };
+		D193D673253E953F00635A2B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D193D672253E953F00635A2B /* AVFoundation.framework */; };
 		D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71CE253E577300D89D14 /* ApplicationViewController.swift */; };
 		D1AC71D1253E578100D89D14 /* ApplicationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D0253E578100D89D14 /* ApplicationContract.swift */; };
 		D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D2253E579100D89D14 /* ApplicationPresenter.swift */; };
 		D1AC71D7253E57C100D89D14 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D6253E57C100D89D14 /* ApplicationCoordinator.swift */; };
 		D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */; };
+		D1AC71E9253E6E3900D89D14 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71E8253E6E3900D89D14 /* AudioPlayerViewController.swift */; };
+		D1AC71EB253E6E4500D89D14 /* AudioPlayerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71EA253E6E4500D89D14 /* AudioPlayerContract.swift */; };
+		D1AC71ED253E6E5200D89D14 /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */; };
+		D1AC71F0253E6ED600D89D14 /* AudioPlayerCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */; };
+		D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */; };
 		D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */; };
 		D1C43152253CF92E00DA44A6 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */; };
 		D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43153253CF93900DA44A6 /* WelcomeContract.swift */; };
@@ -156,6 +163,7 @@
 		D15FC083252D292400C69DDA /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		D15FC086252D2D1900C69DDA /* LoginContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainerView.swift; sourceTree = "<group>"; };
 		D15FC088252D3DD600C69DDA /* UITextField+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Components.swift"; sourceTree = "<group>"; };
+		D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReferenceDelegate.swift; sourceTree = "<group>"; };
 		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		D191F353252634BD00A78126 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -166,11 +174,17 @@
 		D191F35D252635C800A78126 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		D191F3602526370000A78126 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		D191F3622526377300A78126 /* CategoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryConfigurator.swift; sourceTree = "<group>"; };
+		D193D672253E953F00635A2B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D1AC71CE253E577300D89D14 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		D1AC71D0253E578100D89D14 /* ApplicationContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContract.swift; sourceTree = "<group>"; };
 		D1AC71D2253E579100D89D14 /* ApplicationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPresenter.swift; sourceTree = "<group>"; };
 		D1AC71D6253E57C100D89D14 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfigurator.swift; sourceTree = "<group>"; };
+		D1AC71E8253E6E3900D89D14 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		D1AC71EA253E6E4500D89D14 /* AudioPlayerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerContract.swift; sourceTree = "<group>"; };
+		D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
+		D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCoodinator.swift; sourceTree = "<group>"; };
+		D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerConfigurator.swift; sourceTree = "<group>"; };
 		D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		D1C43153253CF93900DA44A6 /* WelcomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContract.swift; sourceTree = "<group>"; };
@@ -210,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D193D673253E953F00635A2B /* AVFoundation.framework in Frameworks */,
 				6FE1D0542537BA7100E78A4C /* HappyMindData.framework in Frameworks */,
 				6FE1D0B12537E40500E78A4C /* HappyMindCore.framework in Frameworks */,
 				B441733C46CE1047B6D43D7D /* Pods_HappyMind.framework in Frameworks */,
@@ -238,6 +253,7 @@
 		1671FB5E5CA44C3919697D32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D193D672253E953F00635A2B /* AVFoundation.framework */,
 				6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */,
 				6FE1D0532537BA7100E78A4C /* HappyMindData.framework */,
 				6FE1CFDE2537B8D600E78A4C /* HappyMindData */,
@@ -286,6 +302,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D1AC71E7253E6E2100D89D14 /* AudioPlayer */,
 				D1AC71CD253E575D00D89D14 /* ApplicationViewController */,
 				D1C4315E253CFD6700DA44A6 /* Common */,
 				D1C4314E253CF90C00DA44A6 /* Welcome */,
@@ -363,6 +380,7 @@
 				D191F3592526358E00A78126 /* RouterType.swift */,
 				D191F35B252635AE00A78126 /* MainRouter.swift */,
 				D191F35D252635C800A78126 /* Presentable.swift */,
+				D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */,
 			);
 			path = BaseCoordinator;
 			sourceTree = "<group>";
@@ -394,6 +412,26 @@
 				D1AC71D8253E57D000D89D14 /* ApplicationConfigurator.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		D1AC71E7253E6E2100D89D14 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D1AC71EE253E6E5600D89D14 /* Coordinator */,
+				D1AC71E8253E6E3900D89D14 /* AudioPlayerViewController.swift */,
+				D1AC71EA253E6E4500D89D14 /* AudioPlayerContract.swift */,
+				D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */,
+			);
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		D1AC71EE253E6E5600D89D14 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */,
+				D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D1C4314E253CF90C00DA44A6 /* Welcome */ = {
@@ -761,6 +799,8 @@
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
 				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
+				D1AC71E9253E6E3900D89D14 /* AudioPlayerViewController.swift in Sources */,
+				D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */,
 				6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
 				D1EF977F2525290700B738B0 /* CategoryDataSource.swift in Sources */,
@@ -782,15 +822,18 @@
 				D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */,
 				D191F35A2526358E00A78126 /* RouterType.swift in Sources */,
 				D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */,
+				D1AC71F0253E6ED600D89D14 /* AudioPlayerCoodinator.swift in Sources */,
 				D1EF978925254A4400B738B0 /* Section.swift in Sources */,
 				D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */,
 				D1AC71D7253E57C100D89D14 /* ApplicationCoordinator.swift in Sources */,
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
+				D1AC71EB253E6E4500D89D14 /* AudioPlayerContract.swift in Sources */,
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
+				D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */,
 				D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */,
 				D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */,
 				D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */,
@@ -799,6 +842,7 @@
 				D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */,
 				D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */,
 				D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */,
+				D1AC71ED253E6E5200D89D14 /* AudioPlayerPresenter.swift in Sources */,
 				D1C43152253CF92E00DA44A6 /* WelcomePresenter.swift in Sources */,
 				6F97262725390CD700913342 /* InteractorModule.swift in Sources */,
 				D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */,
@@ -980,7 +1024,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6QB93LRJD;
+				DEVELOPMENT_TEAM = PVBF2PQ282;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1000,7 +1044,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F6QB93LRJD;
+				DEVELOPMENT_TEAM = PVBF2PQ282;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
