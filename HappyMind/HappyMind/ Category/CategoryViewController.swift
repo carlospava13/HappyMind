@@ -25,7 +25,9 @@ final class CategoryViewController: BaseViewController {
     }
 
     override func viewDidLoad() {
-        setNavigationTransparent(title: .localized(.happyMindTitle))
+        setNavigationTransparent(title: .localized(.happyMindTitle),
+                                 backgroundColor: .orange(),
+                                 textColor: .white)
         view.backgroundColor = .white
         view.addSubview(collectionView)
         ownPresenter?.bind(self)

@@ -16,4 +16,5 @@ protocol WelcomeView: BaseView {
 
 protocol WelcomePresenterType: BasePresenterType {
     func didSelected()
+    func skip()
 }

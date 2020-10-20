@@ -19,11 +19,13 @@ public final class GetCategoriesInteractor: BaseInteractor<Any, [Category]> {
     public override func execute(_ params: Any? = nil) -> AnyPublisher<[Category], Error> {
         return repository.getCategories().map { (categories) -> [Category] in
             return categories.categories.map { (category) -> Category in
-                return Category(ref: category.ref,
+                return Category(
+                    id: category.id,
+                    ref: category.ref,
                     name: category.name,
                     type: CategoryType(rawValue: category.type)!,
-                    imagePath: CategoryFilePath(mediaPath: category.imagePath.mediaPath,
-                        mediaType: category.imagePath.mediaType))
+                    imagePath: CategoryFilePath(mediaPath: category.mediaFile.mediaPath,
+                        mediaType: category.mediaFile.mediaType))
             }
         }.eraseToAnyPublisher()
     }

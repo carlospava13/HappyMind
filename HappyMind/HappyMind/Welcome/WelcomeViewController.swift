@@ -73,7 +73,7 @@ final class WelcomeViewController: BaseViewController {
     }
 
     @objc func onSkip() {
-
+        ownPresenter.skip()
     }
 }
 

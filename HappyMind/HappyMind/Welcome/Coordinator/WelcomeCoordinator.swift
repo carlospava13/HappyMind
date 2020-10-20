@@ -8,14 +8,20 @@
 
 import Foundation
 
+protocol LoginConnectionDelegate: AnyObject {
+    func showCategories()
+}
+
 protocol WelcomeCoordinatorDelegate: AnyObject {
     func showPlayerViewController()
+    func dismiss()
 }
 
 final class WelcomeCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
     
     private var playerCoordinator: BaseCoordinator?
+    weak var loginConnectionDelegate: LoginConnectionDelegate?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -41,7 +47,12 @@ final class WelcomeCoordinator: BaseCoordinator {
 extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
     func showPlayerViewController() {
         playerCoordinator?.start()
-        
+    }
+    
+    func dismiss() {
+        router.dismissModule(animated: true) {
+            self.loginConnectionDelegate?.showCategories()
+        }
     }
 }
 

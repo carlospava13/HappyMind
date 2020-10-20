@@ -14,6 +14,7 @@ public enum CategoryType: Int {
 }
 
 public struct Category {
+    public let id: String
     public let ref: String
     public let name: String
     public let type: CategoryType

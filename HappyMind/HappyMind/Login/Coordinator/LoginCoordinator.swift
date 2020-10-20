@@ -16,22 +16,15 @@ protocol LoginCoordinatorDelegate: AnyObject {
 final class LoginCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
 
-    private lazy var welcomeCoordinator: BaseCoordinator = {
-        let coordinator = WelcomeCoordinator(router: router, interactorModule: interactorModule)
-        addDependency(coordinator)
-        return coordinator
-    }()
-
-    private lazy var categoryCoordinator: BaseCoordinator = {
-        let coordinator = CategoryCoordinator(router: router, interactorModule: interactorModule)
-        addDependency(coordinator)
-        return coordinator
-    }()
+    private var welcomeCoordinator: BaseCoordinator?
+    private var categoryCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
+        setWelcomeCoordinator()
+        setCategoryCoordinator()
     }
 
     override func start() {
@@ -39,30 +32,41 @@ final class LoginCoordinator: BaseCoordinator {
         let module = LoginConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module, hideBar: true, animated: false)
     }
+
+    func setWelcomeCoordinator() {
+        let coordinator = WelcomeCoordinator(router: router, interactorModule: interactorModule)
+        coordinator.loginConnectionDelegate = self
+        addDependency(coordinator)
+        coordinator.removeReferenceDelegete = self
+        welcomeCoordinator = coordinator
+    }
+
+    func setCategoryCoordinator() {
+        let coordinator = CategoryCoordinator(router: router, interactorModule: interactorModule)
+        addDependency(coordinator)
+        categoryCoordinator = coordinator
+    }
 }
 
-extension LoginCoordinator: LoginCoordinatorDelegate {
+extension LoginCoordinator: LoginCoordinatorDelegate, LoginConnectionDelegate {
     func showCategories() {
         router.dismissModule(animated: true, completion: {
-            self.finishFlow?()
-            self.categoryCoordinator.start()
+            self.removeReferenceDelegete?.removeReference(self)
+            self.categoryCoordinator?.start()
         })
     }
 
     func showWelcomeFlow() {
         router.dismissModule(animated: true, completion: {
             self.finishFlow?()
-            self.welcomeCoordinator.start()
+            self.welcomeCoordinator?.start()
         })
     }
 }
 
-extension LoginCoordinator: CategoryCoordinatorDelegate {
-
-}
-
-extension LoginCoordinator: WelcomeCoordinatorDelegate {
-    func showPlayerViewController() {
-
+extension LoginCoordinator: RemoveReferenceDelegate {
+    func removeReference(_ coodinator: BaseCoordinator) {
+        removeDependency(coodinator)
+        welcomeCoordinator = nil
     }
 }

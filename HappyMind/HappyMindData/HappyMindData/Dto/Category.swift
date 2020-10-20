@@ -9,17 +9,18 @@
 import Foundation
 
 public struct CategoriesDTO: Codable {
-    public let categories: [Category]
+    public let categories: [CategoryDTO]
 }
 
-public struct Category: Codable {
+public struct CategoryDTO: Codable {
+    public let id: String
     public let ref: String
     public let name: String
     public let type: Int
-    public let imagePath: FilePath
+    public let mediaFile: MediaFileDTO
 }
 
-public struct FilePath: Codable {
+public struct MediaFileDTO: Codable {
     public let mediaPath: String
     public let mediaType: String
 }

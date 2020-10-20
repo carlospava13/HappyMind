@@ -15,11 +15,14 @@ protocol ApplicationCoordinatorDelegate: AnyObject {
 
 final class ApplicationCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
+    
+    private var loginCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
+        setLoginFlow()
     }
 
     override func start() {
@@ -31,10 +34,11 @@ final class ApplicationCoordinator: BaseCoordinator {
         router.setRootModule(module, hideBar: true, animated: false)
     }
 
-    private func setLoginFlow() -> BaseCoordinator {
+    private func setLoginFlow()  {
         let coordinator = LoginCoordinator(router: router, interactorModule: interactorModule)
         addDependency(coordinator)
-        return coordinator
+        coordinator.removeReferenceDelegete = self
+        loginCoordinator = coordinator
     }
 
     private func setCategories() -> BaseCoordinator {
@@ -46,12 +50,18 @@ final class ApplicationCoordinator: BaseCoordinator {
 
 extension ApplicationCoordinator: ApplicationCoordinatorDelegate {
     func showLogin() {
-        setLoginFlow().start()
-        finishFlow?()
+        loginCoordinator?.start()
     }
 
     func showCategories() {
         setCategories().start()
         finishFlow?()
+    }
+}
+
+extension ApplicationCoordinator: RemoveReferenceDelegate {
+    func removeReference(_ coodinator: BaseCoordinator) {
+        removeDependency(coodinator)
+        loginCoordinator = nil
     }
 }

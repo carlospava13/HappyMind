@@ -65,4 +65,8 @@ extension WelcomePresenter: WelcomePresenterType {
     func didSelected() {
         inputDependencies.coordinator?.showPlayerViewController()
     }
+    
+    func skip() {
+        inputDependencies.coordinator?.dismiss()
+    }
 }
