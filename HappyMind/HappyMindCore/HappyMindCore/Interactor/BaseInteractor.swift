@@ -10,7 +10,7 @@ import Combine
 import HappyMindData
 
 public class BaseInteractor<Params, Response> {
-    func execute(_ params: Params) -> AnyPublisher<Response, DifferentError> {
-        Future<Response, DifferentError> { _ in }.eraseToAnyPublisher()
+    func execute(_ params: Params) -> AnyPublisher<Response, Error> {
+        Future<Response, Error> { _ in }.eraseToAnyPublisher()
     }
 }

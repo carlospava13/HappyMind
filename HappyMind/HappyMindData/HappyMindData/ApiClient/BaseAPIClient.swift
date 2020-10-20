@@ -13,11 +13,11 @@ final public class BaseAPIClient: BaseAPIClientType {
 
     public init() { }
 
-    public func request<Response: Codable>(_ endpoint: Endpoint) -> AnyPublisher<Response, DifferentError> {
-        Future<Response, DifferentError> { promisse in
+    public func request<Response: Codable>(_ endpoint: Endpoint) -> AnyPublisher<Response, Error> {
+        Future<Response, Error> { promisse in
 
             guard let url = self.getBaseUrl(endpoint.relativePath) else {
-                promisse(.failure(.malformedURL))
+                promisse(.failure(DifferentError.malformedURL))
                 return
             }
 

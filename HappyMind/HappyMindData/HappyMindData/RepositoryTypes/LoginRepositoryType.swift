@@ -9,5 +9,5 @@
 import Combine
 
 public protocol LoginRepositoryType {
-    func login(username: String, password: String) -> AnyPublisher<User, DifferentError>
+    func login(username: String, password: String) -> AnyPublisher<User, Error>
 }

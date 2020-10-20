@@ -20,7 +20,7 @@ public final class LoginInteractor: BaseInteractor<LoginParams, User> {
         self.localStorageRepository = localStorageRepository
     }
     
-    public override func execute(_ params: LoginParams) -> AnyPublisher<User, DifferentError> {
+    public override func execute(_ params: LoginParams) -> AnyPublisher<User, Error> {
         return repository.login(username: params.email, password: params.password).map { (user) -> User in
             self.localStorageRepository.saveData(value: user.token, key: .token)
             return User(token: user.token)

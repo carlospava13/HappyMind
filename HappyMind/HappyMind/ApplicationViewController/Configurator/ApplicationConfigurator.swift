@@ -12,7 +12,7 @@ final class ApplicationConfigurator {
 
     static func configure(moduleInput: ApplicationConfigurator.ModuleInput) -> UIViewController {
 
-        let applicationViewController = LoginViewController()
+        let applicationViewController = ApplicationViewController()
         let dependencies = createDependencies(
             coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule)
         let presenter = ApplicationPresenter(inputDependencies: dependencies)
@@ -21,7 +21,8 @@ final class ApplicationConfigurator {
     }
 
     private static func createDependencies(coordinator: ApplicationCoordinatorDelegate?, interactorModule: InteractorModule) -> ApplicationPresenter.InputDependencies {
-        return ApplicationPresenter.InputDependencies(coordinator: coordinator)
+        return ApplicationPresenter.InputDependencies(coordinator: coordinator,
+                                                      firstTimeInteractor: interactorModule.firstTimeInteractor)
     }
 
     static func module(moduleInput: ApplicationConfigurator.ModuleInput) -> (UIViewController) {

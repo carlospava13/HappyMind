@@ -41,11 +41,8 @@ final class LoginViewController: BaseViewController {
         ownPresenter.bind(self)
         setupScrollViewConstraints()
         setupContainerViewConstraints()
-        setLoginContainerViewConstraints()
-        
+        setLoginContainerViewConstraints()        
     }
-    
- 
 
     private func setupScrollViewConstraints() {
         view.addSubview(scrollView)

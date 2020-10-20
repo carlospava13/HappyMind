@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import HappyMindCore
 
 final class WelcomePresenter: BasePresenter {
 
     struct InputDependencies {
         weak var coordinator: WelcomeCoordinatorDelegate?
+        let setFirstTimeInteractor: SetFirstTimeInteractor
     }
 
     private let inputDependencies: InputDependencies
@@ -25,7 +27,19 @@ final class WelcomePresenter: BasePresenter {
     }
 
     override func viewDidLoad() {
+        setFirtTimeInteractor()
         populateData()
+    }
+    
+    private func setFirtTimeInteractor() {
+        inputDependencies.setFirstTimeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
+            switch completion {
+            case .failure(let error):
+                self?.ownView.show(error)
+            case .finished:
+                break
+            }
+            }, receiveValue: { _ in}).store(in: &subscriptions)
     }
 
     func populateData() {

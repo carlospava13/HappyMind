@@ -11,5 +11,5 @@ import Foundation
 import Combine
 import Alamofire
 public protocol BaseAPIClientType: AnyObject {
-    func request<Response:Codable>(_ endpoint: Endpoint) -> AnyPublisher<Response, DifferentError>
+    func request<Response:Codable>(_ endpoint: Endpoint) -> AnyPublisher<Response, Error>
 }

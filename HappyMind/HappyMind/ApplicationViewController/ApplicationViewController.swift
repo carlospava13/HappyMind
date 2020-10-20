@@ -15,8 +15,9 @@ final class ApplicationViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        ownPresenter.bind(self)
         view.backgroundColor = .white
+        super.viewDidLoad()
     }
 
 }

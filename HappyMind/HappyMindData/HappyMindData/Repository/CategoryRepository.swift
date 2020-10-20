@@ -16,7 +16,7 @@ public final class CategoryRepository: CategoryRepositoryType {
         self.service = service
     }
     
-    public func getCategories() -> AnyPublisher<CategoriesDTO, DifferentError> {
+    public func getCategories() -> AnyPublisher<CategoriesDTO, Error> {
         let endpoint = Endpoint(method: .get, relativePath: "category")
         return service.apiClient.request(endpoint)
     }

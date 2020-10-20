@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private lazy var applicationCoordinator: LoginCoordinator = makeCoordinator()
+    private lazy var applicationCoordinator: ApplicationCoordinator = makeCoordinator()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -57,10 +57,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-    private func makeCoordinator() -> LoginCoordinator {
+    private func makeCoordinator() -> ApplicationCoordinator {
         let repositoryModule = RepositoryModule(service:BaseService())
         let interactorModule = InteractorModule(repositoryModule: repositoryModule)
-        return LoginCoordinator(router: MainRouter(), interactorModule: interactorModule)
+        return ApplicationCoordinator(router: MainRouter(), interactorModule: interactorModule)
     }
 }
 

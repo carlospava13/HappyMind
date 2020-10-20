@@ -25,6 +25,8 @@
 		6FE1D0502537BA4E00E78A4C /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04B2537BA4E00E78A4C /* ApiError.swift */; };
 		6FE1D0512537BA4E00E78A4C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04C2537BA4E00E78A4C /* BaseService.swift */; };
 		6FE1D0522537BA4E00E78A4C /* CategoryRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */; };
+		D1AC71E2253E5CD100D89D14 /* LocalStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71E1253E5CD100D89D14 /* LocalStorageError.swift */; };
+		D1AC71E4253E5CF800D89D14 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71E3253E5CF800D89D14 /* BaseError.swift */; };
 		D1C43148253CF46E00DA44A6 /* LocalStorageRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43147253CF46E00DA44A6 /* LocalStorageRepositoryType.swift */; };
 		D1C4314B253CF49700DA44A6 /* LocalStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4314A253CF49700DA44A6 /* LocalStorageKey.swift */; };
 		D1C4314D253CF4D000DA44A6 /* LocalStorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4314C253CF4D000DA44A6 /* LocalStorageRepository.swift */; };
@@ -65,6 +67,8 @@
 		6FE1D04C2537BA4E00E78A4C /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRepositoryType.swift; sourceTree = "<group>"; };
 		9CF86D13B2F5A1811B00DA3A /* Pods-HappyMindData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindData.debug.xcconfig"; path = "Target Support Files/Pods-HappyMindData/Pods-HappyMindData.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AC71E1253E5CD100D89D14 /* LocalStorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageError.swift; sourceTree = "<group>"; };
+		D1AC71E3253E5CF800D89D14 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		D1C43147253CF46E00DA44A6 /* LocalStorageRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageRepositoryType.swift; sourceTree = "<group>"; };
 		D1C4314A253CF49700DA44A6 /* LocalStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKey.swift; sourceTree = "<group>"; };
 		D1C4314C253CF4D000DA44A6 /* LocalStorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageRepository.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		6FE1D01A2537B9CB00E78A4C /* HappyMindData */ = {
 			isa = PBXGroup;
 			children = (
+				D1AC71E0253E5CC200D89D14 /* Errors */,
 				6FE1D0482537BA4E00E78A4C /* Repository */,
 				6FE1D04D2537BA4E00E78A4C /* RepositoryTypes */,
 				6FE1D04A2537BA4E00E78A4C /* Service */,
@@ -170,7 +175,6 @@
 		6FE1D04A2537BA4E00E78A4C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				6FE1D04B2537BA4E00E78A4C /* ApiError.swift */,
 				6FE1D04C2537BA4E00E78A4C /* BaseService.swift */,
 			);
 			path = Service;
@@ -202,6 +206,16 @@
 			);
 			name = Pods;
 			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		D1AC71E0253E5CC200D89D14 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D1AC71E1253E5CD100D89D14 /* LocalStorageError.swift */,
+				6FE1D04B2537BA4E00E78A4C /* ApiError.swift */,
+				D1AC71E3253E5CF800D89D14 /* BaseError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		D1C43149253CF48800DA44A6 /* LocalStorage */ = {
@@ -365,7 +379,9 @@
 				6FE1D0452537BA4100E78A4C /* CachingPlayerItemDelegate.swift in Sources */,
 				6F6172252539359100B7D9D8 /* LoginRepositoryType.swift in Sources */,
 				6FE1D0422537BA4100E78A4C /* BaseAPIClient.swift in Sources */,
+				D1AC71E2253E5CD100D89D14 /* LocalStorageError.swift in Sources */,
 				6FE1D0512537BA4E00E78A4C /* BaseService.swift in Sources */,
+				D1AC71E4253E5CF800D89D14 /* BaseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

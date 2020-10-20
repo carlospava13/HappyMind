@@ -29,7 +29,3 @@ public final class LocalStorageRepository: LocalStorageRepositoryType {
         return data
     }
 }
-
-public enum LocalStorageError: Error {
-    case notFound
-}

@@ -16,7 +16,7 @@ public final class LoginRepository: LoginRepositoryType {
         self.service = service
     }
     
-    public func login(username: String, password: String) -> AnyPublisher<User, DifferentError> {
+    public func login(username: String, password: String) -> AnyPublisher<User, Error> {
         let endpoint = Endpoint(method: .post, relativePath: "account/login", parameters: ["email": username, "password": password])
         return service.apiClient.request(endpoint)
     }

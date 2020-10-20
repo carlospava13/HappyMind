@@ -19,7 +19,15 @@ final class InteractorModule {
 
     lazy var loginInteractor: LoginInteractor = {
         LoginInteractor(repository: repositoryModule.loginRepository,
-                        localStorageRepository: repositoryModule.localStorageRepository)
+            localStorageRepository: repositoryModule.localStorageRepository)
+    }()
+
+    lazy var firstTimeInteractor: FirstTimeInteractor = {
+        FirstTimeInteractor(repository: repositoryModule.localStorageRepository)
+    }()
+    
+    lazy var setFirstTimeInteractor: SetFirstTimeInteractor = {
+        SetFirstTimeInteractor(repository: repositoryModule.localStorageRepository)
     }()
 
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {

@@ -9,5 +9,6 @@
 import Foundation
 
 public enum LocalStorageKey: String {
+    case firstTime
     case token
 }

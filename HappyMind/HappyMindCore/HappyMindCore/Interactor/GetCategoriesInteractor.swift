@@ -16,7 +16,7 @@ public final class GetCategoriesInteractor: BaseInteractor<Any, [Category]> {
         self.repository = repository
     }
 
-    public override func execute(_ params: Any? = nil) -> AnyPublisher<[Category], DifferentError> {
+    public override func execute(_ params: Any? = nil) -> AnyPublisher<[Category], Error> {
         return repository.getCategories().map { (categories) -> [Category] in
             return categories.categories.map { (category) -> Category in
                 return Category(ref: category.ref,
