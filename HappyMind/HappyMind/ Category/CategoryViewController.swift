@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SkeletonView
 import HappyMindCore
+
 final class CategoryViewController: BaseViewController {
 
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
         collectionView.setHeight(90)
+        collectionView.isSkeletonable = true
         return collectionView
     }()
 
@@ -26,8 +29,8 @@ final class CategoryViewController: BaseViewController {
 
     override func viewDidLoad() {
         setNavigationTransparent(title: .localized(.happyMindTitle),
-                                 backgroundColor: .orange(),
-                                 textColor: .white)
+            backgroundColor: .orange(),
+            textColor: .white)
         view.backgroundColor = .white
         view.addSubview(collectionView)
         ownPresenter?.bind(self)
@@ -60,6 +63,14 @@ extension CategoryViewController: CategoryView {
     func setData(_ categories: [Section<HappyMindCore.Category>]) {
         dataSource.setData(categories)
         collectionView.reloadData()
+    }
+
+    func showSkeleton() {
+        collectionView.showAnimatedGradientSkeleton()
+    }
+
+    func hideSkeleton() {
+        collectionView.hideSkeleton()
     }
 }
 

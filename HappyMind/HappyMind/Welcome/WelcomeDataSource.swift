@@ -14,18 +14,20 @@ protocol WelcomeDataSourceDelegate: AnyObject {
 }
 
 final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
-    
+
     weak var delegate: WelcomeDataSourceDelegate?
-    
+
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
 
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "WelcomeHeader", for: indexPath) as! WelcomeHeader
-//            if let title = data[indexPath.section].title {
-//                headerView.set(title: title)
-//            }
-            
+
+            if data.count > 0,
+                let title = data[indexPath.section].title {
+                headerView.set(title: title)
+            }
+
             return headerView
 
         default:
@@ -60,7 +62,7 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
     func numSections(in collectionSkeletonView: UICollectionView) -> Int {
         return 1
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelected(welcome: data[indexPath.section].data[indexPath.row])
     }

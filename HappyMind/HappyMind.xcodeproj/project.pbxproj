@@ -304,7 +304,6 @@
 			children = (
 				D1AC71E7253E6E2100D89D14 /* AudioPlayer */,
 				D1AC71CD253E575D00D89D14 /* ApplicationViewController */,
-				D1C4315E253CFD6700DA44A6 /* Common */,
 				D1C4314E253CF90C00DA44A6 /* Welcome */,
 				6F97262525390CCA00913342 /* Module */,
 				D15FC079252D288400C69DDA /* Login */,
@@ -458,17 +457,10 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		D1C4315E253CFD6700DA44A6 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				D1C4315F253CFD7600DA44A6 /* GenericCell.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		D1EF97612525257300B738B0 /* BaseCollection */ = {
 			isa = PBXGroup;
 			children = (
+				D1C4315F253CFD7600DA44A6 /* GenericCell.swift */,
 				D1EF976A2525258D00B738B0 /* BaseCollectionCell.swift */,
 				D1EF97672525258C00B738B0 /* CollectionDisplay.swift */,
 				D1EF97622525258C00B738B0 /* CollectionView.swift */,

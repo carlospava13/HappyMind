@@ -23,6 +23,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.isSkeletonable = true
+        imageView.backgroundColor = .blue
         return imageView
     }()
 

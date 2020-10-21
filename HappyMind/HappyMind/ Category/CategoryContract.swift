@@ -9,9 +9,11 @@
 import Foundation
 import HappyMindCore
 protocol CategoryPresenterType: BasePresenterType {
-    
+ 
 }
 
 protocol CategoryView: BaseView {
     func setData(_ categories: [Section<HappyMindCore.Category>])
+    func showSkeleton()
+    func hideSkeleton()
 }
