@@ -18,12 +18,18 @@ class GenericCell<T>: BaseCollectionCell<T> {
         return view
     }()
 
+    lazy var indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.isSkeletonable = true
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .gray
         return imageView
     }()
 
@@ -31,7 +37,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.calibriFont()
-        label.textColor = .black
+        label.textColor = .white
         label.isSkeletonable = true
         return label
     }()
@@ -42,6 +48,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
         setupView()
         setupContainerViewConstraints()
         setImageViewConstraints()
+        setIndicatorConstraints()
         setNameCategoryLabelConstraints()
     }
 
@@ -51,11 +58,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
 
     private func setupView() {
         contentView.addSubview(containerView)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.addShadow(cornerRadius: 5)
     }
 
     private func setupContainerViewConstraints() {
@@ -75,6 +77,14 @@ class GenericCell<T>: BaseCollectionCell<T> {
             imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
             imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
             ])
+    }
+    
+    private func setIndicatorConstraints() {
+        containerView.addSubview(indicator)
+        NSLayoutConstraint.activate([
+            indicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            indicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+        ])
     }
 
     private func setNameCategoryLabelConstraints() {

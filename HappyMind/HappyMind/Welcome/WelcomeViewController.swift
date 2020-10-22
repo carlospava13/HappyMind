@@ -21,9 +21,6 @@ final class WelcomeViewController: BaseListViewController {
     override func viewDidLoad() {
         ownPresenter?.bind(self)
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(collectionView)
-        setupCollectionView()
         setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange(), textColor: .white)
         setupSkipButton()
     }
@@ -43,7 +40,8 @@ final class WelcomeViewController: BaseListViewController {
     }
 
 
-    func setupCollectionView() {
+    override func setupCollectionView() {
+        super.setupCollectionView()
         let identifierCell = CollectionViewCellIdentifier.categoryCell
         collectionView.register(WelcomeCell.self,
             forCellWithReuseIdentifier: identifierCell.rawValue)
@@ -59,14 +57,6 @@ final class WelcomeViewController: BaseListViewController {
 }
 
 extension WelcomeViewController: WelcomeView {
-    func showSkeleton() {
-        collectionView.showAnimatedGradientSkeleton()
-    }
-
-    func hideSkeleton() {
-        collectionView.hideSkeleton()
-    }
-
     func setData(_ welcomeList: [Section<WelcomeObject>]) {
         dataSource.setData(welcomeList)
         collectionView.reloadData()

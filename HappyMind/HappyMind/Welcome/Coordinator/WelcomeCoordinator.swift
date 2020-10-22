@@ -27,7 +27,6 @@ final class WelcomeCoordinator: BaseCoordinator {
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
-        setPlayerCoodinator()
     }
     
     override func start() {
@@ -46,6 +45,7 @@ final class WelcomeCoordinator: BaseCoordinator {
 
 extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
     func showPlayerViewController() {
+        setPlayerCoodinator()
         playerCoordinator?.start()
     }
     

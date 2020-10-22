@@ -12,20 +12,19 @@ class BaseListViewController: BaseViewController {
 
     lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(120)
-        collectionView.isSkeletonable = true
+        collectionView.setHeight(95)
         return collectionView
     }()
 
     override func viewDidLoad() {
         view.backgroundColor = .white
-        view.addSubview(collectionView)
-        setupConstraints()
         setupCollectionView()
+        setupConstraints()
         super.viewDidLoad()
     }
 
     private func setupConstraints() {
+        view.addSubview(collectionView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: guides.topAnchor),
@@ -35,11 +34,17 @@ class BaseListViewController: BaseViewController {
             ])
     }
 
-    private func setupCollectionView() {
-        let identifierCell = CollectionViewCellIdentifier.categoryCell
-        collectionView.register(CategoryCell.self,
-            forCellWithReuseIdentifier: identifierCell.rawValue)
+    func setupCollectionView() {
+        collectionView.isSkeletonable = true
         collectionView.bounces = false
         collectionView.showsVerticalScrollIndicator = false
+    }
+
+    override func showSkeleton() {
+        collectionView.showAnimatedGradientSkeleton()
+    }
+
+    override func hideSkeleton() {
+        collectionView.hideSkeleton()
     }
 }

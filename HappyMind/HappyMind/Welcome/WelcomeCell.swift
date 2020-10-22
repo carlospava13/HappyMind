@@ -10,5 +10,6 @@ import Foundation
 final class WelcomeCell: GenericCell<WelcomeObject> {
     override func setData(_ data: WelcomeObject) {
         nameCategoryLabel.text = data.title
+        
     }
 }

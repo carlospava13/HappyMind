@@ -29,7 +29,8 @@ final class CategoryViewController: BaseListViewController {
         super.viewDidLoad()
     }
 
-    func setupCollectionView() {
+    override func setupCollectionView() {
+        super.setupCollectionView()
         let identifierCell = CollectionViewCellIdentifier.categoryCell
         collectionView.register(CategoryCell.self,
             forCellWithReuseIdentifier: identifierCell.rawValue)
@@ -43,14 +44,6 @@ extension CategoryViewController: CategoryView {
     func setData(_ categories: [Section<HappyMindCore.Category>]) {
         dataSource.setData(categories)
         collectionView.reloadData()
-    }
-
-    func showSkeleton() {
-        collectionView.showAnimatedGradientSkeleton()
-    }
-
-    func hideSkeleton() {
-        collectionView.hideSkeleton()
     }
 }
 

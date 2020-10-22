@@ -23,4 +23,8 @@ class BaseViewController: UIViewController, BaseView {
         alerViewController.addAction(cancel)
         present(alerViewController, animated: true, completion: nil)
     }
+    
+    func showSkeleton() { }
+    
+    func hideSkeleton() { }
 }

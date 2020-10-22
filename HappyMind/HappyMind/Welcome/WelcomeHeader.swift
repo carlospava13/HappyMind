@@ -14,6 +14,7 @@ final class WelcomeHeader: UICollectionReusableView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .orange()
+        view.isSkeletonable = true
         return view
     }()
 
@@ -23,6 +24,7 @@ final class WelcomeHeader: UICollectionReusableView {
         label.font = UIFont.calibriFont()
         label.textColor = .white
         label.numberOfLines = 0
+        label.isSkeletonable = true
         return label
     }()
 
@@ -42,16 +44,16 @@ final class WelcomeHeader: UICollectionReusableView {
         let y: CGFloat = containerView.frame.height
         let myBezier = UIBezierPath()
         myBezier.move(to: CGPoint(x: 0, y: y))
-        myBezier.addQuadCurve(to: CGPoint(x: rect.width, y: y), controlPoint: CGPoint(x: rect.width / 2, y: rect.height))
+        myBezier.addQuadCurve(to: CGPoint(x: rect.width, y: y), controlPoint: CGPoint(x: rect.width / 2, y: rect.height + 20))
         myBezier.addLine(to: CGPoint(x: rect.width, y: containerView.frame.height))
         myBezier.addLine(to: CGPoint(x: 0, y: containerView.frame.height))
         myBezier.close()
         let context = UIGraphicsGetCurrentContext()
         //// Shadow Declarations
         let shadow = UIColor.gray
-        let shadowOffset = CGSize(width: 3 , height: 3)
+        let shadowOffset = CGSize(width: 3, height: 3)
         let shadowBlurRadius: CGFloat = 20
-        context!.setShadow(offset: shadowOffset, blur: shadowBlurRadius,  color: (shadow as UIColor).cgColor)
+        context!.setShadow(offset: shadowOffset, blur: shadowBlurRadius, color: (shadow as UIColor).cgColor)
 
         context!.setLineWidth(4.0)
         UIColor.orange().setFill()
@@ -70,17 +72,17 @@ final class WelcomeHeader: UICollectionReusableView {
     private func setupTitleLabelConstraints() {
         containerView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 32),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -32),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -32)
             ])
     }
 
     func set(title: String) {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .layoutSubviews, animations: {
             self.titleLabel.text = title
-            self.layoutIfNeeded()
-        }
+            self.titleLabel.layoutIfNeeded()
+        }, completion: nil)
     }
 }

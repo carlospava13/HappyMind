@@ -18,6 +18,7 @@
 		6FE1D0B22537E40500E78A4C /* HappyMindCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B441733C46CE1047B6D43D7D /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99151808963EF900ADA5569 /* Pods_HappyMind.framework */; };
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
+		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
 		D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC3251FDA8600FF375D /* SceneDelegate.swift */; };
 		D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC5251FDA8600FF375D /* ViewController.swift */; };
@@ -141,6 +142,7 @@
 		B7476C0026239E84293844E9 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B99151808963EF900ADA5569 /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
+		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DC1251FDA8600FF375D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1535DC3251FDA8600FF375D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				D15FC088252D3DD600C69DDA /* UITextField+Components.swift */,
 				6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */,
 				D1C43165253D15B400DA44A6 /* UIColor+Color.swift */,
+				D107011425412C600079E0FD /* UIImageView+loadImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
 				D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */,
+				D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */,
 				D1EF978125252D2200B738B0 /* CategoryCell.swift in Sources */,
 				D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */,
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
