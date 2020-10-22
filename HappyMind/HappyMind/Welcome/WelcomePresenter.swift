@@ -30,7 +30,7 @@ final class WelcomePresenter: BasePresenter {
         //setFirtTimeInteractor()
         populateData()
     }
-    
+
     private func setFirtTimeInteractor() {
         inputDependencies.setFirstTimeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
@@ -39,12 +39,12 @@ final class WelcomePresenter: BasePresenter {
             case .finished:
                 break
             }
-            }, receiveValue: { _ in}).store(in: &subscriptions)
+        }, receiveValue: { _ in }).store(in: &subscriptions)
     }
 
     func populateData() {
         ownView.showSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.ownView.hideSkeleton()
             let data = [
                 WelcomeObject(title: "Categoria1"),
@@ -65,7 +65,7 @@ extension WelcomePresenter: WelcomePresenterType {
     func didSelected() {
         inputDependencies.coordinator?.showPlayerViewController()
     }
-    
+
     func skip() {
         inputDependencies.coordinator?.dismiss()
     }

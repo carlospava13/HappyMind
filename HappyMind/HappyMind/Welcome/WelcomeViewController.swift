@@ -8,14 +8,7 @@
 
 import UIKit
 import SkeletonView
-final class WelcomeViewController: BaseViewController {
-
-    private lazy var collectionView: CollectionView = {
-        let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(90)
-        collectionView.isSkeletonable = true
-        return collectionView
-    }()
+final class WelcomeViewController: BaseListViewController {
 
     private lazy var dataSource: WelcomeDataSource = {
         WelcomeDataSource(identifierCell: .categoryCell)
@@ -26,14 +19,13 @@ final class WelcomeViewController: BaseViewController {
     }
 
     override func viewDidLoad() {
+        ownPresenter?.bind(self)
+        super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(collectionView)
-        ownPresenter?.bind(self)
-        setupConstraints()
         setupCollectionView()
         setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange(), textColor: .white)
         setupSkipButton()
-        super.viewDidLoad()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -50,23 +42,12 @@ final class WelcomeViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: skipButton)
     }
 
-    func setupConstraints() {
-        let guides = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: guides.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
-            ])
-    }
 
     func setupCollectionView() {
         let identifierCell = CollectionViewCellIdentifier.categoryCell
         collectionView.register(WelcomeCell.self,
             forCellWithReuseIdentifier: identifierCell.rawValue)
         collectionView.register(WelcomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "WelcomeHeader")
-        collectionView.bounces = false
-        collectionView.showsVerticalScrollIndicator = false
         dataSource.delegate = self
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource

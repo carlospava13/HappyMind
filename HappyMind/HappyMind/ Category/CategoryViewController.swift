@@ -10,14 +10,7 @@ import UIKit
 import SkeletonView
 import HappyMindCore
 
-final class CategoryViewController: BaseViewController {
-
-    private lazy var collectionView: CollectionView = {
-        let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(90)
-        collectionView.isSkeletonable = true
-        return collectionView
-    }()
+final class CategoryViewController: BaseListViewController {
 
     private var dataSource: CategoryDataSource = {
         CategoryDataSource(identifierCell: .categoryCell)
@@ -31,22 +24,9 @@ final class CategoryViewController: BaseViewController {
         setNavigationTransparent(title: .localized(.happyMindTitle),
             backgroundColor: .orange(),
             textColor: .white)
-        view.backgroundColor = .white
-        view.addSubview(collectionView)
         ownPresenter?.bind(self)
         setupCollectionView()
-        setupConstraints()
         super.viewDidLoad()
-    }
-
-    func setupConstraints() {
-        let guides = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: guides.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: guides.bottomAnchor),
-            ])
     }
 
     func setupCollectionView() {

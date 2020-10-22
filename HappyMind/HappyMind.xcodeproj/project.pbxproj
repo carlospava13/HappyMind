@@ -17,6 +17,7 @@
 		6FE1D0B12537E40500E78A4C /* HappyMindCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; };
 		6FE1D0B22537E40500E78A4C /* HappyMindCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B441733C46CE1047B6D43D7D /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99151808963EF900ADA5569 /* Pods_HappyMind.framework */; };
+		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
 		D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC3251FDA8600FF375D /* SceneDelegate.swift */; };
 		D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC5251FDA8600FF375D /* ViewController.swift */; };
@@ -139,6 +140,7 @@
 		99BB78867A0A94446C53AE08 /* Pods-HappyMind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind.release.xcconfig"; path = "Target Support Files/Pods-HappyMind/Pods-HappyMind.release.xcconfig"; sourceTree = "<group>"; };
 		B7476C0026239E84293844E9 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B99151808963EF900ADA5569 /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DC1251FDA8600FF375D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1535DC3251FDA8600FF375D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		D107010F25410A8D0079E0FD /* BaseList */ = {
+			isa = PBXGroup;
+			children = (
+				D107011025410AB00079E0FD /* BaseListViewController.swift */,
+			);
+			path = BaseList;
+			sourceTree = "<group>";
+		};
 		D1535DB5251FDA8600FF375D = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +312,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D107010F25410A8D0079E0FD /* BaseList */,
 				D1AC71E7253E6E2100D89D14 /* AudioPlayer */,
 				D1AC71CD253E575D00D89D14 /* ApplicationViewController */,
 				D1C4314E253CF90C00DA44A6 /* Welcome */,
@@ -806,6 +817,7 @@
 				D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
 				D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */,
+				D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
 				D1C4315B253CFCB700DA44A6 /* WelcomeObject.swift in Sources */,
 				D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */,

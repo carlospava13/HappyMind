@@ -47,6 +47,12 @@ final class WelcomeHeader: UICollectionReusableView {
         myBezier.addLine(to: CGPoint(x: 0, y: containerView.frame.height))
         myBezier.close()
         let context = UIGraphicsGetCurrentContext()
+        //// Shadow Declarations
+        let shadow = UIColor.gray
+        let shadowOffset = CGSize(width: 3 , height: 3)
+        let shadowBlurRadius: CGFloat = 20
+        context!.setShadow(offset: shadowOffset, blur: shadowBlurRadius,  color: (shadow as UIColor).cgColor)
+
         context!.setLineWidth(4.0)
         UIColor.orange().setFill()
         myBezier.fill()
