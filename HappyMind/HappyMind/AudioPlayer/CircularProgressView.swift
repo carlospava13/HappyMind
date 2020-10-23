@@ -23,7 +23,12 @@ final class CircularProgressView: UIView {
 
     func createCircularPath() {
 
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 80, startAngle: 3 * .pi / 2, endAngle: -.pi / 2, clockwise: false)
+        let circularPath = UIBezierPath(
+            arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
+            radius: 80,
+            startAngle: .pi / 2  ,
+            endAngle: -3 * .pi / 2,
+            clockwise: false)
         circleLayer.path = circularPath.cgPath
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineCap = .round
