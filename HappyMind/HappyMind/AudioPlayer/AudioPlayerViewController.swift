@@ -12,6 +12,12 @@ import AVFoundation
 
 final class AudioPlayerViewController: BaseViewController {
 
+    private lazy var circularProgressView: CircularProgressView = {
+        let circularProgressView = CircularProgressView()
+        circularProgressView.translatesAutoresizingMaskIntoConstraints = false
+        return circularProgressView
+    }()
+
     private lazy var playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
@@ -21,22 +27,57 @@ final class AudioPlayerViewController: BaseViewController {
         return button
     }()
 
+    private lazy var pauseButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Puase", for: .normal)
+        button.backgroundColor = .black
+        button.addTarget(self, action: #selector(onPause), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private lazy var volumeSlider: UISlider = {
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.isContinuous = true
+        slider.tintColor = UIColor.blue
+        slider.value = AVAudioSession.sharedInstance().outputVolume
+        slider.addTarget(self, action: #selector(onSlider(_:)), for: .valueChanged)
+        return slider
+    }()
+
     var player: AVPlayer!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setCircularProgressViewConstraints()
         setupPlayButtonConstraints()
-
+        setupPauseButtonConstraints()
+        setSliderConstraints()
+        setAudio()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setAudio()
+        circularProgressView.layoutIfNeeded()
     }
 
-    func setupPlayButtonConstraints() {
+    private func setCircularProgressViewConstraints() {
+        view.addSubview(circularProgressView)
+        let guides = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            circularProgressView.topAnchor.constraint(equalTo: guides.topAnchor),
+            circularProgressView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
+            circularProgressView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
+            circularProgressView.heightAnchor.constraint(equalToConstant: 200)
+            ])
+    }
+
+    private func setupPlayButtonConstraints() {
         view.addSubview(playButton)
         NSLayoutConstraint.activate([
             playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -45,20 +86,53 @@ final class AudioPlayerViewController: BaseViewController {
             playButton.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
+    
+    private func setupPauseButtonConstraints() {
+        view.addSubview(pauseButton)
+        NSLayoutConstraint.activate([
+            pauseButton.topAnchor.constraint(equalToSystemSpacingBelow: playButton.bottomAnchor, multiplier: 34),
+            pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pauseButton.widthAnchor.constraint(equalToConstant: 100),
+            pauseButton.heightAnchor.constraint(equalToConstant: 50)
+            ])
+    }
+
+    private func setSliderConstraints() {
+        view.addSubview(volumeSlider)
+        NSLayoutConstraint.activate([
+            volumeSlider.topAnchor.constraint(equalTo: pauseButton.bottomAnchor, constant: 32),
+            volumeSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            volumeSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            ])
+    }
 
     private func setAudio() {
-        let url = URL(string: "http://www.samisite.com/sound/cropShadesofGrayMonkees.mp3")!
-        let playerItem = CachingPlayerItem(url: url)
-        playerItem.delegate = self
-        player = AVPlayer(playerItem: playerItem)
-        player.automaticallyWaitsToMinimizeStalling = false
+        let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=/themes/demo.mp3")!
+        play(url: url)
+    }
+
+    func play(url: URL) {
+        let playerItem = AVPlayerItem(url: url)
+        self.player = AVPlayer(playerItem: playerItem)
+        player.volume = AVAudioSession.sharedInstance().outputVolume
     }
 
     @objc func onPlay() {
-        DispatchQueue.main.async {
-            self.player.play()
-        }
+        //circularProgressView.progressAnimation(duration: 2)
+        player.currentTime()
+        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        circularProgressView.setDuration(floatTime)
+        //circularProgressView.counter()
+       player.play()
+    }
 
+    @objc func onPause() {
+        player.pause()
+        circularProgressView.pauseLayer()
+    }
+
+    @objc func onSlider(_ sender: UISlider) {
+        player.volume = sender.value
     }
 }
 
