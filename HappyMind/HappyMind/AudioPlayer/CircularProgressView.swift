@@ -14,7 +14,7 @@ final class CircularProgressView: UIView {
     private var progressLayer = CAShapeLayer()
     private var miniCircleLayer = CAShapeLayer()
     
-    var count : CGFloat = 0.0
+    private var duration : Float = 0.0
 
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
@@ -58,12 +58,12 @@ final class CircularProgressView: UIView {
     }
     
     func setDuration(_ duration: Float) {
-        print(duration / 60)
+        self.duration = duration
     }
     
-    func counter() {
-        count = count + 0.1
-        progressLayer.strokeEnd = count
+    func currentTimer(time: Float) {
+        let current = time / duration
+        progressLayer.strokeEnd = CGFloat(current)
     }
 
     func pauseLayer() {

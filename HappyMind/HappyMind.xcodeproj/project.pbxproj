@@ -19,6 +19,7 @@
 		B441733C46CE1047B6D43D7D /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99151808963EF900ADA5569 /* Pods_HappyMind.framework */; };
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
+		D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
 		D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC3251FDA8600FF375D /* SceneDelegate.swift */; };
 		D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC5251FDA8600FF375D /* ViewController.swift */; };
@@ -144,6 +145,7 @@
 		B99151808963EF900ADA5569 /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
+		D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Duration.swift"; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DC1251FDA8600FF375D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1535DC3251FDA8600FF375D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */,
 				D1C43165253D15B400DA44A6 /* UIColor+Color.swift */,
 				D107011425412C600079E0FD /* UIImageView+loadImage.swift */,
+				D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				D1AC71E9253E6E3900D89D14 /* AudioPlayerViewController.swift in Sources */,
+				D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */,
 				D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */,
 				6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,

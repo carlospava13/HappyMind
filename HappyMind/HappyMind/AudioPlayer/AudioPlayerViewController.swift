@@ -18,6 +18,14 @@ final class AudioPlayerViewController: BaseViewController {
         return circularProgressView
     }()
 
+    private lazy var durationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .orange()
+        label.textAlignment = .center
+        return label
+    }()
+
     private lazy var playButton: UIButton = {
         let button = UIButton()
         button.setTitle("Play", for: .normal)
@@ -49,12 +57,13 @@ final class AudioPlayerViewController: BaseViewController {
     }()
 
     var player: AVPlayer!
-
+    var timeObserverToken: Any?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setCircularProgressViewConstraints()
+        setupDurationLabelConstraints()
         setupPlayButtonConstraints()
         setupPauseButtonConstraints()
         setSliderConstraints()
@@ -77,6 +86,15 @@ final class AudioPlayerViewController: BaseViewController {
             ])
     }
 
+    private func setupDurationLabelConstraints() {
+        view.addSubview(durationLabel)
+        NSLayoutConstraint.activate([
+            durationLabel.topAnchor.constraint(equalTo: circularProgressView.bottomAnchor),
+            durationLabel.leadingAnchor.constraint(equalTo: circularProgressView.leadingAnchor),
+            durationLabel.trailingAnchor.constraint(equalTo: circularProgressView.trailingAnchor)
+            ])
+    }
+
     private func setupPlayButtonConstraints() {
         view.addSubview(playButton)
         NSLayoutConstraint.activate([
@@ -86,7 +104,7 @@ final class AudioPlayerViewController: BaseViewController {
             playButton.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
-    
+
     private func setupPauseButtonConstraints() {
         view.addSubview(pauseButton)
         NSLayoutConstraint.activate([
@@ -115,6 +133,15 @@ final class AudioPlayerViewController: BaseViewController {
         let playerItem = AVPlayerItem(url: url)
         self.player = AVPlayer(playerItem: playerItem)
         player.volume = AVAudioSession.sharedInstance().outputVolume
+        let timeScale = CMTimeScale(NSEC_PER_SEC)
+        let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
+
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time,
+            queue: .main) {
+            [weak self] time in
+            self?.durationLabel.text = time.durationText
+            self?.circularProgressView.currentTimer(time: Float(CMTimeGetSeconds(time)))
+        }
     }
 
     @objc func onPlay() {
@@ -122,8 +149,7 @@ final class AudioPlayerViewController: BaseViewController {
         player.currentTime()
         let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
         circularProgressView.setDuration(floatTime)
-        //circularProgressView.counter()
-       player.play()
+        player.play()
     }
 
     @objc func onPause() {
