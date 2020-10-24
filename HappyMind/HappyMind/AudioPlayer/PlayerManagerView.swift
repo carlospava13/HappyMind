@@ -60,8 +60,8 @@ final class PlayerManagerView: UIView {
             playButton.topAnchor.constraint(equalTo: topAnchor),
             playButton.centerYAnchor.constraint(lessThanOrEqualTo: centerYAnchor),
             playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 95),
-            playButton.heightAnchor.constraint(equalToConstant: 95)
+            playButton.widthAnchor.constraint(equalToConstant: 85),
+            playButton.heightAnchor.constraint(equalToConstant: 85)
             ])
     }
 
@@ -70,8 +70,8 @@ final class PlayerManagerView: UIView {
         NSLayoutConstraint.activate([
             backwardButton.centerYAnchor.constraint(lessThanOrEqualTo: playButton.centerYAnchor),
             backwardButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
-            backwardButton.widthAnchor.constraint(equalToConstant: 90),
-            backwardButton.heightAnchor.constraint(equalToConstant: 90)
+            backwardButton.widthAnchor.constraint(equalToConstant: 60),
+            backwardButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -80,8 +80,8 @@ final class PlayerManagerView: UIView {
         NSLayoutConstraint.activate([
             forwardButton.centerYAnchor.constraint(lessThanOrEqualTo: playButton.centerYAnchor),
             forwardButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor,constant: 8),
-            forwardButton.widthAnchor.constraint(equalToConstant: 90),
-            forwardButton.heightAnchor.constraint(equalToConstant: 90)
+            forwardButton.widthAnchor.constraint(equalToConstant: 60),
+            forwardButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 

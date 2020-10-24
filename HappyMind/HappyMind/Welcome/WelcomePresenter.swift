@@ -44,7 +44,7 @@ final class WelcomePresenter: BasePresenter {
 
     func populateData() {
         ownView.showSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.ownView.hideSkeleton()
             let data = [
                 WelcomeObject(title: "Categoria1"),

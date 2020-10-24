@@ -18,11 +18,27 @@ final class AudioPlayerViewController: BaseViewController {
         return diskView
     }()
 
-    private lazy var durationLabel: UILabel = {
+    private lazy var timeStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+
+    private lazy var currentTimeLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
         label.textAlignment = .center
+        label.text = "00:00"
+        return label
+    }()
+
+    private lazy var durationTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .orange()
+        label.textAlignment = .center
+        label.text = "00:00"
         return label
     }()
 
@@ -39,10 +55,29 @@ final class AudioPlayerViewController: BaseViewController {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.isContinuous = true
-        slider.tintColor = UIColor.blue
+        slider.tintColor = .orange()
+        slider.maximumTrackTintColor = .white
         slider.value = AVAudioSession.sharedInstance().outputVolume
         slider.addTarget(self, action: #selector(onSlider(_:)), for: .valueChanged)
         return slider
+    }()
+
+    private lazy var nameSongLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .orange()
+        label.textAlignment = .center
+        label.text = "Tu vida es aqui y ahora"
+        return label
+    }()
+
+    private lazy var nameAuthorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .orange()
+        label.textAlignment = .center
+        label.text = "Gilberto Gonzalez"
+        return label
     }()
 
     var player: AVPlayer!
@@ -61,48 +96,75 @@ final class AudioPlayerViewController: BaseViewController {
         setupDurationLabelConstraints()
         setPlayerManagerViewConstraints()
         setSliderConstraints()
+        setNameSongLabelConstraints()
+        setNameAuthorLabelConstraints()
         setAudio()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        diskView.layoutIfNeeded()
     }
 
     private func setCircularProgressViewConstraints() {
         view.addSubview(diskView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            diskView.centerYAnchor.constraint(equalTo: guides.centerYAnchor, constant: -100),
-            diskView.centerXAnchor.constraint(equalTo: guides.centerXAnchor)
+            diskView.topAnchor.constraint(equalTo: guides.topAnchor, constant: 64),
+            diskView.centerXAnchor.constraint(equalTo: guides.centerXAnchor),
+            diskView.widthAnchor.constraint(lessThanOrEqualTo: guides.widthAnchor, multiplier: 0.7),
+            diskView.heightAnchor.constraint(lessThanOrEqualTo: guides.widthAnchor, multiplier: 0.7)
             ])
+        diskView.layoutIfNeeded()
     }
 
     private func setupDurationLabelConstraints() {
-        view.addSubview(durationLabel)
+        view.addSubview(timeStackView)
         NSLayoutConstraint.activate([
-            durationLabel.topAnchor.constraint(equalTo: diskView.bottomAnchor),
-            durationLabel.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
-            durationLabel.trailingAnchor.constraint(equalTo: diskView.trailingAnchor),
-            durationLabel.heightAnchor.constraint(equalToConstant: 20)
+            timeStackView.topAnchor.constraint(equalTo: diskView.bottomAnchor),
+            timeStackView.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
+            timeStackView.trailingAnchor.constraint(equalTo: diskView.trailingAnchor),
+            timeStackView.heightAnchor.constraint(equalToConstant: 40)
             ])
+
+        timeStackView.addArrangedSubview(currentTimeLabel)
+        timeStackView.addArrangedSubview(durationTimeLabel)
     }
 
     private func setPlayerManagerViewConstraints() {
         view.addSubview(playerManagerView)
         NSLayoutConstraint.activate([
-            playerManagerView.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 64),
+            playerManagerView.topAnchor.constraint(equalTo: timeStackView.bottomAnchor, constant: 16),
             playerManagerView.centerXAnchor.constraint(equalTo: diskView.centerXAnchor),
             playerManagerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            playerManagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            playerManagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            playerManagerView.heightAnchor.constraint(equalToConstant: 85)
             ])
     }
+
     private func setSliderConstraints() {
         view.addSubview(volumeSlider)
         NSLayoutConstraint.activate([
-            volumeSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+            volumeSlider.topAnchor.constraint(equalTo: playerManagerView.bottomAnchor, constant: 32),
             volumeSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            volumeSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            volumeSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            volumeSlider.heightAnchor.constraint(equalToConstant: 20)
+            ])
+    }
+
+    private func setNameSongLabelConstraints() {
+        view.addSubview(nameSongLabel)
+        NSLayoutConstraint.activate([
+            nameSongLabel.topAnchor.constraint(equalTo: volumeSlider.bottomAnchor, constant: 16),
+            nameSongLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            nameSongLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            nameSongLabel.heightAnchor.constraint(equalToConstant: 20)
+            ])
+    }
+
+    private func setNameAuthorLabelConstraints() {
+        view.addSubview(nameAuthorLabel)
+        NSLayoutConstraint.activate([
+            nameAuthorLabel.topAnchor.constraint(equalTo: nameSongLabel.bottomAnchor, constant: 16),
+            nameAuthorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            nameAuthorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            nameAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
+//            nameAuthorLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
             ])
     }
 
@@ -125,13 +187,14 @@ final class AudioPlayerViewController: BaseViewController {
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: time,
             queue: .main) {
             [weak self] time in
-            self?.durationLabel.text = time.durationText
+            self?.currentTimeLabel.text = time.durationText
             self?.diskView.currentTimer(time: Float(CMTimeGetSeconds(time)))
         }
     }
 
     @objc func onPlay() {
         let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        durationTimeLabel.text = player.currentItem?.duration.durationText
         diskView.setDuration(floatTime)
         player.play()
     }

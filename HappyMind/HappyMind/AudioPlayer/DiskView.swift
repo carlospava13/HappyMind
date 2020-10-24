@@ -49,21 +49,21 @@ final class DiskView: UIView {
 
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
+        miniCircleView.roundCorners(corners: .allCorners, radius: miniCircleView.frame.width / 2)
+        diskImageView.roundCorners(corners: .allCorners, radius: diskImageView.frame.width / 2)
         createCircularPath()
         createMiniDiskPath()
         createPointWhitePath()
-        miniCircleView.roundCorners(corners: .allCorners, radius: miniCircleView.frame.width / 2)
-        diskImageView.roundCorners(corners: .allCorners, radius: diskImageView.frame.width / 2)
         calculateAngle(current: 0)
     }
 
     private func setContainerViewConstraints() {
         addSubview(containerView)
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
 
@@ -74,9 +74,10 @@ final class DiskView: UIView {
             diskImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             diskImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             diskImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            diskImageView.heightAnchor.constraint(equalToConstant: 250),
-            diskImageView.widthAnchor.constraint(equalToConstant: 250)
+//            diskImageView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: 200),
+//            diskImageView.heightAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: 200)
             ])
+        layoutIfNeeded()
     }
 
     private func createCircularPath() {
@@ -139,8 +140,6 @@ final class DiskView: UIView {
         endY *= diskImageView.frame.size.height / 2.0 * 2
         endX -= diskImageView.frame.origin.x
         endY -= diskImageView.frame.origin.y
-        endY += 16
-        endX += 16
         miniCircleView.alpha = 1
         miniCircleView.center = CGPoint(x: endX, y: endY)
     }

@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = AudioPlayerViewController()//applicationCoordinator.toPresent()
+        window?.rootViewController = AudioPlayerViewController() // applicationCoordinator.toPresent()
         window?.makeKeyAndVisible()
         //applicationCoordinator.start()
     }
@@ -58,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func makeCoordinator() -> ApplicationCoordinator {
-        let repositoryModule = RepositoryModule(service:BaseService())
+        let repositoryModule = RepositoryModule(service: BaseService())
         let interactorModule = InteractorModule(repositoryModule: repositoryModule)
         return ApplicationCoordinator(router: MainRouter(), interactorModule: interactorModule)
     }
