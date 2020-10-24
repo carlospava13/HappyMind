@@ -12,10 +12,10 @@ import AVFoundation
 
 final class AudioPlayerViewController: BaseViewController {
 
-    private lazy var circularProgressView: CircularProgressView = {
-        let circularProgressView = CircularProgressView()
-        circularProgressView.translatesAutoresizingMaskIntoConstraints = false
-        return circularProgressView
+    private lazy var diskView: DiskView = {
+        let diskView = DiskView()
+        diskView.translatesAutoresizingMaskIntoConstraints = false
+        return diskView
     }()
 
     private lazy var durationLabel: UILabel = {
@@ -58,6 +58,8 @@ final class AudioPlayerViewController: BaseViewController {
 
     var player: AVPlayer!
     var timeObserverToken: Any?
+    var obs: NSKeyValueObservation?
+    var outputVolumeObserve: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,26 +74,24 @@ final class AudioPlayerViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        circularProgressView.layoutIfNeeded()
+        diskView.layoutIfNeeded()
     }
 
     private func setCircularProgressViewConstraints() {
-        view.addSubview(circularProgressView)
+        view.addSubview(diskView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            circularProgressView.topAnchor.constraint(equalTo: guides.topAnchor),
-            circularProgressView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
-            circularProgressView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
-            circularProgressView.heightAnchor.constraint(equalToConstant: 200)
+            diskView.topAnchor.constraint(equalTo: guides.topAnchor),
+            diskView.centerXAnchor.constraint(equalTo: guides.centerXAnchor)
             ])
     }
 
     private func setupDurationLabelConstraints() {
         view.addSubview(durationLabel)
         NSLayoutConstraint.activate([
-            durationLabel.topAnchor.constraint(equalTo: circularProgressView.bottomAnchor),
-            durationLabel.leadingAnchor.constraint(equalTo: circularProgressView.leadingAnchor),
-            durationLabel.trailingAnchor.constraint(equalTo: circularProgressView.trailingAnchor)
+            durationLabel.topAnchor.constraint(equalTo: diskView.bottomAnchor),
+            durationLabel.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
+            durationLabel.trailingAnchor.constraint(equalTo: diskView.trailingAnchor)
             ])
     }
 
@@ -133,6 +133,9 @@ final class AudioPlayerViewController: BaseViewController {
         let playerItem = AVPlayerItem(url: url)
         self.player = AVPlayer(playerItem: playerItem)
         player.volume = AVAudioSession.sharedInstance().outputVolume
+        player.automaticallyWaitsToMinimizeStalling = false
+
+
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
 
@@ -140,21 +143,18 @@ final class AudioPlayerViewController: BaseViewController {
             queue: .main) {
             [weak self] time in
             self?.durationLabel.text = time.durationText
-            self?.circularProgressView.currentTimer(time: Float(CMTimeGetSeconds(time)))
+            self?.diskView.currentTimer(time: Float(CMTimeGetSeconds(time)))
         }
     }
 
     @objc func onPlay() {
-        //circularProgressView.progressAnimation(duration: 2)
-        player.currentTime()
         let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
-        circularProgressView.setDuration(floatTime)
+        diskView.setDuration(floatTime)
         player.play()
     }
 
     @objc func onPause() {
         player.pause()
-        circularProgressView.pauseLayer()
     }
 
     @objc func onSlider(_ sender: UISlider) {
@@ -166,23 +166,3 @@ extension AudioPlayerViewController: AudioPlayerView {
 
 }
 
-extension AudioPlayerViewController: CachingPlayerItemDelegate {
-    func playerItem(_ playerItem: CachingPlayerItem, didFinishDownloadingData data: Data) {
-        print("File is downloaded and ready for storing")
-    }
-
-    func playerItem(_ playerItem: CachingPlayerItem, didDownloadBytesSoFar bytesDownloaded: Int, outOf bytesExpected: Int) {
-        print("\(bytesDownloaded)/\(bytesExpected)")
-    }
-
-    func playerItemPlaybackStalled(_ playerItem: CachingPlayerItem) {
-        print("Not enough data for playback. Probably because of the poor network. Wait a bit and try to play later.")
-    }
-
-    func playerItem(_ playerItem: CachingPlayerItem, downloadingFailedWith error: Error) {
-        print(error)
-    }
-    func progress(_ value: Float) {
-        print(value)
-    }
-}

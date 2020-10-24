@@ -22,7 +22,6 @@ final class CircularProgressView: UIView {
     }
 
     func createCircularPath() {
-
         let circularPath = UIBezierPath(
             arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
             radius: 80,
@@ -48,20 +47,8 @@ final class CircularProgressView: UIView {
         progressLayer.addSublayer(miniCircleLayer)
         layer.addSublayer(circleLayer)
         layer.addSublayer(progressLayer)
-
-
-
     }
-    func progressAnimation(duration: TimeInterval) {
-        let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        circularProgressAnimation.duration = duration
-        circularProgressAnimation.toValue = 1.0
-        circularProgressAnimation.fillMode = .forwards
-        circularProgressAnimation.isRemovedOnCompletion = false
-        progressLayer.add(circularProgressAnimation, forKey: "progressAnim")
-        miniCircleLayer.add(circularProgressAnimation, forKey: "progressAnim")
-    }
-    
+
     func setDuration(_ duration: Float) {
         self.duration = duration
     }
@@ -69,11 +56,5 @@ final class CircularProgressView: UIView {
     func currentTimer(time: Float) {
         let current = time / duration
         progressLayer.strokeEnd = CGFloat(current)
-    }
-
-    func pauseLayer() {
-        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
-        layer.speed = 0.0
-        layer.timeOffset = pausedTime
     }
 }

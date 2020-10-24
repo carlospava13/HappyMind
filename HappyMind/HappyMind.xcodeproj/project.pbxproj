@@ -20,6 +20,7 @@
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
 		D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */; };
+		D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13645962543CBCE00CEFBFD /* DiskView.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
 		D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC3251FDA8600FF375D /* SceneDelegate.swift */; };
 		D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC5251FDA8600FF375D /* ViewController.swift */; };
@@ -146,6 +147,7 @@
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Duration.swift"; sourceTree = "<group>"; };
+		D13645962543CBCE00CEFBFD /* DiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskView.swift; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DC1251FDA8600FF375D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1535DC3251FDA8600FF375D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				D1AC71EA253E6E4500D89D14 /* AudioPlayerContract.swift */,
 				D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */,
 				D1E6132825425E2F00B9A10D /* CircularProgressView.swift */,
+				D13645962543CBCE00CEFBFD /* DiskView.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 				D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
 				D1AC71EB253E6E4500D89D14 /* AudioPlayerContract.swift in Sources */,
+				D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */,
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
