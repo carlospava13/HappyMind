@@ -36,7 +36,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
     lazy var nameCategoryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.calibriFont()
+        label.font = UIFont.calibriRegularFont()
         label.textColor = .white
         label.isSkeletonable = true
         return label

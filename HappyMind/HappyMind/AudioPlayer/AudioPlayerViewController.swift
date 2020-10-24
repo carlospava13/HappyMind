@@ -66,6 +66,7 @@ final class AudioPlayerViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
+        label.font = UIFont.calibriRegularFont()
         label.textAlignment = .center
         label.text = "Tu vida es aqui y ahora"
         return label
@@ -75,6 +76,7 @@ final class AudioPlayerViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
+        label.font = UIFont.calibriRegularFont()
         label.textAlignment = .center
         label.text = "Gilberto Gonzalez"
         return label

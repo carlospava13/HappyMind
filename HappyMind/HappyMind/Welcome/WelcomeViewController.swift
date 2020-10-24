@@ -33,7 +33,7 @@ final class WelcomeViewController: BaseListViewController {
         let skipButton = UIButton(type: .custom)
         skipButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         skipButton.setTitle(.localized(.skip), for: .normal)
-        skipButton.titleLabel?.font = UIFont.calibriFont()
+        skipButton.titleLabel?.font = UIFont.calibriRegularFont()
         skipButton.addTarget(self, action: #selector(onSkip), for: .touchUpInside)
         skipButton.titleLabel?.textColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: skipButton)

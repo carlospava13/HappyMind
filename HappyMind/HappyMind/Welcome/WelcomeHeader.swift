@@ -21,7 +21,7 @@ final class WelcomeHeader: UICollectionReusableView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.calibriFont()
+        label.font = UIFont.calibriRegularFont()
         label.textColor = .white
         label.numberOfLines = 0
         label.isSkeletonable = true

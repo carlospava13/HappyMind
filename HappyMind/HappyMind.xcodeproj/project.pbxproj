@@ -20,6 +20,10 @@
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
 		D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */; };
+		D132DC842544CDBB0079AE69 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D132DC832544CDBB0079AE69 /* JosefinSans-Regular.ttf */; };
+		D132DC862544CDEA0079AE69 /* Calibri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D132DC852544CDEA0079AE69 /* Calibri-Bold.ttf */; };
+		D132DC882544CDFE0079AE69 /* Calibri-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D132DC872544CDFE0079AE69 /* Calibri-Regular.ttf */; };
+		D132DC8A2544D1BE0079AE69 /* LoginImageBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D132DC892544D1BE0079AE69 /* LoginImageBackgroundView.swift */; };
 		D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13645962543CBCE00CEFBFD /* DiskView.swift */; };
 		D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13645982543FC6800CEFBFD /* PlayerManagerView.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
@@ -147,6 +151,10 @@
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Duration.swift"; sourceTree = "<group>"; };
+		D132DC832544CDBB0079AE69 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		D132DC852544CDEA0079AE69 /* Calibri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri-Bold.ttf"; sourceTree = "<group>"; };
+		D132DC872544CDFE0079AE69 /* Calibri-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri-Regular.ttf"; sourceTree = "<group>"; };
+		D132DC892544D1BE0079AE69 /* LoginImageBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImageBackgroundView.swift; sourceTree = "<group>"; };
 		D13645962543CBCE00CEFBFD /* DiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskView.swift; sourceTree = "<group>"; };
 		D13645982543FC6800CEFBFD /* PlayerManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerView.swift; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +303,16 @@
 			path = BaseList;
 			sourceTree = "<group>";
 		};
+		D132DC822544CD9F0079AE69 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D132DC832544CDBB0079AE69 /* JosefinSans-Regular.ttf */,
+				D132DC852544CDEA0079AE69 /* Calibri-Bold.ttf */,
+				D132DC872544CDFE0079AE69 /* Calibri-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		D1535DB5251FDA8600FF375D = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +338,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D132DC822544CD9F0079AE69 /* Font */,
 				D107010F25410A8D0079E0FD /* BaseList */,
 				D1AC71E7253E6E2100D89D14 /* AudioPlayer */,
 				D1AC71CD253E575D00D89D14 /* ApplicationViewController */,
@@ -369,6 +388,7 @@
 				D15FC07A252D289600C69DDA /* LoginViewController.swift */,
 				D15FC07C252D28B900C69DDA /* LoginPresenter.swift */,
 				D15FC07E252D28CF00C69DDA /* LoginContract.swift */,
+				D132DC892544D1BE0079AE69 /* LoginImageBackgroundView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -668,6 +688,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */,
+				D132DC882544CDFE0079AE69 /* Calibri-Regular.ttf in Resources */,
+				D132DC862544CDEA0079AE69 /* Calibri-Bold.ttf in Resources */,
+				D132DC842544CDBB0079AE69 /* JosefinSans-Regular.ttf in Resources */,
 				D191F34F2526341100A78126 /* Localizable.strings in Resources */,
 				D1535DCE251FDA8800FF375D /* Assets.xcassets in Resources */,
 			);
@@ -813,6 +836,7 @@
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
+				D132DC8A2544D1BE0079AE69 /* LoginImageBackgroundView.swift in Sources */,
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
 				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
