@@ -26,22 +26,11 @@ final class AudioPlayerViewController: BaseViewController {
         return label
     }()
 
-    private lazy var playButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Play", for: .normal)
-        button.backgroundColor = .black
-        button.addTarget(self, action: #selector(onPlay), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private lazy var pauseButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Puase", for: .normal)
-        button.backgroundColor = .black
-        button.addTarget(self, action: #selector(onPause), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    private lazy var playerManagerView: PlayerManagerView = {
+        let playerManagerView = PlayerManagerView()
+        playerManagerView.translatesAutoresizingMaskIntoConstraints = false
+        playerManagerView.delegate = self
+        return playerManagerView
     }()
 
     private lazy var volumeSlider: UISlider = {
@@ -64,10 +53,13 @@ final class AudioPlayerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.blue.cgColor, UIColor.blue.cgColor]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         setCircularProgressViewConstraints()
         setupDurationLabelConstraints()
-        setupPlayButtonConstraints()
-        setupPauseButtonConstraints()
+        setPlayerManagerViewConstraints()
         setSliderConstraints()
         setAudio()
     }
@@ -81,7 +73,7 @@ final class AudioPlayerViewController: BaseViewController {
         view.addSubview(diskView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            diskView.topAnchor.constraint(equalTo: guides.topAnchor),
+            diskView.centerYAnchor.constraint(equalTo: guides.centerYAnchor, constant: -100),
             diskView.centerXAnchor.constraint(equalTo: guides.centerXAnchor)
             ])
     }
@@ -91,34 +83,24 @@ final class AudioPlayerViewController: BaseViewController {
         NSLayoutConstraint.activate([
             durationLabel.topAnchor.constraint(equalTo: diskView.bottomAnchor),
             durationLabel.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
-            durationLabel.trailingAnchor.constraint(equalTo: diskView.trailingAnchor)
+            durationLabel.trailingAnchor.constraint(equalTo: diskView.trailingAnchor),
+            durationLabel.heightAnchor.constraint(equalToConstant: 20)
             ])
     }
 
-    private func setupPlayButtonConstraints() {
-        view.addSubview(playButton)
+    private func setPlayerManagerViewConstraints() {
+        view.addSubview(playerManagerView)
         NSLayoutConstraint.activate([
-            playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 100),
-            playButton.heightAnchor.constraint(equalToConstant: 50)
+            playerManagerView.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 64),
+            playerManagerView.centerXAnchor.constraint(equalTo: diskView.centerXAnchor),
+            playerManagerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            playerManagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
     }
-
-    private func setupPauseButtonConstraints() {
-        view.addSubview(pauseButton)
-        NSLayoutConstraint.activate([
-            pauseButton.topAnchor.constraint(equalToSystemSpacingBelow: playButton.bottomAnchor, multiplier: 34),
-            pauseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pauseButton.widthAnchor.constraint(equalToConstant: 100),
-            pauseButton.heightAnchor.constraint(equalToConstant: 50)
-            ])
-    }
-
     private func setSliderConstraints() {
         view.addSubview(volumeSlider)
         NSLayoutConstraint.activate([
-            volumeSlider.topAnchor.constraint(equalTo: pauseButton.bottomAnchor, constant: 32),
+            volumeSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
             volumeSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             volumeSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
             ])
@@ -134,7 +116,8 @@ final class AudioPlayerViewController: BaseViewController {
         self.player = AVPlayer(playerItem: playerItem)
         player.volume = AVAudioSession.sharedInstance().outputVolume
         player.automaticallyWaitsToMinimizeStalling = false
-
+        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        diskView.setDuration(floatTime)
 
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
@@ -160,9 +143,38 @@ final class AudioPlayerViewController: BaseViewController {
     @objc func onSlider(_ sender: UISlider) {
         player.volume = sender.value
     }
+
+    private func moveCurrentTime(_ move: Float64) {
+        if let duration = player.currentItem?.duration {
+            let playerCurrentTime = CMTimeGetSeconds(player!.currentTime())
+            let newTime = playerCurrentTime + move
+            if newTime < CMTimeGetSeconds(duration)
+            {
+                let selectedTime: CMTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
+                player.seek(to: selectedTime)
+            }
+            player.pause()
+            player.play()
+        }
+    }
 }
 
 extension AudioPlayerViewController: AudioPlayerView {
 
 }
 
+extension AudioPlayerViewController: PlayerManagerViewDelegate {
+    func backward() {
+        moveCurrentTime(-5)
+    }
+
+    func play() {
+        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        diskView.setDuration(floatTime)
+        player.play()
+    }
+
+    func forward() {
+        moveCurrentTime(5)
+    }
+}

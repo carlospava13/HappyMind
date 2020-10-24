@@ -40,7 +40,6 @@ final class DiskView: UIView {
         clipsToBounds = false
         setContainerViewConstraints()
         setDiskImageViewConstraints()
-        //setMiniCircleConstraints()
         addSubview(self.miniCircleView)
     }
 
@@ -55,15 +54,16 @@ final class DiskView: UIView {
         createPointWhitePath()
         miniCircleView.roundCorners(corners: .allCorners, radius: miniCircleView.frame.width / 2)
         diskImageView.roundCorners(corners: .allCorners, radius: diskImageView.frame.width / 2)
+        calculateAngle(current: 0)
     }
 
     private func setContainerViewConstraints() {
         addSubview(containerView)
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
             ])
     }
 
@@ -79,16 +79,7 @@ final class DiskView: UIView {
             ])
     }
 
-//    private func setMiniCircleConstraints() {
-//        self.addSubview(self.miniCircleView)
-//        NSLayoutConstraint.activate([
-//            self.miniCircleView.widthAnchor.constraint(equalToConstant: 24),
-//            self.miniCircleView.heightAnchor.constraint(equalToConstant: 24)
-//            ])
-//    }
-
-
-    func createCircularPath() {
+    private func createCircularPath() {
         let circularPath = UIBezierPath(
             arcCenter: CGPoint(x: diskImageView.frame.size.width / 2.0, y: diskImageView.frame.size.height / 2.0),
             radius: diskImageView.frame.size.height / 2.0,
@@ -131,13 +122,13 @@ final class DiskView: UIView {
         diskImageView.layer.addSublayer(pointWhiteLayer)
     }
 
-    func calculateAngle(current: Double) {
+    private func calculateAngle(current: Double) {
         let progress: Double = 1 - current
 
         print(progress)
         var endAngle: CGFloat = CGFloat(progress)
 
-     if progress <= 0 {
+        if progress <= 0 {
             endAngle = CGFloat(0 * (2 * Double.pi) - (3 * Double.pi / 2))
         } else {
             endAngle = CGFloat(progress * (2 * Double.pi) - (3 * Double.pi / 2))
@@ -148,7 +139,8 @@ final class DiskView: UIView {
         endY *= diskImageView.frame.size.height / 2.0 * 2
         endX -= diskImageView.frame.origin.x
         endY -= diskImageView.frame.origin.y
-        endY -= 2.5
+        endY += 16
+        endX += 16
         miniCircleView.alpha = 1
         miniCircleView.center = CGPoint(x: endX, y: endY)
     }

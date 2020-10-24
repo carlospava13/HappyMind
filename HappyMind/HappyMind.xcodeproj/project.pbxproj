@@ -21,6 +21,7 @@
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
 		D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */; };
 		D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13645962543CBCE00CEFBFD /* DiskView.swift */; };
+		D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13645982543FC6800CEFBFD /* PlayerManagerView.swift */; };
 		D1535DC2251FDA8600FF375D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC1251FDA8600FF375D /* AppDelegate.swift */; };
 		D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC3251FDA8600FF375D /* SceneDelegate.swift */; };
 		D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DC5251FDA8600FF375D /* ViewController.swift */; };
@@ -71,7 +72,6 @@
 		D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */; };
 		D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */; };
 		D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43165253D15B400DA44A6 /* UIColor+Color.swift */; };
-		D1E6132925425E2F00B9A10D /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E6132825425E2F00B9A10D /* CircularProgressView.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
 		D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */; };
 		D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */; };
@@ -148,6 +148,7 @@
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Duration.swift"; sourceTree = "<group>"; };
 		D13645962543CBCE00CEFBFD /* DiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskView.swift; sourceTree = "<group>"; };
+		D13645982543FC6800CEFBFD /* PlayerManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerView.swift; sourceTree = "<group>"; };
 		D1535DBE251FDA8600FF375D /* HappyMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1535DC1251FDA8600FF375D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1535DC3251FDA8600FF375D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,7 +206,6 @@
 		D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
 		D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeHeader.swift; sourceTree = "<group>"; };
 		D1C43165253D15B400DA44A6 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
-		D1E6132825425E2F00B9A10D /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHorizontalCustom.swift; sourceTree = "<group>"; };
@@ -439,8 +439,8 @@
 				D1AC71E8253E6E3900D89D14 /* AudioPlayerViewController.swift */,
 				D1AC71EA253E6E4500D89D14 /* AudioPlayerContract.swift */,
 				D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */,
-				D1E6132825425E2F00B9A10D /* CircularProgressView.swift */,
 				D13645962543CBCE00CEFBFD /* DiskView.swift */,
+				D13645982543FC6800CEFBFD /* PlayerManagerView.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -802,6 +802,7 @@
 				D1EF977B252526C100B738B0 /* BasePresenter.swift in Sources */,
 				D191F35C252635AE00A78126 /* MainRouter.swift in Sources */,
 				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
+				D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */,
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
 				D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */,
@@ -810,7 +811,6 @@
 				D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */,
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
-				D1E6132925425E2F00B9A10D /* CircularProgressView.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
