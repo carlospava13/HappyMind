@@ -18,6 +18,6 @@ final class SubCategoryDataSource: GenericDataSource<SubCategoryCell, HappyMindC
     weak var subCategoryDelegate: SubCategoryDelegate?
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
- 
+        subCategoryDelegate?.didSelect(data[indexPath.section].data[indexPath.row])
     }
 }

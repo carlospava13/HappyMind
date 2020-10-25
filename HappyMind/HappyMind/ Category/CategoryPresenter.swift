@@ -44,6 +44,13 @@ final class CategoryPresenter: BasePresenter {
 
 extension CategoryPresenter: CategoryPresenterType {
     func didSelect(_ item: HappyMindCore.Category) {
-        inputDependencies.coordinator?.showSubCategories(categoryId: item.id)
+        switch item.type {
+        case .subcategories:
+            inputDependencies.coordinator?.showSubCategories(categoryId: item.id)
+        case .themes:
+            inputDependencies.coordinator?.showPlayer()
+        case .other:
+            break
+        }
     }
 }

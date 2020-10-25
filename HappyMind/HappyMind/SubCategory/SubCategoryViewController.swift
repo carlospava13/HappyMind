@@ -11,7 +11,9 @@ import HappyMindCore
 final class SubCategoryViewController: BaseListViewController {
 
     private lazy var dataSource: SubCategoryDataSource = {
-        SubCategoryDataSource(identifierCell: .categoryCell)
+        let dataSource = SubCategoryDataSource(identifierCell: .categoryCell)
+        dataSource.subCategoryDelegate = self
+        return dataSource
     }()
 
     private var ownPresenter: SubCategoryPresenterType! {
@@ -37,5 +39,11 @@ extension SubCategoryViewController: SubCategoryView {
     func setData(_ subcategories: [Section<HappyMindCore.SubCategory>]) {
         dataSource.setData(subcategories)
         collectionView.reloadData()
+    }
+}
+
+extension SubCategoryViewController: SubCategoryDelegate {
+    func didSelect(_ item: SubCategory) {
+        
     }
 }
