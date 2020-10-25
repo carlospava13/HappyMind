@@ -101,23 +101,23 @@ final class AudioPlayerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-
         setCircularProgressViewConstraints()
         setupDurationLabelConstraints()
         setPlayerManagerViewConstraints()
         setSliderConstraints()
         setNameSongLabelConstraints()
         setNameAuthorLabelConstraints()
-        setAudio()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setBackButtonConstraints()
+        setAudio()
     }
 
     private func setBackButtonConstraints() {
@@ -206,9 +206,9 @@ final class AudioPlayerViewController: BaseViewController {
 
         let playerItem = AVPlayerItem(url: url)
         playerItem.addObserver(self,
-                                forKeyPath: #keyPath(AVPlayerItem.status),
-                                options: [.old, .new],
-                                context: &playerItemContext)
+            forKeyPath: #keyPath(AVPlayerItem.status),
+            options: [.old, .new],
+            context: &playerItemContext)
         self.player = AVPlayer(playerItem: playerItem)
         player.volume = AVAudioSession.sharedInstance().outputVolume
         player.automaticallyWaitsToMinimizeStalling = false
@@ -257,14 +257,14 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
+        of object: Any?,
+        change: [NSKeyValueChangeKey: Any]?,
+        context: UnsafeMutableRawPointer?) {
         guard context == &playerItemContext else {
             super.observeValue(forKeyPath: keyPath,
-                               of: object,
-                               change: change,
-                               context: context)
+                of: object,
+                change: change,
+                context: context)
             return
         }
 
@@ -311,7 +311,7 @@ extension AudioPlayerViewController: PlayerManagerViewDelegate {
         diskView.setDuration(floatTime)
         player.play()
     }
-    
+
     func pause() {
         player.pause()
     }

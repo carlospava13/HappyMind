@@ -25,7 +25,9 @@ final class DiskView: UIView {
     }()
 
     private lazy var miniCircleView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let view = UIView(frame: CGRect(x: 0,
+            y: 0,
+            width: 20, height: 20))
         view.alpha = 0
         view.backgroundColor = .white
         return view
@@ -54,7 +56,6 @@ final class DiskView: UIView {
         createCircularPath()
         createMiniDiskPath()
         createPointWhitePath()
-        calculateAngle(current: 0)
     }
 
     private func setContainerViewConstraints() {
@@ -75,7 +76,6 @@ final class DiskView: UIView {
             diskImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             diskImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             ])
-        layoutIfNeeded()
     }
 
     private func createCircularPath() {
@@ -122,23 +122,32 @@ final class DiskView: UIView {
     }
 
     private func calculateAngle(current: Double) {
-        let progress: Double = 1 - current
-        var endAngle: CGFloat = CGFloat(progress)
-        if progress <= 0 {
-            endAngle = CGFloat(0 * (2 * Double.pi) - (3 * Double.pi / 2))
-        } else {
-            endAngle = CGFloat(progress * (2 * Double.pi) - (3 * Double.pi / 2))
-        }
-        var endX = (cos(endAngle) / 2 + 0.5)
-        var endY = (sin(endAngle) / 2 + 0.5)
-        endX *= diskImageView.frame.size.height / 2.0 * 2
-        endY *= diskImageView.frame.size.height / 2.0 * 2
-        endX -= diskImageView.frame.origin.x
-        endY -= diskImageView.frame.origin.y
-        miniCircleView.alpha = 1
-        miniCircleView.center = CGPoint(x: endX, y: endY)
-    }
+        DispatchQueue.global(qos: .background).async {
+            let progress: Double = 1 - current
+            var endAngle: CGFloat = CGFloat(progress)
+            if progress <= 0 {
+                endAngle = CGFloat(0 * (2 * Double.pi) - (3 * Double.pi / 2))
+            } else {
+                endAngle = CGFloat(progress * (2 * Double.pi) - (3 * Double.pi / 2))
+            }
+            var endX = (cos(endAngle) / 2 + 0.5)
+            var endY = (sin(endAngle) / 2 + 0.5)
 
+            DispatchQueue.main.async {
+                endX *= self.diskImageView.frame.size.height / 2.0 * 2
+                endY *= self.diskImageView.frame.size.height / 2.0 * 2
+                endX -= self.diskImageView.frame.origin.x
+                endY -= self.diskImageView.frame.origin.y
+                endY -= 10
+                endX -= 10
+                if !endX.isNaN && !endY.isNaN {
+                    self.miniCircleView.alpha = 1
+                    self.miniCircleView.frame.origin = CGPoint(x: endX, y: endY)
+                }
+                self.progressLayer.strokeEnd = CGFloat(current)
+            }
+        }
+    }
 
     func setDuration(_ duration: Float) {
         self.duration = duration
@@ -146,7 +155,6 @@ final class DiskView: UIView {
 
     func currentTimer(time: Float) {
         let current = time / duration
-        progressLayer.strokeEnd = CGFloat(current)
         calculateAngle(current: Double(current))
     }
 
