@@ -8,8 +8,9 @@
 
 import UIKit
 import HappyMindCore
+
 protocol CategoryDelegate: AnyObject {
-    func didSelect(_ item: SubCategoryModel)
+    func didSelect(_ item: HappyMindCore.Category)
 }
 
 final class CategoryDataSource: GenericDataSource<CategoryCell, HappyMindCore.Category> {
@@ -23,10 +24,9 @@ final class CategoryDataSource: GenericDataSource<CategoryCell, HappyMindCore.Ca
         //cell.categoryCellDelegate = self
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = data[indexPath.section].data[indexPath.row]
+        categoryDelegate?.didSelect(category)
+    }
 }
-
-//extension CategoryDataSource: CategoryCellDelegate {
-//    func didSelect(_ item: SubCategoryModel) {
-//         categoryDelegate?.didSelect(item)
-//    }
-//}

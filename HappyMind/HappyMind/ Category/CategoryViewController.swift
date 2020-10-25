@@ -49,7 +49,7 @@ extension CategoryViewController: CategoryView {
 }
 
 extension CategoryViewController: CategoryDelegate {
-    func didSelect(_ item: SubCategoryModel) {
-        print("Item = \(item)")
+    func didSelect(_ item: HappyMindCore.Category) {
+        ownPresenter.didSelect(item)
     }
 }

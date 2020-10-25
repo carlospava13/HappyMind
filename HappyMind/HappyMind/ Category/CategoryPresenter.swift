@@ -8,19 +8,17 @@
 
 import UIKit
 import HappyMindCore
-import HappyMindData
 
 final class CategoryPresenter: BasePresenter {
 
     struct InputDependencies {
-        weak var coordinator: CategoryCoordinatorDelegate?
+        let coordinator: CategoryCoordinatorDelegate?
         var getCategoriesInteractor: GetCategoriesInteractor
     }
 
     private var ownView: CategoryView! {
         view as? CategoryView
     }
-
 
     private var inputDependencies: InputDependencies
 
@@ -45,5 +43,7 @@ final class CategoryPresenter: BasePresenter {
 }
 
 extension CategoryPresenter: CategoryPresenterType {
-
+    func didSelect(_ item: HappyMindCore.Category) {
+        inputDependencies.coordinator?.showSubCategories(categoryId: item.id)
+    }
 }

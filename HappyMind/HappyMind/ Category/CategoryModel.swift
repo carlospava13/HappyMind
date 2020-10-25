@@ -9,12 +9,12 @@
 import UIKit
 import HappyMindCore
 
-struct CategoryModel {
-    let title: String
-    let subcategories: Section<HappyMindCore.Category>
-}
-
-struct SubCategoryModel {
-    let name: String
-    let image: UIImage
-}
+//struct CategoryModel {
+//    let title: String
+//    let subcategories: Section<HappyMindCore.Category>
+//}
+//
+//struct SubCategoryModel {
+//    let name: String
+//    let image: UIImage
+//}

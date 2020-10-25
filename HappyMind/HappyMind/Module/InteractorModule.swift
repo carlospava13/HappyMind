@@ -33,4 +33,8 @@ final class InteractorModule {
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {
         GetCategoriesInteractor(repository: repositoryModule.categoryRepository)
     }()
+    
+    lazy var getSubCatogoryInteractor: GetSubCatogoryInteractor = {
+        GetSubCatogoryInteractor(repository: repositoryModule.subcategoryRepository)
+    }()
 }

@@ -34,7 +34,8 @@ final class LoginCoordinator: BaseCoordinator {
     }
 
     func setWelcomeCoordinator() {
-        let coordinator = WelcomeCoordinator(router: router, interactorModule: interactorModule)
+        let coordinator = WelcomeCoordinator(router: router,
+                                             interactorModule: interactorModule)
         coordinator.loginConnectionDelegate = self
         addDependency(coordinator)
         coordinator.removeReferenceDelegete = self
@@ -42,7 +43,8 @@ final class LoginCoordinator: BaseCoordinator {
     }
 
     func setCategoryCoordinator() {
-        let coordinator = CategoryCoordinator(router: router, interactorModule: interactorModule)
+        let coordinator = CategoryCoordinator(router: router,
+                                              interactorModule: interactorModule)
         addDependency(coordinator)
         categoryCoordinator = coordinator
     }
@@ -51,8 +53,8 @@ final class LoginCoordinator: BaseCoordinator {
 extension LoginCoordinator: LoginCoordinatorDelegate, LoginConnectionDelegate {
     func showCategories() {
         router.dismissModule(animated: true, completion: {
-            self.removeReferenceDelegete?.removeReference(self)
             self.categoryCoordinator?.start()
+            self.removeReferenceDelegete?.removeReference(self)
         })
     }
 

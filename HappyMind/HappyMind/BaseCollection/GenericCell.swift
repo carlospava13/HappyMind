@@ -55,6 +55,11 @@ class GenericCell<T>: BaseCollectionCell<T> {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.roundCorners(corners: .allCorners, radius: 5)
+    }
 
     private func setupView() {
         contentView.addSubview(containerView)

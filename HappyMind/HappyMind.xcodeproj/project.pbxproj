@@ -42,6 +42,9 @@
 		D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC083252D292400C69DDA /* LoginConfigurator.swift */; };
 		D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC086252D2D1900C69DDA /* LoginContainerView.swift */; };
 		D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC088252D3DD600C69DDA /* UITextField+Components.swift */; };
+		D17BFF6725451CC5004E472B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */; };
+		D17BFF6925451CD1004E472B /* SubCategoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6825451CD1004E472B /* SubCategoryContract.swift */; };
+		D17BFF6B25451CDD004E472B /* SubCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */; };
 		D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */; };
 		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
 		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
@@ -64,6 +67,8 @@
 		D1AC71ED253E6E5200D89D14 /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */; };
 		D1AC71F0253E6ED600D89D14 /* AudioPlayerCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */; };
 		D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */; };
+		D1ADF74E25451F1F00EB202C /* SubCategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ADF74D25451F1F00EB202C /* SubCategoryCoordinator.swift */; };
+		D1ADF75025451F3D00EB202C /* SubCategoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ADF74F25451F3D00EB202C /* SubCategoryConfigurator.swift */; };
 		D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */; };
 		D1C43152253CF92E00DA44A6 /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */; };
 		D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43153253CF93900DA44A6 /* WelcomeContract.swift */; };
@@ -179,6 +184,9 @@
 		D15FC083252D292400C69DDA /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		D15FC086252D2D1900C69DDA /* LoginContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainerView.swift; sourceTree = "<group>"; };
 		D15FC088252D3DD600C69DDA /* UITextField+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Components.swift"; sourceTree = "<group>"; };
+		D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		D17BFF6825451CD1004E472B /* SubCategoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryContract.swift; sourceTree = "<group>"; };
+		D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryPresenter.swift; sourceTree = "<group>"; };
 		D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReferenceDelegate.swift; sourceTree = "<group>"; };
 		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
@@ -201,6 +209,8 @@
 		D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
 		D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCoodinator.swift; sourceTree = "<group>"; };
 		D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerConfigurator.swift; sourceTree = "<group>"; };
+		D1ADF74D25451F1F00EB202C /* SubCategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCoordinator.swift; sourceTree = "<group>"; };
+		D1ADF74F25451F3D00EB202C /* SubCategoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryConfigurator.swift; sourceTree = "<group>"; };
 		D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
 		D1C43153253CF93900DA44A6 /* WelcomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContract.swift; sourceTree = "<group>"; };
@@ -336,6 +346,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D17BFF6525451C92004E472B /* SubCategory */,
 				D132DC822544CD9F0079AE69 /* Font */,
 				D107010F25410A8D0079E0FD /* BaseList */,
 				D1AC71E7253E6E2100D89D14 /* AudioPlayerViewController */,
@@ -407,6 +418,19 @@
 			path = LoginContainerView;
 			sourceTree = "<group>";
 		};
+		D17BFF6525451C92004E472B /* SubCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D1ADF74C25451F0B00EB202C /* Coordinator */,
+				D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */,
+				D17BFF6825451CD1004E472B /* SubCategoryContract.swift */,
+				D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */,
+				D1EF97922525788600B738B0 /* SubCategoryDataSource.swift */,
+				D1EF978F2525773900B738B0 /* SubCategoryCell.swift */,
+			);
+			path = SubCategory;
+			sourceTree = "<group>";
+		};
 		D191F3542526352A00A78126 /* BaseCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +491,15 @@
 			children = (
 				D1AC71EF253E6ED600D89D14 /* AudioPlayerCoodinator.swift */,
 				D1AC71F1253E6EE300D89D14 /* AudioPlayerConfigurator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D1ADF74C25451F0B00EB202C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D1ADF74D25451F1F00EB202C /* SubCategoryCoordinator.swift */,
+				D1ADF74F25451F3D00EB202C /* SubCategoryConfigurator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -555,8 +588,6 @@
 		D1EF97912525785D00B738B0 /* Subcategory */ = {
 			isa = PBXGroup;
 			children = (
-				D1EF978F2525773900B738B0 /* SubCategoryCell.swift */,
-				D1EF97922525788600B738B0 /* SubCategoryDataSource.swift */,
 			);
 			path = Subcategory;
 			sourceTree = "<group>";
@@ -820,6 +851,7 @@
 				D1C4315D253CFD0300DA44A6 /* WelcomeDataSource.swift in Sources */,
 				6F97262925390D0500913342 /* RepositoryModule.swift in Sources */,
 				D1EF977B252526C100B738B0 /* BasePresenter.swift in Sources */,
+				D17BFF6B25451CDD004E472B /* SubCategoryPresenter.swift in Sources */,
 				D191F35C252635AE00A78126 /* MainRouter.swift in Sources */,
 				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
 				D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */,
@@ -831,17 +863,20 @@
 				D15FC07F252D28CF00C69DDA /* LoginContract.swift in Sources */,
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
+				D1ADF75025451F3D00EB202C /* SubCategoryConfigurator.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
 				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				D1AC71E9253E6E3900D89D14 /* AudioPlayerViewController.swift in Sources */,
+				D17BFF6925451CD1004E472B /* SubCategoryContract.swift in Sources */,
 				D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */,
 				D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */,
 				6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */,
 				D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */,
 				D1EF977F2525290700B738B0 /* CategoryDataSource.swift in Sources */,
+				D17BFF6725451CC5004E472B /* SubCategoryViewController.swift in Sources */,
 				D15FC07D252D28B900C69DDA /* LoginPresenter.swift in Sources */,
 				D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
@@ -865,6 +900,7 @@
 				D1EF978925254A4400B738B0 /* Section.swift in Sources */,
 				D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */,
 				D1AC71D7253E57C100D89D14 /* ApplicationCoordinator.swift in Sources */,
+				D1ADF74E25451F1F00EB202C /* SubCategoryCoordinator.swift in Sources */,
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,

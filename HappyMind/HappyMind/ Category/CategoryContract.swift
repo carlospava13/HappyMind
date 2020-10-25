@@ -9,7 +9,7 @@
 import Foundation
 import HappyMindCore
 protocol CategoryPresenterType: BasePresenterType {
- 
+    func didSelect(_ item: HappyMindCore.Category)
 }
 
 protocol CategoryView: BaseView {

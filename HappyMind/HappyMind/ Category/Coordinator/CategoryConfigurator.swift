@@ -13,12 +13,13 @@ final class CategoryConfigurator {
 
     static func configure(moduleInput: CategoryConfigurator.ModuleInput) -> UIViewController {
 
-        let applicationViewController = CategoryViewController()
+        let categoryViewController = CategoryViewController()
         let dependencies = createDependencies(
-            coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule)
+            coordinator: moduleInput.coordinator,
+            interactorModule: moduleInput.interactorModule)
         let presenter = CategoryPresenter(inputDependencies: dependencies)
-        applicationViewController.presenter = presenter
-        return applicationViewController
+        categoryViewController.presenter = presenter
+        return categoryViewController
     }
 
     private static func createDependencies(coordinator: CategoryCoordinatorDelegate?,
@@ -33,7 +34,7 @@ final class CategoryConfigurator {
 }
 extension CategoryConfigurator {
     struct ModuleInput {
-        weak var coordinator: CategoryCoordinatorDelegate?
+        let coordinator: CategoryCoordinatorDelegate?
         let interactorModule: InteractorModule
     }
 }
