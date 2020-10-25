@@ -10,7 +10,7 @@ import UIKit
 
 extension UIFont {
     static func calibriRegularFont(size: CGFloat = 18) -> UIFont? {
-        UIFont(name: "Calibri-Regular", size: size)
+        return UIFont(name: "Calibri", size: size)
     }
     
     static func calibriBoldFont(size: CGFloat = 18) -> UIFont? {

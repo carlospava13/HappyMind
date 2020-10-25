@@ -9,15 +9,20 @@
 import UIKit
 
 extension UIViewController {
-    func setNavigationTransparent(title: String? = nil, backgroundColor: UIColor = .clear, textColor: UIColor = .orange)  {
+    func setNavigationTransparent(title: String? = nil, backgroundColor: UIColor = .clear) {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = backgroundColor
         navigationController?.navigationBar.backgroundColor = backgroundColor
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.layoutIfNeeded()
         self.title = title
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor]
+    }
+
+    func setFontNavigationBar(font: UIFont, color: UIColor = .white) {
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.font: font]
     }
 }
 

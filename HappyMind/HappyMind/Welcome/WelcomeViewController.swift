@@ -21,7 +21,8 @@ final class WelcomeViewController: BaseListViewController {
     override func viewDidLoad() {
         ownPresenter?.bind(self)
         super.viewDidLoad()
-        setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange(), textColor: .white)
+        setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange())
+        setFontNavigationBar(font: UIFont.calibriBoldFont(size: 28)!)
         setupSkipButton()
     }
 

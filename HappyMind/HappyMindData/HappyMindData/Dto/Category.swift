@@ -16,7 +16,7 @@ public struct CategoryDTO: Codable {
     public let id: String
     public let ref: String
     public let name: String
-    public let type: Int
+    public let type: String
     public let mediaFile: MediaFileDTO
 }
 

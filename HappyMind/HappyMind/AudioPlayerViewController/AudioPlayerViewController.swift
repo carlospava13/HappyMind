@@ -12,6 +12,14 @@ import AVFoundation
 
 final class AudioPlayerViewController: BaseViewController {
 
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(onBack), for: .touchUpInside)
+        button.setImage(UIImage(named: "back"), for: .normal)
+        return button
+    }()
+
     private lazy var diskView: DiskView = {
         let diskView = DiskView()
         diskView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +39,7 @@ final class AudioPlayerViewController: BaseViewController {
         label.textColor = .orange()
         label.textAlignment = .center
         label.text = "00:00"
+        label.font = UIFont.calibriRegularFont(size: 28)
         return label
     }()
 
@@ -39,6 +48,7 @@ final class AudioPlayerViewController: BaseViewController {
         label.textColor = .orange()
         label.textAlignment = .center
         label.text = "00:00"
+        label.font = UIFont.calibriRegularFont(size: 28)
         return label
     }()
 
@@ -66,7 +76,7 @@ final class AudioPlayerViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
-        label.font = UIFont.calibriRegularFont()
+        label.font = UIFont.calibriBoldFont(size: 28)
         label.textAlignment = .center
         label.text = "Tu vida es aqui y ahora"
         return label
@@ -76,13 +86,14 @@ final class AudioPlayerViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
-        label.font = UIFont.calibriRegularFont()
+        label.font = UIFont.calibriRegularFont(size: 28)
         label.textAlignment = .center
         label.text = "Gilberto Gonzalez"
         return label
     }()
 
     var player: AVPlayer!
+    private var playerItemContext = 0
     var timeObserverToken: Any?
     var obs: NSKeyValueObservation?
     var outputVolumeObserve: NSKeyValueObservation?
@@ -92,8 +103,9 @@ final class AudioPlayerViewController: BaseViewController {
         view.backgroundColor = .white
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.white.cgColor, UIColor.blue.cgColor, UIColor.blue.cgColor]
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+
         setCircularProgressViewConstraints()
         setupDurationLabelConstraints()
         setPlayerManagerViewConstraints()
@@ -101,6 +113,22 @@ final class AudioPlayerViewController: BaseViewController {
         setNameSongLabelConstraints()
         setNameAuthorLabelConstraints()
         setAudio()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setBackButtonConstraints()
+    }
+
+    private func setBackButtonConstraints() {
+        view.addSubview(backButton)
+        let guides = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: guides.topAnchor, constant: 8),
+            backButton.leadingAnchor.constraint(equalTo: guides.leadingAnchor, constant: 8),
+            backButton.widthAnchor.constraint(equalToConstant: 40),
+            backButton.heightAnchor.constraint(equalToConstant: 40)
+            ])
     }
 
     private func setCircularProgressViewConstraints() {
@@ -166,7 +194,6 @@ final class AudioPlayerViewController: BaseViewController {
             nameAuthorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             nameAuthorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             nameAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
-//            nameAuthorLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
             ])
     }
 
@@ -176,7 +203,12 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     func play(url: URL) {
+
         let playerItem = AVPlayerItem(url: url)
+        playerItem.addObserver(self,
+                                forKeyPath: #keyPath(AVPlayerItem.status),
+                                options: [.old, .new],
+                                context: &playerItemContext)
         self.player = AVPlayer(playerItem: playerItem)
         player.volume = AVAudioSession.sharedInstance().outputVolume
         player.automaticallyWaitsToMinimizeStalling = false
@@ -195,9 +227,6 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     @objc func onPlay() {
-        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
-        durationTimeLabel.text = player.currentItem?.duration.durationText
-        diskView.setDuration(floatTime)
         player.play()
     }
 
@@ -207,6 +236,10 @@ final class AudioPlayerViewController: BaseViewController {
 
     @objc func onSlider(_ sender: UISlider) {
         player.volume = sender.value
+    }
+
+    @objc func onBack() {
+        dismiss(animated: false, completion: nil)
     }
 
     private func moveCurrentTime(_ move: Float64) {
@@ -220,6 +253,46 @@ final class AudioPlayerViewController: BaseViewController {
             }
             player.pause()
             player.play()
+        }
+    }
+
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        guard context == &playerItemContext else {
+            super.observeValue(forKeyPath: keyPath,
+                               of: object,
+                               change: change,
+                               context: context)
+            return
+        }
+
+        if keyPath == #keyPath(AVPlayerItem.status) {
+            let status: AVPlayerItem.Status
+            if let statusNumber = change?[.newKey] as? NSNumber {
+                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
+            } else {
+                status = .unknown
+            }
+
+            // Switch over status value
+            switch status {
+            case .readyToPlay:
+                let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+                durationTimeLabel.text = player.currentItem?.duration.durationText
+                diskView.setDuration(floatTime)
+                player.play()
+                break
+            case .failed:
+                print("failed")
+                break
+            case .unknown:
+                print("failed")
+                break
+            @unknown default:
+                fatalError()
+            }
         }
     }
 }
@@ -237,6 +310,10 @@ extension AudioPlayerViewController: PlayerManagerViewDelegate {
         let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
         diskView.setDuration(floatTime)
         player.play()
+    }
+    
+    func pause() {
+        player.pause()
     }
 
     func forward() {

@@ -28,7 +28,6 @@ final class CategoryPresenter: BasePresenter {
         self.inputDependencies = inputDependencies
     }
 
-
     override func viewDidLoad() {
         getCategories()
     }
@@ -36,6 +35,7 @@ final class CategoryPresenter: BasePresenter {
     private func getCategories() {
         ownView.showSkeleton()
         inputDependencies.getCategoriesInteractor.execute().sink(receiveCompletion: { [weak self] (completion) in
+            print(completion)
             self?.ownView.hideSkeleton()
         }) { [weak self](categories) in
             let section = [Section<HappyMindCore.Category>(data: categories)]

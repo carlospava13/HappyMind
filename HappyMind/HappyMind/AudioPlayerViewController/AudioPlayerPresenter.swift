@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import AVFoundation
 final class AudioPlayerPresenter: BasePresenter {
-    
+
     struct InputDependencies {
         weak var coordinator: AudioPlayerCoodinatorDelegate?
     }
@@ -19,7 +19,7 @@ final class AudioPlayerPresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
-    
+
     deinit {
         inputDependencies.coordinator?.removeReference()
     }

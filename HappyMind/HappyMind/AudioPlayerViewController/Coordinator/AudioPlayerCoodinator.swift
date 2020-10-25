@@ -24,7 +24,7 @@ final class AudioPlayerCoodinator: BaseCoordinator {
     override func start() {
         let moduleInput = AudioPlayerConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
         let module = AudioPlayerConfigurator.module(moduleInput: moduleInput)
-        router.push(module, transition: .none, animated: true, completion: nil)
+        router.present(module)
     }
 }
 

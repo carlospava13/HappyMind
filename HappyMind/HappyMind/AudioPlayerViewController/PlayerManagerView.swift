@@ -11,11 +11,12 @@ import UIKit
 protocol PlayerManagerViewDelegate: AnyObject {
     func backward()
     func play()
+    func pause()
     func forward()
 }
 
 final class PlayerManagerView: UIView {
-    
+
     private lazy var backwardButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +29,8 @@ final class PlayerManagerView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "btn_play"), for: .normal)
-        button.addTarget(self, action: #selector(onPlay), for: .touchUpInside)
+        button.setImage(UIImage(named: "btn_pause"), for: .selected)
+        button.addTarget(self, action: #selector(onPlay(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -72,25 +74,30 @@ final class PlayerManagerView: UIView {
             backwardButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -8),
             backwardButton.widthAnchor.constraint(equalToConstant: 60),
             backwardButton.heightAnchor.constraint(equalToConstant: 60)
-        ])
+            ])
     }
-    
+
     private func setForwardConstraints() {
         addSubview(forwardButton)
         NSLayoutConstraint.activate([
             forwardButton.centerYAnchor.constraint(lessThanOrEqualTo: playButton.centerYAnchor),
-            forwardButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor,constant: 8),
+            forwardButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 8),
             forwardButton.widthAnchor.constraint(equalToConstant: 60),
             forwardButton.heightAnchor.constraint(equalToConstant: 60)
-        ])
+            ])
     }
 
     @objc func onbBackward() {
         delegate?.backward()
     }
 
-    @objc func onPlay() {
-        delegate?.play()
+    @objc func onPlay(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if !sender.isSelected {
+            delegate?.play()
+        } else {
+            delegate?.pause()
+        }
     }
 
     @objc func onForward() {

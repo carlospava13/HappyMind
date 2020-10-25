@@ -11,16 +11,26 @@ import TPKeyboardAvoiding
 
 final class LoginViewController: BaseViewController {
 
+    private lazy var topImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .center
+        imageView.image = UIImage(named: "toplogin")
+        return imageView
+    }()
+
+    private lazy var bottomImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .center
+        imageView.image = UIImage(named: "bottomlogin")
+        return imageView
+    }()
+
     private lazy var scrollView: TPKeyboardAvoidingScrollView = {
         let scrollView = TPKeyboardAvoidingScrollView(frame: .zero)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
-    }()
-
-    private lazy var loginImageBackgroundView: LoginImageBackgroundView = {
-        let view = LoginImageBackgroundView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }()
 
     private lazy var senaImageView: UIImageView = {
@@ -46,25 +56,16 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         ownPresenter.bind(self)
-        setLoginImageBackgroundView()
         setupScrollViewConstraints()
+        setTopImageViewConstraints()
+        setBottomImageViewConstraints()
         setSenaImageViewConstraints()
-//        setupContainerViewConstraints()
         setLoginContainerViewConstraints()
-    }
 
-    private func setLoginImageBackgroundView() {
-        view.addSubview(loginImageBackgroundView)
-        NSLayoutConstraint.activate([
-            loginImageBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            loginImageBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loginImageBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loginImageBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
     }
 
     private func setupScrollViewConstraints() {
-        loginImageBackgroundView.addSubview(scrollView)
+        view.addSubview(scrollView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: guides.topAnchor),
@@ -74,24 +75,47 @@ final class LoginViewController: BaseViewController {
             ])
     }
 
+    private func setTopImageViewConstraints() {
+        view.addSubview(topImageView)
+        NSLayoutConstraint.activate([
+            topImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            topImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            topImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topImageView.heightAnchor.constraint(equalToConstant: 100)
+            ])
+    }
+
+    private func setBottomImageViewConstraints() {
+        scrollView.addSubview(bottomImageView)
+        NSLayoutConstraint.activate([
+            bottomImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bottomImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomImageView.heightAnchor.constraint(equalToConstant: 100)
+            ])
+    }
+
     private func setSenaImageViewConstraints() {
         scrollView.addSubview(senaImageView)
         NSLayoutConstraint.activate([
-            senaImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 190),
+            senaImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant:  120),
             senaImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            senaImageView.widthAnchor.constraint(equalToConstant: 100),
-            senaImageView.heightAnchor.constraint(equalToConstant: 100)
+            senaImageView.widthAnchor.constraint(equalToConstant: 80),
+            senaImageView.heightAnchor.constraint(equalToConstant: 80)
             ])
     }
 
     private func setLoginContainerViewConstraints() {
         scrollView.addSubview(loginContainerView)
         NSLayoutConstraint.activate([
-            loginContainerView.topAnchor.constraint(equalTo: senaImageView.bottomAnchor, constant: 16),
+            loginContainerView.topAnchor.constraint(equalTo: senaImageView.bottomAnchor, constant: 32),
             loginContainerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+           // loginContainerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             loginContainerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
             loginContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),
-            loginContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 190)
+            loginContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -100)
             ])
     }
 }

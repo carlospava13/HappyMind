@@ -8,9 +8,10 @@
 
 import Foundation
 
-public enum CategoryType: Int {
-    case subcategory = 1
-    case other
+public enum CategoryType: String {
+    case subcategories
+    case themes
+    case other = "1"
 }
 
 public struct Category {

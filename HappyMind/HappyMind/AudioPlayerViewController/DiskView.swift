@@ -74,8 +74,6 @@ final class DiskView: UIView {
             diskImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             diskImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             diskImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-//            diskImageView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: 200),
-//            diskImageView.heightAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: 200)
             ])
         layoutIfNeeded()
     }
@@ -125,10 +123,7 @@ final class DiskView: UIView {
 
     private func calculateAngle(current: Double) {
         let progress: Double = 1 - current
-
-        print(progress)
         var endAngle: CGFloat = CGFloat(progress)
-
         if progress <= 0 {
             endAngle = CGFloat(0 * (2 * Double.pi) - (3 * Double.pi / 2))
         } else {
@@ -153,7 +148,6 @@ final class DiskView: UIView {
         let current = time / duration
         progressLayer.strokeEnd = CGFloat(current)
         calculateAngle(current: Double(current))
-        // startAnimating(current: current)
     }
 
     func setImage(_ image: UIImage) {

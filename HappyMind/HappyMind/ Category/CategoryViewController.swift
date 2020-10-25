@@ -22,8 +22,9 @@ final class CategoryViewController: BaseListViewController {
 
     override func viewDidLoad() {
         setNavigationTransparent(title: .localized(.happyMindTitle),
-            backgroundColor: .orange(),
-            textColor: .white)
+                                 backgroundColor: .white)
+        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
+                             color: .orange())
         ownPresenter?.bind(self)
         setupCollectionView()
         super.viewDidLoad()
