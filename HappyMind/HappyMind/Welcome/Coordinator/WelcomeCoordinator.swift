@@ -15,6 +15,7 @@ protocol LoginConnectionDelegate: AnyObject {
 protocol WelcomeCoordinatorDelegate: AnyObject {
     func showPlayerViewController()
     func dismiss()
+    func showVideo()
 }
 
 final class WelcomeCoordinator: BaseCoordinator {
@@ -53,6 +54,10 @@ extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
         router.dismissModule(animated: true) {
             self.loginConnectionDelegate?.showCategories()
         }
+    }
+    
+    func showVideo() {
+        VideoPlayerCoordinator(router: router).start()
     }
 }
 

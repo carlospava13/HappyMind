@@ -19,7 +19,7 @@ extension UIViewController {
         self.title = title
     }
 
-    func setFontNavigationBar(font: UIFont, color: UIColor = .white) {
+    func setFontNavigationBar(font: UIFont = UIFont.JosefinSansRegularFont()!, color: UIColor = .white) {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: color,
             NSAttributedString.Key.font: font]

@@ -21,11 +21,15 @@ final class WelcomeViewController: BaseListViewController {
     override func viewDidLoad() {
         ownPresenter?.bind(self)
         super.viewDidLoad()
-        setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange())
         setFontNavigationBar(font: UIFont.calibriBoldFont(size: 28)!)
         setupSkipButton()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationTransparent(title: .localized(.welcome), backgroundColor: .orange())
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -65,6 +69,10 @@ extension WelcomeViewController: WelcomeView {
 }
 
 extension WelcomeViewController: WelcomeDataSourceDelegate {
+    func showVideo() {
+        ownPresenter.showVideo()
+    }
+    
     func didSelected(welcome: WelcomeObject) {
         ownPresenter.didSelected()
     }

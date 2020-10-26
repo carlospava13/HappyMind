@@ -69,4 +69,8 @@ extension WelcomePresenter: WelcomePresenterType {
     func skip() {
         inputDependencies.coordinator?.dismiss()
     }
+    
+    func showVideo() {
+        inputDependencies.coordinator?.showVideo()
+    }
 }

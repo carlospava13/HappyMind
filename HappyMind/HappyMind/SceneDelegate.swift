@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = AudioPlayerViewController()// applicationCoordinator.toPresent()
+        window?.rootViewController = applicationCoordinator.toPresent()
         window?.makeKeyAndVisible()
-       // applicationCoordinator.start()
+        applicationCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

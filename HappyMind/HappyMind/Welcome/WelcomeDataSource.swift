@@ -11,6 +11,7 @@ import SkeletonView
 
 protocol WelcomeDataSourceDelegate: AnyObject {
     func didSelected(welcome: WelcomeObject)
+    func showVideo()
 }
 
 final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
@@ -40,15 +41,16 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
     }
 
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-
-        // Get the view for the first header
         let indexPath = IndexPath(row: 0, section: section)
         let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
 
-        // Use this view to calculate the optimal size based on the collection view's width
-        return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
-            withHorizontalFittingPriority: .required, // Width is fixed
-            verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+        if data.isEmpty {
+            return CGSize(width: collectionView.frame.width, height: 100)
+        } else {
+            return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                withHorizontalFittingPriority: .required,
+                verticalFittingPriority: .fittingSizeLevel)
+        }
     }
 
     override func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,6 +66,10 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelected(welcome: data[indexPath.section].data[indexPath.row])
+        if indexPath.row == 2 {
+            delegate?.showVideo()
+        } else {
+            delegate?.didSelected(welcome: data[indexPath.section].data[indexPath.row])
+        }
     }
 }

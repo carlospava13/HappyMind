@@ -92,11 +92,9 @@ final class AudioPlayerViewController: BaseViewController {
         return label
     }()
 
-    var player: AVPlayer!
+    private var player: AVPlayer?
     private var playerItemContext = 0
-    var timeObserverToken: Any?
-    var obs: NSKeyValueObservation?
-    var outputVolumeObserve: NSKeyValueObservation?
+    private var timeObserverToken: Any?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,13 +109,13 @@ final class AudioPlayerViewController: BaseViewController {
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         setBackButtonConstraints()
         setAudio()
+    }
+
+    deinit {
+        player = nil
+        timeObserverToken = nil
     }
 
     private func setBackButtonConstraints() {
@@ -210,15 +208,15 @@ final class AudioPlayerViewController: BaseViewController {
             options: [.old, .new],
             context: &playerItemContext)
         self.player = AVPlayer(playerItem: playerItem)
-        player.volume = AVAudioSession.sharedInstance().outputVolume
-        player.automaticallyWaitsToMinimizeStalling = false
-        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        player?.volume = AVAudioSession.sharedInstance().outputVolume
+        player?.automaticallyWaitsToMinimizeStalling = false
+        let floatTime = Float(CMTimeGetSeconds(player!.currentItem!.duration))
         diskView.setDuration(floatTime)
 
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
 
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time,
+        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: time,
             queue: .main) {
             [weak self] time in
             self?.currentTimeLabel.text = time.durationText
@@ -227,15 +225,15 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     @objc func onPlay() {
-        player.play()
+        player?.play()
     }
 
     @objc func onPause() {
-        player.pause()
+        player?.pause()
     }
 
     @objc func onSlider(_ sender: UISlider) {
-        player.volume = sender.value
+        player?.volume = sender.value
     }
 
     @objc func onBack() {
@@ -243,16 +241,16 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     private func moveCurrentTime(_ move: Float64) {
-        if let duration = player.currentItem?.duration {
+        if let duration = player?.currentItem?.duration {
             let playerCurrentTime = CMTimeGetSeconds(player!.currentTime())
             let newTime = playerCurrentTime + move
             if newTime < CMTimeGetSeconds(duration)
             {
                 let selectedTime: CMTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
-                player.seek(to: selectedTime)
+                player?.seek(to: selectedTime)
             }
-            player.pause()
-            player.play()
+            player?.pause()
+            player?.play()
         }
     }
 
@@ -279,10 +277,12 @@ final class AudioPlayerViewController: BaseViewController {
             // Switch over status value
             switch status {
             case .readyToPlay:
-                let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
-                durationTimeLabel.text = player.currentItem?.duration.durationText
-                diskView.setDuration(floatTime)
-                player.play()
+                if let player = self.player {
+                    let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+                    durationTimeLabel.text = player.currentItem?.duration.durationText
+                    diskView.setDuration(floatTime)
+                    player.play()
+                }
                 break
             case .failed:
                 print("failed")
@@ -307,13 +307,13 @@ extension AudioPlayerViewController: PlayerManagerViewDelegate {
     }
 
     func play() {
-        let floatTime = Float(CMTimeGetSeconds(player.currentItem!.duration))
+        let floatTime = Float(CMTimeGetSeconds(player!.currentItem!.duration))
         diskView.setDuration(floatTime)
-        player.play()
+        player?.play()
     }
 
     func pause() {
-        player.pause()
+        player?.pause()
     }
 
     func forward() {
