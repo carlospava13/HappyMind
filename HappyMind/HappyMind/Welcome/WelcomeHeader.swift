@@ -80,9 +80,6 @@ final class WelcomeHeader: UICollectionReusableView {
     }
 
     func set(title: String) {
-        UIView.animate(withDuration: 0.4, delay: 0, options: .layoutSubviews, animations: {
-            self.titleLabel.text = title
-            self.titleLabel.layoutIfNeeded()
-        }, completion: nil)
+        titleLabel.text = title
     }
 }

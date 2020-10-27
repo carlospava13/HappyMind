@@ -23,8 +23,8 @@ public final class GetSubCatogoryInteractor: BaseInteractor<String, [SubCategory
                 SubCategory(id: subcategory.id,
                     ref: subcategory.ref,
                     name: subcategory.name,
-                    mediaFile: SubCategoryFilePath(mediaPath: subcategory.mediaFile.mediaPath,
-                        mediaType: subcategory.mediaFile.mediaType))
+                    mediaFile: SubCategoryFilePath(mediaPath: subcategory.mediaFile.mediaPath ?? "",
+                        mediaType: subcategory.mediaFile.mediaType ?? ""))
             }
         }.eraseToAnyPublisher()
     }

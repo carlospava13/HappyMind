@@ -14,7 +14,7 @@ final class SubCategoryPresenter: BasePresenter {
     struct InputDependencies {
         weak var coordinator: SubCategoryCoordinatorDelegate?
         let getSubCatogoryInteractor: GetSubCatogoryInteractor
-        let categoryId: String
+        let category: HappyMindCore.Category
     }
 
     let inputDependencies: InputDependencies
@@ -28,16 +28,19 @@ final class SubCategoryPresenter: BasePresenter {
     }
 
     override func viewDidLoad() {
-        getSubcategories(idCategory: inputDependencies.categoryId)
+        getSubcategories(idCategory: inputDependencies.category.id)
+        ownView.set(title: inputDependencies.category.name)
     }
 
     func getSubcategories(idCategory: String) {
         ownView.showSkeleton()
         inputDependencies.getSubCatogoryInteractor.execute(idCategory).sink(receiveCompletion: { (completion) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+            switch completion {
+            case .failure(let error):
+                self.ownView.show(error)
+            case .finished:
                 self.ownView.hideSkeleton()
             }
-
         }) { (subcategories) in
             let section = [Section<SubCategory>(data: subcategories)]
             self.ownView.setData(section)
@@ -46,5 +49,7 @@ final class SubCategoryPresenter: BasePresenter {
 }
 
 extension SubCategoryPresenter: SubCategoryPresenterType {
-
+    func didSelected(subcategory: SubCategory) {
+        inputDependencies.coordinator?.showTheme(subcategory: subcategory)
+    }
 }

@@ -7,14 +7,15 @@
 //
 
 import Foundation
-
+import HappyMindCore
 protocol SubCategoryCoordinatorDelegate: AnyObject {
-
+    func showTheme(subcategory: HappyMindCore.SubCategory)
 }
 
 final class SubCategoryCoordinator: BaseCoordinator {
 
     private let interactorModule: InteractorModule
+    private var themeCoordinator: ThemeCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -22,14 +23,25 @@ final class SubCategoryCoordinator: BaseCoordinator {
         super.init(router: router)
     }
 
-    func start(categoryId: String) {
+    func start(category: HappyMindCore.Category) {
         let moduleInput = SubCategoryConfigurator.ModuleInput(coordinator: self,
-            interactorModule: interactorModule, categoryId: categoryId)
+            interactorModule: interactorModule, category: category)
         let module = SubCategoryConfigurator.module(moduleInput: moduleInput)
         router.push(module, transition: .none, animated: true, completion: nil)
+    }
+
+    func setThemeCoodinator(subcategory: SubCategory) {
+        let coordinator = ThemeCoordinator(router: router,
+            interactorModule: interactorModule,
+            subCategory: subcategory)
+        addDependency(coordinator)
+        themeCoordinator = coordinator
     }
 }
 
 extension SubCategoryCoordinator: SubCategoryCoordinatorDelegate {
-
+    func showTheme(subcategory: SubCategory) {
+        setThemeCoodinator(subcategory: subcategory)
+        themeCoordinator?.start()
+    }
 }

@@ -37,4 +37,8 @@ final class InteractorModule {
     lazy var getSubCatogoryInteractor: GetSubCatogoryInteractor = {
         GetSubCatogoryInteractor(repository: repositoryModule.subcategoryRepository)
     }()
+    
+    lazy var getThemeInteractor: GetThemeInteractor = {
+        GetThemeInteractor(repository: repositoryModule.themeRepository)
+    }()
 }

@@ -10,9 +10,10 @@ import Foundation
 import HappyMindCore
 
 protocol SubCategoryPresenterType: BasePresenterType {
-
+    func didSelected(subcategory: HappyMindCore.SubCategory)
 }
 
 protocol SubCategoryView: BaseView {
+    func set(title: String)
     func setData(_ subcategories: [Section<HappyMindCore.SubCategory>])
 }

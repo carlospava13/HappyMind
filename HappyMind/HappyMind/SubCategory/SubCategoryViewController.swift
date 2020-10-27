@@ -36,6 +36,10 @@ final class SubCategoryViewController: BaseListViewController {
 }
 
 extension SubCategoryViewController: SubCategoryView {
+    func set(title: String) {
+        self.title = title
+    }
+    
     func setData(_ subcategories: [Section<HappyMindCore.SubCategory>]) {
         dataSource.setData(subcategories)
         collectionView.reloadData()
@@ -44,6 +48,6 @@ extension SubCategoryViewController: SubCategoryView {
 
 extension SubCategoryViewController: SubCategoryDelegate {
     func didSelect(_ item: SubCategory) {
-        
+        ownPresenter.didSelected(subcategory: item)
     }
 }

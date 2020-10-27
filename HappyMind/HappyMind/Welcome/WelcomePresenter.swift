@@ -63,7 +63,7 @@ final class WelcomePresenter: BasePresenter {
 
 extension WelcomePresenter: WelcomePresenterType {
     func didSelected() {
-        inputDependencies.coordinator?.showPlayerViewController()
+        
     }
 
     func skip() {

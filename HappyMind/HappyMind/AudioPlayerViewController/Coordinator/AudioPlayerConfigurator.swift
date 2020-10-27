@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HappyMindCore
 
 final class AudioPlayerConfigurator {
 
@@ -14,14 +15,17 @@ final class AudioPlayerConfigurator {
 
         let applicationViewController = AudioPlayerViewController()
         let dependencies = createDependencies(
-            coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule)
+            coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule,
+            theme: moduleInput.theme)
         let presenter = AudioPlayerPresenter(inputDependencies: dependencies)
         applicationViewController.presenter = presenter
         return applicationViewController
     }
 
-    private static func createDependencies(coordinator: AudioPlayerCoodinatorDelegate?, interactorModule: InteractorModule) -> AudioPlayerPresenter.InputDependencies {
-        return AudioPlayerPresenter.InputDependencies(coordinator: coordinator)
+    private static func createDependencies(coordinator: AudioPlayerCoodinatorDelegate?, interactorModule: InteractorModule,
+                                           theme: Theme) -> AudioPlayerPresenter.InputDependencies {
+        return AudioPlayerPresenter.InputDependencies(coordinator: coordinator,
+                                                      theme: theme)
     }
 
     static func module(moduleInput: AudioPlayerConfigurator.ModuleInput) -> (UIViewController) {
@@ -32,5 +36,6 @@ extension AudioPlayerConfigurator {
     struct ModuleInput {
         weak var coordinator: AudioPlayerCoodinatorDelegate?
         let interactorModule: InteractorModule
+        let theme: Theme
     }
 }

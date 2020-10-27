@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SkeletonView
 import HappyMindCore
 
 final class CategoryViewController: BaseListViewController {

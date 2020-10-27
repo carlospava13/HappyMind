@@ -24,8 +24,8 @@ public final class GetCategoriesInteractor: BaseInteractor<Any, [Category]> {
                     ref: category.ref,
                     name: category.name,
                     type: CategoryType(rawValue: category.type)!,
-                    imagePath: CategoryFilePath(mediaPath: category.mediaFile.mediaPath,
-                        mediaType: category.mediaFile.mediaType))
+                    imagePath: CategoryFilePath(mediaPath: category.mediaFile.mediaPath ?? "",
+                        mediaType: category.mediaFile.mediaType ?? ""))
             }
         }.eraseToAnyPublisher()
     }

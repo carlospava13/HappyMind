@@ -33,6 +33,13 @@
 		D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1535DCF251FDA8800FF375D /* LaunchScreen.storyboard */; };
 		D1535DDC251FDA8800FF375D /* HappyMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DDB251FDA8800FF375D /* HappyMindTests.swift */; };
 		D1535DE7251FDA8800FF375D /* HappyMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */; };
+		D15C952C2547A6490028B881 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C952B2547A6490028B881 /* ThemeViewController.swift */; };
+		D15C95302547A6590028B881 /* ThemeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C952F2547A6590028B881 /* ThemeContract.swift */; };
+		D15C95342547A6620028B881 /* ThemePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95332547A6620028B881 /* ThemePresenter.swift */; };
+		D15C95392547A6740028B881 /* ThemeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95382547A6740028B881 /* ThemeCoordinator.swift */; };
+		D15C953D2547A6810028B881 /* ThemeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C953C2547A6810028B881 /* ThemeConfigurator.swift */; };
+		D15C95892547B5A40028B881 /* ThemeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95882547B5A40028B881 /* ThemeDataSource.swift */; };
+		D15C958D2547B61F0028B881 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C958C2547B61F0028B881 /* ThemeCell.swift */; };
 		D15FC076252D21D700C69DDA /* UIImage+assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC075252D21D700C69DDA /* UIImage+assets.swift */; };
 		D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC077252D221700C69DDA /* AssetsResources.swift */; };
 		D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC07A252D289600C69DDA /* LoginViewController.swift */; };
@@ -177,6 +184,13 @@
 		D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindUITests.swift; sourceTree = "<group>"; };
 		D1535DE8251FDA8800FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15C952B2547A6490028B881 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		D15C952F2547A6590028B881 /* ThemeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeContract.swift; sourceTree = "<group>"; };
+		D15C95332547A6620028B881 /* ThemePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePresenter.swift; sourceTree = "<group>"; };
+		D15C95382547A6740028B881 /* ThemeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCoordinator.swift; sourceTree = "<group>"; };
+		D15C953C2547A6810028B881 /* ThemeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurator.swift; sourceTree = "<group>"; };
+		D15C95882547B5A40028B881 /* ThemeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDataSource.swift; sourceTree = "<group>"; };
+		D15C958C2547B61F0028B881 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		D15FC075252D21D700C69DDA /* UIImage+assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+assets.swift"; sourceTree = "<group>"; };
 		D15FC077252D221700C69DDA /* AssetsResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResources.swift; sourceTree = "<group>"; };
 		D15FC07A252D289600C69DDA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +364,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D15C952A2547A61A0028B881 /* Theme */,
 				D1CB5D09254634EA00A66F32 /* VideoPlayerViewController */,
 				D17BFF6525451C92004E472B /* SubCategory */,
 				D132DC822544CD9F0079AE69 /* Font */,
@@ -392,6 +407,28 @@
 				D1535DE8251FDA8800FF375D /* Info.plist */,
 			);
 			path = HappyMindUITests;
+			sourceTree = "<group>";
+		};
+		D15C952A2547A61A0028B881 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				D15C95372547A6660028B881 /* Coordinator */,
+				D15C952B2547A6490028B881 /* ThemeViewController.swift */,
+				D15C952F2547A6590028B881 /* ThemeContract.swift */,
+				D15C95332547A6620028B881 /* ThemePresenter.swift */,
+				D15C95882547B5A40028B881 /* ThemeDataSource.swift */,
+				D15C958C2547B61F0028B881 /* ThemeCell.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		D15C95372547A6660028B881 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D15C95382547A6740028B881 /* ThemeCoordinator.swift */,
+				D15C953C2547A6810028B881 /* ThemeConfigurator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D15FC079252D288400C69DDA /* Login */ = {
@@ -569,7 +606,6 @@
 			isa = PBXGroup;
 			children = (
 				D191F35F252636F100A78126 /* Coordinator */,
-				D1EF97912525785D00B738B0 /* Subcategory */,
 				D1EF97752525268500B738B0 /* CategoryViewController.swift */,
 				D1EF977E2525290700B738B0 /* CategoryDataSource.swift */,
 				D1EF978025252D2200B738B0 /* CategoryCell.swift */,
@@ -605,13 +641,6 @@
 				D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		D1EF97912525785D00B738B0 /* Subcategory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Subcategory;
 			sourceTree = "<group>";
 		};
 		E389C03E04F3661C690B39E6 /* Pods */ = {
@@ -872,13 +901,16 @@
 			files = (
 				D1C4315D253CFD0300DA44A6 /* WelcomeDataSource.swift in Sources */,
 				6F97262925390D0500913342 /* RepositoryModule.swift in Sources */,
+				D15C95892547B5A40028B881 /* ThemeDataSource.swift in Sources */,
 				D1EF977B252526C100B738B0 /* BasePresenter.swift in Sources */,
 				D17BFF6B25451CDD004E472B /* SubCategoryPresenter.swift in Sources */,
+				D15C95392547A6740028B881 /* ThemeCoordinator.swift in Sources */,
 				D191F35C252635AE00A78126 /* MainRouter.swift in Sources */,
 				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
 				D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */,
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
+				D15C958D2547B61F0028B881 /* ThemeCell.swift in Sources */,
 				D1AC71D3253E579100D89D14 /* ApplicationPresenter.swift in Sources */,
 				D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */,
 				D1EF978125252D2200B738B0 /* CategoryCell.swift in Sources */,
@@ -901,6 +933,7 @@
 				D17BFF6725451CC5004E472B /* SubCategoryViewController.swift in Sources */,
 				D15FC07D252D28B900C69DDA /* LoginPresenter.swift in Sources */,
 				D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */,
+				D15C95302547A6590028B881 /* ThemeContract.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
 				D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
@@ -908,6 +941,7 @@
 				D15FC082252D291A00C69DDA /* LoginCoordinator.swift in Sources */,
 				D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
+				D15C952C2547A6490028B881 /* ThemeViewController.swift in Sources */,
 				D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */,
 				D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
@@ -931,6 +965,7 @@
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
+				D15C953D2547A6810028B881 /* ThemeConfigurator.swift in Sources */,
 				D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */,
 				D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */,
 				D15FC07B252D289600C69DDA /* LoginViewController.swift in Sources */,
@@ -946,6 +981,7 @@
 				D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */,
 				D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */,
 				D1EF97872525346C00B738B0 /* CategoryContract.swift in Sources */,
+				D15C95342547A6620028B881 /* ThemePresenter.swift in Sources */,
 				D1AC71D1253E578100D89D14 /* ApplicationContract.swift in Sources */,
 				D1CB5D182546353200A66F32 /* VideoPlayerCoordinator.swift in Sources */,
 			);

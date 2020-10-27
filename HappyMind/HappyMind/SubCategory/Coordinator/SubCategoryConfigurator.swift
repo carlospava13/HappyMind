@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import HappyMindCore
 final class SubCategoryConfigurator {
 
     static func configure(moduleInput: SubCategoryConfigurator.ModuleInput) -> UIViewController {
@@ -16,7 +16,7 @@ final class SubCategoryConfigurator {
         let dependencies = createDependencies(
             coordinator: moduleInput.coordinator,
             interactorModule: moduleInput.interactorModule,
-            categoryId: moduleInput.categoryId)
+            category: moduleInput.category)
         let presenter = SubCategoryPresenter(inputDependencies: dependencies)
         applicationViewController.presenter = presenter
         return applicationViewController
@@ -24,9 +24,9 @@ final class SubCategoryConfigurator {
 
     private static func createDependencies(coordinator: SubCategoryCoordinatorDelegate?,
                                            interactorModule: InteractorModule,
-                                           categoryId: String) -> SubCategoryPresenter.InputDependencies {
+                                           category: HappyMindCore.Category) -> SubCategoryPresenter.InputDependencies {
         return SubCategoryPresenter.InputDependencies(coordinator: coordinator, getSubCatogoryInteractor: interactorModule.getSubCatogoryInteractor,
-                                                      categoryId: categoryId)
+                                                      category: category)
     }
 
     static func module(moduleInput: SubCategoryConfigurator.ModuleInput) -> (UIViewController) {
@@ -37,6 +37,6 @@ extension SubCategoryConfigurator {
     struct ModuleInput {
         weak var coordinator: SubCategoryCoordinatorDelegate?
         let interactorModule: InteractorModule
-        let categoryId: String
+        let category: HappyMindCore.Category
     }
 }

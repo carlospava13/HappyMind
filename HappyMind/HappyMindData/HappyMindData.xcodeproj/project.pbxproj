@@ -25,6 +25,9 @@
 		6FE1D0502537BA4E00E78A4C /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04B2537BA4E00E78A4C /* ApiError.swift */; };
 		6FE1D0512537BA4E00E78A4C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04C2537BA4E00E78A4C /* BaseService.swift */; };
 		6FE1D0522537BA4E00E78A4C /* CategoryRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */; };
+		D15C95692547AA580028B881 /* ThemeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95682547AA580028B881 /* ThemeDto.swift */; };
+		D15C956D2547AD8B0028B881 /* ThemeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */; };
+		D15C95712547ADC00028B881 /* ThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95702547ADC00028B881 /* ThemeRepository.swift */; };
 		D1A1C0292545245700F09B59 /* SubCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C0282545245700F09B59 /* SubCategoryDto.swift */; };
 		D1A1C02B2545258A00F09B59 /* SubCategoryRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */; };
 		D1A1C02D254525B500F09B59 /* SubCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */; };
@@ -70,6 +73,9 @@
 		6FE1D04C2537BA4E00E78A4C /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRepositoryType.swift; sourceTree = "<group>"; };
 		9CF86D13B2F5A1811B00DA3A /* Pods-HappyMindData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindData.debug.xcconfig"; path = "Target Support Files/Pods-HappyMindData/Pods-HappyMindData.debug.xcconfig"; sourceTree = "<group>"; };
+		D15C95682547AA580028B881 /* ThemeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDto.swift; sourceTree = "<group>"; };
+		D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepositoryType.swift; sourceTree = "<group>"; };
+		D15C95702547ADC00028B881 /* ThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepository.swift; sourceTree = "<group>"; };
 		D1A1C0282545245700F09B59 /* SubCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDto.swift; sourceTree = "<group>"; };
 		D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryRepositoryType.swift; sourceTree = "<group>"; };
 		D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryRepository.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				6FE1D0372537BA4100E78A4C /* Category.swift */,
 				6F617228253938E700B7D9D8 /* User.swift */,
 				D1A1C0282545245700F09B59 /* SubCategoryDto.swift */,
+				D15C95682547AA580028B881 /* ThemeDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 				6F617226253935BD00B7D9D8 /* LoginRepository.swift */,
 				D1C4314C253CF4D000DA44A6 /* LocalStorageRepository.swift */,
 				D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */,
+				D15C95702547ADC00028B881 /* ThemeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 				6FE1D04E2537BA4E00E78A4C /* CategoryRepositoryType.swift */,
 				6F6172242539359100B7D9D8 /* LoginRepositoryType.swift */,
 				D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */,
+				D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */,
 			);
 			path = RepositoryTypes;
 			sourceTree = "<group>";
@@ -372,13 +381,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE1D0432537BA4100E78A4C /* BaseAPIClientType.swift in Sources */,
+				D15C95712547ADC00028B881 /* ThemeRepository.swift in Sources */,
 				6FE1D0402537BA4100E78A4C /* Category.swift in Sources */,
 				D1A1C02B2545258A00F09B59 /* SubCategoryRepositoryType.swift in Sources */,
+				D15C95692547AA580028B881 /* ThemeDto.swift in Sources */,
 				6FE1D0472537BA4100E78A4C /* Endpoint.swift in Sources */,
 				D1C4314B253CF49700DA44A6 /* LocalStorageKey.swift in Sources */,
 				D1C43148253CF46E00DA44A6 /* LocalStorageRepositoryType.swift in Sources */,
 				6F617227253935BD00B7D9D8 /* LoginRepository.swift in Sources */,
 				D1A1C0292545245700F09B59 /* SubCategoryDto.swift in Sources */,
+				D15C956D2547AD8B0028B881 /* ThemeRepositoryType.swift in Sources */,
 				6FE1D0502537BA4E00E78A4C /* ApiError.swift in Sources */,
 				D1C4314D253CF4D000DA44A6 /* LocalStorageRepository.swift in Sources */,
 				D1A1C02D254525B500F09B59 /* SubCategoryRepository.swift in Sources */,

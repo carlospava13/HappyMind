@@ -17,10 +17,10 @@ public struct CategoryDTO: Codable {
     public let ref: String
     public let name: String
     public let type: String
-    public let mediaFile: MediaFileDTO
+    public let mediaFile: MediaFileDto
 }
 
-public struct MediaFileDTO: Codable {
-    public let mediaPath: String
-    public let mediaType: String
+public struct MediaFileDto: Codable {
+    public let mediaPath: String?
+    public let mediaType: String?
 }

@@ -7,17 +7,15 @@
 //
 
 import Foundation
-
+import HappyMindCore
 protocol CategoryCoordinatorDelegate: AnyObject {
-    func showSubCategories(categoryId: String)
-    func showPlayer()
+    func showSubCategories(category: HappyMindCore.Category)
 }
 
 final class CategoryCoordinator: BaseCoordinator {
 
     private let interactorModule: InteractorModule
     private var subCategoryCoordinator: SubCategoryCoordinator?
-    private var playerCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -39,29 +37,16 @@ final class CategoryCoordinator: BaseCoordinator {
         addDependency(coordinator)
         subCategoryCoordinator = coordinator
     }
-
-    func setPlayerCoodinator() {
-        let coordinator = AudioPlayerCoodinator(router: router, interactorModule: interactorModule)
-        coordinator.removeReferenceDelegete = self
-        addDependency(coordinator)
-        playerCoordinator = coordinator
-    }
 }
 
 extension CategoryCoordinator: CategoryCoordinatorDelegate {
-    func showSubCategories(categoryId: String) {
-        subCategoryCoordinator?.start(categoryId: categoryId)
-    }
-    
-    func showPlayer() {
-        setPlayerCoodinator()
-        playerCoordinator?.start()
+    func showSubCategories(category: HappyMindCore.Category) {
+        subCategoryCoordinator?.start(category: category)
     }
 }
 
 extension CategoryCoordinator: RemoveReferenceDelegate {
     func removeReference(_ coodinator: BaseCoordinator) {
         removeDependency(coodinator)
-        playerCoordinator = nil
     }
 }

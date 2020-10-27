@@ -28,8 +28,12 @@ final class RepositoryModule {
     lazy var categoryRepository: CategoryRepositoryType = {
         CategoryRepository(service: service)
     }()
-    
+
     lazy var subcategoryRepository: SubCategoryRepositoryType = {
-         SubCategoryRepository(service: service)
-     }()
+        SubCategoryRepository(service: service)
+    }()
+
+    lazy var themeRepository: ThemeRepositoryType = {
+        ThemeRepository(service: service)
+    }()
 }

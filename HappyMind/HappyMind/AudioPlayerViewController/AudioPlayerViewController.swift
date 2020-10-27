@@ -91,13 +91,17 @@ final class AudioPlayerViewController: BaseViewController {
         label.text = "Gilberto Gonzalez"
         return label
     }()
+    
+    private var ownPresenter: AudioPlayerPresenterType! {
+        presenter as? AudioPlayerPresenterType
+    }
 
     private var player: AVPlayer?
     private var playerItemContext = 0
     private var timeObserverToken: Any?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        ownPresenter.bind(self)
         view.backgroundColor = .white
         setCircularProgressViewConstraints()
         setupDurationLabelConstraints()
@@ -110,7 +114,7 @@ final class AudioPlayerViewController: BaseViewController {
         gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         setBackButtonConstraints()
-        setAudio()
+        super.viewDidLoad()
     }
 
     deinit {
@@ -195,12 +199,15 @@ final class AudioPlayerViewController: BaseViewController {
             ])
     }
 
-    private func setAudio() {
-        let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=/themes/demo.mp3")!
-        play(url: url)
-    }
+//    private func setAudio() {
+//
+//
+//
+//        let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=/themes/demo.mp3")!
+//        play(url: url)
+//    }
 
-    func play(url: URL) {
+    private func play(url: URL) {
 
         let playerItem = AVPlayerItem(url: url)
         playerItem.addObserver(self,
@@ -298,7 +305,19 @@ final class AudioPlayerViewController: BaseViewController {
 }
 
 extension AudioPlayerViewController: AudioPlayerView {
+    func set(songTitle: String) {
+        nameSongLabel.text = songTitle
+    }
 
+    func set(author: String) {
+        nameAuthorLabel.text = author
+    }
+
+    func set(urlSong: String) {
+        if let url = URL(string: urlSong) {
+            play(url: url)
+        }
+    }
 }
 
 extension AudioPlayerViewController: PlayerManagerViewDelegate {

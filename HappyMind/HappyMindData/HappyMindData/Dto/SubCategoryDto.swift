@@ -17,14 +17,5 @@ public struct SubCategoryDTO: Codable {
     public let ref: String
     public let name: String
     public let categoryID: String
-    public let mediaFile: MediaFileDTO
+    public let mediaFile: MediaFileDto
 }
-
-//"id": "5f94d5ccae0d5c9cd6cb1ab0",
-//       "ref": "/subcategory/5f94d5ccae0d5c9cd6cb1ab0",
-//       "name": "updated Category testing api 2",
-//       "categoryID": "5f94d57cae0d5c9cd6cb1aaf",
-//       "mediaFile": {
-//           "mediaPath": "subcategories/5f94d5ccae0d5c9cd6cb1ab0.jpg",
-//           "mediaType": "image"
-//       }

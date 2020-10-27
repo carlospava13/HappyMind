@@ -9,7 +9,9 @@
 import Foundation
 
 protocol AudioPlayerView: BaseView {
-    
+    func set(songTitle: String)
+    func set(author: String)
+    func set(urlSong: String)
 }
 
 protocol AudioPlayerPresenterType: BasePresenterType {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HappyMindCore
 
 protocol AudioPlayerCoodinatorDelegate: AnyObject {
     func removeReference()
@@ -14,15 +15,19 @@ protocol AudioPlayerCoodinatorDelegate: AnyObject {
 
 final class AudioPlayerCoodinator: BaseCoordinator {
     private let interactorModule: InteractorModule
-
+    private let theme: Theme
+    
     init(router: RouterType,
-        interactorModule: InteractorModule) {
+        interactorModule: InteractorModule,
+        theme: Theme) {
         self.interactorModule = interactorModule
+        self.theme = theme
         super.init(router: router)
     }
 
     override func start() {
-        let moduleInput = AudioPlayerConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
+        let moduleInput = AudioPlayerConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule,
+            theme: theme)
         let module = AudioPlayerConfigurator.module(moduleInput: moduleInput)
         router.present(module)
     }
