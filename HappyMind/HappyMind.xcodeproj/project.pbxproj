@@ -81,7 +81,6 @@
 		D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43153253CF93900DA44A6 /* WelcomeContract.swift */; };
 		D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43156253CF94F00DA44A6 /* WelcomeCoordinator.swift */; };
 		D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43158253CF95B00DA44A6 /* WelcomeConfigurator.swift */; };
-		D1C4315B253CFCB700DA44A6 /* WelcomeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315A253CFCB700DA44A6 /* WelcomeObject.swift */; };
 		D1C4315D253CFD0300DA44A6 /* WelcomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */; };
 		D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4315F253CFD7600DA44A6 /* GenericCell.swift */; };
 		D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */; };
@@ -232,7 +231,6 @@
 		D1C43153253CF93900DA44A6 /* WelcomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContract.swift; sourceTree = "<group>"; };
 		D1C43156253CF94F00DA44A6 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		D1C43158253CF95B00DA44A6 /* WelcomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeConfigurator.swift; sourceTree = "<group>"; };
-		D1C4315A253CFCB700DA44A6 /* WelcomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeObject.swift; sourceTree = "<group>"; };
 		D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDataSource.swift; sourceTree = "<group>"; };
 		D1C4315F253CFD7600DA44A6 /* GenericCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCell.swift; sourceTree = "<group>"; };
 		D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
@@ -553,7 +551,6 @@
 				D1C4314F253CF92400DA44A6 /* WelcomeViewController.swift */,
 				D1C43151253CF92E00DA44A6 /* WelcomePresenter.swift */,
 				D1C43153253CF93900DA44A6 /* WelcomeContract.swift */,
-				D1C4315A253CFCB700DA44A6 /* WelcomeObject.swift */,
 				D1C4315C253CFD0300DA44A6 /* WelcomeDataSource.swift */,
 				D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */,
 				D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */,
@@ -945,7 +942,6 @@
 				D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */,
 				D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
-				D1C4315B253CFCB700DA44A6 /* WelcomeObject.swift in Sources */,
 				D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */,
 				D191F3612526370000A78126 /* CategoryCoordinator.swift in Sources */,
 				D191F3562526355800A78126 /* BaseCoordinator.swift in Sources */,

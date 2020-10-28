@@ -25,6 +25,8 @@
 		D1A1C031254526D800F09B59 /* GetSubCatogoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C030254526D800F09B59 /* GetSubCatogoryInteractor.swift */; };
 		D1AC71DF253E5AFC00D89D14 /* FirstTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71DE253E5AFC00D89D14 /* FirstTimeInteractor.swift */; };
 		D1AC71E6253E625400D89D14 /* SetFirstTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71E5253E625400D89D14 /* SetFirstTimeInteractor.swift */; };
+		D1D71C87254A22D40034E1AE /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */; };
+		D1D71C8A254A22FD0034E1AE /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C89254A22FD0034E1AE /* Welcome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		D1A1C030254526D800F09B59 /* GetSubCatogoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSubCatogoryInteractor.swift; sourceTree = "<group>"; };
 		D1AC71DE253E5AFC00D89D14 /* FirstTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeInteractor.swift; sourceTree = "<group>"; };
 		D1AC71E5253E625400D89D14 /* SetFirstTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFirstTimeInteractor.swift; sourceTree = "<group>"; };
+		D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		D1D71C89254A22FD0034E1AE /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		EC422C85CDECBC508604AC67 /* Pods_HappyMindCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDBAB851CB68ED15476E0FF /* Pods-HappyMindCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindCore.release.xcconfig"; path = "Target Support Files/Pods-HappyMindCore/Pods-HappyMindCore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,7 @@
 				D1AC71E5253E625400D89D14 /* SetFirstTimeInteractor.swift */,
 				D1A1C030254526D800F09B59 /* GetSubCatogoryInteractor.swift */,
 				D15C95742547AE4D0028B881 /* GetThemeInteractor.swift */,
+				D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				6F61723125393A6D00B7D9D8 /* User.swift */,
 				D1A1C02E2545266200F09B59 /* SubCategory.swift */,
 				D15C95772547AE650028B881 /* Theme.swift */,
+				D1D71C89254A22FD0034E1AE /* Welcome.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,7 +337,9 @@
 				D1A1C02F2545266200F09B59 /* SubCategory.swift in Sources */,
 				D1A1C031254526D800F09B59 /* GetSubCatogoryInteractor.swift in Sources */,
 				6FE1D0A92537DF3400E78A4C /* GetCategoriesInteractor.swift in Sources */,
+				D1D71C87254A22D40034E1AE /* WelcomeInteractor.swift in Sources */,
 				D1AC71DF253E5AFC00D89D14 /* FirstTimeInteractor.swift in Sources */,
+				D1D71C8A254A22FD0034E1AE /* Welcome.swift in Sources */,
 				6F61723225393A6D00B7D9D8 /* User.swift in Sources */,
 				D15C95752547AE4D0028B881 /* GetThemeInteractor.swift in Sources */,
 				6F97262B2539163000913342 /* BaseInteractor.swift in Sources */,

@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import HappyMindCore
 import SkeletonView
 
 protocol WelcomeDataSourceDelegate: AnyObject {
-    func didSelected(welcome: WelcomeObject)
+    func didSelected(welcome: Theme)
     func showVideo()
 }
 
-final class WelcomeDataSource: GenericDataSource<WelcomeCell, WelcomeObject> {
+final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
 
     weak var delegate: WelcomeDataSourceDelegate?
 

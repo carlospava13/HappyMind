@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
+import HappyMindCore
 protocol WelcomeView: BaseView {
-    func setData(_ welcomeList: [Section<WelcomeObject>])
+    func setData(_ welcomeList: [Section<Theme>])
 }
 
 protocol WelcomePresenterType: BasePresenterType {

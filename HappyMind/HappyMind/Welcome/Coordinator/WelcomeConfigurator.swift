@@ -21,7 +21,9 @@ final class WelcomeConfigurator {
     }
 
     private static func createDependencies(coordinator: WelcomeCoordinatorDelegate?, interactorModule: InteractorModule) -> WelcomePresenter.InputDependencies {
-        return WelcomePresenter.InputDependencies(coordinator: coordinator, setFirstTimeInteractor: interactorModule.setFirstTimeInteractor)
+        return WelcomePresenter.InputDependencies(coordinator: coordinator,
+                                                  setFirstTimeInteractor: interactorModule.setFirstTimeInteractor,
+                                                  welcomeInteractor: interactorModule.welcomeInteractor)
     }
 
     static func module(moduleInput: WelcomeConfigurator.ModuleInput) -> (UIViewController) {

@@ -14,6 +14,7 @@ final class WelcomePresenter: BasePresenter {
     struct InputDependencies {
         weak var coordinator: WelcomeCoordinatorDelegate?
         let setFirstTimeInteractor: SetFirstTimeInteractor
+        let welcomeInteractor: WelcomeInteractor
     }
 
     private let inputDependencies: InputDependencies
@@ -28,7 +29,7 @@ final class WelcomePresenter: BasePresenter {
 
     override func viewDidLoad() {
         //setFirtTimeInteractor()
-        populateData()
+        getWelcomeInfo()
     }
 
     private func setFirtTimeInteractor() {
@@ -42,34 +43,33 @@ final class WelcomePresenter: BasePresenter {
         }, receiveValue: { _ in }).store(in: &subscriptions)
     }
 
-    func populateData() {
+    private func getWelcomeInfo() {
         ownView.showSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.ownView.hideSkeleton()
-            let data = [
-                WelcomeObject(title: "Categoria1"),
-                WelcomeObject(title: "Categoria2"),
-                WelcomeObject(title: "Categoria3"),
-                WelcomeObject(title: "Categoria4"),
-                WelcomeObject(title: "Categoria5"),
-                WelcomeObject(title: "Categoria6"),
-                WelcomeObject(title: "Categoria7"),
-                WelcomeObject(title: "Categoria8"),
-                WelcomeObject(title: "Categoria9")]
-            self.ownView.setData([Section<WelcomeObject>(data: data, title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries")])
-        }
+        inputDependencies.welcomeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
+            switch completion {
+            case .failure(let error):
+                self?.ownView.show(error)
+            case .finished:
+                self?.ownView.hideSkeleton()
+            }
+        }, receiveValue: { [weak self] (welcome) in
+            let section = [Section<Theme>(data: welcome.welcomeThemes, title: welcome.welcomeMessage)]
+            self?.ownView.setData(section)
+        }).store(in: &subscriptions)
     }
+
+
 }
 
 extension WelcomePresenter: WelcomePresenterType {
     func didSelected() {
-        
+
     }
 
     func skip() {
         inputDependencies.coordinator?.dismiss()
     }
-    
+
     func showVideo() {
         inputDependencies.coordinator?.showVideo()
     }

@@ -41,4 +41,8 @@ final class InteractorModule {
     lazy var getThemeInteractor: GetThemeInteractor = {
         GetThemeInteractor(repository: repositoryModule.themeRepository)
     }()
+    
+    lazy var welcomeInteractor: WelcomeInteractor = {
+        WelcomeInteractor(repository: repositoryModule.welcomeRepository)
+    }()
 }

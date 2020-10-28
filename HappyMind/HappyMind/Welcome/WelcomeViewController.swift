@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import HappyMindCore
 import SkeletonView
+
 final class WelcomeViewController: BaseListViewController {
 
     private lazy var dataSource: WelcomeDataSource = {
@@ -62,7 +64,7 @@ final class WelcomeViewController: BaseListViewController {
 }
 
 extension WelcomeViewController: WelcomeView {
-    func setData(_ welcomeList: [Section<WelcomeObject>]) {
+    func setData(_ welcomeList: [Section<Theme>]) {
         dataSource.setData(welcomeList)
         collectionView.reloadData()
     }
@@ -73,7 +75,7 @@ extension WelcomeViewController: WelcomeDataSourceDelegate {
         ownPresenter.showVideo()
     }
     
-    func didSelected(welcome: WelcomeObject) {
+    func didSelected(welcome: Theme) {
         ownPresenter.didSelected()
     }
 }
