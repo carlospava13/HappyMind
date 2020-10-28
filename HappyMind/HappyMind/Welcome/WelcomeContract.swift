@@ -13,7 +13,6 @@ protocol WelcomeView: BaseView {
 }
 
 protocol WelcomePresenterType: BasePresenterType {
-    func didSelected()
+    func didSelected(_ theme: Theme)
     func skip()
-    func showVideo()
 }

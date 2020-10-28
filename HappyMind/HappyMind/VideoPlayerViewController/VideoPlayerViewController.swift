@@ -10,7 +10,9 @@ import AVKit
 import AVFoundation
 
 final class VideoPlayerViewController: AVPlayerViewController {
-
+    
+    var url: URL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -20,7 +22,7 @@ final class VideoPlayerViewController: AVPlayerViewController {
     }
 
     func setupPlayer() {
-        if let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=/themes/demo.mp4") {
+        if let url = self.url {
             let avPlayer = AVPlayer(url: url)
             player = avPlayer
             avPlayer.play()

@@ -24,7 +24,7 @@ public final class GetThemeInteractor: BaseInteractor<String, [Theme]> {
                              ref: themeDto.ref,
                              author: themeDto.author,
                              title: themeDto.title,
-                             type: themeDto.type,
+                             type: FileType(rawValue: themeDto.type)!,
                              coverImage: CoverImage(mediaPath: themeDto.coverImage.mediaPath,
                                                     mediaType: themeDto.coverImage.mediaType),
                              mediaFile: ThemeFilePath(mediaPath: themeDto.mediaFile.mediaPath ?? "",

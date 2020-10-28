@@ -62,15 +62,18 @@ final class WelcomePresenter: BasePresenter {
 }
 
 extension WelcomePresenter: WelcomePresenterType {
-    func didSelected() {
-
+    func didSelected(_ theme: Theme) {
+        switch theme.type {
+        case .audio:
+            inputDependencies.coordinator?.showAudio(theme: theme)
+            break
+        case .video:
+            inputDependencies.coordinator?.showVideo(theme: theme)
+            break
+        }
     }
 
     func skip() {
         inputDependencies.coordinator?.dismiss()
-    }
-
-    func showVideo() {
-        inputDependencies.coordinator?.showVideo()
     }
 }

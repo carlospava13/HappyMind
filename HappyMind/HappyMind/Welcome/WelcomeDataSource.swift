@@ -11,8 +11,7 @@ import HappyMindCore
 import SkeletonView
 
 protocol WelcomeDataSourceDelegate: AnyObject {
-    func didSelected(welcome: Theme)
-    func showVideo()
+    func didSelected(theme: Theme)
 }
 
 final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
@@ -67,10 +66,6 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
-            delegate?.showVideo()
-        } else {
-            delegate?.didSelected(welcome: data[indexPath.section].data[indexPath.row])
-        }
+        delegate?.didSelected(theme: data[indexPath.section].data[indexPath.row])
     }
 }

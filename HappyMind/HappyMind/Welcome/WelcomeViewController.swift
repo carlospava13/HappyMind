@@ -71,11 +71,7 @@ extension WelcomeViewController: WelcomeView {
 }
 
 extension WelcomeViewController: WelcomeDataSourceDelegate {
-    func showVideo() {
-        ownPresenter.showVideo()
-    }
-    
-    func didSelected(welcome: Theme) {
-        ownPresenter.didSelected()
+    func didSelected(theme: Theme) {
+        ownPresenter.didSelected(theme)
     }
 }

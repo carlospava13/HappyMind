@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import HappyMindCore
+
 
 final class VideoPlayerCoordinator: BaseCoordinator {
+    
+    private let theme: Theme
+    
+    init(router: RouterType,
+        theme: Theme) {
+        self.theme = theme
+        super.init(router: router)
+    }
+    
     override func start() {
-        router.push(VideoPlayerViewController(), transition: .none, animated: true, completion: nil)
+        let videoPlayerViewController = VideoPlayerViewController()
+        videoPlayerViewController.url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=" + theme.mediaFile.mediaPath)
+        router.push(videoPlayerViewController, transition: .none, animated: true, completion: nil)
     }
 }

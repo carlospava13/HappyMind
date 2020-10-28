@@ -8,12 +8,17 @@
 
 import Foundation
 
+public enum FileType: String {
+    case video
+    case audio
+}
+
 public struct Theme{
     public let id: String
     public let ref: String
     public let author: String
     public let title: String
-    public let type: String
+    public let type: FileType
     public let coverImage: CoverImage
     public let mediaFile: ThemeFilePath
     public let parentID: String
