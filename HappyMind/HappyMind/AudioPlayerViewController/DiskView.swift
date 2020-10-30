@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class DiskView: UIView {
 
@@ -19,7 +20,7 @@ final class DiskView: UIView {
     private lazy var diskImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "image1")
         return imageView
     }()
@@ -49,13 +50,17 @@ final class DiskView: UIView {
         super.init(coder: coder)
     }
 
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         miniCircleView.roundCorners(corners: .allCorners, radius: miniCircleView.frame.width / 2)
         diskImageView.roundCorners(corners: .allCorners, radius: diskImageView.frame.width / 2)
         createCircularPath()
         createMiniDiskPath()
         createPointWhitePath()
+    }
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+   
     }
 
     private func setContainerViewConstraints() {
@@ -75,6 +80,8 @@ final class DiskView: UIView {
             diskImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             diskImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             diskImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            diskImageView.widthAnchor.constraint(equalTo: containerView.heightAnchor),
+            diskImageView.heightAnchor.constraint(equalTo: containerView.widthAnchor)
             ])
     }
 
@@ -158,7 +165,9 @@ final class DiskView: UIView {
         calculateAngle(current: Double(current))
     }
 
-    func setImage(_ image: UIImage) {
-        diskImageView.image = image
+    func set(imageUrl: String) {
+        if let url = URL(string: imageUrl) {
+            diskImageView.sd_setImage(with: url) { (_, _, _, _) in }
+        }
     }
 }

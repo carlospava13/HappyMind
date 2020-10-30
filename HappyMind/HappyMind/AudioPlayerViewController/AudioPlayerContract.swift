@@ -6,12 +6,13 @@
 //  Copyright © 2020 Carlos Pava. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AudioPlayerView: BaseView {
     func set(songTitle: String)
     func set(author: String)
     func set(urlSong: String)
+    func set(imageUrl: String)
 }
 
 protocol AudioPlayerPresenterType: BasePresenterType {

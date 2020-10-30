@@ -49,6 +49,7 @@
 		D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC083252D292400C69DDA /* LoginConfigurator.swift */; };
 		D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC086252D2D1900C69DDA /* LoginContainerView.swift */; };
 		D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15FC088252D3DD600C69DDA /* UITextField+Components.swift */; };
+		D17971D4254B8BB4001ADCDA /* VolumeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17971D3254B8BB4001ADCDA /* VolumeSliderView.swift */; };
 		D17BFF6725451CC5004E472B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */; };
 		D17BFF6925451CD1004E472B /* SubCategoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6825451CD1004E472B /* SubCategoryContract.swift */; };
 		D17BFF6B25451CDD004E472B /* SubCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */; };
@@ -88,6 +89,7 @@
 		D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43165253D15B400DA44A6 /* UIColor+Color.swift */; };
 		D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */; };
 		D1CB5D182546353200A66F32 /* VideoPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */; };
+		D1E36F2E254AFABC00272920 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
 		D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */; };
 		D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */; };
@@ -199,6 +201,7 @@
 		D15FC083252D292400C69DDA /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
 		D15FC086252D2D1900C69DDA /* LoginContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainerView.swift; sourceTree = "<group>"; };
 		D15FC088252D3DD600C69DDA /* UITextField+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Components.swift"; sourceTree = "<group>"; };
+		D17971D3254B8BB4001ADCDA /* VolumeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSliderView.swift; sourceTree = "<group>"; };
 		D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		D17BFF6825451CD1004E472B /* SubCategoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryContract.swift; sourceTree = "<group>"; };
 		D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryPresenter.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 		D1C43165253D15B400DA44A6 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerCoordinator.swift; sourceTree = "<group>"; };
+		D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		D1EF97632525258C00B738B0 /* CollectionViewCellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellIdentifier.swift; sourceTree = "<group>"; };
 		D1EF97662525258C00B738B0 /* CollectionViewHorizontalCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHorizontalCustom.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D1E36F2C254AFAAA00272920 /* Common */,
 				D15C952A2547A61A0028B881 /* Theme */,
 				D1CB5D09254634EA00A66F32 /* VideoPlayerViewController */,
 				D17BFF6525451C92004E472B /* SubCategory */,
@@ -522,6 +527,7 @@
 				D1AC71EC253E6E5200D89D14 /* AudioPlayerPresenter.swift */,
 				D13645962543CBCE00CEFBFD /* DiskView.swift */,
 				D13645982543FC6800CEFBFD /* PlayerManagerView.swift */,
+				D17971D3254B8BB4001ADCDA /* VolumeSliderView.swift */,
 			);
 			path = AudioPlayerViewController;
 			sourceTree = "<group>";
@@ -582,6 +588,14 @@
 				D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */,
 			);
 			path = coordinator;
+			sourceTree = "<group>";
+		};
+		D1E36F2C254AFAAA00272920 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		D1EF97612525257300B738B0 /* BaseCollection */ = {
@@ -935,6 +949,7 @@
 				D1535DC6251FDA8600FF375D /* ViewController.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
 				D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */,
+				D17971D4254B8BB4001ADCDA /* VolumeSliderView.swift in Sources */,
 				D15FC082252D291A00C69DDA /* LoginCoordinator.swift in Sources */,
 				D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
@@ -956,6 +971,7 @@
 				D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */,
 				D1C43159253CF95B00DA44A6 /* WelcomeConfigurator.swift in Sources */,
 				D191F35E252635C800A78126 /* Presentable.swift in Sources */,
+				D1E36F2E254AFABC00272920 /* BackgroundImageView.swift in Sources */,
 				D1AC71EB253E6E4500D89D14 /* AudioPlayerContract.swift in Sources */,
 				D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */,
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,

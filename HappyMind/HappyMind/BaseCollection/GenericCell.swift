@@ -27,7 +27,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.isSkeletonable = true
         imageView.backgroundColor = .gray
         return imageView

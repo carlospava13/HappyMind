@@ -12,6 +12,12 @@ import AVFoundation
 
 final class AudioPlayerViewController: BaseViewController {
 
+    private lazy var imageBackgroundView: BackgroundImageView = {
+        let view = BackgroundImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -59,17 +65,11 @@ final class AudioPlayerViewController: BaseViewController {
         return playerManagerView
     }()
 
-    private lazy var volumeSlider: UISlider = {
-        let slider = UISlider()
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.minimumValue = 0
-        slider.maximumValue = 1
-        slider.isContinuous = true
-        slider.tintColor = .orange()
-        slider.maximumTrackTintColor = .white
-        slider.value = AVAudioSession.sharedInstance().outputVolume
-        slider.addTarget(self, action: #selector(onSlider(_:)), for: .valueChanged)
-        return slider
+    private lazy var volumeSlider: VolumeSliderView = {
+        let volumeSliderView = VolumeSliderView()
+        volumeSliderView.delegate = self
+        volumeSliderView.translatesAutoresizingMaskIntoConstraints = false
+        return volumeSliderView
     }()
 
     private lazy var nameSongLabel: UILabel = {
@@ -78,7 +78,6 @@ final class AudioPlayerViewController: BaseViewController {
         label.textColor = .orange()
         label.font = UIFont.calibriBoldFont(size: 28)
         label.textAlignment = .center
-        label.text = "Tu vida es aqui y ahora"
         return label
     }()
 
@@ -88,10 +87,9 @@ final class AudioPlayerViewController: BaseViewController {
         label.textColor = .orange()
         label.font = UIFont.calibriRegularFont(size: 28)
         label.textAlignment = .center
-        label.text = "Gilberto Gonzalez"
         return label
     }()
-    
+
     private var ownPresenter: AudioPlayerPresenterType! {
         presenter as? AudioPlayerPresenterType
     }
@@ -103,16 +101,14 @@ final class AudioPlayerViewController: BaseViewController {
     override func viewDidLoad() {
         ownPresenter.bind(self)
         view.backgroundColor = .white
+        setImageBackgroundViewConstraints()
         setCircularProgressViewConstraints()
         setupDurationLabelConstraints()
         setPlayerManagerViewConstraints()
         setSliderConstraints()
         setNameSongLabelConstraints()
         setNameAuthorLabelConstraints()
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+
         setBackButtonConstraints()
         super.viewDidLoad()
     }
@@ -122,33 +118,42 @@ final class AudioPlayerViewController: BaseViewController {
         timeObserverToken = nil
     }
 
-    private func setBackButtonConstraints() {
-        view.addSubview(backButton)
+    private func setImageBackgroundViewConstraints() {
+        view.addSubview(imageBackgroundView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: guides.topAnchor, constant: 8),
-            backButton.leadingAnchor.constraint(equalTo: guides.leadingAnchor, constant: 8),
+            imageBackgroundView.topAnchor.constraint(equalTo: guides.topAnchor),
+            imageBackgroundView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
+            imageBackgroundView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
+            imageBackgroundView.bottomAnchor.constraint(equalTo: guides.bottomAnchor)
+            ])
+    }
+
+    private func setBackButtonConstraints() {
+        imageBackgroundView.addSubview(backButton)
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: imageBackgroundView.topAnchor, constant: 8),
+            backButton.leadingAnchor.constraint(equalTo: imageBackgroundView.leadingAnchor, constant: 8),
             backButton.widthAnchor.constraint(equalToConstant: 40),
             backButton.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
 
     private func setCircularProgressViewConstraints() {
-        view.addSubview(diskView)
+        imageBackgroundView.addSubview(diskView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            diskView.topAnchor.constraint(equalTo: guides.topAnchor, constant: 64),
+            diskView.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 60),
             diskView.centerXAnchor.constraint(equalTo: guides.centerXAnchor),
-            diskView.widthAnchor.constraint(lessThanOrEqualTo: guides.widthAnchor, multiplier: 0.7),
-            diskView.heightAnchor.constraint(lessThanOrEqualTo: guides.widthAnchor, multiplier: 0.7)
+            diskView.leadingAnchor.constraint(equalTo: guides.leadingAnchor, constant: 58),
+            diskView.trailingAnchor.constraint(equalTo: guides.trailingAnchor, constant: -58)
             ])
-        diskView.layoutIfNeeded()
     }
 
     private func setupDurationLabelConstraints() {
-        view.addSubview(timeStackView)
+        imageBackgroundView.addSubview(timeStackView)
         NSLayoutConstraint.activate([
-            timeStackView.topAnchor.constraint(equalTo: diskView.bottomAnchor),
+            timeStackView.topAnchor.constraint(greaterThanOrEqualTo: diskView.bottomAnchor, constant: 16),
             timeStackView.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
             timeStackView.trailingAnchor.constraint(equalTo: diskView.trailingAnchor),
             timeStackView.heightAnchor.constraint(equalToConstant: 40)
@@ -159,9 +164,9 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     private func setPlayerManagerViewConstraints() {
-        view.addSubview(playerManagerView)
+        imageBackgroundView.addSubview(playerManagerView)
         NSLayoutConstraint.activate([
-            playerManagerView.topAnchor.constraint(equalTo: timeStackView.bottomAnchor, constant: 16),
+            playerManagerView.topAnchor.constraint(greaterThanOrEqualTo: timeStackView.bottomAnchor, constant: 16),
             playerManagerView.centerXAnchor.constraint(equalTo: diskView.centerXAnchor),
             playerManagerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             playerManagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -170,45 +175,37 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     private func setSliderConstraints() {
-        view.addSubview(volumeSlider)
+        imageBackgroundView.addSubview(volumeSlider)
         NSLayoutConstraint.activate([
-            volumeSlider.topAnchor.constraint(equalTo: playerManagerView.bottomAnchor, constant: 32),
-            volumeSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            volumeSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            volumeSlider.topAnchor.constraint(greaterThanOrEqualTo: playerManagerView.bottomAnchor, constant: 16),
+            volumeSlider.leadingAnchor.constraint(equalTo: diskView.leadingAnchor),
+            volumeSlider.trailingAnchor.constraint(equalTo: diskView.trailingAnchor),
             volumeSlider.heightAnchor.constraint(equalToConstant: 20)
             ])
     }
 
     private func setNameSongLabelConstraints() {
-        view.addSubview(nameSongLabel)
+        imageBackgroundView.addSubview(nameSongLabel)
         NSLayoutConstraint.activate([
             nameSongLabel.topAnchor.constraint(equalTo: volumeSlider.bottomAnchor, constant: 16),
             nameSongLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             nameSongLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            nameSongLabel.heightAnchor.constraint(equalToConstant: 20)
+            nameSongLabel.heightAnchor.constraint(equalToConstant: 30)
             ])
     }
 
     private func setNameAuthorLabelConstraints() {
-        view.addSubview(nameAuthorLabel)
+        imageBackgroundView.addSubview(nameAuthorLabel)
         NSLayoutConstraint.activate([
             nameAuthorLabel.topAnchor.constraint(equalTo: nameSongLabel.bottomAnchor, constant: 16),
             nameAuthorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             nameAuthorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            nameAuthorLabel.heightAnchor.constraint(equalToConstant: 20),
+            nameAuthorLabel.heightAnchor.constraint(equalToConstant: 30),
+            nameAuthorLabel.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -120       )
             ])
     }
 
-//    private func setAudio() {
-//
-//
-//
-//        let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=/themes/demo.mp3")!
-//        play(url: url)
-//    }
-
     private func play(url: URL) {
-
         let playerItem = AVPlayerItem(url: url)
         playerItem.addObserver(self,
             forKeyPath: #keyPath(AVPlayerItem.status),
@@ -237,10 +234,6 @@ final class AudioPlayerViewController: BaseViewController {
 
     @objc func onPause() {
         player?.pause()
-    }
-
-    @objc func onSlider(_ sender: UISlider) {
-        player?.volume = sender.value
     }
 
     @objc func onBack() {
@@ -304,6 +297,12 @@ final class AudioPlayerViewController: BaseViewController {
     }
 }
 
+extension AudioPlayerViewController: VolumeSliderViewDelage {
+    func slider(_ value: Float) {
+        player?.volume = value
+    }
+}
+
 extension AudioPlayerViewController: AudioPlayerView {
     func set(songTitle: String) {
         nameSongLabel.text = songTitle
@@ -318,11 +317,16 @@ extension AudioPlayerViewController: AudioPlayerView {
             play(url: url)
         }
     }
+
+    func set(imageUrl: String) {
+        imageBackgroundView.set(imageUrl: imageUrl)
+        diskView.set(imageUrl: imageUrl) 
+    }
 }
 
 extension AudioPlayerViewController: PlayerManagerViewDelegate {
     func backward() {
-        moveCurrentTime(-5)
+        moveCurrentTime(-15)
     }
 
     func play() {
@@ -336,6 +340,6 @@ extension AudioPlayerViewController: PlayerManagerViewDelegate {
     }
 
     func forward() {
-        moveCurrentTime(5)
+        moveCurrentTime(15)
     }
 }
