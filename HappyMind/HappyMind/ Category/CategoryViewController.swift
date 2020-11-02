@@ -20,12 +20,16 @@ final class CategoryViewController: BaseListViewController {
     }
 
     override func viewDidLoad() {
+        ownPresenter?.bind(self)
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setNavigationTransparent(title: .localized(.happyMindTitle),
                                  backgroundColor: .white)
         setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
                              color: .orange())
-        ownPresenter?.bind(self)
-        super.viewDidLoad()
     }
                                
     override func setupCollectionView() {

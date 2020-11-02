@@ -9,5 +9,5 @@
 import Combine
 
 public protocol ThemeRepositoryType {
-    func getThemes(idSubCategory: String) -> AnyPublisher<ThemesDto, Error>
+    func getThemes(token: String, idSubCategory: String) -> AnyPublisher<ThemesDto, Error>
 }

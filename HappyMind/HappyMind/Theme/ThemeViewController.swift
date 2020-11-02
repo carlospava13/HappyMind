@@ -26,6 +26,7 @@ final class ThemeViewController: BaseListViewController {
         setupCollectionView()
         onwPresenter.bind(self)
         super.viewDidLoad()
+        setBackButtonItem(tintColor: .gray)
     }
 
 

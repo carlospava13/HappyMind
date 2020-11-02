@@ -23,6 +23,7 @@ final class SubCategoryViewController: BaseListViewController {
     override func viewDidLoad() {
         ownPresenter.bind(self)
         super.viewDidLoad()
+        setBackButtonItem(tintColor: .gray)
     }
 
     override func setupCollectionView() {

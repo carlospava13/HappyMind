@@ -64,7 +64,9 @@ final class WelcomeViewController: BaseListViewController {
 
 extension WelcomeViewController: WelcomeView {
     func set(hiddeSkip: Bool) {
-        if !hiddeSkip {
+        if hiddeSkip {
+            setBackButtonItem(tintColor: .white)
+        } else {
             setupSkipButton()
         }
     }

@@ -23,6 +23,7 @@ extension UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: color,
             NSAttributedString.Key.font: font]
+       
     }
 }
 
