@@ -31,11 +31,11 @@ final class InteractorModule {
     }()
 
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {
-        GetCategoriesInteractor(repository: repositoryModule.categoryRepository)
+        GetCategoriesInteractor(repository: repositoryModule.categoryRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
     
     lazy var getSubCatogoryInteractor: GetSubCatogoryInteractor = {
-        GetSubCatogoryInteractor(repository: repositoryModule.subcategoryRepository)
+        GetSubCatogoryInteractor(repository: repositoryModule.subcategoryRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
     
     lazy var getThemeInteractor: GetThemeInteractor = {
@@ -43,6 +43,7 @@ final class InteractorModule {
     }()
     
     lazy var welcomeInteractor: WelcomeInteractor = {
-        WelcomeInteractor(repository: repositoryModule.welcomeRepository)
+        WelcomeInteractor(repository: repositoryModule.welcomeRepository,
+                          localStorageRepository: repositoryModule.localStorageRepository)
     }()
 }

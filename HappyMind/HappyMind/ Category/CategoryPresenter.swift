@@ -33,8 +33,12 @@ final class CategoryPresenter: BasePresenter {
     private func getCategories() {
         ownView.showSkeleton()
         inputDependencies.getCategoriesInteractor.execute().sink(receiveCompletion: { [weak self] (completion) in
-            print(completion)
-            self?.ownView.hideSkeleton()
+            switch completion {
+            case .failure(let error):
+                self?.ownView.show(error)
+            case .finished:
+                self?.ownView.hideSkeleton()
+            }
         }) { [weak self](categories) in
             let section = [Section<HappyMindCore.Category>(data: categories)]
             self?.ownView.setData(section)
@@ -53,5 +57,9 @@ extension CategoryPresenter: CategoryPresenterType {
         case .other:
             break
         }
+    }
+    
+    func goToWelcome() {
+        inputDependencies.coordinator?.showWelcome()
     }
 }

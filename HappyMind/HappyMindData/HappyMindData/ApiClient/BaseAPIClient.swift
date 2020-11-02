@@ -25,7 +25,7 @@ final public class BaseAPIClient: BaseAPIClientType {
                 method: endpoint.method,
                 parameters: endpoint.parameters,
                 encoding: endpoint.parameterEncoding,
-                headers: nil).responseData { (response) in
+                headers: endpoint.header).responseData { (response) in
                 switch response.result {
                 case.success(let data):
                     do {

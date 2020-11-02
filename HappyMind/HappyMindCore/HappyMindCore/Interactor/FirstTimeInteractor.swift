@@ -17,13 +17,6 @@ public final class FirstTimeInteractor: BaseInteractor<Any?, Bool> {
     }
 
     public override func execute(_ params: Any?) -> AnyPublisher<Bool, Error> {
-        return Future<Bool, Error> { promisse in
-            do {
-                let isFirstTime: Bool = try self.localStorageRepository.getData(key: .firstTime)
-                promisse(.success(isFirstTime))
-            } catch (let error) {
-                promisse(.failure(error))
-            }
-        }.eraseToAnyPublisher()
+        return localStorageRepository.getData(key: .firstTime)
     }
 }

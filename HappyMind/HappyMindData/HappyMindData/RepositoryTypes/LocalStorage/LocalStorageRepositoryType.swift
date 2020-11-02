@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Combine
 
 public protocol LocalStorageRepositoryType {
     func saveData(value: Any, key: LocalStorageKey)
-    func getData<T>(key: LocalStorageKey) throws -> T
+    func getData<T>(key: LocalStorageKey) -> AnyPublisher<T, Error>
     func remove(key: LocalStorageKey)
 }

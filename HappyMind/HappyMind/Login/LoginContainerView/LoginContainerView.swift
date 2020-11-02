@@ -46,6 +46,7 @@ final class LoginContainerView: UIView {
         textField.placeholder = .localized(.email)
         textField.layer.cornerRadius = 10
         textField.font = UIFont.calibriRegularFont(size: 22)
+        textField.overrideUserInterfaceStyle = .light
         textField.addBorder()
         textField.addLeftPadding()
         return textField
@@ -58,6 +59,7 @@ final class LoginContainerView: UIView {
         textField.layer.cornerRadius = 10
         textField.isSecureTextEntry = true
         textField.font = UIFont.calibriRegularFont(size: 22)
+        textField.overrideUserInterfaceStyle = .light
         textField.addBorder()
         textField.addLeftPadding()
         return textField

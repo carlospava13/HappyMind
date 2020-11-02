@@ -16,9 +16,10 @@ public final class WelcomeRepositoty: WelcomeRepositoryType {
         self.service = service
     }
 
-    public func getThemes() -> AnyPublisher<WelcomeDto, Error> {
+    public func getThemes(token: String) -> AnyPublisher<WelcomeDto, Error> {
         let path = "welcome"
-        let endpoint = Endpoint(method: .get, relativePath: path)
+        let endpoint = Endpoint(method: .get, relativePath: path,
+                                header: ["Authorization": "Bearer \(token)"])
         return service.apiClient.request(endpoint)
     }
 }

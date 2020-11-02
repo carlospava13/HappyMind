@@ -16,8 +16,10 @@ public final class CategoryRepository: CategoryRepositoryType {
         self.service = service
     }
     
-    public func getCategories() -> AnyPublisher<CategoriesDTO, Error> {
-        let endpoint = Endpoint(method: .get, relativePath: "categories")
+    public func getCategories(token: String) -> AnyPublisher<CategoriesDTO, Error> {
+        let endpoint = Endpoint(method: .get,
+                                relativePath: "categories",
+                                header: ["Authorization": "Bearer \(token)"])
         return service.apiClient.request(endpoint)
     }
 }

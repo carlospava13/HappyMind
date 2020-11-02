@@ -9,5 +9,5 @@
 import Combine
 
 public protocol SubCategoryRepositoryType {
-    func getSubCategories(idCategory: String) -> AnyPublisher<SubCategoriesDTO, Error>
+    func getSubCategories(token: String, idCategory: String) -> AnyPublisher<SubCategoriesDTO, Error>
 }

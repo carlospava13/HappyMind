@@ -15,10 +15,11 @@ public final class SubCategoryRepository: SubCategoryRepositoryType {
     public init(service: BaseService) {
         self.service = service
     }
-    
-    public func getSubCategories(idCategory: String) -> AnyPublisher<SubCategoriesDTO, Error> {
+
+    public func getSubCategories(token: String, idCategory: String) -> AnyPublisher<SubCategoriesDTO, Error> {
         let path = "category/\(idCategory)/subcategories"
-        let endpoint = Endpoint(method: .get, relativePath: path)
+        let endpoint = Endpoint(method: .get, relativePath: path,
+                                header: ["Authorization": "Bearer \(token)"])
         return service.apiClient.request(endpoint)
     }
 }

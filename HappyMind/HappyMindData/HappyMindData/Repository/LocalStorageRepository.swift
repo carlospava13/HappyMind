@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 public final class LocalStorageRepository: LocalStorageRepositoryType {
 
@@ -21,11 +22,13 @@ public final class LocalStorageRepository: LocalStorageRepositoryType {
     public func remove(key: LocalStorageKey) {
         defaults.removeObject(forKey: key.rawValue)
     }
-    
-    public func getData<T>(key: LocalStorageKey) throws -> T {
-        guard let data = defaults.value(forKey: key.rawValue) as? T else {
-            throw LocalStorageError.notFound
-        }
-        return data
+
+    public func getData<T>(key: LocalStorageKey) -> AnyPublisher<T, Error> {
+        Future<T, Error> ({ emitter in
+            if let data = self.defaults.value(forKey: key.rawValue) as? T {
+                emitter(.success(data))
+            }
+            emitter(.failure(LocalStorageError.notFound))
+        }).eraseToAnyPublisher()
     }
 }

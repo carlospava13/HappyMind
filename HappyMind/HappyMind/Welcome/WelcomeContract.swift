@@ -9,6 +9,7 @@
 import Foundation
 import HappyMindCore
 protocol WelcomeView: BaseView {
+    func set(hiddeSkip: Bool)
     func setData(_ welcomeList: [Section<Theme>])
 }
 

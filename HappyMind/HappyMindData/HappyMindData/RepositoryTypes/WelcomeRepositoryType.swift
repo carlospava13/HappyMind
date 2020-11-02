@@ -9,5 +9,5 @@
 import Combine
 
 public protocol WelcomeRepositoryType {
-    func getThemes() -> AnyPublisher<WelcomeDto, Error>
+    func getThemes(token: String) -> AnyPublisher<WelcomeDto, Error>
 }

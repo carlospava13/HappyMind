@@ -27,8 +27,8 @@ public final class GetThemeInteractor: BaseInteractor<String, [Theme]> {
                              type: FileType(rawValue: themeDto.type)!,
                              coverImage: CoverImage(mediaPath: themeDto.coverImage.mediaPath,
                                                     mediaType: themeDto.coverImage.mediaType),
-                             mediaFile: ThemeFilePath(mediaPath: themeDto.mediaFile.mediaPath ?? "",
-                                                      mediaType: themeDto.mediaFile.mediaType ?? ""),
+                             mediaFile: ThemeFilePath(mediaPath: themeDto.mediaFile?.mediaPath ?? "",
+                                                      mediaType: themeDto.mediaFile?.mediaType ?? ""),
                              parentID: themeDto.parentID)
             }
         }.eraseToAnyPublisher()

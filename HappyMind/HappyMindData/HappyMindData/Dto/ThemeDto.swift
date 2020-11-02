@@ -15,11 +15,11 @@ public struct ThemesDto: Codable {
 public struct ThemeDto: Codable {
     public let id: String
     public let ref: String
-    public let author: String
     public let title: String
+    public let author: String
     public let type: String
     public let coverImage: CoverImageDto
-    public let mediaFile: MediaFileDto
+    public let mediaFile: MediaFileDto?
     public let parentID: String
 }
 

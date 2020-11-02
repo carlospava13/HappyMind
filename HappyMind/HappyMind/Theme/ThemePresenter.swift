@@ -34,16 +34,16 @@ final class ThemePresenter: BasePresenter {
 
     private func getThemes() {
         ownView.showSkeleton()
-        inputDependencies.getThemeInteractor.execute(inputDependencies.subCategory.id).sink { (completion) in
+        inputDependencies.getThemeInteractor.execute(inputDependencies.subCategory.id).sink { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self.ownView.show(error)
+                self?.ownView.show(error)
             case .finished:
-                self.ownView.hideSkeleton()
+                self?.ownView.hideSkeleton()
             }
-        } receiveValue: { (themes) in
+        } receiveValue: { [weak self] (themes) in
             let section = [Section<HappyMindCore.Theme>(data: themes)]
-            self.ownView.setData(section)
+            self?.ownView.setData(section)
         }.store(in: &subscriptions)
     }
 
@@ -51,6 +51,11 @@ final class ThemePresenter: BasePresenter {
 
 extension ThemePresenter: ThemePresenterType {
     func didSelected(theme: Theme) {
-        inputDependencies.coordinator?.showAudioPlayer(theme: theme)
+        switch theme.type {
+        case .audio:
+            inputDependencies.coordinator?.showAudioPlayer(theme: theme)
+        case .video:
+            break
+        }
     }
 }

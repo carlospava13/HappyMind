@@ -63,7 +63,7 @@ class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject,
         }
 
         func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 3
+            return 6
         }
         func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? {
             return supplementaryViewIdentifierOfKind

@@ -32,9 +32,19 @@ final class WelcomeCoordinator: BaseCoordinator {
     }
 
     override func start() {
-        let moduleInput = WelcomeConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
+        let moduleInput = WelcomeConfigurator.ModuleInput(coordinator: self,
+                                                          interactorModule: interactorModule,
+                                                          hiddeSkip: false)
         let module = WelcomeConfigurator.module(moduleInput: moduleInput)
         router.setRootModule(module)
+    }
+    
+    func navigateStart() {
+        let moduleInput = WelcomeConfigurator.ModuleInput(coordinator: self,
+                                                          interactorModule: interactorModule,
+                                                          hiddeSkip: true)
+        let module = WelcomeConfigurator.module(moduleInput: moduleInput)
+        router.push(module, transition: .none, animated: true, completion: nil)
     }
 
     private func setAudioPlayerCoodinator(theme: Theme) {

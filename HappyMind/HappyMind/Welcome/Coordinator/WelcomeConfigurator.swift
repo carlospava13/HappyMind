@@ -14,16 +14,19 @@ final class WelcomeConfigurator {
 
         let applicationViewController = WelcomeViewController()
         let dependencies = createDependencies(
-            coordinator: moduleInput.coordinator, interactorModule: moduleInput.interactorModule)
+            coordinator: moduleInput.coordinator,
+            interactorModule: moduleInput.interactorModule,
+            hiddeSkip: moduleInput.hiddeSkip)
         let presenter = WelcomePresenter(inputDependencies: dependencies)
         applicationViewController.presenter = presenter
         return applicationViewController
     }
 
-    private static func createDependencies(coordinator: WelcomeCoordinatorDelegate?, interactorModule: InteractorModule) -> WelcomePresenter.InputDependencies {
+    private static func createDependencies(coordinator: WelcomeCoordinatorDelegate?, interactorModule: InteractorModule, hiddeSkip: Bool) -> WelcomePresenter.InputDependencies {
         return WelcomePresenter.InputDependencies(coordinator: coordinator,
                                                   setFirstTimeInteractor: interactorModule.setFirstTimeInteractor,
-                                                  welcomeInteractor: interactorModule.welcomeInteractor)
+                                                  welcomeInteractor: interactorModule.welcomeInteractor,
+                                                  hiddeSkip: hiddeSkip)
     }
 
     static func module(moduleInput: WelcomeConfigurator.ModuleInput) -> (UIViewController) {
@@ -34,5 +37,6 @@ extension WelcomeConfigurator {
     struct ModuleInput {
         weak var coordinator: WelcomeCoordinatorDelegate?
         let interactorModule: InteractorModule
+        let hiddeSkip: Bool
     }
 }

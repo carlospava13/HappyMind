@@ -15,6 +15,7 @@ final class WelcomePresenter: BasePresenter {
         weak var coordinator: WelcomeCoordinatorDelegate?
         let setFirstTimeInteractor: SetFirstTimeInteractor
         let welcomeInteractor: WelcomeInteractor
+        let hiddeSkip: Bool
     }
 
     private let inputDependencies: InputDependencies
@@ -28,7 +29,7 @@ final class WelcomePresenter: BasePresenter {
     }
 
     override func viewDidLoad() {
-        //setFirtTimeInteractor()
+        ownView.set(hiddeSkip: inputDependencies.hiddeSkip)
         getWelcomeInfo()
     }
 

@@ -12,5 +12,12 @@ import HappyMindCore
 final class SubCategoryCell: GenericCell<HappyMindCore.SubCategory> {
     override func setData(_ data: SubCategory) {
         nameCategoryLabel.text = data.name
+        indicator.startAnimating()
+        imageView.loadImage(data.mediaFile.mediaPath) { (error) -> (Void) in
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+                self.indicator.isHidden = true
+            }
+        }
     }
 }

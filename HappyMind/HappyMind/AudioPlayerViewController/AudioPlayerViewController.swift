@@ -122,7 +122,7 @@ final class AudioPlayerViewController: BaseViewController {
         view.addSubview(imageBackgroundView)
         let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            imageBackgroundView.topAnchor.constraint(equalTo: guides.topAnchor),
+            imageBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             imageBackgroundView.leadingAnchor.constraint(equalTo: guides.leadingAnchor),
             imageBackgroundView.trailingAnchor.constraint(equalTo: guides.trailingAnchor),
             imageBackgroundView.bottomAnchor.constraint(equalTo: guides.bottomAnchor)
@@ -131,8 +131,9 @@ final class AudioPlayerViewController: BaseViewController {
 
     private func setBackButtonConstraints() {
         imageBackgroundView.addSubview(backButton)
+        let guides = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: imageBackgroundView.topAnchor, constant: 8),
+            backButton.topAnchor.constraint(equalTo: guides.topAnchor, constant: 8),
             backButton.leadingAnchor.constraint(equalTo: imageBackgroundView.leadingAnchor, constant: 8),
             backButton.widthAnchor.constraint(equalToConstant: 40),
             backButton.heightAnchor.constraint(equalToConstant: 40)
@@ -237,7 +238,7 @@ final class AudioPlayerViewController: BaseViewController {
     }
 
     @objc func onBack() {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     private func moveCurrentTime(_ move: Float64) {

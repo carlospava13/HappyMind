@@ -29,7 +29,10 @@ final class LoginPresenter: BasePresenter {
 
 extension LoginPresenter: LoginPresenterType {
     func setLogin(email: String, password: String) {
-        inputDependencies.loginInteractor.execute(LoginParams(email: email.lowercased(), password: password)).sink(receiveCompletion: { [weak self] (completion) in
+        inputDependencies.loginInteractor.execute(
+            LoginParams(email: email.lowercased(),
+                        password: password)
+        ).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error)

@@ -25,10 +25,9 @@ final class CategoryViewController: BaseListViewController {
         setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
                              color: .orange())
         ownPresenter?.bind(self)
-        setupCollectionView()
         super.viewDidLoad()
     }
-
+                               
     override func setupCollectionView() {
         super.setupCollectionView()
         let identifierCell = CollectionViewCellIdentifier.categoryCell
@@ -50,5 +49,9 @@ extension CategoryViewController: CategoryView {
 extension CategoryViewController: CategoryDelegate {
     func didSelect(_ item: HappyMindCore.Category) {
         ownPresenter.didSelect(item)
+    }
+    
+    func welcome() {
+        ownPresenter.goToWelcome()
     }
 }

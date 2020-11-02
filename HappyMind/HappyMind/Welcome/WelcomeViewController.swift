@@ -24,7 +24,6 @@ final class WelcomeViewController: BaseListViewController {
         ownPresenter?.bind(self)
         super.viewDidLoad()
         setFontNavigationBar(font: UIFont.calibriBoldFont(size: 28)!)
-        setupSkipButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +63,12 @@ final class WelcomeViewController: BaseListViewController {
 }
 
 extension WelcomeViewController: WelcomeView {
+    func set(hiddeSkip: Bool) {
+        if !hiddeSkip {
+            setupSkipButton()
+        }
+    }
+    
     func setData(_ welcomeList: [Section<Theme>]) {
         dataSource.setData(welcomeList)
         collectionView.reloadData()

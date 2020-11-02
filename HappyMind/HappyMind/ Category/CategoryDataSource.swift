@@ -10,23 +10,20 @@ import UIKit
 import HappyMindCore
 
 protocol CategoryDelegate: AnyObject {
+    func welcome()
     func didSelect(_ item: HappyMindCore.Category)
 }
 
 final class CategoryDataSource: GenericDataSource<CategoryCell, HappyMindCore.Category> {
-    
+
     weak var categoryDelegate: CategoryDelegate?
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as? CategoryCell else {
-            return UICollectionViewCell()
-        }
-        //cell.categoryCellDelegate = self
-        return cell
-    }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = data[indexPath.section].data[indexPath.row]
-        categoryDelegate?.didSelect(category)
+        if indexPath.row == 0 {
+            categoryDelegate?.welcome()
+        } else {
+            let category = data[indexPath.section].data[indexPath.row]
+            categoryDelegate?.didSelect(category)
+        }
     }
 }
