@@ -16,16 +16,17 @@ protocol AudioPlayerCoodinatorDelegate: AnyObject {
 final class AudioPlayerCoodinator: BaseCoordinator {
 
     private let theme: Theme
-    
+    private let interactorModule: InteractorModule
     init(router: RouterType,
         interactorModule: InteractorModule,
         theme: Theme) {
         self.theme = theme
+        self.interactorModule = interactorModule
         super.init(router: router)
     }
 
     override func start() {
-        let moduleInput = AudioPlayerConfigurator.ModuleInput(coordinator: self,
+        let moduleInput = AudioPlayerConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule,
             theme: theme)
         let module = AudioPlayerConfigurator.module(moduleInput: moduleInput)
         router.present(module)

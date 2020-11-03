@@ -11,11 +11,10 @@ import HappyMindCore
 final class CategoryCell: GenericCell<HappyMindCore.Category> {
     override func setData(_ data: HappyMindCore.Category) {
         nameCategoryLabel.text = data.name
-        indicator.startAnimating()
+        showSkeleton()
         imageView.loadImage(data.imagePath.mediaPath) { (error) -> (Void) in
             DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                self.indicator.isHidden = true
+                self.hideSkeleton()
                 self.addShadow(cornerRadius: 5)
             }
         }

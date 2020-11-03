@@ -8,7 +8,7 @@
 
 import UIKit
 import SkeletonView
-
+import SDWebImage
 class GenericCell<T>: BaseCollectionCell<T> {
 
     private lazy var containerView: UIView = {
@@ -18,18 +18,11 @@ class GenericCell<T>: BaseCollectionCell<T> {
         return view
     }()
 
-    lazy var indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
-    }()
-
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.isSkeletonable = true
-        imageView.backgroundColor = .gray
         return imageView
     }()
 
@@ -48,7 +41,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
         setupView()
         setupContainerViewConstraints()
         setImageViewConstraints()
-        setIndicatorConstraints()
         setNameCategoryLabelConstraints()
     }
 
@@ -84,14 +76,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
             ])
     }
     
-    private func setIndicatorConstraints() {
-        containerView.addSubview(indicator)
-        NSLayoutConstraint.activate([
-            indicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            indicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
-        ])
-    }
-
     private func setNameCategoryLabelConstraints() {
         containerView.addSubview(nameCategoryLabel)
         NSLayoutConstraint.activate([

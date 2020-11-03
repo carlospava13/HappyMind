@@ -11,11 +11,10 @@ import HappyMindCore
 final class WelcomeCell: GenericCell<Theme> {
     override func setData(_ data: Theme) {
         nameCategoryLabel.text = data.title
-        indicator.startAnimating()
+
         imageView.loadImage(data.coverImage.mediaPath!) { (error) -> (Void) in
             DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                self.indicator.isHidden = true
+
             }
         }
     }

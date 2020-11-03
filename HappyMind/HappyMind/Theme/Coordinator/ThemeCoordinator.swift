@@ -11,6 +11,7 @@ import HappyMindCore
 
 protocol ThemeCoordinatorDelegate: AnyObject {
     func showAudioPlayer(theme: Theme)
+    func showVideoPlayer(theme: Theme)
 }
 
 final class ThemeCoordinator: BaseCoordinator {
@@ -18,6 +19,7 @@ final class ThemeCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
     private let subCategory: HappyMindCore.SubCategory
     private var playerCoordinator: BaseCoordinator?
+    private var videoPlayerCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule,
@@ -42,11 +44,30 @@ final class ThemeCoordinator: BaseCoordinator {
         addDependency(playerCoordinator)
         self.playerCoordinator = playerCoordinator
     }
+
+    private func setVideoPlayerCoordinator(theme: Theme) {
+        let coordinator = VideoPlayerCoordinator(router: router, theme: theme)
+        coordinator.removeReferenceDelegete = self
+        addDependency(coordinator)
+        videoPlayerCoordinator = coordinator
+    }
 }
 
 extension ThemeCoordinator: ThemeCoordinatorDelegate {
     func showAudioPlayer(theme: Theme) {
         setPlayerCoodinator(theme: theme)
         playerCoordinator?.start()
+    }
+    
+    func showVideoPlayer(theme: Theme) {
+        setVideoPlayerCoordinator(theme: theme)
+        videoPlayerCoordinator?.start()
+    }
+}
+
+extension ThemeCoordinator: RemoveReferenceDelegate {
+    func removeReference(_ coodinator: BaseCoordinator) {
+        removeDependency(coodinator)
+        videoPlayerCoordinator = nil
     }
 }

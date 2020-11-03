@@ -25,7 +25,7 @@ final class InteractorModule {
     lazy var firstTimeInteractor: FirstTimeInteractor = {
         FirstTimeInteractor(repository: repositoryModule.localStorageRepository)
     }()
-    
+
     lazy var setFirstTimeInteractor: SetFirstTimeInteractor = {
         SetFirstTimeInteractor(repository: repositoryModule.localStorageRepository)
     }()
@@ -33,17 +33,21 @@ final class InteractorModule {
     lazy var getCategoriesInteractor: GetCategoriesInteractor = {
         GetCategoriesInteractor(repository: repositoryModule.categoryRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
-    
+
     lazy var getSubCatogoryInteractor: GetSubCatogoryInteractor = {
         GetSubCatogoryInteractor(repository: repositoryModule.subcategoryRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
-    
+
     lazy var getThemeInteractor: GetThemeInteractor = {
         GetThemeInteractor(repository: repositoryModule.themeRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
-    
+
     lazy var welcomeInteractor: WelcomeInteractor = {
         WelcomeInteractor(repository: repositoryModule.welcomeRepository,
-                          localStorageRepository: repositoryModule.localStorageRepository)
+            localStorageRepository: repositoryModule.localStorageRepository)
+    }()
+
+    lazy var mediaFileInteractor: MediaFileInteractor = {
+        MediaFileInteractor(localStorageRepository: repositoryModule.localStorageRepository)
     }()
 }

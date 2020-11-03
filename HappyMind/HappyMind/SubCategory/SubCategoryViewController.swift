@@ -26,6 +26,14 @@ final class SubCategoryViewController: BaseListViewController {
         setBackButtonItem(tintColor: .gray)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationTransparent(title: .localized(.happyMindTitle),
+            backgroundColor: .white)
+        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
+            color: .orange())
+    }
+    
     override func setupCollectionView() {
         super.setupCollectionView()
         let identifierCell = CollectionViewCellIdentifier.categoryCell
@@ -40,7 +48,7 @@ extension SubCategoryViewController: SubCategoryView {
     func set(title: String) {
         self.title = title
     }
-    
+
     func setData(_ subcategories: [Section<HappyMindCore.SubCategory>]) {
         dataSource.setData(subcategories)
         collectionView.reloadData()

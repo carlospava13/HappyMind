@@ -55,7 +55,7 @@ extension ThemePresenter: ThemePresenterType {
         case .audio:
             inputDependencies.coordinator?.showAudioPlayer(theme: theme)
         case .video:
-            break
+            inputDependencies.coordinator?.showVideoPlayer(theme: theme)
         }
     }
 }

@@ -16,6 +16,7 @@ final class AudioPlayerConfigurator {
         let applicationViewController = AudioPlayerViewController()
         let dependencies = createDependencies(
             coordinator: moduleInput.coordinator,
+            interactorModule: moduleInput.interactorModule, 
             theme: moduleInput.theme)
         let presenter = AudioPlayerPresenter(inputDependencies: dependencies)
         applicationViewController.presenter = presenter
@@ -23,9 +24,11 @@ final class AudioPlayerConfigurator {
     }
 
     private static func createDependencies(coordinator: AudioPlayerCoodinatorDelegate?,
-                                           theme: Theme) -> AudioPlayerPresenter.InputDependencies {
+        interactorModule: InteractorModule,
+        theme: Theme) -> AudioPlayerPresenter.InputDependencies {
         return AudioPlayerPresenter.InputDependencies(coordinator: coordinator,
-                                                      theme: theme)
+                                                      mediaFileInteractor: interactorModule.mediaFileInteractor,
+            theme: theme)
     }
 
     static func module(moduleInput: AudioPlayerConfigurator.ModuleInput) -> (UIViewController) {
@@ -35,6 +38,7 @@ final class AudioPlayerConfigurator {
 extension AudioPlayerConfigurator {
     struct ModuleInput {
         weak var coordinator: AudioPlayerCoodinatorDelegate?
+        let interactorModule: InteractorModule
         let theme: Theme
     }
 }

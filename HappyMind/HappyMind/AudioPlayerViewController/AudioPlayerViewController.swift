@@ -206,8 +206,10 @@ final class AudioPlayerViewController: BaseViewController {
             ])
     }
 
-    private func play(url: URL) {
-        let playerItem = AVPlayerItem(url: url)
+    private func play(url: URL, token: String) {
+        let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": ["Authorization": "Bearer \(token)"]])
+        let playerItem = AVPlayerItem(asset: asset)
+        //let playerItem = AVPlayerItem(url: url)
         playerItem.addObserver(self,
             forKeyPath: #keyPath(AVPlayerItem.status),
             options: [.old, .new],
@@ -313,9 +315,9 @@ extension AudioPlayerViewController: AudioPlayerView {
         nameAuthorLabel.text = author
     }
 
-    func set(urlSong: String) {
+    func set(urlSong: String, token: String) {
         if let url = URL(string: urlSong) {
-            play(url: url)
+            play(url: url, token: token)
         }
     }
 

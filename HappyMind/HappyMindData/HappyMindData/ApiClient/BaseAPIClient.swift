@@ -43,7 +43,7 @@ final public class BaseAPIClient: BaseAPIClientType {
     }
     
     private func getBaseUrl(_ path: String) -> URL? {
-          let formattedURL = URL(string: BaseAPIConstants.baseURL)
+          let formattedURL = URL(string: Configuration.baseURL)
           return formattedURL?.appendingPathComponent(path)
       }
 }

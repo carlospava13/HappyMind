@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Combine
 import HappyMindCore
 
 final class AudioPlayerPresenter: BasePresenter {
 
     struct InputDependencies {
         weak var coordinator: AudioPlayerCoodinatorDelegate?
+        let mediaFileInteractor: MediaFileInteractor
         let theme: Theme
     }
 
@@ -29,14 +31,26 @@ final class AudioPlayerPresenter: BasePresenter {
     override func viewDidLoad() {
         ownView.set(author: inputDependencies.theme.author)
         ownView.set(songTitle: inputDependencies.theme.title)
-        ownView.set(urlSong: "http://3.21.122.111/api/v1/mediafile?mediaPath=" + inputDependencies.theme.mediaFile.mediaPath)
-        ownView.set(imageUrl: "http://3.21.122.111/api/v1/mediafile?mediaPath=" +
-                        inputDependencies.theme.coverImage.mediaPath!
-        )
+        getMediaFile()
     }
 
     deinit {
         inputDependencies.coordinator?.removeReference()
+    }
+    
+    private func getMediaFile() {
+        inputDependencies.mediaFileInteractor.execute(nil).sink { (completion) in
+            switch completion {
+            case .failure(let error):
+                self.ownView.show(error)
+            case .finished: break
+            }
+        } receiveValue: { (mediafile) in
+            self.ownView.set(urlSong: mediafile.urlFile + self.inputDependencies.theme.mediaFile.mediaPath,
+                             token: mediafile.token)
+            self.ownView.set(imageUrl: mediafile.urlImage +
+                                self.inputDependencies.theme.coverImage.mediaPath!)
+        }.store(in: &subscriptions)
     }
 }
 

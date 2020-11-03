@@ -17,7 +17,6 @@
 		6FE1D0412537BA4100E78A4C /* ResourceLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D0392537BA4100E78A4C /* ResourceLoaderDelegate.swift */; };
 		6FE1D0422537BA4100E78A4C /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03A2537BA4100E78A4C /* BaseAPIClient.swift */; };
 		6FE1D0432537BA4100E78A4C /* BaseAPIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03B2537BA4100E78A4C /* BaseAPIClientType.swift */; };
-		6FE1D0442537BA4100E78A4C /* BaseAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03C2537BA4100E78A4C /* BaseAPIConstants.swift */; };
 		6FE1D0452537BA4100E78A4C /* CachingPlayerItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03D2537BA4100E78A4C /* CachingPlayerItemDelegate.swift */; };
 		6FE1D0462537BA4100E78A4C /* CachingPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03E2537BA4100E78A4C /* CachingPlayerItem.swift */; };
 		6FE1D0472537BA4100E78A4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D03F2537BA4100E78A4C /* Endpoint.swift */; };
@@ -39,6 +38,7 @@
 		D1D71C7B254A21D20034E1AE /* WelcomeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C7A254A21D20034E1AE /* WelcomeDto.swift */; };
 		D1D71C7F254A22690034E1AE /* WelcomeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C7E254A22690034E1AE /* WelcomeRepositoryType.swift */; };
 		D1D71C83254A22950034E1AE /* WelcomeRepositoty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C82254A22950034E1AE /* WelcomeRepositoty.swift */; };
+		D1ECD8962551E8FE00822C2A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECD8952551E8FE00822C2A /* Configuration.swift */; };
 		D2E9432C1FCC710C978FB9D0 /* Pods_HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3BE46AA5A321212F639303 /* Pods_HappyMindData.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,6 @@
 		6FE1D0392537BA4100E78A4C /* ResourceLoaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoaderDelegate.swift; sourceTree = "<group>"; };
 		6FE1D03A2537BA4100E78A4C /* BaseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
 		6FE1D03B2537BA4100E78A4C /* BaseAPIClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIClientType.swift; sourceTree = "<group>"; };
-		6FE1D03C2537BA4100E78A4C /* BaseAPIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIConstants.swift; sourceTree = "<group>"; };
 		6FE1D03D2537BA4100E78A4C /* CachingPlayerItemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingPlayerItemDelegate.swift; sourceTree = "<group>"; };
 		6FE1D03E2537BA4100E78A4C /* CachingPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingPlayerItem.swift; sourceTree = "<group>"; };
 		6FE1D03F2537BA4100E78A4C /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		D1D71C7A254A21D20034E1AE /* WelcomeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDto.swift; sourceTree = "<group>"; };
 		D1D71C7E254A22690034E1AE /* WelcomeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRepositoryType.swift; sourceTree = "<group>"; };
 		D1D71C82254A22950034E1AE /* WelcomeRepositoty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRepositoty.swift; sourceTree = "<group>"; };
+		D1ECD8952551E8FE00822C2A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		DF3BE46AA5A321212F639303 /* Pods_HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +144,7 @@
 				6FE1D0362537BA4100E78A4C /* Dto */,
 				6FE1D01B2537B9CB00E78A4C /* HappyMindData.h */,
 				6FE1D01C2537B9CB00E78A4C /* Info.plist */,
+				D1ECD8952551E8FE00822C2A /* Configuration.swift */,
 			);
 			path = HappyMindData;
 			sourceTree = "<group>";
@@ -175,7 +176,6 @@
 				6FE1D0392537BA4100E78A4C /* ResourceLoaderDelegate.swift */,
 				6FE1D03A2537BA4100E78A4C /* BaseAPIClient.swift */,
 				6FE1D03B2537BA4100E78A4C /* BaseAPIClientType.swift */,
-				6FE1D03C2537BA4100E78A4C /* BaseAPIConstants.swift */,
 				6FE1D03D2537BA4100E78A4C /* CachingPlayerItemDelegate.swift */,
 				6FE1D03E2537BA4100E78A4C /* CachingPlayerItem.swift */,
 				6FE1D03F2537BA4100E78A4C /* Endpoint.swift */,
@@ -395,6 +395,7 @@
 				D1A1C02B2545258A00F09B59 /* SubCategoryRepositoryType.swift in Sources */,
 				D15C95692547AA580028B881 /* ThemeDto.swift in Sources */,
 				6FE1D0472537BA4100E78A4C /* Endpoint.swift in Sources */,
+				D1ECD8962551E8FE00822C2A /* Configuration.swift in Sources */,
 				D1C4314B253CF49700DA44A6 /* LocalStorageKey.swift in Sources */,
 				D1C43148253CF46E00DA44A6 /* LocalStorageRepositoryType.swift in Sources */,
 				6F617227253935BD00B7D9D8 /* LoginRepository.swift in Sources */,
@@ -405,7 +406,6 @@
 				D1C4314D253CF4D000DA44A6 /* LocalStorageRepository.swift in Sources */,
 				D1D71C7B254A21D20034E1AE /* WelcomeDto.swift in Sources */,
 				D1A1C02D254525B500F09B59 /* SubCategoryRepository.swift in Sources */,
-				6FE1D0442537BA4100E78A4C /* BaseAPIConstants.swift in Sources */,
 				D1D71C7F254A22690034E1AE /* WelcomeRepositoryType.swift in Sources */,
 				6FE1D0412537BA4100E78A4C /* ResourceLoaderDelegate.swift in Sources */,
 				6FE1D0462537BA4100E78A4C /* CachingPlayerItem.swift in Sources */,

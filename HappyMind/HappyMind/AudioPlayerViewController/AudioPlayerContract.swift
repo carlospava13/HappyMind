@@ -11,7 +11,7 @@ import UIKit
 protocol AudioPlayerView: BaseView {
     func set(songTitle: String)
     func set(author: String)
-    func set(urlSong: String)
+    func set(urlSong: String, token: String)
     func set(imageUrl: String)
 }
 

@@ -73,5 +73,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>baseUrl</key>
+	<string>http://3.21.122.111/api/v1/</string>
 </dict>
 </plist>

@@ -19,16 +19,19 @@ final class ThemeViewController: BaseListViewController {
     }
 
     override func viewDidLoad() {
-        setNavigationTransparent(title: .localized(.happyMindTitle),
-            backgroundColor: .white)
-        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
-            color: .orange())
         setupCollectionView()
         onwPresenter.bind(self)
         super.viewDidLoad()
         setBackButtonItem(tintColor: .gray)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationTransparent(title: .localized(.happyMindTitle),
+            backgroundColor: .white)
+        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
+            color: .orange())
+    }
 
     override func setupCollectionView() {
         super.setupCollectionView()

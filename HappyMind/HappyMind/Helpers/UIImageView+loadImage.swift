@@ -8,10 +8,11 @@
 
 import UIKit
 import SDWebImage
+import HappyMindData
 
 extension UIImageView {
     func loadImage(_ url: String, completion: @escaping (_ error: Error?) -> (Void)) {
-        if let url = URL(string: "http://3.21.122.111/api/v1/mediafile?mediaPath=\(url)&mediaType=image") {
+        if let url = URL(string: "\(Configuration.baseURL)image?mediaPath=\(url)") {
             sd_setImage(with: url, placeholderImage: UIImage(named: "image1"), options: .highPriority) { (_, _, _, _) in
                 completion(nil)
             }
