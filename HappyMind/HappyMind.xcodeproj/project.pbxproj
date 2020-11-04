@@ -19,6 +19,10 @@
 		B441733C46CE1047B6D43D7D /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99151808963EF900ADA5569 /* Pods_HappyMind.framework */; };
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
+		D12EB6E3255209810045A4BC /* TextDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EB6E2255209810045A4BC /* TextDetailPresenter.swift */; };
+		D12EB6E72552098E0045A4BC /* TextDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EB6E62552098E0045A4BC /* TextDetailContract.swift */; };
+		D12EB6EC255209A10045A4BC /* TextDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EB6EB255209A10045A4BC /* TextDetailCoordinator.swift */; };
+		D12EB6F0255209AF0045A4BC /* TextDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EB6EF255209AF0045A4BC /* TextDetailConfigurator.swift */; };
 		D12FBF7925427EA6005ADCA1 /* CMTime+Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */; };
 		D132DC842544CDBB0079AE69 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D132DC832544CDBB0079AE69 /* JosefinSans-Regular.ttf */; };
 		D132DC862544CDEA0079AE69 /* Calibri-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D132DC852544CDEA0079AE69 /* Calibri-Bold.ttf */; };
@@ -165,6 +169,10 @@
 		B99151808963EF900ADA5569 /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
+		D12EB6E2255209810045A4BC /* TextDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetailPresenter.swift; sourceTree = "<group>"; };
+		D12EB6E62552098E0045A4BC /* TextDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetailContract.swift; sourceTree = "<group>"; };
+		D12EB6EB255209A10045A4BC /* TextDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetailCoordinator.swift; sourceTree = "<group>"; };
+		D12EB6EF255209AF0045A4BC /* TextDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetailConfigurator.swift; sourceTree = "<group>"; };
 		D12FBF7825427EA6005ADCA1 /* CMTime+Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Duration.swift"; sourceTree = "<group>"; };
 		D132DC832544CDBB0079AE69 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		D132DC852544CDEA0079AE69 /* Calibri-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri-Bold.ttf"; sourceTree = "<group>"; };
@@ -331,6 +339,15 @@
 				D107011025410AB00079E0FD /* BaseListViewController.swift */,
 			);
 			path = BaseList;
+			sourceTree = "<group>";
+		};
+		D12EB6EA255209920045A4BC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D12EB6EB255209A10045A4BC /* TextDetailCoordinator.swift */,
+				D12EB6EF255209AF0045A4BC /* TextDetailConfigurator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D132DC822544CD9F0079AE69 /* Font */ = {
@@ -555,8 +572,11 @@
 		D1C2430C254E225C0038CA58 /* TextDetail */ = {
 			isa = PBXGroup;
 			children = (
+				D12EB6EA255209920045A4BC /* Coordinator */,
 				D1C2430D254E22740038CA58 /* TextDetailViewController.swift */,
 				D1C24311254E2BB80038CA58 /* TextSettingsView.swift */,
+				D12EB6E2255209810045A4BC /* TextDetailPresenter.swift */,
+				D12EB6E62552098E0045A4BC /* TextDetailContract.swift */,
 			);
 			path = TextDetail;
 			sourceTree = "<group>";
@@ -941,6 +961,7 @@
 				D1535DCC251FDA8600FF375D /* HappyMind.xcdatamodeld in Sources */,
 				D191F3632526377300A78126 /* CategoryConfigurator.swift in Sources */,
 				D1ADF75025451F3D00EB202C /* SubCategoryConfigurator.swift in Sources */,
+				D12EB6E3255209810045A4BC /* TextDetailPresenter.swift in Sources */,
 				D191F3582526357500A78126 /* CoordinatorType.swift in Sources */,
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
@@ -958,6 +979,7 @@
 				D15FC078252D221700C69DDA /* AssetsResources.swift in Sources */,
 				D15C95302547A6590028B881 /* ThemeContract.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
+				D12EB6F0255209AF0045A4BC /* TextDetailConfigurator.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
 				D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */,
 				D17971D4254B8BB4001ADCDA /* VolumeSliderView.swift in Sources */,
@@ -988,6 +1010,7 @@
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
+				D12EB6E72552098E0045A4BC /* TextDetailContract.swift in Sources */,
 				D15C953D2547A6810028B881 /* ThemeConfigurator.swift in Sources */,
 				D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */,
 				D1C43150253CF92400DA44A6 /* WelcomeViewController.swift in Sources */,
@@ -1003,6 +1026,7 @@
 				6F97262725390CD700913342 /* InteractorModule.swift in Sources */,
 				D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */,
 				D1C2430E254E22740038CA58 /* TextDetailViewController.swift in Sources */,
+				D12EB6EC255209A10045A4BC /* TextDetailCoordinator.swift in Sources */,
 				D1C43154253CF93900DA44A6 /* WelcomeContract.swift in Sources */,
 				D1EF97872525346C00B738B0 /* CategoryContract.swift in Sources */,
 				D15C95342547A6620028B881 /* ThemePresenter.swift in Sources */,

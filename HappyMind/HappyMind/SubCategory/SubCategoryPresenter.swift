@@ -26,10 +26,14 @@ final class SubCategoryPresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
+    
+    deinit {
+        inputDependencies.coordinator?.removeReference()
+    }
 
     override func viewDidLoad() {
-        getSubcategories(idCategory: inputDependencies.category.id)
         ownView.set(title: inputDependencies.category.name)
+        getSubcategories(idCategory: inputDependencies.category.id)
     }
 
     func getSubcategories(idCategory: String) {

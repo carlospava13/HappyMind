@@ -20,6 +20,7 @@ final class TextSettingsView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
+        stackView.backgroundColor = .white
         return stackView
     }()
 
@@ -53,13 +54,11 @@ final class TextSettingsView: UIView {
         darkModeView.delegate = self
         return darkModeView
     }()
-    
+
     weak var delegate: TextSettingsViewDelegate?
-    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         setStackViewConstraints()
         addSubViewsToStack()
     }
@@ -67,19 +66,14 @@ final class TextSettingsView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor.lightGray.cgColor
 
-        layer.cornerRadius = 10
-        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        stackView.layer.cornerRadius = 10
-        sizeTextStackView.layer.cornerRadius = 10
-        setBorderLines(lessButton)
-        setBorderLines(higherButton)
-        setBorderLines(darkModeView)
+        setBorderLines(lessButton, corner: 10, maskedCorners: .layerMinXMinYCorner)
+        setBorderLines(higherButton, corner: 10, maskedCorners: .layerMaxXMinYCorner)
+        setBorderLines(stackView, corner: 10, maskedCorners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner])
+        addShadow(cornerRadius: 10)
     }
 
     private func setStackViewConstraints() {
@@ -108,10 +102,16 @@ final class TextSettingsView: UIView {
     @objc func onHigherSizeText() {
         delegate?.set(size: 1)
     }
-    
-    func setBorderLines(_ view: UIView) {
+
+    private func setBorderLines(_ view: UIView, corner: CGFloat, maskedCorners: CACornerMask) {
+        view.layer.cornerRadius = corner
+        view.layer.maskedCorners = maskedCorners
         view.layer.borderWidth = 0.5
         view.layer.borderColor = UIColor.lightGray.cgColor
+    }
+
+    func set(state: Bool) {
+        darkModeView.setState(isOn: state)
     }
 }
 
@@ -126,7 +126,7 @@ protocol DarkModeViewDelegate: AnyObject {
 }
 
 final class DarkModeView: UIView {
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -140,6 +140,7 @@ final class DarkModeView: UIView {
         let label = UILabel()
         label.overrideUserInterfaceStyle = .light
         label.text = "Modo nocturno"
+        label.textColor = .lightGray
         return label
     }()
 
@@ -148,12 +149,11 @@ final class DarkModeView: UIView {
         switchView.addTarget(self, action: #selector(onSwitch(value:)), for: .allEvents)
         return switchView
     }()
-    
+
     weak var delegate: DarkModeViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         switchView.isOn = traitCollection.userInterfaceStyle == .dark
         setStackViewViewConstraints()
         stackView.addArrangedSubview(label)
@@ -162,11 +162,6 @@ final class DarkModeView: UIView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
     }
 
     private func setStackViewViewConstraints() {
@@ -178,7 +173,11 @@ final class DarkModeView: UIView {
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
-    
+
+    func setState(isOn: Bool) {
+        switchView.isOn = isOn
+    }
+
     @objc func onSwitch(value: UISwitch) {
         delegate?.set(darkMode: value.isOn)
     }

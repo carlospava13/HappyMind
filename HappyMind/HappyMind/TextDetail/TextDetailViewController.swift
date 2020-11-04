@@ -13,6 +13,7 @@ final class TextDetailViewController: BaseViewController {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.delegate = self
         return scrollView
     }()
 
@@ -47,6 +48,7 @@ final class TextDetailViewController: BaseViewController {
     private lazy var textSettingsView: TextSettingsView = {
         let textSettingsView = TextSettingsView(frame: CGRect(x: UIScreen.main.bounds.width - 220, y: 0, width: 220, height: 80))
         textSettingsView.delegate = self
+        textSettingsView.isHidden = true
         return textSettingsView
     }()
 
@@ -60,14 +62,14 @@ final class TextDetailViewController: BaseViewController {
         setTitleLabelConstraints()
         setImageViewConstraints()
         setTextViewConstraints()
-        setTextSettingsViewConstraints()
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "AA",
             style: .plain,
             target: self,
             action: #selector(onShowTextSettings))
-
+        set(darkMode: overrideUserInterfaceStyle == .dark)
+        scrollView.addSubview(textSettingsView)
+        setBackButtonItem(tintColor: .gray)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -119,19 +121,15 @@ final class TextDetailViewController: BaseViewController {
             ])
     }
 
-    private func setTextSettingsViewConstraints() {
-
-    }
-
     @objc func onShowTextSettings() {
-        if toogle {
-            scrollView.addSubview(textSettingsView)
+        if textSettingsView.isHidden {
+            textSettingsView.isHidden = false
             textSettingsView.alpha = 0
             UIView.animate(withDuration: 0.5) {
                 self.textSettingsView.alpha = 1
             }
         } else {
-            textSettingsView.removeFromSuperview()
+            textSettingsView.isHidden = true
         }
         toogle = !toogle
     }
@@ -141,7 +139,13 @@ final class TextDetailViewController: BaseViewController {
         heightConstraints.constant = height! * 1.3
         view.updateConstraints()
     }
-
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        let userInterfaceStyle = traitCollection.userInterfaceStyle
+        set(darkMode: userInterfaceStyle == .dark)
+        textSettingsView.set(state: userInterfaceStyle == .dark)
+    }
 }
 
 extension TextDetailViewController: TextSettingsViewDelegate {
@@ -152,7 +156,16 @@ extension TextDetailViewController: TextSettingsViewDelegate {
     }
 
     func set(darkMode: Bool) {
-        view.backgroundColor = darkMode ? .black : .white
+        let color: UIColor = darkMode ? .black : .white
+        view.backgroundColor = color
+        setNavigationTransparent(backgroundColor: color)
         textLabel.textColor = darkMode ? .white : .black
+    }
+}
+
+extension TextDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textSettingsView.frame.origin = CGPoint(x: UIScreen.main.bounds.width - 220, y: scrollView.contentOffset.y)
+        textSettingsView.isHidden = true
     }
 }

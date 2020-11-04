@@ -42,6 +42,7 @@ final class CategoryCoordinator: BaseCoordinator {
     func setWelcomeCoodinator() {
         let coordinator = WelcomeCoordinator(router: router,
                                              interactorModule: interactorModule)
+        coordinator.removeReferenceDelegete = self
         addDependency(coordinator)
         welcomeCoordinator = coordinator
     }

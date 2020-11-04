@@ -67,9 +67,9 @@ extension WelcomePresenter: WelcomePresenterType {
         switch theme.type {
         case .audio:
             inputDependencies.coordinator?.showAudio(theme: theme)
-            break
         case .video:
             inputDependencies.coordinator?.showVideo(theme: theme)
+        case .text:
             break
         }
     }

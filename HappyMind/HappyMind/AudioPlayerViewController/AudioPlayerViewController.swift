@@ -21,7 +21,7 @@ final class AudioPlayerViewController: BaseViewController {
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(onBack), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onDismiss), for: .touchUpInside)
         button.setImage(UIImage(named: "back"), for: .normal)
         return button
     }()
@@ -239,7 +239,7 @@ final class AudioPlayerViewController: BaseViewController {
         player?.pause()
     }
 
-    @objc func onBack() {
+    @objc func onDismiss() {
         dismiss(animated: true, completion: nil)
     }
 

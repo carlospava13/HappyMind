@@ -20,6 +20,12 @@ final class SubCategoryViewController: BaseListViewController {
         presenter as? SubCategoryPresenterType
     }
 
+    private var titleNav: String? {
+        didSet {
+            setNavigationTransparent(title: oldValue, backgroundColor: .white)
+        }
+    }
+
     override func viewDidLoad() {
         ownPresenter.bind(self)
         super.viewDidLoad()
@@ -28,12 +34,11 @@ final class SubCategoryViewController: BaseListViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationTransparent(title: .localized(.happyMindTitle),
-            backgroundColor: .white)
-        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
+        setNavigationTransparent(title: titleNav, backgroundColor: .white)
+        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 25)!,
             color: .orange())
     }
-    
+
     override func setupCollectionView() {
         super.setupCollectionView()
         let identifierCell = CollectionViewCellIdentifier.categoryCell
@@ -46,7 +51,7 @@ final class SubCategoryViewController: BaseListViewController {
 
 extension SubCategoryViewController: SubCategoryView {
     func set(title: String) {
-        self.title = title
+        self.titleNav = title
     }
 
     func setData(_ subcategories: [Section<HappyMindCore.SubCategory>]) {

@@ -18,18 +18,22 @@ final class ThemeViewController: BaseListViewController {
         presenter as? ThemePresenterType
     }
 
-    override func viewDidLoad() {
-        setupCollectionView()
-        onwPresenter.bind(self)
-        super.viewDidLoad()
-        setBackButtonItem(tintColor: .gray)
+    private var titleNav: String? {
+        didSet {
+            setNavigationTransparent(title: oldValue, backgroundColor: .white)
+        }
     }
-    
+
+    override func viewDidLoad() {
+        onwPresenter.bind(self)
+        setBackButtonItem(tintColor: .gray)
+        super.viewDidLoad()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationTransparent(title: .localized(.happyMindTitle),
-            backgroundColor: .white)
-        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 30)!,
+        setNavigationTransparent(title: titleNav, backgroundColor: .white)
+        setFontNavigationBar(font: UIFont.JosefinSansRegularFont(size: 25)!,
             color: .orange())
     }
 
@@ -47,7 +51,7 @@ final class ThemeViewController: BaseListViewController {
 
 extension ThemeViewController: ThemeView {
     func set(title: String) {
-        self.title = title
+        self.titleNav = title
     }
 
     func setData(_ themes: [Section<Theme>]) {

@@ -11,6 +11,7 @@ import Foundation
 public enum FileType: String {
     case video
     case audio
+    case text
 }
 
 public struct Theme{

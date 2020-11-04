@@ -22,17 +22,7 @@ class BaseListViewController: BaseViewController {
         setupConstraints()
         super.viewDidLoad()
     }
-
-    func setBackButtonItem(tintColor: UIColor = .gray) {
-        let backbutton = UIButton(type: .custom)
-        let origImage = UIImage(named: "back_icon")
-        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-        backbutton.setImage(tintedImage, for: .normal)
-        backbutton.tintColor = tintColor
-        backbutton.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
-    }
-
+    
     private func setupConstraints() {
         view.addSubview(collectionView)
         let guides = view.safeAreaLayoutGuide
@@ -56,9 +46,5 @@ class BaseListViewController: BaseViewController {
 
     override func hideSkeleton() {
         collectionView.hideSkeleton()
-    }
-    
-    @objc private func onBack() {
-        navigationController?.popViewController(animated: true)
     }
 }

@@ -26,10 +26,14 @@ final class ThemePresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
+    
+    deinit {
+        inputDependencies.coordinator?.removeReference()
+    }
 
     override func viewDidLoad() {
-        getThemes()
         ownView.set(title: inputDependencies.subCategory.name)
+        getThemes()
     }
 
     private func getThemes() {
@@ -56,6 +60,8 @@ extension ThemePresenter: ThemePresenterType {
             inputDependencies.coordinator?.showAudioPlayer(theme: theme)
         case .video:
             inputDependencies.coordinator?.showVideoPlayer(theme: theme)
+        case .text:
+            inputDependencies.coordinator?.showTextDetail(theme: theme)
         }
     }
 }

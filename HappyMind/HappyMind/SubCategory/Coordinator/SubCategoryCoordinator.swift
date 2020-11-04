@@ -10,6 +10,7 @@ import Foundation
 import HappyMindCore
 protocol SubCategoryCoordinatorDelegate: AnyObject {
     func showTheme(subcategory: HappyMindCore.SubCategory)
+    func removeReference()
 }
 
 final class SubCategoryCoordinator: BaseCoordinator {
@@ -40,8 +41,13 @@ final class SubCategoryCoordinator: BaseCoordinator {
 }
 
 extension SubCategoryCoordinator: SubCategoryCoordinatorDelegate {
+    func removeReference() {
+        removeReferenceDelegete?.removeReference(self)
+    }
+    
     func showTheme(subcategory: SubCategory) {
         setThemeCoodinator(subcategory: subcategory)
         themeCoordinator?.start()
     }
+    
 }

@@ -13,14 +13,14 @@ final class ThemeConfigurator {
 
     static func configure(moduleInput: ThemeConfigurator.ModuleInput) -> UIViewController {
 
-        let categoryViewController = ThemeViewController()
+        let themeViewController = ThemeViewController()
         let dependencies = createDependencies(
             coordinator: moduleInput.coordinator,
             interactorModule: moduleInput.interactorModule,
             subCategory: moduleInput.subCategory)
         let presenter = ThemePresenter(inputDependencies: dependencies)
-        categoryViewController.presenter = presenter
-        return categoryViewController
+        themeViewController.presenter = presenter
+        return themeViewController
     }
 
     private static func createDependencies(coordinator: ThemeCoordinatorDelegate?,
