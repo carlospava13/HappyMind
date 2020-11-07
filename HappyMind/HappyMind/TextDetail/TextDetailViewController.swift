@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class TextDetailViewController: BaseViewController {
 
@@ -22,7 +23,6 @@ final class TextDetailViewController: BaseViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange()
         label.font = UIFont.calibriBoldFont(size: 30)
-        label.text = "Disfruta tu comida con consciencia"
         label.numberOfLines = 0
         return label
     }()
@@ -31,17 +31,16 @@ final class TextDetailViewController: BaseViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "background")
         return imageView
     }()
 
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr termina aqui"
         label.font = UIFont.calibriBoldFont(size: 19)
         label.backgroundColor = .clear
         label.numberOfLines = 0
+        label.textAlignment = .justified
         return label
     }()
 
@@ -51,13 +50,18 @@ final class TextDetailViewController: BaseViewController {
         textSettingsView.isHidden = true
         return textSettingsView
     }()
+    
+    private var onwPresenter: TextDetailPresenterType! {
+        presenter as? TextDetailPresenterType
+    }
 
+    private var imageheightConstraints: NSLayoutConstraint!
     private var heightConstraints: NSLayoutConstraint!
     var sizeDefault: Float = 19.0
     private var toogle = true
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        onwPresenter.bind(self)
         setScrollViewConstraints()
         setTitleLabelConstraints()
         setImageViewConstraints()
@@ -70,6 +74,7 @@ final class TextDetailViewController: BaseViewController {
         set(darkMode: overrideUserInterfaceStyle == .dark)
         scrollView.addSubview(textSettingsView)
         setBackButtonItem(tintColor: .gray)
+        super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -100,12 +105,13 @@ final class TextDetailViewController: BaseViewController {
 
     private func setImageViewConstraints() {
         scrollView.addSubview(imageView)
+        imageheightConstraints = imageView.heightAnchor.constraint(equalToConstant: 200)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 200)
+            imageheightConstraints
             ])
     }
 
@@ -113,7 +119,7 @@ final class TextDetailViewController: BaseViewController {
         scrollView.addSubview(textLabel)
         heightConstraints = textLabel.heightAnchor.constraint(equalToConstant: 100)
         NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
             textLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             textLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -136,7 +142,7 @@ final class TextDetailViewController: BaseViewController {
 
     func calculateHeight() {
         let height = textLabel.font?.height(text: textLabel.text!, withConstrainedWidth: textLabel.bounds.width)
-        heightConstraints.constant = height! * 1.3
+        heightConstraints.constant = height!
         view.updateConstraints()
     }
     
@@ -167,5 +173,24 @@ extension TextDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         textSettingsView.frame.origin = CGPoint(x: UIScreen.main.bounds.width - 220, y: scrollView.contentOffset.y)
         textSettingsView.isHidden = true
+    }
+}
+
+extension TextDetailViewController: TextDetailView {
+    func set(title: String) {
+        titleLabel.text = title
+    }
+    
+    func set(image: String?) {
+        if let image = image {
+            imageView.loadImage(image) { _ in }
+        }else {
+            imageheightConstraints.constant = 0
+            view.updateConstraints()
+        }
+    }
+    
+    func set(textContent: String) {
+        textLabel.text = textContent
     }
 }

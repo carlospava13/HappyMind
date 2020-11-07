@@ -21,6 +21,8 @@ public struct ThemeDto: Codable {
     public let coverImage: CoverImageDto
     public let mediaFile: MediaFileDto?
     public let parentID: String
+    public let textContent: String?
+    public let isChecked: Bool?
 }
 
 public struct CoverImageDto: Codable {

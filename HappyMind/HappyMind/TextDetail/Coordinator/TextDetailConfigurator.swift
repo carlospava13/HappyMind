@@ -18,14 +18,17 @@ final class TextDetailConfigurator {
 
         let textDetailViewController = TextDetailViewController()
         let dependencies = createDependencies(
-            coordinator: moduleInput.coordinator)
+            coordinator: moduleInput.coordinator,
+            theme: moduleInput.theme)
         let presenter = TextDetailPresenter(inputDependencies: dependencies)
         textDetailViewController.presenter = presenter
         return textDetailViewController
     }
 
-    private static func createDependencies(coordinator: TextDetailCoordinatorDelegate?) -> TextDetailPresenter.InputDependencies {
-        return TextDetailPresenter.InputDependencies(coordinator: coordinator)
+    private static func createDependencies(coordinator: TextDetailCoordinatorDelegate?,
+                                           theme: Theme) -> TextDetailPresenter.InputDependencies {
+        return TextDetailPresenter.InputDependencies(coordinator: coordinator,
+                                                     theme: theme)
     }
 
     static func module(moduleInput: TextDetailConfigurator.ModuleInput) -> (UIViewController) {
@@ -35,5 +38,6 @@ final class TextDetailConfigurator {
 extension TextDetailConfigurator {
     struct ModuleInput {
         let coordinator: TextDetailCoordinatorDelegate?
+        let theme: Theme
     }
 }

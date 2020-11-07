@@ -35,6 +35,15 @@ class GenericCell<T>: BaseCollectionCell<T> {
         return label
     }()
 
+    lazy var checkImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.isSkeletonable = true
+        imageView.image = UIImage(named: "isnotchecked")
+        return imageView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         isSkeletonable = true
@@ -42,12 +51,13 @@ class GenericCell<T>: BaseCollectionCell<T> {
         setupContainerViewConstraints()
         setImageViewConstraints()
         setNameCategoryLabelConstraints()
+        checkImageViewConstraints()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.roundCorners(corners: .allCorners, radius: 5)
@@ -75,7 +85,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
             imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
             ])
     }
-    
+
     private func setNameCategoryLabelConstraints() {
         containerView.addSubview(nameCategoryLabel)
         NSLayoutConstraint.activate([
@@ -83,5 +93,20 @@ class GenericCell<T>: BaseCollectionCell<T> {
             nameCategoryLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8),
             nameCategoryLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -8)
             ])
+    }
+
+    private func checkImageViewConstraints() {
+        containerView.addSubview(checkImageView)
+        NSLayoutConstraint.activate([
+            checkImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
+            checkImageView.leadingAnchor
+                .constraint(equalTo: imageView.trailingAnchor, constant: -16),
+            checkImageView.heightAnchor.constraint(equalToConstant: 10),
+            checkImageView.widthAnchor.constraint(equalToConstant: 10)
+            ])
+    }
+    
+    func set(checked: Bool) {
+        checkImageView.image = checked ? UIImage(named: "ischecked") :  UIImage(named: "isnotchecked")
     }
 }

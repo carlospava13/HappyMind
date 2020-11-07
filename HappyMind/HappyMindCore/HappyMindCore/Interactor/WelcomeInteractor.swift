@@ -27,7 +27,8 @@ public final class WelcomeInteractor: BaseInteractor<Any, Welcome> {
         }
         return tokenPublisher.flatMap { (token) -> AnyPublisher<Welcome, Error> in
             return self.repository.getThemes(token: token).map { (welcomeDto) -> Welcome in
-                return Welcome(welcomeMessage: welcomeDto.welcomeMessage, welcomeThemes: welcomeDto.welcomeThemes.map({ (themeDto) -> Theme in
+                return Welcome(welcomeMessage: welcomeDto.welcomeMessage,
+                               welcomeThemes: welcomeDto.welcomeThemes.map({ (themeDto) -> Theme in
                     Theme(id: themeDto.id,
                         ref: themeDto.ref,
                         author: themeDto.author,
@@ -37,7 +38,9 @@ public final class WelcomeInteractor: BaseInteractor<Any, Welcome> {
                             mediaType: themeDto.coverImage.mediaType),
                         mediaFile: ThemeFilePath(mediaPath: themeDto.mediaFile?.mediaPath ?? "",
                             mediaType: themeDto.mediaFile?.mediaType ?? ""),
-                        parentID: themeDto.parentID)
+                        parentID: themeDto.parentID,
+                        textContent: themeDto.textContent,
+                        isChecked: themeDto.isChecked)
                 }))
             }.eraseToAnyPublisher()
         }.eraseToAnyPublisher()

@@ -8,8 +8,10 @@
 
 import Foundation
 
-protocol TextDetailView:BaseView {
-    
+protocol TextDetailView: BaseView {
+    func set(title: String)
+    func set(image: String?)
+    func set(textContent: String)
 }
 
 protocol TextDetailPresenterType: BasePresenterType {

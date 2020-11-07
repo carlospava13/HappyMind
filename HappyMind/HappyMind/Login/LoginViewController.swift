@@ -14,7 +14,9 @@ final class LoginViewController: BaseViewController {
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "loginBackground")
+        imageView.image = UIImage(named: "loginbackground")
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .white
         return imageView
     }()
 
@@ -82,15 +84,15 @@ final class LoginViewController: BaseViewController {
         NSLayoutConstraint.activate([
             senaImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
             senaImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            senaImageView.widthAnchor.constraint(equalToConstant: 80),
-            senaImageView.heightAnchor.constraint(equalToConstant: 80)
+            senaImageView.widthAnchor.constraint(equalToConstant: 117),
+            senaImageView.heightAnchor.constraint(equalToConstant: 117)
             ])
     }
 
     private func setLoginContainerViewConstraints() {
         scrollView.addSubview(loginContainerView)
         NSLayoutConstraint.activate([
-            loginContainerView.topAnchor.constraint(equalTo: senaImageView.bottomAnchor, constant: 32),
+            loginContainerView.topAnchor.constraint(equalTo: senaImageView.bottomAnchor, constant: 64),
             loginContainerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             loginContainerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
             loginContainerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),

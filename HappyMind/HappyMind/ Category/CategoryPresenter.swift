@@ -52,8 +52,8 @@ extension CategoryPresenter: CategoryPresenterType {
         case .subcategories:
             inputDependencies.coordinator?.showSubCategories(category: item)
         case .themes:
-            break
-            //inputDependencies.coordinator?.showPlayer()
+       
+            inputDependencies.coordinator?.showTheme(category: item)
         case .other:
             break
         }

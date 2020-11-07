@@ -17,12 +17,14 @@ protocol WelcomeCoordinatorDelegate: AnyObject {
     func dismiss()
     func showAudio(theme: Theme)
     func showVideo(theme: Theme)
+    func showTextDetail(theme: Theme)
 }
 
 final class WelcomeCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
     private var playerCoordinator: BaseCoordinator?
     private var videoPlayerCoordinator: BaseCoordinator?
+    private var textDetailCoordinator: TextDetailCoordinator?
     weak var loginConnectionDelegate: LoginConnectionDelegate?
 
     init(router: RouterType,
@@ -62,6 +64,13 @@ final class WelcomeCoordinator: BaseCoordinator {
         videoPlayerCoordinator = coordinator
     }
     
+    private func setTextDetailCoordinator(theme: Theme) {
+        let coordinator = TextDetailCoordinator(router: router)
+        coordinator.removeReferenceDelegete = self
+        addDependency(coordinator)
+        textDetailCoordinator = coordinator
+    }
+    
 }
 
 extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
@@ -80,6 +89,11 @@ extension WelcomeCoordinator: WelcomeCoordinatorDelegate {
         setVideoPlayerCoordinator(theme: theme)
         videoPlayerCoordinator?.start()
     }
+    
+    func showTextDetail(theme: Theme) {
+        setTextDetailCoordinator(theme: theme)
+        textDetailCoordinator?.start(theme: theme)
+    }
 }
 
 extension WelcomeCoordinator: RemoveReferenceDelegate {
@@ -87,5 +101,6 @@ extension WelcomeCoordinator: RemoveReferenceDelegate {
         removeDependency(coodinator)
         playerCoordinator = nil
         videoPlayerCoordinator = nil
+        textDetailCoordinator = nil
     }
 }

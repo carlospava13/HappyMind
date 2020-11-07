@@ -11,11 +11,6 @@ import HappyMindCore
 final class WelcomeCell: GenericCell<Theme> {
     override func setData(_ data: Theme) {
         nameCategoryLabel.text = data.title
-
-        imageView.loadImage(data.coverImage.mediaPath!) { (error) -> (Void) in
-            DispatchQueue.main.async {
-
-            }
-        }
+        imageView.loadImage(data.coverImage.mediaPath!) { _ in }
     }
 }

@@ -14,7 +14,8 @@ final class ThemePresenter: BasePresenter {
     struct InputDependencies {
         let coordinator: ThemeCoordinatorDelegate?
         let getThemeInteractor: GetThemeInteractor
-        let subCategory: HappyMindCore.SubCategory
+        let name: String
+        let id: String
     }
 
     private var ownView: ThemeView! {
@@ -32,13 +33,13 @@ final class ThemePresenter: BasePresenter {
     }
 
     override func viewDidLoad() {
-        ownView.set(title: inputDependencies.subCategory.name)
+        ownView.set(title: inputDependencies.name)
         getThemes()
     }
 
     private func getThemes() {
         ownView.showSkeleton()
-        inputDependencies.getThemeInteractor.execute(inputDependencies.subCategory.id).sink { [weak self] (completion) in
+        inputDependencies.getThemeInteractor.execute(inputDependencies.id).sink { [weak self] (completion) in
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error)

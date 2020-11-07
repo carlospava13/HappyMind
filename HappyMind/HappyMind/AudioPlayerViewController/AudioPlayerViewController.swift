@@ -78,6 +78,7 @@ final class AudioPlayerViewController: BaseViewController {
         label.textColor = .orange()
         label.font = UIFont.calibriBoldFont(size: 28)
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
@@ -190,8 +191,7 @@ final class AudioPlayerViewController: BaseViewController {
         NSLayoutConstraint.activate([
             nameSongLabel.topAnchor.constraint(equalTo: volumeSlider.bottomAnchor, constant: 16),
             nameSongLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameSongLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            nameSongLabel.heightAnchor.constraint(equalToConstant: 30)
+            nameSongLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
             ])
     }
 
@@ -209,7 +209,6 @@ final class AudioPlayerViewController: BaseViewController {
     private func play(url: URL, token: String) {
         let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": ["Authorization": "Bearer \(token)"]])
         let playerItem = AVPlayerItem(asset: asset)
-        //let playerItem = AVPlayerItem(url: url)
         playerItem.addObserver(self,
             forKeyPath: #keyPath(AVPlayerItem.status),
             options: [.old, .new],

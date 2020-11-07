@@ -70,7 +70,7 @@ extension WelcomePresenter: WelcomePresenterType {
         case .video:
             inputDependencies.coordinator?.showVideo(theme: theme)
         case .text:
-            break
+            inputDependencies.coordinator?.showTextDetail(theme: theme)
         }
     }
 

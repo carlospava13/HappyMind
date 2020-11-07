@@ -24,7 +24,7 @@ final class LoginContainerView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.JosefinSansRegularFont(size: 34)
+        label.font = UIFont.JosefinSansRegularFont(size: 50)
         label.textColor = .orange
         label.text = .localized(.happyMindTitle)
         label.textAlignment = .center
@@ -47,6 +47,7 @@ final class LoginContainerView: UIView {
         textField.layer.cornerRadius = 10
         textField.font = UIFont.calibriRegularFont(size: 22)
         textField.overrideUserInterfaceStyle = .light
+        textField.backgroundColor = .white
         textField.addBorder()
         textField.addLeftPadding()
         return textField
@@ -60,6 +61,7 @@ final class LoginContainerView: UIView {
         textField.isSecureTextEntry = true
         textField.font = UIFont.calibriRegularFont(size: 22)
         textField.overrideUserInterfaceStyle = .light
+        textField.backgroundColor = .white
         textField.addBorder()
         textField.addLeftPadding()
         return textField
@@ -108,7 +110,7 @@ final class LoginContainerView: UIView {
             titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30)
+            titleLabel.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
 

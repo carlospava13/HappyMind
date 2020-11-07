@@ -8,7 +8,6 @@
 
 import Foundation
 import HappyMindCore
-
 protocol ThemeCoordinatorDelegate: AnyObject {
     func showAudioPlayer(theme: Theme)
     func showVideoPlayer(theme: Theme)
@@ -19,23 +18,28 @@ protocol ThemeCoordinatorDelegate: AnyObject {
 final class ThemeCoordinator: BaseCoordinator {
 
     private let interactorModule: InteractorModule
-    private let subCategory: HappyMindCore.SubCategory
     private var playerCoordinator: BaseCoordinator?
     private var videoPlayerCoordinator: BaseCoordinator?
-    private var textDetailCoordinator: BaseCoordinator?
+    private var textDetailCoordinator: TextDetailCoordinator?
+    
+    private var name: String!
+    private var id: String!
 
     init(router: RouterType,
         interactorModule: InteractorModule,
-        subCategory: HappyMindCore.SubCategory) {
+        name: String,
+        id: String) {
         self.interactorModule = interactorModule
-        self.subCategory = subCategory
+        self.name = name
+        self.id = id
         super.init(router: router)
     }
 
     override func start() {
         let moduleInput = ThemeConfigurator.ModuleInput(coordinator: self,
             interactorModule: interactorModule,
-            subCategory: subCategory)
+            name: name,
+            id: id)
         let module = ThemeConfigurator.module(moduleInput: moduleInput)
         router.push(module, transition: .none, animated: true, completion: nil)
     }
@@ -76,7 +80,7 @@ extension ThemeCoordinator: ThemeCoordinatorDelegate {
     
     func showTextDetail(theme: Theme) {
         setTextDetailCoordinator(theme: theme)
-        textDetailCoordinator?.start()
+        textDetailCoordinator?.start(theme: theme)
     }
     
     func removeReference() {

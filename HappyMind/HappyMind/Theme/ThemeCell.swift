@@ -12,6 +12,9 @@ import HappyMindCore
 final class ThemeCell: GenericCell<HappyMindCore.Theme> {
     override func setData(_ data: HappyMindCore.Theme) {
         nameCategoryLabel.text = data.title
+        if let check = data.isChecked {
+            set(checked: check)
+        }
         imageView.loadImage(data.coverImage.mediaPath!) { (error) -> (Void) in }
     }
 }

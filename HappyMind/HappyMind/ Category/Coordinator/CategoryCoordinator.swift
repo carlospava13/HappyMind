@@ -10,6 +10,7 @@ import Foundation
 import HappyMindCore
 protocol CategoryCoordinatorDelegate: AnyObject {
     func showSubCategories(category: HappyMindCore.Category)
+    func showTheme(category: HappyMindCore.Category)
     func showWelcome()
 }
 
@@ -18,6 +19,7 @@ final class CategoryCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
     private var subCategoryCoordinator: SubCategoryCoordinator?
     private var welcomeCoordinator: WelcomeCoordinator?
+    private var themeCoordinator: ThemeCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -38,10 +40,19 @@ final class CategoryCoordinator: BaseCoordinator {
         addDependency(coordinator)
         subCategoryCoordinator = coordinator
     }
-    
+
+    func setThemeCoodinator(category: HappyMindCore.Category) {
+        let coordinator = ThemeCoordinator(router: router,
+            interactorModule: interactorModule,
+            name: category.name,
+            id: category.id)
+        addDependency(coordinator)
+        themeCoordinator = coordinator
+    }
+
     func setWelcomeCoodinator() {
         let coordinator = WelcomeCoordinator(router: router,
-                                             interactorModule: interactorModule)
+            interactorModule: interactorModule)
         coordinator.removeReferenceDelegete = self
         addDependency(coordinator)
         welcomeCoordinator = coordinator
@@ -49,11 +60,16 @@ final class CategoryCoordinator: BaseCoordinator {
 }
 
 extension CategoryCoordinator: CategoryCoordinatorDelegate {
+    func showTheme(category: HappyMindCore.Category) {
+        setThemeCoodinator(category: category)
+        themeCoordinator?.start()
+    }
+
     func showSubCategories(category: HappyMindCore.Category) {
         setSubCategoryCoodinator()
         subCategoryCoordinator?.start(category: category)
     }
-    
+
     func showWelcome() {
         setWelcomeCoodinator()
         welcomeCoordinator?.navigateStart()

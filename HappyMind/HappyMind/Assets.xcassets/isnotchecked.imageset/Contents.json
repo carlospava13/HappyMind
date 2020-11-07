@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "img_sena_logo_naranga.png",
+      "filename" : "ic_check_off.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "img_sena_logo_naranga@2x.png",
+      "filename" : "ic_check_off@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "img_sena_logo_naranga@3x.png",
+      "filename" : "ic_check_off@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

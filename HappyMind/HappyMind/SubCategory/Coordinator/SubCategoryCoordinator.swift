@@ -32,9 +32,7 @@ final class SubCategoryCoordinator: BaseCoordinator {
     }
 
     func setThemeCoodinator(subcategory: SubCategory) {
-        let coordinator = ThemeCoordinator(router: router,
-            interactorModule: interactorModule,
-            subCategory: subcategory)
+        let coordinator = ThemeCoordinator(router: router, interactorModule: interactorModule, name: subcategory.name, id: subcategory.id)
         addDependency(coordinator)
         themeCoordinator = coordinator
     }

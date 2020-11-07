@@ -17,18 +17,21 @@ final class ThemeConfigurator {
         let dependencies = createDependencies(
             coordinator: moduleInput.coordinator,
             interactorModule: moduleInput.interactorModule,
-            subCategory: moduleInput.subCategory)
+            name: moduleInput.name,
+            id: moduleInput.id)
         let presenter = ThemePresenter(inputDependencies: dependencies)
         themeViewController.presenter = presenter
         return themeViewController
     }
 
     private static func createDependencies(coordinator: ThemeCoordinatorDelegate?,
-                                           interactorModule: InteractorModule,
-                                           subCategory: HappyMindCore.SubCategory) -> ThemePresenter.InputDependencies {
+        interactorModule: InteractorModule,
+        name: String,
+        id: String) -> ThemePresenter.InputDependencies {
         return ThemePresenter.InputDependencies(coordinator: coordinator,
-                                                getThemeInteractor: interactorModule.getThemeInteractor,
-                                                subCategory: subCategory)
+            getThemeInteractor: interactorModule.getThemeInteractor,
+            name: name,
+            id: id)
     }
 
     static func module(moduleInput: ThemeConfigurator.ModuleInput) -> (UIViewController) {
@@ -39,6 +42,7 @@ extension ThemeConfigurator {
     struct ModuleInput {
         let coordinator: ThemeCoordinatorDelegate?
         let interactorModule: InteractorModule
-        let subCategory: HappyMindCore.SubCategory
+        let name: String
+        let id: String
     }
 }
