@@ -33,7 +33,8 @@ public final class GetCategoriesInteractor: BaseInteractor<Any, [Category]> {
                         name: category.name,
                         type: CategoryType(rawValue: category.type)!,
                         imagePath: CategoryFilePath(mediaPath: category.mediaFile.mediaPath ?? "",
-                            mediaType: category.mediaFile.mediaType ?? ""))
+                                                    mediaType: category.mediaFile.mediaType ?? ""),
+                        isChecked: category.isChecked)
                 }
             }.eraseToAnyPublisher()
         }.eraseToAnyPublisher()

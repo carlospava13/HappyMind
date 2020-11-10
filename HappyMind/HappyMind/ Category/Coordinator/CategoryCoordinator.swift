@@ -12,6 +12,7 @@ protocol CategoryCoordinatorDelegate: AnyObject {
     func showSubCategories(category: HappyMindCore.Category)
     func showTheme(category: HappyMindCore.Category)
     func showWelcome()
+    func showLogin()
 }
 
 final class CategoryCoordinator: BaseCoordinator {
@@ -20,6 +21,7 @@ final class CategoryCoordinator: BaseCoordinator {
     private var subCategoryCoordinator: SubCategoryCoordinator?
     private var welcomeCoordinator: WelcomeCoordinator?
     private var themeCoordinator: ThemeCoordinator?
+    private var loginCoordinator: LoginCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -57,6 +59,13 @@ final class CategoryCoordinator: BaseCoordinator {
         addDependency(coordinator)
         welcomeCoordinator = coordinator
     }
+    
+    func setLoginCoordinator() {
+        let coordinator = LoginCoordinator(router: router,
+                                           interactorModule: interactorModule)
+        addDependency(coordinator)
+        loginCoordinator = coordinator
+    }
 }
 
 extension CategoryCoordinator: CategoryCoordinatorDelegate {
@@ -73,6 +82,13 @@ extension CategoryCoordinator: CategoryCoordinatorDelegate {
     func showWelcome() {
         setWelcomeCoodinator()
         welcomeCoordinator?.navigateStart()
+    }
+    
+    func showLogin() {
+        router.dismissModule(animated: true) {
+            self.setLoginCoordinator()
+            self.loginCoordinator?.start()
+        }
     }
 }
 

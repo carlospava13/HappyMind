@@ -20,6 +20,7 @@ public struct Category {
     public let name: String
     public let type: CategoryType
     public let imagePath: CategoryFilePath
+    public let isChecked: Bool
 }
 
 public struct CategoryFilePath: Codable {

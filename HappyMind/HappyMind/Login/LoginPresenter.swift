@@ -14,6 +14,7 @@ final class LoginPresenter: BasePresenter {
     struct InputDependencies {
         weak var coordinator: LoginCoordinatorDelegate?
         let loginInteractor: LoginInteractor
+        let firstTimeInteractor: FirstTimeInteractor
     }
     
     private var ownView: LoginView! {
@@ -25,6 +26,23 @@ final class LoginPresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
+    
+    private func isFirtsTimeInteractor() {
+        inputDependencies.firstTimeInteractor.execute(nil).sink { (completion) in
+            switch completion {
+            case .failure:
+                self.inputDependencies.coordinator?.showWelcomeFlow()
+            case .finished:
+                print("Finished")
+            }
+        } receiveValue: { (value) in
+            if (value) {
+                self.inputDependencies.coordinator?.showCategories()
+            } else {
+                self.inputDependencies.coordinator?.showWelcomeFlow()
+            }
+        }.store(in: &subscriptions)
+    }
 }
 
 extension LoginPresenter: LoginPresenterType {
@@ -32,12 +50,12 @@ extension LoginPresenter: LoginPresenterType {
         inputDependencies.loginInteractor.execute(
             LoginParams(email: email.lowercased(),
                         password: password)
-        ).sink(receiveCompletion: { [weak self] (completion) in
+        ).sink(receiveCompletion: {(completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self.ownView.show(error)
             case .finished:
-                self?.inputDependencies.coordinator?.showWelcomeFlow()
+                self.isFirtsTimeInteractor()
             }
         }) { (user) in
             print(user)

@@ -12,6 +12,7 @@ extension UIViewController {
     func setNavigationTransparent(title: String? = nil, backgroundColor: UIColor = .clear) {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = backgroundColor
+        navigationController?.navigationBar.tintColor = .orange()
         navigationController?.navigationBar.backgroundColor = backgroundColor
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()

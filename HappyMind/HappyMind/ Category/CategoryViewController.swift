@@ -22,6 +22,7 @@ final class CategoryViewController: BaseListViewController {
     override func viewDidLoad() {
         ownPresenter?.bind(self)
         super.viewDidLoad()
+        setupLogoutButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +41,18 @@ final class CategoryViewController: BaseListViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = dataSource
         dataSource.categoryDelegate = self
+    }
+    
+    private func setupLogoutButton() {
+        let button1 = UIBarButtonItem(image: UIImage(named: "logout"),
+                                      style: .done,
+                                      target: self,
+                                      action: #selector(onLogout))
+        self.navigationItem.rightBarButtonItem  = button1
+    }
+    
+    @objc func onLogout() {
+        ownPresenter.logOut()
     }
 }
 

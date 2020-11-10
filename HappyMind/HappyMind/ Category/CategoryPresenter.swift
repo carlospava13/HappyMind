@@ -14,6 +14,7 @@ final class CategoryPresenter: BasePresenter {
     struct InputDependencies {
         let coordinator: CategoryCoordinatorDelegate?
         var getCategoriesInteractor: GetCategoriesInteractor
+        var logOutInteractor: LogOutInteractor
     }
 
     private var ownView: CategoryView! {
@@ -61,5 +62,11 @@ extension CategoryPresenter: CategoryPresenterType {
     
     func goToWelcome() {
         inputDependencies.coordinator?.showWelcome()
+    }
+    
+    func logOut() {
+        inputDependencies.logOutInteractor.execute(nil).sink { (completion) in
+            self.inputDependencies.coordinator?.showLogin()
+        } receiveValue: { _ in }.store(in: &subscriptions)
     }
 }

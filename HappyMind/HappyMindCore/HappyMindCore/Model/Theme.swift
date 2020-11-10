@@ -24,7 +24,7 @@ public struct Theme{
     public let mediaFile: ThemeFilePath
     public let parentID: String
     public let textContent: String?
-    public let isChecked: Bool?
+    public let isChecked: Bool
 }
 
 public struct ThemeFilePath: Codable {

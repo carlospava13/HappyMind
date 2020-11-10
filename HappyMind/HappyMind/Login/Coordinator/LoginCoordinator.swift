@@ -23,8 +23,6 @@ final class LoginCoordinator: BaseCoordinator {
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
-        setWelcomeCoordinator()
-        setCategoryCoordinator()
     }
 
     override func start() {
@@ -53,6 +51,7 @@ final class LoginCoordinator: BaseCoordinator {
 extension LoginCoordinator: LoginCoordinatorDelegate, LoginConnectionDelegate {
     func showCategories() {
         router.dismissModule(animated: true, completion: {
+            self.setCategoryCoordinator()
             self.categoryCoordinator?.start()
             self.removeReferenceDelegete?.removeReference(self)
         })
@@ -61,6 +60,7 @@ extension LoginCoordinator: LoginCoordinatorDelegate, LoginConnectionDelegate {
     func showWelcomeFlow() {
         router.dismissModule(animated: true, completion: {
             self.finishFlow?()
+            self.setWelcomeCoordinator()
             self.welcomeCoordinator?.start()
         })
     }

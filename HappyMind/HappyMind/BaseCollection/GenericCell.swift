@@ -38,9 +38,8 @@ class GenericCell<T>: BaseCollectionCell<T> {
     lazy var checkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.isSkeletonable = true
-        imageView.image = UIImage(named: "isnotchecked")
+        imageView.contentMode = .scaleToFill
+        imageView.backgroundColor = .clear
         return imageView
     }()
 
@@ -100,9 +99,9 @@ class GenericCell<T>: BaseCollectionCell<T> {
         NSLayoutConstraint.activate([
             checkImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
             checkImageView.leadingAnchor
-                .constraint(equalTo: imageView.trailingAnchor, constant: -16),
-            checkImageView.heightAnchor.constraint(equalToConstant: 10),
-            checkImageView.widthAnchor.constraint(equalToConstant: 10)
+                .constraint(equalTo: imageView.trailingAnchor, constant: -36),
+            checkImageView.heightAnchor.constraint(equalToConstant: 20),
+            checkImageView.widthAnchor.constraint(equalToConstant: 20)
             ])
     }
     

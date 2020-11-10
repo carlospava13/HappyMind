@@ -13,6 +13,7 @@ public struct SubCategory {
     public let ref: String
     public let name: String
     public let mediaFile: SubCategoryFilePath
+    public let isChecked: Bool
 }
 
 public struct SubCategoryFilePath: Codable {

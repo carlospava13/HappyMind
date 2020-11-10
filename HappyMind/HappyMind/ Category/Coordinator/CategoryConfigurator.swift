@@ -25,7 +25,8 @@ final class CategoryConfigurator {
     private static func createDependencies(coordinator: CategoryCoordinatorDelegate?,
                                            interactorModule: InteractorModule) -> CategoryPresenter.InputDependencies {
         return CategoryPresenter.InputDependencies(coordinator: coordinator,
-                                                   getCategoriesInteractor: interactorModule.getCategoriesInteractor)
+                                                   getCategoriesInteractor: interactorModule.getCategoriesInteractor,
+                                                   logOutInteractor: interactorModule.logOutInteractor)
     }
 
     static func module(moduleInput: CategoryConfigurator.ModuleInput) -> (UIViewController) {

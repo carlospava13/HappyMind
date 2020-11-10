@@ -32,8 +32,10 @@ final class ApplicationPresenter: BasePresenter {
     private func getIfIsFirtsTimeOnApplication() {
         inputDependencies.firstTimeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
-            case.failure(let error):
-                self?.inputDependencies.coordinator?.showLogin()
+            case.failure:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.inputDependencies.coordinator?.showLogin()
+                }
             case.finished:
                 break
             }

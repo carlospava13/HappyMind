@@ -202,12 +202,13 @@ final class AudioPlayerViewController: BaseViewController {
             nameAuthorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             nameAuthorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             nameAuthorLabel.heightAnchor.constraint(equalToConstant: 30),
-            nameAuthorLabel.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -120       )
+            nameAuthorLabel.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -120)
             ])
     }
 
     private func play(url: URL, token: String) {
         let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey": ["Authorization": "Bearer \(token)"]])
+
         let playerItem = AVPlayerItem(asset: asset)
         playerItem.addObserver(self,
             forKeyPath: #keyPath(AVPlayerItem.status),
@@ -227,6 +228,14 @@ final class AudioPlayerViewController: BaseViewController {
             [weak self] time in
             self?.currentTimeLabel.text = time.durationText
             self?.diskView.currentTimer(time: Float(CMTimeGetSeconds(time)))
+        }
+    }
+
+    private func activeSound() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
         }
     }
 
@@ -317,12 +326,13 @@ extension AudioPlayerViewController: AudioPlayerView {
     func set(urlSong: String, token: String) {
         if let url = URL(string: urlSong) {
             play(url: url, token: token)
+            activeSound()
         }
     }
 
     func set(imageUrl: String) {
         imageBackgroundView.set(imageUrl: imageUrl)
-        diskView.set(imageUrl: imageUrl) 
+        diskView.set(imageUrl: imageUrl)
     }
 }
 

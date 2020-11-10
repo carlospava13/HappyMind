@@ -11,6 +11,7 @@ import HappyMindCore
 protocol CategoryPresenterType: BasePresenterType {
     func didSelect(_ item: HappyMindCore.Category)
     func goToWelcome()
+    func logOut()
 }
 
 protocol CategoryView: BaseView {

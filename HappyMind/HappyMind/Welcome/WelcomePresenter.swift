@@ -31,6 +31,7 @@ final class WelcomePresenter: BasePresenter {
     override func viewDidLoad() {
         ownView.set(hiddeSkip: inputDependencies.hiddeSkip)
         getWelcomeInfo()
+        setFirtTimeInteractor()
     }
 
     private func setFirtTimeInteractor() {

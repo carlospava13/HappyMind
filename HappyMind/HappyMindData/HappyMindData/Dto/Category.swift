@@ -18,6 +18,7 @@ public struct CategoryDTO: Codable {
     public let name: String
     public let type: String
     public let mediaFile: MediaFileDto
+    public let isChecked: Bool
 }
 
 public struct MediaFileDto: Codable {

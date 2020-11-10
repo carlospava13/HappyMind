@@ -18,4 +18,5 @@ public struct SubCategoryDTO: Codable {
     public let name: String
     public let categoryID: String
     public let mediaFile: MediaFileDto
+    public let isChecked: Bool
 }

@@ -50,4 +50,8 @@ final class InteractorModule {
     lazy var mediaFileInteractor: MediaFileInteractor = {
         MediaFileInteractor(localStorageRepository: repositoryModule.localStorageRepository)
     }()
+    
+    lazy var logOutInteractor: LogOutInteractor = {
+        LogOutInteractor(repository: repositoryModule.localStorageRepository)
+    }()
 }

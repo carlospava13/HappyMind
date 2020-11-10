@@ -30,7 +30,8 @@ public final class GetSubCatogoryInteractor: BaseInteractor<String, [SubCategory
                         ref: subcategory.ref,
                         name: subcategory.name,
                         mediaFile: SubCategoryFilePath(mediaPath: subcategory.mediaFile.mediaPath ?? "",
-                            mediaType: subcategory.mediaFile.mediaType ?? ""))
+                                                       mediaType: subcategory.mediaFile.mediaType ?? ""),
+                        isChecked: subcategory.isChecked)
                 }
             }.eraseToAnyPublisher()
         }.eraseToAnyPublisher()
