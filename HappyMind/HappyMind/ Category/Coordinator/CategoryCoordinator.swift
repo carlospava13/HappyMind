@@ -8,6 +8,11 @@
 
 import Foundation
 import HappyMindCore
+
+protocol CategoryCoordinatorLoginDelegate: AnyObject {
+    func runLogin()
+}
+
 protocol CategoryCoordinatorDelegate: AnyObject {
     func showSubCategories(category: HappyMindCore.Category)
     func showTheme(category: HappyMindCore.Category)
@@ -22,6 +27,7 @@ final class CategoryCoordinator: BaseCoordinator {
     private var welcomeCoordinator: WelcomeCoordinator?
     private var themeCoordinator: ThemeCoordinator?
     private var loginCoordinator: LoginCoordinator?
+    weak var categoryCoordinatorLoginDelegate: CategoryCoordinatorLoginDelegate?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -59,13 +65,6 @@ final class CategoryCoordinator: BaseCoordinator {
         addDependency(coordinator)
         welcomeCoordinator = coordinator
     }
-    
-    func setLoginCoordinator() {
-        let coordinator = LoginCoordinator(router: router,
-                                           interactorModule: interactorModule)
-        addDependency(coordinator)
-        loginCoordinator = coordinator
-    }
 }
 
 extension CategoryCoordinator: CategoryCoordinatorDelegate {
@@ -86,8 +85,9 @@ extension CategoryCoordinator: CategoryCoordinatorDelegate {
     
     func showLogin() {
         router.dismissModule(animated: true) {
-            self.setLoginCoordinator()
-            self.loginCoordinator?.start()
+            self.categoryCoordinatorLoginDelegate?.runLogin()
+            //self.loginCoordinator?.start()
+            //self.finishFlow?()
         }
     }
 }

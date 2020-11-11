@@ -17,6 +17,7 @@ final class ApplicationPresenter: BasePresenter {
     struct InputDependencies {
         weak var coordinator: ApplicationCoordinatorDelegate?
         let firstTimeInteractor: FirstTimeInteractor
+        let isLoginInteractor: IsLoginInteractor
     }
 
     private let inputDependencies: InputDependencies
@@ -40,7 +41,26 @@ final class ApplicationPresenter: BasePresenter {
                 break
             }
         }) { [weak self] (bool) in
-            self?.inputDependencies.coordinator?.showCategories()
+                self?.isLogin()
+        }.store(in: &subscriptions)
+    }
+
+    private func isLogin() {
+        inputDependencies.isLoginInteractor.execute(nil).sink { [weak self] (completion) in
+            switch completion {
+            case.failure:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.inputDependencies.coordinator?.showLogin()
+                }
+            case.finished:
+                break
+            }
+        } receiveValue: { [weak self] (value) in
+            if (value) {
+                self?.inputDependencies.coordinator?.showLogin()
+            } else {
+                self?.inputDependencies.coordinator?.showCategories()
+            }
         }.store(in: &subscriptions)
     }
 }

@@ -22,7 +22,8 @@ final class ApplicationConfigurator {
 
     private static func createDependencies(coordinator: ApplicationCoordinatorDelegate?, interactorModule: InteractorModule) -> ApplicationPresenter.InputDependencies {
         return ApplicationPresenter.InputDependencies(coordinator: coordinator,
-                                                      firstTimeInteractor: interactorModule.firstTimeInteractor)
+                                                      firstTimeInteractor: interactorModule.firstTimeInteractor,
+                                                      isLoginInteractor: interactorModule.isLoginInteractor)
     }
 
     static func module(moduleInput: ApplicationConfigurator.ModuleInput) -> (UIViewController) {

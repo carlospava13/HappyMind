@@ -15,53 +15,69 @@ protocol ApplicationCoordinatorDelegate: AnyObject {
 
 final class ApplicationCoordinator: BaseCoordinator {
     private let interactorModule: InteractorModule
-    
+
     private var loginCoordinator: BaseCoordinator?
+    private var categoryCoordinator: BaseCoordinator?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
         self.interactorModule = interactorModule
         super.init(router: router)
-        setLoginFlow()
     }
 
     override func start() {
         let moduleInput = ApplicationConfigurator.ModuleInput(coordinator: self, interactorModule: interactorModule)
         let module = ApplicationConfigurator.module(moduleInput: moduleInput)
-        finishFlow = {
-            self.removeDependency(self)
-        }
         router.setRootModule(module, hideBar: true, animated: false)
     }
 
-    private func setLoginFlow()  {
+    private func setLoginFlow() {
         let coordinator = LoginCoordinator(router: router, interactorModule: interactorModule)
         addDependency(coordinator)
-        coordinator.removeReferenceDelegete = self
+        coordinator.loginFlowDelegate = self
         loginCoordinator = coordinator
     }
 
-    private func setCategories() -> BaseCoordinator {
+    func setCategoryCoordinator() {
         let coordinator = CategoryCoordinator(router: router, interactorModule: interactorModule)
         addDependency(coordinator)
-        return coordinator
+        coordinator.categoryCoordinatorLoginDelegate = self
+        categoryCoordinator = coordinator
     }
 }
 
 extension ApplicationCoordinator: ApplicationCoordinatorDelegate {
     func showLogin() {
+        setLoginFlow()
         loginCoordinator?.start()
     }
 
     func showCategories() {
-        setCategories().start()
-        finishFlow?()
+        setCategoryCoordinator()
+        categoryCoordinator?.start()
     }
 }
 
 extension ApplicationCoordinator: RemoveReferenceDelegate {
     func removeReference(_ coodinator: BaseCoordinator) {
         removeDependency(coodinator)
+    }
+}
+
+extension ApplicationCoordinator: LoginFlowDelegate {    
+    func showCategoriesFromLogin() {
+        setCategoryCoordinator()
+        categoryCoordinator?.start()
+        removeReference(loginCoordinator!)
         loginCoordinator = nil
+    }
+}
+
+extension ApplicationCoordinator: CategoryCoordinatorLoginDelegate {
+    func runLogin() {
+        setLoginFlow()
+        loginCoordinator?.start()
+        removeReference(categoryCoordinator!)
+        categoryCoordinator = nil
     }
 }

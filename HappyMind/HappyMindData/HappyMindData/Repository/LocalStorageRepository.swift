@@ -16,7 +16,7 @@ public final class LocalStorageRepository: LocalStorageRepositoryType {
     public init() { }
 
     public func saveData(value: Any, key: LocalStorageKey) {
-        defaults.setValue(value, forKey: key.rawValue)
+        defaults.set(value, forKey: key.rawValue)
     }
 
     public func remove(key: LocalStorageKey) {

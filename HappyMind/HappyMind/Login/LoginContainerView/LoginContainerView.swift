@@ -50,6 +50,7 @@ final class LoginContainerView: UIView {
         textField.backgroundColor = .white
         textField.addBorder()
         textField.addLeftPadding()
+        textField.text = "ios@dev.com"
         return textField
     }()
 
@@ -64,6 +65,7 @@ final class LoginContainerView: UIView {
         textField.backgroundColor = .white
         textField.addBorder()
         textField.addLeftPadding()
+        textField.text = "developer"
         return textField
     }()
 

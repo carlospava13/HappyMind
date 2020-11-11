@@ -54,4 +54,8 @@ final class InteractorModule {
     lazy var logOutInteractor: LogOutInteractor = {
         LogOutInteractor(repository: repositoryModule.localStorageRepository)
     }()
+    
+    lazy var isLoginInteractor: IsLoginInteractor = {
+        IsLoginInteractor(repository: repositoryModule.localStorageRepository)
+    }()
 }

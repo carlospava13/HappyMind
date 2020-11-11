@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol LoginFlowDelegate: AnyObject {
+    func showCategoriesFromLogin()
+}
+
 protocol LoginCoordinatorDelegate: AnyObject {
     func showCategories()
     func showWelcomeFlow()
@@ -18,6 +22,8 @@ final class LoginCoordinator: BaseCoordinator {
 
     private var welcomeCoordinator: BaseCoordinator?
     private var categoryCoordinator: BaseCoordinator?
+
+    weak var loginFlowDelegate: LoginFlowDelegate?
 
     init(router: RouterType,
         interactorModule: InteractorModule) {
@@ -33,7 +39,7 @@ final class LoginCoordinator: BaseCoordinator {
 
     func setWelcomeCoordinator() {
         let coordinator = WelcomeCoordinator(router: router,
-                                             interactorModule: interactorModule)
+            interactorModule: interactorModule)
         coordinator.loginConnectionDelegate = self
         addDependency(coordinator)
         coordinator.removeReferenceDelegete = self
@@ -42,7 +48,8 @@ final class LoginCoordinator: BaseCoordinator {
 
     func setCategoryCoordinator() {
         let coordinator = CategoryCoordinator(router: router,
-                                              interactorModule: interactorModule)
+            interactorModule: interactorModule)
+        coordinator.removeReferenceDelegete = self
         addDependency(coordinator)
         categoryCoordinator = coordinator
     }
@@ -51,9 +58,7 @@ final class LoginCoordinator: BaseCoordinator {
 extension LoginCoordinator: LoginCoordinatorDelegate, LoginConnectionDelegate {
     func showCategories() {
         router.dismissModule(animated: true, completion: {
-            self.setCategoryCoordinator()
-            self.categoryCoordinator?.start()
-            self.removeReferenceDelegete?.removeReference(self)
+            self.loginFlowDelegate?.showCategoriesFromLogin()
         })
     }
 
@@ -70,5 +75,6 @@ extension LoginCoordinator: RemoveReferenceDelegate {
     func removeReference(_ coodinator: BaseCoordinator) {
         removeDependency(coodinator)
         welcomeCoordinator = nil
+        categoryCoordinator = nil
     }
 }

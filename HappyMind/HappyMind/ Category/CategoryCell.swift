@@ -10,13 +10,13 @@ import UIKit
 import HappyMindCore
 final class CategoryCell: GenericCell<HappyMindCore.Category> {
     override func setData(_ data: HappyMindCore.Category) {
-        nameCategoryLabel.text = data.name
         set(checked: data.isChecked)
         showSkeleton()
         imageView.loadImage(data.imagePath.mediaPath) { (error) -> (Void) in
             DispatchQueue.main.async {
                 self.hideSkeleton()
                 self.addShadow(cornerRadius: 5)
+                self.nameCategoryLabel.text = data.name
             }
         }
     }
