@@ -28,6 +28,7 @@ final class AudioPlayerConfigurator {
         theme: Theme) -> AudioPlayerPresenter.InputDependencies {
         return AudioPlayerPresenter.InputDependencies(coordinator: coordinator,
                                                       mediaFileInteractor: interactorModule.mediaFileInteractor,
+                                                      checkThemeInteractor: interactorModule.checkThemeInteractor,
             theme: theme)
     }
 

@@ -56,6 +56,7 @@
 		D17BFF6725451CC5004E472B /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */; };
 		D17BFF6925451CD1004E472B /* SubCategoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6825451CD1004E472B /* SubCategoryContract.swift */; };
 		D17BFF6B25451CDD004E472B /* SubCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */; };
+		D189C04A255CAF8D00D5C47C /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D189C049255CAF8D00D5C47C /* CustomError.swift */; };
 		D190A410253F580D00EA54AE /* RemoveReferenceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */; };
 		D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */; };
 		D191F34A25262E6B00A78126 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D191F34925262E6B00A78126 /* LocalizableStrings.swift */; };
@@ -213,6 +214,7 @@
 		D17BFF6625451CC5004E472B /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		D17BFF6825451CD1004E472B /* SubCategoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryContract.swift; sourceTree = "<group>"; };
 		D17BFF6A25451CDD004E472B /* SubCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryPresenter.swift; sourceTree = "<group>"; };
+		D189C049255CAF8D00D5C47C /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		D190A40F253F580D00EA54AE /* RemoveReferenceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReferenceDelegate.swift; sourceTree = "<group>"; };
 		D191F34725262C1D00A78126 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		D191F34925262E6B00A78126 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D189C048255CAF7B00D5C47C /* Errors */,
 				D1535DD2251FDA8800FF375D /* Info.plist */,
 				D1535DC1251FDA8600FF375D /* AppDelegate.swift */,
 				D1535DC3251FDA8600FF375D /* SceneDelegate.swift */,
@@ -493,6 +496,14 @@
 				D1EF978F2525773900B738B0 /* SubCategoryCell.swift */,
 			);
 			path = SubCategory;
+			sourceTree = "<group>";
+		};
+		D189C048255CAF7B00D5C47C /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D189C049255CAF8D00D5C47C /* CustomError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		D191F3542526352A00A78126 /* BaseCoordinator */ = {
@@ -1010,6 +1021,7 @@
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
+				D189C04A255CAF8D00D5C47C /* CustomError.swift in Sources */,
 				D12EB6E72552098E0045A4BC /* TextDetailContract.swift in Sources */,
 				D15C953D2547A6810028B881 /* ThemeConfigurator.swift in Sources */,
 				D1AC71F2253E6EE300D89D14 /* AudioPlayerConfigurator.swift in Sources */,

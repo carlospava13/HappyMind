@@ -36,8 +36,12 @@ final class RepositoryModule {
     lazy var themeRepository: ThemeRepositoryType = {
         ThemeRepository(service: service)
     }()
-    
+
     lazy var welcomeRepository: WelcomeRepositoryType = {
         WelcomeRepositoty(service: service)
+    }()
+
+    lazy var checkThemeRepository: CheckThemeRepositoryType = {
+        CheckThemeRepository(service: service)
     }()
 }

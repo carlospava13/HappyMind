@@ -35,12 +35,7 @@ final class LoginPresenter: BasePresenter {
             case .finished:
                 self?.inputDependencies.coordinator?.showCategories()
             }
-        } receiveValue: { [weak self] (value) in
-//            if (value) {
-//                self?.inputDependencies.coordinator?.showCategories()
-//            } else {
-//                self?.inputDependencies.coordinator?.showWelcomeFlow()
-//            }
+        } receiveValue: { (value) in
         }.store(in: &subscriptions)
     }
 }
@@ -52,8 +47,8 @@ extension LoginPresenter: LoginPresenterType {
                 password: password)
         ).sink(receiveCompletion: { (completion) in
             switch completion {
-            case .failure(let error):
-                self.ownView.show(error)
+            case .failure:
+                self.ownView.show(CustomError.notLogin.rawValue)
             case .finished:
                 self.isFirtsTimeInteractor()
             }

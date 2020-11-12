@@ -17,6 +17,11 @@ class BaseViewController: UIViewController, BaseView {
         presenter?.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
+
     func setBackButtonItem(tintColor: UIColor = .gray) {
         let backbutton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         let origImage = UIImage(named: "back_icon")
@@ -27,8 +32,8 @@ class BaseViewController: UIViewController, BaseView {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
     }
 
-    func show(_ error: Error) {
-        let alerViewController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+    func show(_ message: String) {
+        let alerViewController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerViewController.addAction(cancel)
         present(alerViewController, animated: true, completion: nil)

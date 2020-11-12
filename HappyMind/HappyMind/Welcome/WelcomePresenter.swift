@@ -38,7 +38,7 @@ final class WelcomePresenter: BasePresenter {
         inputDependencies.setFirstTimeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
                 break
             }
@@ -50,7 +50,7 @@ final class WelcomePresenter: BasePresenter {
         inputDependencies.welcomeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
                 self?.ownView.hideSkeleton()
             }

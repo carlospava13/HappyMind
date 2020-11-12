@@ -26,13 +26,16 @@ final class SubCategoryPresenter: BasePresenter {
     init(inputDependencies: InputDependencies) {
         self.inputDependencies = inputDependencies
     }
-    
+
     deinit {
         inputDependencies.coordinator?.removeReference()
     }
 
     override func viewDidLoad() {
         ownView.set(title: inputDependencies.category.name)
+    }
+
+    override func viewWillAppear() {
         getSubcategories(idCategory: inputDependencies.category.id)
     }
 
@@ -41,7 +44,7 @@ final class SubCategoryPresenter: BasePresenter {
         inputDependencies.getSubCatogoryInteractor.execute(idCategory).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
                 self?.ownView.hideSkeleton()
             }

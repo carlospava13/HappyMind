@@ -25,5 +25,8 @@ class BasePresenter: BasePresenterType {
     func viewDidLoad() {
         // This function left empty
     }
-
+    
+    func viewWillAppear() {
+        // This function left empty
+    }
 }

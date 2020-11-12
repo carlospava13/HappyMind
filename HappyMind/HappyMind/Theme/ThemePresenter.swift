@@ -34,6 +34,10 @@ final class ThemePresenter: BasePresenter {
 
     override func viewDidLoad() {
         ownView.set(title: inputDependencies.name)
+        
+    }
+    
+    override func viewWillAppear() {
         getThemes()
     }
 
@@ -42,7 +46,7 @@ final class ThemePresenter: BasePresenter {
         inputDependencies.getThemeInteractor.execute(inputDependencies.id).sink { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
                 self?.ownView.hideSkeleton()
             }

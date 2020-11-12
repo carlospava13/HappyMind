@@ -27,6 +27,7 @@
 		D15C95692547AA580028B881 /* ThemeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95682547AA580028B881 /* ThemeDto.swift */; };
 		D15C956D2547AD8B0028B881 /* ThemeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */; };
 		D15C95712547ADC00028B881 /* ThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95702547ADC00028B881 /* ThemeRepository.swift */; };
+		D189C050255CB2A200D5C47C /* CheckThemeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D189C04F255CB2A200D5C47C /* CheckThemeDto.swift */; };
 		D1A1C0292545245700F09B59 /* SubCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C0282545245700F09B59 /* SubCategoryDto.swift */; };
 		D1A1C02B2545258A00F09B59 /* SubCategoryRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */; };
 		D1A1C02D254525B500F09B59 /* SubCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */; };
@@ -39,6 +40,8 @@
 		D1D71C7F254A22690034E1AE /* WelcomeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C7E254A22690034E1AE /* WelcomeRepositoryType.swift */; };
 		D1D71C83254A22950034E1AE /* WelcomeRepositoty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C82254A22950034E1AE /* WelcomeRepositoty.swift */; };
 		D1ECD8962551E8FE00822C2A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECD8952551E8FE00822C2A /* Configuration.swift */; };
+		D1FC4FC8255B7FA1006F8852 /* CheckThemeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC4FC7255B7FA1006F8852 /* CheckThemeRepositoryType.swift */; };
+		D1FC4FCC255B7FED006F8852 /* CheckThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC4FCB255B7FED006F8852 /* CheckThemeRepository.swift */; };
 		D2E9432C1FCC710C978FB9D0 /* Pods_HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3BE46AA5A321212F639303 /* Pods_HappyMindData.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,7 @@
 		D15C95682547AA580028B881 /* ThemeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDto.swift; sourceTree = "<group>"; };
 		D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepositoryType.swift; sourceTree = "<group>"; };
 		D15C95702547ADC00028B881 /* ThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepository.swift; sourceTree = "<group>"; };
+		D189C04F255CB2A200D5C47C /* CheckThemeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThemeDto.swift; sourceTree = "<group>"; };
 		D1A1C0282545245700F09B59 /* SubCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDto.swift; sourceTree = "<group>"; };
 		D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryRepositoryType.swift; sourceTree = "<group>"; };
 		D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryRepository.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		D1D71C7E254A22690034E1AE /* WelcomeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRepositoryType.swift; sourceTree = "<group>"; };
 		D1D71C82254A22950034E1AE /* WelcomeRepositoty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRepositoty.swift; sourceTree = "<group>"; };
 		D1ECD8952551E8FE00822C2A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D1FC4FC7255B7FA1006F8852 /* CheckThemeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThemeRepositoryType.swift; sourceTree = "<group>"; };
+		D1FC4FCB255B7FED006F8852 /* CheckThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThemeRepository.swift; sourceTree = "<group>"; };
 		DF3BE46AA5A321212F639303 /* Pods_HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,6 +172,7 @@
 				D1A1C0282545245700F09B59 /* SubCategoryDto.swift */,
 				D15C95682547AA580028B881 /* ThemeDto.swift */,
 				D1D71C7A254A21D20034E1AE /* WelcomeDto.swift */,
+				D189C04F255CB2A200D5C47C /* CheckThemeDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 				D1A1C02C254525B500F09B59 /* SubCategoryRepository.swift */,
 				D15C95702547ADC00028B881 /* ThemeRepository.swift */,
 				D1D71C82254A22950034E1AE /* WelcomeRepositoty.swift */,
+				D1FC4FCB255B7FED006F8852 /* CheckThemeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				D1A1C02A2545258A00F09B59 /* SubCategoryRepositoryType.swift */,
 				D15C956C2547AD8B0028B881 /* ThemeRepositoryType.swift */,
 				D1D71C7E254A22690034E1AE /* WelcomeRepositoryType.swift */,
+				D1FC4FC7255B7FA1006F8852 /* CheckThemeRepositoryType.swift */,
 			);
 			path = RepositoryTypes;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 				D1A1C02B2545258A00F09B59 /* SubCategoryRepositoryType.swift in Sources */,
 				D15C95692547AA580028B881 /* ThemeDto.swift in Sources */,
 				6FE1D0472537BA4100E78A4C /* Endpoint.swift in Sources */,
+				D189C050255CB2A200D5C47C /* CheckThemeDto.swift in Sources */,
 				D1ECD8962551E8FE00822C2A /* Configuration.swift in Sources */,
 				D1C4314B253CF49700DA44A6 /* LocalStorageKey.swift in Sources */,
 				D1C43148253CF46E00DA44A6 /* LocalStorageRepositoryType.swift in Sources */,
@@ -407,6 +417,7 @@
 				D1D71C7B254A21D20034E1AE /* WelcomeDto.swift in Sources */,
 				D1A1C02D254525B500F09B59 /* SubCategoryRepository.swift in Sources */,
 				D1D71C7F254A22690034E1AE /* WelcomeRepositoryType.swift in Sources */,
+				D1FC4FC8255B7FA1006F8852 /* CheckThemeRepositoryType.swift in Sources */,
 				6FE1D0412537BA4100E78A4C /* ResourceLoaderDelegate.swift in Sources */,
 				6FE1D0462537BA4100E78A4C /* CachingPlayerItem.swift in Sources */,
 				6F617229253938E700B7D9D8 /* User.swift in Sources */,
@@ -416,6 +427,7 @@
 				6F6172252539359100B7D9D8 /* LoginRepositoryType.swift in Sources */,
 				6FE1D0422537BA4100E78A4C /* BaseAPIClient.swift in Sources */,
 				D1AC71E2253E5CD100D89D14 /* LocalStorageError.swift in Sources */,
+				D1FC4FCC255B7FED006F8852 /* CheckThemeRepository.swift in Sources */,
 				6FE1D0512537BA4E00E78A4C /* BaseService.swift in Sources */,
 				D1AC71E4253E5CF800D89D14 /* BaseError.swift in Sources */,
 			);

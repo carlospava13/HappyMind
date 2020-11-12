@@ -31,6 +31,7 @@
 		D1D71C87254A22D40034E1AE /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */; };
 		D1D71C8A254A22FD0034E1AE /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C89254A22FD0034E1AE /* Welcome.swift */; };
 		D1FC4FC5255B6B9C006F8852 /* IsLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */; };
+		D1FC4FD0255B809D006F8852 /* CheckThemeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC4FCF255B809D006F8852 /* CheckThemeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
 		D1D71C89254A22FD0034E1AE /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsLoginInteractor.swift; sourceTree = "<group>"; };
+		D1FC4FCF255B809D006F8852 /* CheckThemeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckThemeInteractor.swift; sourceTree = "<group>"; };
 		EC422C85CDECBC508604AC67 /* Pods_HappyMindCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDBAB851CB68ED15476E0FF /* Pods-HappyMindCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindCore.release.xcconfig"; path = "Target Support Files/Pods-HappyMindCore/Pods-HappyMindCore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 				D15A93B92550D33600447A55 /* MediaFileInteractor.swift */,
 				D1C23196255A2B6B00008381 /* LogOutInteractor.swift */,
 				D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */,
+				D1FC4FCF255B809D006F8852 /* CheckThemeInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				D1FC4FC5255B6B9C006F8852 /* IsLoginInteractor.swift in Sources */,
 				D15C95782547AE650028B881 /* Theme.swift in Sources */,
 				6FE1D0AC2537DF6500E78A4C /* Category.swift in Sources */,
+				D1FC4FD0255B809D006F8852 /* CheckThemeInteractor.swift in Sources */,
 				6F61723025393A4D00B7D9D8 /* LoginParams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

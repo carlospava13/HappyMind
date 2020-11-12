@@ -58,4 +58,8 @@ final class InteractorModule {
     lazy var isLoginInteractor: IsLoginInteractor = {
         IsLoginInteractor(repository: repositoryModule.localStorageRepository)
     }()
+    
+    lazy var checkThemeInteractor: CheckThemeInteractor = {
+        CheckThemeInteractor(repository: repositoryModule.checkThemeRepository, localStorageRepository: repositoryModule.localStorageRepository)
+    }()
 }

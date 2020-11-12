@@ -12,11 +12,12 @@ protocol BasePresenterType: AnyObject {
     var view: BaseView? { get }
     func bind(_ view: BaseView)
     func viewDidLoad()
+    func viewWillAppear()
 }
 
 protocol BaseView: AnyObject {
     var presenter: BasePresenterType? { get }
-    func show(_ error: Error)
+    func show(_ message: String)
     func showSkeleton()
     func hideSkeleton()
 }

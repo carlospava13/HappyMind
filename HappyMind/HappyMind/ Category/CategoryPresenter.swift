@@ -27,7 +27,7 @@ final class CategoryPresenter: BasePresenter {
         self.inputDependencies = inputDependencies
     }
 
-    override func viewDidLoad() {
+    override func viewWillAppear() {
         getCategories()
     }
 
@@ -36,7 +36,7 @@ final class CategoryPresenter: BasePresenter {
         inputDependencies.getCategoriesInteractor.execute().sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self?.ownView.show(error)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
                 self?.ownView.hideSkeleton()
             }

@@ -10,7 +10,8 @@ import Foundation
 import HappyMindCore
 final class WelcomeCell: GenericCell<Theme> {
     override func setData(_ data: Theme) {
-        nameCategoryLabel.text = data.title
+        set(checked: data.isChecked)
         imageView.loadImage(data.coverImage.mediaPath!) { _ in }
+        nameCategoryLabel.text = data.title
     }
 }
