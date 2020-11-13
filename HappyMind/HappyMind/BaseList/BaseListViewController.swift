@@ -12,7 +12,7 @@ class BaseListViewController: BaseViewController {
 
     lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: .zero, layout: .list)
-        collectionView.setHeight(95)
+        collectionView.setHeight(100)
         return collectionView
     }()
 

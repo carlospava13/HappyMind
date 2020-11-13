@@ -37,7 +37,7 @@ final class TextDetailViewController: BaseViewController {
     private lazy var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.calibriBoldFont(size: 19)
+        label.font = UIFont.calibriRegularFont(size: 19)
         label.backgroundColor = .clear
         label.numberOfLines = 0
         label.textAlignment = .justified
@@ -50,7 +50,7 @@ final class TextDetailViewController: BaseViewController {
         textSettingsView.isHidden = true
         return textSettingsView
     }()
-    
+
     private var onwPresenter: TextDetailPresenterType! {
         presenter as? TextDetailPresenterType
     }
@@ -145,7 +145,7 @@ final class TextDetailViewController: BaseViewController {
         heightConstraints.constant = height!
         view.updateConstraints()
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         let userInterfaceStyle = traitCollection.userInterfaceStyle
@@ -157,7 +157,11 @@ final class TextDetailViewController: BaseViewController {
 extension TextDetailViewController: TextSettingsViewDelegate {
     func set(size: Float) {
         sizeDefault += size
-        textLabel.font = UIFont.calibriRegularFont(size: CGFloat(sizeDefault))
+        if let attributedText = textLabel.attributedText {
+            let newAttributedText = NSMutableAttributedString(attributedString: attributedText)
+            newAttributedText.setFontSize(newSize: CGFloat(sizeDefault))
+            textLabel.attributedText = newAttributedText
+        }
         calculateHeight()
     }
 
@@ -180,17 +184,24 @@ extension TextDetailViewController: TextDetailView {
     func set(title: String) {
         titleLabel.text = title
     }
-    
+
     func set(image: String?) {
         if let image = image {
             imageView.loadImage(image) { _ in }
-        }else {
+        } else {
             imageheightConstraints.constant = 0
             view.updateConstraints()
         }
     }
-    
+
     func set(textContent: String) {
-        textLabel.text = textContent
+        settextContent(text: textContent, size: 19)
+    }
+
+    func settextContent(text: String, size: CGFloat) {
+        textLabel.attributedText = nil
+        let attribute = NSMutableAttributedString(html: text)
+        attribute?.setFontSize(newSize: size)
+        textLabel.attributedText = attribute
     }
 }
