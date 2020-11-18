@@ -1,11 +1,11 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (5.4.0)
   - lottie-ios (3.1.9)
-  - SDWebImage (5.8.4):
-    - SDWebImage/Core (= 5.8.4)
-  - SDWebImage/Core (5.8.4)
-  - SkeletonView (1.8.8)
-  - TPKeyboardAvoiding (1.3.4)
+  - SDWebImage (5.9.5):
+    - SDWebImage/Core (= 5.9.5)
+  - SDWebImage/Core (5.9.5)
+  - SkeletonView (1.11.0)
+  - TPKeyboardAvoiding (1.3.5)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -23,11 +23,11 @@ SPEC REPOS:
     - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
-  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
-  SkeletonView: e37c282c1b228547b83daf47605f79c3aeb1df9a
-  TPKeyboardAvoiding: 7c2187e2338052b2c5be4a8052f297fdb124e261
+  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
+  SkeletonView: cc84ce90a804dd0dd7198dd802833411c8a64eaf
+  TPKeyboardAvoiding: d55b3ea7b362540af8fcf36aa3ed2e87bf210cc6
 
 PODFILE CHECKSUM: 61283abff1643edb5a0c92ea79b9706f9f412488
 

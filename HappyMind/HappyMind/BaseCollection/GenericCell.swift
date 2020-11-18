@@ -31,7 +31,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.calibriBoldFont(size: 25)
         label.textColor = .white
-        label.isSkeletonable = true
         return label
     }()
 
@@ -60,6 +59,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.roundCorners(corners: .allCorners, radius: 5)
+        setGadient()
     }
 
     private func setupView() {
@@ -103,6 +103,16 @@ class GenericCell<T>: BaseCollectionCell<T> {
             checkImageView.heightAnchor.constraint(equalToConstant: 20),
             checkImageView.widthAnchor.constraint(equalToConstant: 20)
             ])
+    }
+    
+    private func setGadient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor,
+                                UIColor.clear.cgColor,
+                                UIColor.orange().withAlphaComponent(0.2 ).cgColor,
+                                UIColor.orange().withAlphaComponent(0.2 ).cgColor]
+        imageView.layer.addSublayer(gradientLayer)
     }
     
     func set(checked: Bool) {
