@@ -13,5 +13,6 @@ protocol LoginPresenterType: BasePresenterType {
 }
 
 protocol LoginView: BaseView {
-    
+    func showLoading()
+    func hideLoading()
 }

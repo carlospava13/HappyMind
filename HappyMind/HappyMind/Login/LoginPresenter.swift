@@ -40,14 +40,17 @@ final class LoginPresenter: BasePresenter {
     }
     
     func doLogin(email: String, password: String) {
+        ownView.showLoading()
         inputDependencies.loginInteractor.execute(
             LoginParams(email: email.lowercased(),
                 password: password)
         ).sink(receiveCompletion: { (completion) in
             switch completion {
             case .failure:
+                self.ownView.hideLoading()
                 self.ownView.show(CustomError.notLogin.rawValue)
             case .finished:
+                self.ownView.hideLoading()
                 self.isFirtsTimeInteractor()
             }
         }) { (user) in

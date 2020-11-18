@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController, BaseView {
-
+    private var loadingViewController: LoadingViewController?
     var presenter: BasePresenterType?
 
     override func viewDidLoad() {
@@ -45,5 +45,16 @@ class BaseViewController: UIViewController, BaseView {
 
     @objc private func onBack() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func showLoading() {
+        loadingViewController = LoadingViewController()
+        loadingViewController?.modalTransitionStyle = .crossDissolve
+        loadingViewController?.modalPresentationStyle = .overCurrentContext
+        present(loadingViewController!, animated: false, completion: nil)
+    }
+
+    func hideLoading() {
+        loadingViewController?.dismiss(animated: false, completion: nil)
     }
 }
