@@ -37,7 +37,7 @@ class GenericCell<T>: BaseCollectionCell<T> {
     lazy var checkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .clear
         return imageView
     }()

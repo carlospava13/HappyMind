@@ -142,7 +142,7 @@ final class TextDetailViewController: BaseViewController {
 
     func calculateHeight() {
         let height = textLabel.font?.height(text: textLabel.text!, withConstrainedWidth: textLabel.bounds.width)
-        heightConstraints.constant = height!
+        heightConstraints.constant = height! * 1.2
         view.updateConstraints()
     }
 
