@@ -55,6 +55,8 @@ class BaseViewController: UIViewController, BaseView {
     }
 
     func hideLoading() {
-        loadingViewController?.dismiss(animated: false, completion: nil)
+        loadingViewController?.dismiss(animated: false, completion: {
+            self.loadingViewController = nil
+        })
     }
 }

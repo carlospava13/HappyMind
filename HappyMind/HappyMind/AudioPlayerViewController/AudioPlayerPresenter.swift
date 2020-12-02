@@ -40,12 +40,13 @@ final class AudioPlayerPresenter: BasePresenter {
     }
 
     private func checkTheme() {
-        inputDependencies.checkThemeInteractor.execute(inputDependencies.theme).sink { (completion) in
+
+        inputDependencies.checkThemeInteractor.execute(inputDependencies.theme).sink {  [weak self] (completion) in
             switch completion {
             case .failure(let error):
-                self.ownView.show(error.localizedDescription)
+                self?.ownView.show(error.localizedDescription)
             case .finished:
-                self.getMediaFile()
+                self?.getMediaFile()
             }
         } receiveValue: { _ in
         }.store(in: &subscriptions)
@@ -56,7 +57,8 @@ final class AudioPlayerPresenter: BasePresenter {
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error.localizedDescription)
-            case .finished: break
+            case .finished:
+                break
             }
         } receiveValue: { (mediafile) in
             self.ownView.set(urlSong: mediafile.urlFile + self.inputDependencies.theme.mediaFile.mediaPath,

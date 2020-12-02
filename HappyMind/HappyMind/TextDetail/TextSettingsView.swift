@@ -54,6 +54,9 @@ final class TextSettingsView: UIView {
         darkModeView.delegate = self
         return darkModeView
     }()
+    
+    private let limitFontSize = 3
+    private var variableFontSize = 0
 
     weak var delegate: TextSettingsViewDelegate?
 
@@ -96,11 +99,17 @@ final class TextSettingsView: UIView {
     }
 
     @objc func onLessSizeText() {
-        delegate?.set(size: -1)
+        if -limitFontSize <= variableFontSize {
+            variableFontSize -= 1
+            delegate?.set(size: -1)
+        }
     }
 
     @objc func onHigherSizeText() {
-        delegate?.set(size: 1)
+        if limitFontSize >= variableFontSize {
+            variableFontSize += 1
+            delegate?.set(size: 1)
+        }
     }
 
     private func setBorderLines(_ view: UIView, corner: CGFloat, maskedCorners: CACornerMask) {
