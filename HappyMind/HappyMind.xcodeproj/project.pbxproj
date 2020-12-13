@@ -97,6 +97,7 @@
 		D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43165253D15B400DA44A6 /* UIColor+Color.swift */; };
 		D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */; };
 		D1CB5D182546353200A66F32 /* VideoPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */; };
+		D1D3FE4C2586C19600DD0C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */; };
 		D1DED496256AE28500859D73 /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DED494256AE28500859D73 /* img_0.png */; };
 		D1E36F2E254AFABC00272920 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
@@ -258,6 +259,8 @@
 		D1C43165253D15B400DA44A6 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerCoordinator.swift; sourceTree = "<group>"; };
+		D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1D3FE682586C65400DD0C13 /* HappyMind.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HappyMind.entitlements; sourceTree = "<group>"; };
 		D1DED494256AE28500859D73 /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
 		D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -393,9 +396,11 @@
 		D1535DC0251FDA8600FF375D /* HappyMind */ = {
 			isa = PBXGroup;
 			children = (
+				D1D3FE682586C65400DD0C13 /* HappyMind.entitlements */,
 				D1A821F22564987400EB5F81 /* Loading */,
 				D189C048255CAF7B00D5C47C /* Errors */,
 				D1535DD2251FDA8800FF375D /* Info.plist */,
+				D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */,
 				D1535DC1251FDA8600FF375D /* AppDelegate.swift */,
 				D1535DC3251FDA8600FF375D /* SceneDelegate.swift */,
 				D1535DCD251FDA8800FF375D /* Assets.xcassets */,
@@ -854,6 +859,7 @@
 			files = (
 				D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */,
 				D132DC8E2544E7FA0079AE69 /* Calibri-Regular.ttf in Resources */,
+				D1D3FE4C2586C19600DD0C13 /* GoogleService-Info.plist in Resources */,
 				D132DC862544CDEA0079AE69 /* Calibri-Bold.ttf in Resources */,
 				D1AC39E5257718720055C1AC /* animation.json in Resources */,
 				D1DED496256AE28500859D73 /* img_0.png in Resources */,
@@ -1255,15 +1261,16 @@
 			baseConfigurationReference = 3FB41762A6C4DCC09AC402BA /* Pods-HappyMind.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PVBF2PQ282;
+				DEVELOPMENT_TEAM = M597DBM4KS;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlos.HappyMind;
+				PRODUCT_BUNDLE_IDENTIFIER = co.edu.sena.HappyMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1275,15 +1282,16 @@
 			baseConfigurationReference = 99BB78867A0A94446C53AE08 /* Pods-HappyMind.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PVBF2PQ282;
+				DEVELOPMENT_TEAM = M597DBM4KS;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.carlos.HappyMind;
+				PRODUCT_BUNDLE_IDENTIFIER = co.edu.sena.HappyMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

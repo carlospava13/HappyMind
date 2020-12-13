@@ -14,6 +14,7 @@ target 'HappyMind' do
   pod 'SDWebImage', '~> 5.0'
   pod 'SkeletonView'
   pod 'lottie-ios'
+  pod 'Firebase/Messaging'
   
   target 'HappyMindTests' do
     inherit! :search_paths
