@@ -114,7 +114,7 @@ extension LoginViewController: LoginView {
 extension LoginViewController: LoginContainerDelegate {
     func login(email: String, password: String) {
         view.endEditing(true)
-        SampleMSALAuthentication.shared.signInAccount(parentController: self, completion: {
+        SampleMSALAuthentication.shared.signInAccount(parentController: self, completion: { [weak self]
             (account, token, error) in
             
             if let error = error {
@@ -122,8 +122,12 @@ extension LoginViewController: LoginContainerDelegate {
                 return
             }
             
+            guard let username = account?.username else {
+                return
+            }
+            self?.ownPresenter.setLogin(email: username)
             
         })
-        //ownPresenter.setLogin(email: email, password: password)
+        //
     }
 }

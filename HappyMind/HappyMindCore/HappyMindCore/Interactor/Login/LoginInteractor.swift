@@ -21,7 +21,7 @@ public final class LoginInteractor: BaseInteractor<LoginParams, User> {
     }
     
     public override func execute(_ params: LoginParams) -> AnyPublisher<User, Error> {
-        return repository.login(username: params.email, password: params.password).map { (user) -> User in
+        return repository.login(username: params.email).map { (user) -> User in
             self.localStorageRepository.saveData(value: user.token, key: .token)
             return User(token: user.token)
         }.eraseToAnyPublisher()
