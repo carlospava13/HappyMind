@@ -8,7 +8,7 @@
 "happymind" = "FelizMente";
 "email" = "Correo";
 "password" = "Contraseña";
-"login" = "Inciar Sesión";
+"login" = "Inciar Sesión con Microsoft";
 
 //MARK: Welcome
 "welcome" = "Bienvenid@";

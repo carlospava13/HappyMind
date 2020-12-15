@@ -30,12 +30,12 @@ import MSAL
 // MARK: Setup and initialization
 class SampleMSALAuthentication {
     
-    let kClientID = "a251b868-7358-4356-95ab-031a1e8cce65"
+    let kClientID = "74f02f30-c9e1-4bbe-864f-709c1902b0a6"
     let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
-    let kAuthority = "https://login.microsoftonline.com/consumers"
+    let kAuthority = "https://login.microsoftonline.com/cbc2c381-2f2e-4d93-91d1-506c9316ace7"
     let kGraphEndpoint = "https://graph.microsoft.com/"
     
-    let kClientId = "a251b868-7358-4356-95ab-031a1e8cce65"
+    //let kClientId = "a251b868-7358-4356-95ab-031a1e8cce65"
     let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     
     //let kAuthority = "https://login.microsoftonline.com/"
@@ -68,7 +68,7 @@ fileprivate extension SampleMSALAuthentication {
     func createClientApplication() throws -> MSALPublicClientApplication {
         // This MSALPublicClientApplication object is the representation of your app listing, in MSAL. For your own app
         // go to the Microsoft App Portal to register your own applications with their own client IDs.
-        let config = MSALPublicClientApplicationConfig(clientId: kClientId)
+        let config = MSALPublicClientApplicationConfig(clientId: kClientID)
         
         do {
             config.authority = try MSALAuthority(url: URL(string: kAuthority)!)

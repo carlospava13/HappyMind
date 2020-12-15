@@ -28,6 +28,11 @@ extension UIView {
         layer.masksToBounds = false
         clipsToBounds = false
     }
+    
+    func addBorderToView(color: UIColor) {
+        layer.borderWidth = 1
+        layer.borderColor = color.cgColor
+    }
 }
 
 extension UIView {
