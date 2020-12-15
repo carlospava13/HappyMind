@@ -28,6 +28,7 @@
 		D1AC71DF253E5AFC00D89D14 /* FirstTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71DE253E5AFC00D89D14 /* FirstTimeInteractor.swift */; };
 		D1AC71E6253E625400D89D14 /* SetFirstTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71E5253E625400D89D14 /* SetFirstTimeInteractor.swift */; };
 		D1C23197255A2B6B00008381 /* LogOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C23196255A2B6B00008381 /* LogOutInteractor.swift */; };
+		D1D300A02588469500DD0C13 /* RegisterDeviceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3009F2588469500DD0C13 /* RegisterDeviceInteractor.swift */; };
 		D1D71C87254A22D40034E1AE /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */; };
 		D1D71C8A254A22FD0034E1AE /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D71C89254A22FD0034E1AE /* Welcome.swift */; };
 		D1FC4FC5255B6B9C006F8852 /* IsLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */; };
@@ -82,6 +83,7 @@
 		D1AC71DE253E5AFC00D89D14 /* FirstTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeInteractor.swift; sourceTree = "<group>"; };
 		D1AC71E5253E625400D89D14 /* SetFirstTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFirstTimeInteractor.swift; sourceTree = "<group>"; };
 		D1C23196255A2B6B00008381 /* LogOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutInteractor.swift; sourceTree = "<group>"; };
+		D1D3009F2588469500DD0C13 /* RegisterDeviceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceInteractor.swift; sourceTree = "<group>"; };
 		D1D71C86254A22D40034E1AE /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
 		D1D71C89254A22FD0034E1AE /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsLoginInteractor.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				D1C23196255A2B6B00008381 /* LogOutInteractor.swift */,
 				D1FC4FC4255B6B9C006F8852 /* IsLoginInteractor.swift */,
 				D1FC4FCF255B809D006F8852 /* CheckThemeInteractor.swift */,
+				D1D3009F2588469500DD0C13 /* RegisterDeviceInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				D1C23197255A2B6B00008381 /* LogOutInteractor.swift in Sources */,
 				D1A1C031254526D800F09B59 /* GetSubCatogoryInteractor.swift in Sources */,
 				6FE1D0A92537DF3400E78A4C /* GetCategoriesInteractor.swift in Sources */,
+				D1D300A02588469500DD0C13 /* RegisterDeviceInteractor.swift in Sources */,
 				D15A93BA2550D33600447A55 /* MediaFileInteractor.swift in Sources */,
 				D1D71C87254A22D40034E1AE /* WelcomeInteractor.swift in Sources */,
 				D1AC71DF253E5AFC00D89D14 /* FirstTimeInteractor.swift in Sources */,

@@ -44,4 +44,8 @@ final class RepositoryModule {
     lazy var checkThemeRepository: CheckThemeRepositoryType = {
         CheckThemeRepository(service: service)
     }()
+    
+    lazy var registerDeviceRepository: RegisterDeviceRepositoryType = {
+       RegisterDeviceRepository(service: service)
+    }()
 }

@@ -22,6 +22,7 @@ final class ApplicationConfigurator {
 
     private static func createDependencies(coordinator: ApplicationCoordinatorDelegate?, interactorModule: InteractorModule) -> ApplicationPresenter.InputDependencies {
         return ApplicationPresenter.InputDependencies(coordinator: coordinator,
+                                                      registerDeviceInteractor: interactorModule.registerDeviceInteractor,
                                                       firstTimeInteractor: interactorModule.firstTimeInteractor,
                                                       isLoginInteractor: interactorModule.isLoginInteractor)
     }
