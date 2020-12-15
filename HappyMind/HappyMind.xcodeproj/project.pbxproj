@@ -98,6 +98,13 @@
 		D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */; };
 		D1CB5D182546353200A66F32 /* VideoPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */; };
 		D1D3FE4C2586C19600DD0C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */; };
+		D1D3FE912586CBA700DD0C13 /* SampleMSALAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FE902586CBA700DD0C13 /* SampleMSALAuthentication.swift */; };
+		D1D3FE952586CBC300DD0C13 /* SampleAppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FE942586CBC300DD0C13 /* SampleAppErrors.swift */; };
+		D1D3FE9B2586CBCD00DD0C13 /* SampleGraphRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FE982586CBCD00DD0C13 /* SampleGraphRequest.swift */; };
+		D1D3FE9C2586CBCD00DD0C13 /* SampleCalendarUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FE992586CBCD00DD0C13 /* SampleCalendarUtil.swift */; };
+		D1D3FE9D2586CBCD00DD0C13 /* SampleGraphScopes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FE9A2586CBCD00DD0C13 /* SampleGraphScopes.swift */; };
+		D1D3FEA12586CC4900DD0C13 /* SamplePhotoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FEA02586CC4900DD0C13 /* SamplePhotoUtil.swift */; };
+		D1D3FEA52586CC5F00DD0C13 /* SampleCalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D3FEA42586CC5F00DD0C13 /* SampleCalendarEvent.swift */; };
 		D1DED496256AE28500859D73 /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DED494256AE28500859D73 /* img_0.png */; };
 		D1E36F2E254AFABC00272920 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */; };
 		D1EF976B2525258D00B738B0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97622525258C00B738B0 /* CollectionView.swift */; };
@@ -261,6 +268,13 @@
 		D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerCoordinator.swift; sourceTree = "<group>"; };
 		D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1D3FE682586C65400DD0C13 /* HappyMind.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HappyMind.entitlements; sourceTree = "<group>"; };
+		D1D3FE902586CBA700DD0C13 /* SampleMSALAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMSALAuthentication.swift; sourceTree = "<group>"; };
+		D1D3FE942586CBC300DD0C13 /* SampleAppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAppErrors.swift; sourceTree = "<group>"; };
+		D1D3FE982586CBCD00DD0C13 /* SampleGraphRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleGraphRequest.swift; sourceTree = "<group>"; };
+		D1D3FE992586CBCD00DD0C13 /* SampleCalendarUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleCalendarUtil.swift; sourceTree = "<group>"; };
+		D1D3FE9A2586CBCD00DD0C13 /* SampleGraphScopes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleGraphScopes.swift; sourceTree = "<group>"; };
+		D1D3FEA02586CC4900DD0C13 /* SamplePhotoUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplePhotoUtil.swift; sourceTree = "<group>"; };
+		D1D3FEA42586CC5F00DD0C13 /* SampleCalendarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleCalendarEvent.swift; sourceTree = "<group>"; };
 		D1DED494256AE28500859D73 /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
 		D1E36F2D254AFABC00272920 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		D1EF97622525258C00B738B0 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -471,6 +485,7 @@
 		D15FC079252D288400C69DDA /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D1D3FE8F2586CB9E00DD0C13 /* Auth */,
 				D15FC085252D2D0500C69DDA /* LoginContainerView */,
 				D15FC080252D290900C69DDA /* Coordinator */,
 				D15FC07A252D289600C69DDA /* LoginViewController.swift */,
@@ -652,6 +667,20 @@
 				D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */,
 			);
 			path = coordinator;
+			sourceTree = "<group>";
+		};
+		D1D3FE8F2586CB9E00DD0C13 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D1D3FE942586CBC300DD0C13 /* SampleAppErrors.swift */,
+				D1D3FEA42586CC5F00DD0C13 /* SampleCalendarEvent.swift */,
+				D1D3FE992586CBCD00DD0C13 /* SampleCalendarUtil.swift */,
+				D1D3FEA02586CC4900DD0C13 /* SamplePhotoUtil.swift */,
+				D1D3FE982586CBCD00DD0C13 /* SampleGraphRequest.swift */,
+				D1D3FE9A2586CBCD00DD0C13 /* SampleGraphScopes.swift */,
+				D1D3FE902586CBA700DD0C13 /* SampleMSALAuthentication.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D1DED492256AE28500859D73 /* animacion */ = {
@@ -1003,6 +1032,7 @@
 				D15FC087252D2D1900C69DDA /* LoginContainerView.swift in Sources */,
 				D13645992543FC6800CEFBFD /* PlayerManagerView.swift in Sources */,
 				D1EF97722525258D00B738B0 /* GenericDataSource.swift in Sources */,
+				D1D3FEA12586CC4900DD0C13 /* SamplePhotoUtil.swift in Sources */,
 				D1C24312254E2BB80038CA58 /* TextSettingsView.swift in Sources */,
 				D1EF97702525258D00B738B0 /* CollectionDisplay.swift in Sources */,
 				D15C958D2547B61F0028B881 /* ThemeCell.swift in Sources */,
@@ -1032,6 +1062,7 @@
 				D15C95302547A6590028B881 /* ThemeContract.swift in Sources */,
 				D1EF976F2525258D00B738B0 /* CollectionViewHorizontalCustom.swift in Sources */,
 				D12EB6F0255209AF0045A4BC /* TextDetailConfigurator.swift in Sources */,
+				D1D3FE952586CBC300DD0C13 /* SampleAppErrors.swift in Sources */,
 				D1EF976C2525258D00B738B0 /* CollectionViewCellIdentifier.swift in Sources */,
 				D15FC084252D292400C69DDA /* LoginConfigurator.swift in Sources */,
 				D17971D4254B8BB4001ADCDA /* VolumeSliderView.swift in Sources */,
@@ -1039,12 +1070,15 @@
 				D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */,
 				D1EF97732525258D00B738B0 /* BaseCollectionCell.swift in Sources */,
 				D15C952C2547A6490028B881 /* ThemeViewController.swift in Sources */,
+				D1D3FE912586CBA700DD0C13 /* SampleMSALAuthentication.swift in Sources */,
+				D1D3FE9B2586CBCD00DD0C13 /* SampleGraphRequest.swift in Sources */,
 				D1C43160253CFD7600DA44A6 /* GenericCell.swift in Sources */,
 				D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */,
 				D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */,
 				D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */,
 				D191F3612526370000A78126 /* CategoryCoordinator.swift in Sources */,
 				D191F3562526355800A78126 /* BaseCoordinator.swift in Sources */,
+				D1D3FE9C2586CBCD00DD0C13 /* SampleCalendarUtil.swift in Sources */,
 				D191F34825262C1D00A78126 /* UINavigationController+NavigationBar.swift in Sources */,
 				D191F35A2526358E00A78126 /* RouterType.swift in Sources */,
 				D15FC089252D3DD600C69DDA /* UITextField+Components.swift in Sources */,
@@ -1062,6 +1096,7 @@
 				D13645972543CBCE00CEFBFD /* DiskView.swift in Sources */,
 				D1C43157253CF94F00DA44A6 /* WelcomeCoordinator.swift in Sources */,
 				D1EF97762525268500B738B0 /* CategoryViewController.swift in Sources */,
+				D1D3FE9D2586CBCD00DD0C13 /* SampleGraphScopes.swift in Sources */,
 				D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */,
 				D189C04A255CAF8D00D5C47C /* CustomError.swift in Sources */,
 				D12EB6E72552098E0045A4BC /* TextDetailContract.swift in Sources */,
@@ -1077,6 +1112,7 @@
 				D1535DC4251FDA8600FF375D /* SceneDelegate.swift in Sources */,
 				D1AC71ED253E6E5200D89D14 /* AudioPlayerPresenter.swift in Sources */,
 				D1C43152253CF92E00DA44A6 /* WelcomePresenter.swift in Sources */,
+				D1D3FEA52586CC5F00DD0C13 /* SampleCalendarEvent.swift in Sources */,
 				6F97262725390CD700913342 /* InteractorModule.swift in Sources */,
 				D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */,
 				D1C2430E254E22740038CA58 /* TextDetailViewController.swift in Sources */,

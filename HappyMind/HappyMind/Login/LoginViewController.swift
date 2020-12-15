@@ -8,8 +8,14 @@
 
 import UIKit
 import TPKeyboardAvoiding
+import MSAL
 
 final class LoginViewController: BaseViewController {
+    
+    let kClientID = "a251b868-7358-4356-95ab-031a1e8cce65"
+    let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
+    let kAuthority = "https://login.microsoftonline.com/consumers"
+    let kGraphEndpoint = "https://graph.microsoft.com/"
 
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -108,6 +114,16 @@ extension LoginViewController: LoginView {
 extension LoginViewController: LoginContainerDelegate {
     func login(email: String, password: String) {
         view.endEditing(true)
-        ownPresenter.setLogin(email: email, password: password)
+        SampleMSALAuthentication.shared.signInAccount(parentController: self, completion: {
+            (account, token, error) in
+            
+            if let error = error {
+                print("App error: \(error)")
+                return
+            }
+            
+            
+        })
+        //ownPresenter.setLogin(email: email, password: password)
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 import HappyMindData
+import MSAL
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -55,6 +57,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 
     private func makeCoordinator() -> ApplicationCoordinator {

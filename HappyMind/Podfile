@@ -15,6 +15,7 @@ target 'HappyMind' do
   pod 'SkeletonView'
   pod 'lottie-ios'
   pod 'Firebase/Messaging'
+  pod 'MSAL'
   
   target 'HappyMindTests' do
     inherit! :search_paths
