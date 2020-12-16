@@ -12,7 +12,7 @@
 		6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */; };
 		6F97262725390CD700913342 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262625390CD700913342 /* InteractorModule.swift */; };
 		6F97262925390D0500913342 /* RepositoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262825390D0500913342 /* RepositoryModule.swift */; };
-		6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D0542537BA7100E78A4C /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0532537BA7100E78A4C /* HappyMindData.framework */; };
 		6FE1D0552537BA7100E78A4C /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0532537BA7100E78A4C /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D0B12537E40500E78A4C /* HappyMindCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; };
@@ -153,7 +153,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */,
+				6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */,
 				6FE1D0552537BA7100E78A4C /* HappyMindData.framework in Embed Frameworks */,
 				6FE1D0B22537E40500E78A4C /* HappyMindCore.framework in Embed Frameworks */,
 			);
