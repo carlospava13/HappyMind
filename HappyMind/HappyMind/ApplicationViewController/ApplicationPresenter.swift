@@ -7,6 +7,7 @@
 //
 
 import HappyMindCore
+import Firebase
 
 final class ApplicationPresenter: BasePresenter {
 
@@ -16,6 +17,7 @@ final class ApplicationPresenter: BasePresenter {
 
     struct InputDependencies {
         weak var coordinator: ApplicationCoordinatorDelegate?
+        let registerDeviceInteractor: RegisterDeviceInteractor
         let firstTimeInteractor: FirstTimeInteractor
         let isLoginInteractor: IsLoginInteractor
     }
@@ -36,12 +38,24 @@ final class ApplicationPresenter: BasePresenter {
             case.failure:
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self?.inputDependencies.coordinator?.showLogin()
+                    self?.registerDevice()
                 }
             case.finished:
                 break
             }
         }) { [weak self] (bool) in
-                self?.isLogin()
+            self?.isLogin()
+        }.store(in: &subscriptions)
+    }
+
+    private func registerDevice() {
+        guard let token = Messaging.messaging().apnsToken?.hexString else {
+            return
+        }
+
+        inputDependencies.registerDeviceInteractor.execute(token).sink(receiveCompletion: { _ in
+        }) { (bool) in
+            print(bool)
         }.store(in: &subscriptions)
     }
 

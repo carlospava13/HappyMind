@@ -62,4 +62,8 @@ final class InteractorModule {
     lazy var checkThemeInteractor: CheckThemeInteractor = {
         CheckThemeInteractor(repository: repositoryModule.checkThemeRepository, localStorageRepository: repositoryModule.localStorageRepository)
     }()
+     
+    lazy var registerDeviceInteractor: RegisterDeviceInteractor = {
+        RegisterDeviceInteractor(repository: repositoryModule.registerDeviceRepository)
+    }()
 }
