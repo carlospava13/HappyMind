@@ -14,7 +14,6 @@ final class WelcomeHeader: UICollectionReusableView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .orange()
-        view.isSkeletonable = true
         return view
     }()
 
@@ -24,7 +23,6 @@ final class WelcomeHeader: UICollectionReusableView {
         label.font = UIFont.calibriRegularFont()
         label.textColor = .white
         label.numberOfLines = 0
-        label.isSkeletonable = true
         return label
     }()
 
@@ -32,7 +30,6 @@ final class WelcomeHeader: UICollectionReusableView {
         super.init(frame: frame)
         backgroundColor = .white
         setupView()
-        isSkeletonable = true
         setupTitleLabelConstraints()
     }
 

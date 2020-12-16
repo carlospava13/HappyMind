@@ -13,8 +13,10 @@ import HappyMindData
 extension UIImageView {
     func loadImage(_ url: String, completion: @escaping (_ error: Error?) -> (Void)) {
         if let url = URL(string: "\(Configuration.baseURL)image?mediaPath=\(url)") {
-            sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), options: .highPriority) { (_, _, _, _) in
-                completion(nil)
+            DispatchQueue.main.async {
+                self.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), options: .highPriority) { (_, _, _, _) in
+                    completion(nil)
+                }
             }
         } else {
             completion(LoadImageError.notFound)

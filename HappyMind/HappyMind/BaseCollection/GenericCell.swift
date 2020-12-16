@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import SkeletonView
-import SDWebImage
+
 class GenericCell<T>: BaseCollectionCell<T> {
 
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isSkeletonable = true
         return view
     }()
 
@@ -22,7 +20,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.isSkeletonable = true
         return imageView
     }()
 
@@ -44,7 +41,6 @@ class GenericCell<T>: BaseCollectionCell<T> {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        isSkeletonable = true
         setupView()
         setupContainerViewConstraints()
         setImageViewConstraints()

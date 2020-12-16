@@ -8,7 +8,6 @@
 
 import UIKit
 import HappyMindCore
-import SkeletonView
 
 protocol WelcomeDataSourceDelegate: AnyObject {
     func didSelected(theme: Theme)
@@ -36,10 +35,6 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
         }
     }
 
-    override func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? {
-        return "WelcomeHeader"
-    }
-
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let indexPath = IndexPath(row: 0, section: section)
         let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
@@ -52,15 +47,7 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
                 verticalFittingPriority: .fittingSizeLevel)
         }
     }
-
-    override func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-
-    override func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        CollectionViewCellIdentifier.categoryCell.rawValue
-    }
-
+    
     func numSections(in collectionSkeletonView: UICollectionView) -> Int {
         return 1
     }

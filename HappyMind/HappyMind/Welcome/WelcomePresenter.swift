@@ -46,13 +46,12 @@ final class WelcomePresenter: BasePresenter {
     }
 
     private func getWelcomeInfo() {
-        ownView.showSkeleton()
         inputDependencies.welcomeInteractor.execute(nil).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error.localizedDescription)
             case .finished:
-                self?.ownView.hideSkeleton()
+                break
             }
         }, receiveValue: { [weak self] (welcome) in
             let section = [Section<Theme>(data: welcome.welcomeThemes, title: welcome.welcomeMessage)]

@@ -12,9 +12,9 @@ target 'HappyMind' do
   # Pods for HappyMind
   pod 'TPKeyboardAvoiding', '~> 1.3'
   pod 'SDWebImage', '~> 5.0'
-  pod 'SkeletonView'
   pod 'lottie-ios'
   pod 'Firebase/Messaging'
+  pod 'MSAL'
   
   target 'HappyMindTests' do
     inherit! :search_paths

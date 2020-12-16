@@ -35,16 +35,7 @@ class BaseListViewController: BaseViewController {
     }
 
     func setupCollectionView() {
-        collectionView.isSkeletonable = true
         collectionView.bounces = false
         collectionView.showsVerticalScrollIndicator = false
-    }
-
-    override func showSkeleton() {
-        collectionView.showAnimatedGradientSkeleton()
-    }
-
-    override func hideSkeleton() {
-        collectionView.hideSkeleton()
     }
 }

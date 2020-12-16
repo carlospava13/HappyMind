@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginContainerDelegate: AnyObject {
-    func login(email: String, password: String)
+    func openSignIn()
 }
 
 final class LoginContainerView: UIView {
@@ -30,43 +30,16 @@ final class LoginContainerView: UIView {
         label.textAlignment = .center
         return label
     }()
-
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        return stackView
-    }()
-
-    private lazy var emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = .localized(.email)
-        textField.layer.cornerRadius = 10
-        textField.font = UIFont.calibriRegularFont(size: 22)
-        textField.overrideUserInterfaceStyle = .light
-        textField.backgroundColor = .white
-        textField.addBorder()
-        textField.addLeftPadding()
-        textField.text = "ios@dev.com"
-        return textField
-    }()
-
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = .localized(.password)
-        textField.layer.cornerRadius = 10
-        textField.isSecureTextEntry = true
-        textField.font = UIFont.calibriRegularFont(size: 22)
-        textField.overrideUserInterfaceStyle = .light
-        textField.backgroundColor = .white
-        textField.addBorder()
-        textField.addLeftPadding()
-        textField.text = "developer"
-        return textField
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.calibriBoldFont(size: 25)
+        label.textColor = .gray
+        label.text = "Inicia sesión con tu correo @sena.edu.co"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }()
 
     private lazy var loginButton: UIButton = {
@@ -74,21 +47,25 @@ final class LoginContainerView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(.localized(.login), for: .normal)
         button.addTarget(self, action: #selector(onLogin), for: .touchUpInside)
-        button.titleLabel?.font = UIFont.calibriRegularFont(size: 28)
-        button.backgroundColor = .orange
-        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.calibriRegularFont(size: 20)
+        button.setTitleColor(.lightGray, for: .normal)
+        button.backgroundColor = .white
+        button.setImage(UIImage(resource: .microsoft), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addBorderToView(color: .lightGray)
+        button.titleEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return button
     }()
-
+    
     weak var delegate: LoginContainerDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setContainerViewConstraints()
         setTitleLabelConstraints()
-        setStackViewConstraints()
+        setDescriptionLabelConstraints()
         setLoginButtonConstraints()
-        addTextFields()
     }
 
     required init?(coder: NSCoder) {
@@ -115,36 +92,27 @@ final class LoginContainerView: UIView {
             titleLabel.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
-
-    private func setStackViewConstraints() {
-        containerView.addSubview(stackView)
+    
+    private func setDescriptionLabelConstraints() {
+        containerView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 83),
-            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            emailTextField.heightAnchor.constraint(equalToConstant: 40),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40)
-            ])
-
+            descriptionLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ])
     }
     
     private func setLoginButtonConstraints() {
         containerView.addSubview(loginButton)
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 40),
-            loginButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 80),
+            loginButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             loginButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
 
-    private func addTextFields() {
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-    }
-
     @objc private func onLogin() {
-        delegate?.login(email: emailTextField.text!, password: passwordTextField.text!)
+        delegate?.openSignIn()
     }
 }

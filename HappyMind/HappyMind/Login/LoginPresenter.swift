@@ -38,12 +38,11 @@ final class LoginPresenter: BasePresenter {
         } receiveValue: { (value) in
         }.store(in: &subscriptions)
     }
-    
-    func doLogin(email: String, password: String) {
+
+    func doLogin(email: String) {
         ownView.showLoading()
         inputDependencies.loginInteractor.execute(
-            LoginParams(email: email.lowercased(),
-                password: password)
+            LoginParams(email: email.lowercased(), password: "")
         ).sink(receiveCompletion: { (completion) in
             switch completion {
             case .failure:
@@ -60,9 +59,9 @@ final class LoginPresenter: BasePresenter {
 }
 
 extension LoginPresenter: LoginPresenterType {
-    func setLogin(email: String, password: String) {
+    func setLogin(email: String) {
         if email.isValidEmail() {
-            doLogin(email: email, password: password)
+            doLogin(email: email)
         } else {
             ownView.show("Tu email es invalido")
         }

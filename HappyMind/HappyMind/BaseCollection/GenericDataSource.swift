@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import SkeletonView
 class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject,
     UICollectionViewDataSource,
     UICollectionViewDelegate,
-    UICollectionViewDelegateFlowLayout,
-    SkeletonCollectionViewDataSource,
-    SkeletonCollectionViewDelegate {
+    UICollectionViewDelegateFlowLayout {
 
         var numberOfSkeletonRows: Int?
         private var skeletonCell: UICollectionViewCell.Type?
@@ -56,16 +53,5 @@ class GenericDataSource<Cell:BaseCollectionCell<T>, T>: NSObject,
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
             return CGSize.zero
-        }
-
-        func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-            return CollectionViewCellIdentifier.categoryCell.rawValue
-        }
-
-        func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 6
-        }
-        func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? {
-            return supplementaryViewIdentifierOfKind
         }
 }

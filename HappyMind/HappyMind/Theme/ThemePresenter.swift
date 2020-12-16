@@ -42,13 +42,12 @@ final class ThemePresenter: BasePresenter {
     }
 
     private func getThemes() {
-        ownView.showSkeleton()
         inputDependencies.getThemeInteractor.execute(inputDependencies.id).sink { [weak self] (completion) in
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error.localizedDescription)
             case .finished:
-                self?.ownView.hideSkeleton()
+                break
             }
         } receiveValue: { [weak self] (themes) in
             let section = [Section<HappyMindCore.Theme>(data: themes)]

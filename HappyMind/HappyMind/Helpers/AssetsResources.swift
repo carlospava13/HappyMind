@@ -11,4 +11,6 @@ import Foundation
 enum AssetsResources: String {
     case icon
     case iconSena
+    case microsoft
+    case textsize
 }
