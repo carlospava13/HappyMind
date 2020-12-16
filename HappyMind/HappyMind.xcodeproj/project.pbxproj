@@ -12,7 +12,7 @@
 		6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */; };
 		6F97262725390CD700913342 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262625390CD700913342 /* InteractorModule.swift */; };
 		6F97262925390D0500913342 /* RepositoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262825390D0500913342 /* RepositoryModule.swift */; };
-		6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D0542537BA7100E78A4C /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0532537BA7100E78A4C /* HappyMindData.framework */; };
 		6FE1D0552537BA7100E78A4C /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0532537BA7100E78A4C /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D0B12537E40500E78A4C /* HappyMindCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; };
@@ -36,6 +36,7 @@
 		D1535DD1251FDA8800FF375D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1535DCF251FDA8800FF375D /* LaunchScreen.storyboard */; };
 		D1535DDC251FDA8800FF375D /* HappyMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DDB251FDA8800FF375D /* HappyMindTests.swift */; };
 		D1535DE7251FDA8800FF375D /* HappyMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */; };
+		D15A0FBC258ABD7600F9E85C /* MSALConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A0FBB258ABD7600F9E85C /* MSALConfiguration.swift */; };
 		D15C952C2547A6490028B881 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C952B2547A6490028B881 /* ThemeViewController.swift */; };
 		D15C95302547A6590028B881 /* ThemeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C952F2547A6590028B881 /* ThemeContract.swift */; };
 		D15C95342547A6620028B881 /* ThemePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95332547A6620028B881 /* ThemePresenter.swift */; };
@@ -154,7 +155,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */,
+				6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */,
 				6FE1D0552537BA7100E78A4C /* HappyMindData.framework in Embed Frameworks */,
 				6FE1D0B22537E40500E78A4C /* HappyMindCore.framework in Embed Frameworks */,
 			);
@@ -206,6 +207,7 @@
 		D1535DE6251FDA8800FF375D /* HappyMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyMindUITests.swift; sourceTree = "<group>"; };
 		D1535DE8251FDA8800FF375D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1535E1B251FE03900FF375D /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15A0FBB258ABD7600F9E85C /* MSALConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALConfiguration.swift; sourceTree = "<group>"; };
 		D15C952B2547A6490028B881 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		D15C952F2547A6590028B881 /* ThemeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeContract.swift; sourceTree = "<group>"; };
 		D15C95332547A6620028B881 /* ThemePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePresenter.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 				D1D3FE982586CBCD00DD0C13 /* SampleGraphRequest.swift */,
 				D1D3FE9A2586CBCD00DD0C13 /* SampleGraphScopes.swift */,
 				D1D3FE902586CBA700DD0C13 /* SampleMSALAuthentication.swift */,
+				D15A0FBB258ABD7600F9E85C /* MSALConfiguration.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1052,6 +1055,7 @@
 				D1EF977D252526F100B738B0 /* BaseContract.swift in Sources */,
 				D1AC71CF253E577300D89D14 /* ApplicationViewController.swift in Sources */,
 				D1AC71D9253E57D000D89D14 /* ApplicationConfigurator.swift in Sources */,
+				D15A0FBC258ABD7600F9E85C /* MSALConfiguration.swift in Sources */,
 				D1EF97792525269B00B738B0 /* BaseViewController.swift in Sources */,
 				D1AC71E9253E6E3900D89D14 /* AudioPlayerViewController.swift in Sources */,
 				D17BFF6925451CD1004E472B /* SubCategoryContract.swift in Sources */,

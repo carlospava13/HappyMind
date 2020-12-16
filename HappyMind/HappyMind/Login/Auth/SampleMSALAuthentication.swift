@@ -28,26 +28,13 @@
 import MSAL
 
 // MARK: Setup and initialization
-class SampleMSALAuthentication {
-    
-//    let kClientID = "a251b868-7358-4356-95ab-031a1e8cce65"
-//    let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
-//    let kAuthority = "https://login.microsoftonline.com/consumers"
-//    let kGraphEndpoint = "https://graph.microsoft.com/"
-    
-    let kClientID = "74f02f30-c9e1-4bbe-864f-709c1902b0a6"
-    let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
-    let kAuthority = "https://login.microsoftonline.com/cbc2c381-2f2e-4d93-91d1-506c9316ace7"
-    let kGraphEndpoint = "https://graph.microsoft.com/"
-    
-    //let kClientId = "a251b868-7358-4356-95ab-031a1e8cce65"
+final class SampleMSALAuthentication {
+
     let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
-    
-    //let kAuthority = "https://login.microsoftonline.com/"#imageLiteral(resourceName: "simulator_screenshot_E02586F8-7359-47B9-90FD-588D60BEDDB1.png")
-    
+
     // Singleton instance
     static let shared = SampleMSALAuthentication()
-    
+
     // Setup
     func setup() {
         MSALGlobalConfig.loggerConfig.setLogCallback {
@@ -57,11 +44,11 @@ class SampleMSALAuthentication {
             // You might want to capture PII only in debug builds, or only if you take necessary actions to handle PII properly according to legal requirements of the region
             if let displayableMessage = message {
                 if (!containsPII) {
-#if DEBUG
-                    // NB! This sample uses print just for testing purposes
-                    // You should only ever log to NSLog in debug mode to prevent leaking potentially sensitive information
-                    print(displayableMessage)
-#endif
+                    #if DEBUG
+                        // NB! This sample uses print just for testing purposes
+                        // You should only ever log to NSLog in debug mode to prevent leaking potentially sensitive information
+                        print(displayableMessage)
+                    #endif
                 }
             }
         }
@@ -73,11 +60,11 @@ fileprivate extension SampleMSALAuthentication {
     func createClientApplication() throws -> MSALPublicClientApplication {
         // This MSALPublicClientApplication object is the representation of your app listing, in MSAL. For your own app
         // go to the Microsoft App Portal to register your own applications with their own client IDs.
-        let config = MSALPublicClientApplicationConfig(clientId: kClientID)
-        
+        let config = MSALPublicClientApplicationConfig(clientId: MSALConfiguration.kClientID)
+
         do {
-            config.authority = try MSALAuthority(url: URL(string: kAuthority)!)
-            config.redirectUri = kRedirectUri
+            config.authority = try MSALAuthority(url: URL(string: MSALConfiguration.kAuthority)!)
+            config.redirectUri = MSALConfiguration.kRedirectUri
             return try MSALPublicClientApplication(configuration: config)
         } catch let error as NSError {
             throw SampleAppError.PublicClientApplicationCreation(error)
@@ -96,10 +83,10 @@ extension SampleMSALAuthentication {
             // the cache in the future. Save this piece of information in a place you can
             // easily retrieve in your app. In this case we're going to store it in
             // NSUserDefaults.
-            UserDefaults.standard.set(accountIdentifier, forKey: self.kCurrentAccountIdentifier)
+            UserDefaults.standard.set(accountIdentifier, forKey: kCurrentAccountIdentifier)
         }
     }
-    
+
     @discardableResult func currentAccount() throws -> MSALAccount {
         // We retrieve our current account by checking for the accountIdentifier that we stored in NSUserDefaults when
         // we first signed in the account.
@@ -107,28 +94,28 @@ extension SampleMSALAuthentication {
             // If we did not find an identifier then throw an error indicating there is no currently signed in account.
             throw SampleAppError.NoUserSignedIn
         }
-        
+
         let clientApplication = try createClientApplication()
-        
+
         var acc: MSALAccount?
         do {
             acc = try clientApplication.account(forIdentifier: accountIdentifier)
         } catch let error as NSError {
             throw SampleAppError.UserNotFound(error)
         }
-        
+
         guard let account = acc else {
             // If we did not find an account because it wasn't found in the cache then that must mean someone else removed
             // the account underneath us, either due to multiple apps sharing a client ID, or due to the account restoring an
             // image from another device. In this case it is best to detect that case and clean up local state.
             cleanupLocalState()
-            
+
             throw SampleAppError.NoUserSignedIn
         }
-        
+
         return account
     }
-    
+
     func clearCurrentAccount() {
         // Leave around the account identifier as the last piece of state to clean up as you will probably need
         // it to clean up user-specific state
@@ -138,26 +125,26 @@ extension SampleMSALAuthentication {
 
 // MARK: Sign in an account
 extension SampleMSALAuthentication {
-    
-    func signInAccount(parentController : UIViewController, completion: @escaping (MSALAccount?, _ accessToken: String?, Error?) -> Void) {
+
+    func signInAccount(parentController: UIViewController, completion: @escaping (MSALAccount?, _ accessToken: String?, Error?) -> Void) {
         do {
             let clientApplication = try createClientApplication()
-            
+
             let webParameters = MSALWebviewParameters(authPresentationViewController: parentController)
             let parameters = MSALInteractiveTokenParameters(scopes: [GraphScopes.UserRead.rawValue], webviewParameters: webParameters)
             clientApplication.acquireToken(with: parameters) {
                 (result: MSALResult?, error: Error?) in
-                
+
                 guard let acquireTokenResult = result, error == nil else {
                     completion(nil, nil, error)
                     return
                 }
-                
+
                 // In the initial acquire token call we'll want to look at the account object
                 // that comes back in the result.
                 let signedInAccount = acquireTokenResult.account
                 self.currentAccountIdentifier = signedInAccount.homeAccountId?.identifier
-                                
+
                 completion(signedInAccount, acquireTokenResult.accessToken, nil)
             }
         } catch let createApplicationError {
@@ -168,56 +155,56 @@ extension SampleMSALAuthentication {
 
 // MARK: Acquire Token
 extension SampleMSALAuthentication {
-    
-    func acquireTokenSilentForCurrentAccount(forScopes scopes:[String], completion: @escaping (_ accessToken: String?, Error?) -> Void) {
+
+    func acquireTokenSilentForCurrentAccount(forScopes scopes: [String], completion: @escaping (_ accessToken: String?, Error?) -> Void) {
         do {
             let application = try createClientApplication()
             let account = try currentAccount()
-            
+
             // Depending on how this account has been used with this application before it is possible for there to be multiple
             // tokens of varying authorities for this account in the cache. Because we are trying to get a token specifically
             // for graph in this sample, we would like to get an access token for the account's home authority.
             // acquireTokenSilent call without any authority will use account's home authority by default.
-            
+
             let parameters = MSALSilentTokenParameters(scopes: scopes, account: account)
             application.acquireTokenSilent(with: parameters) { (result: MSALResult?, error: Error?) in
                 guard let acquireTokenResult = result, error == nil else {
                     completion(nil, error)
                     return
                 }
-                
+
                 completion(acquireTokenResult.accessToken, nil)
             }
         } catch let error {
             completion(nil, error)
         }
     }
-    
-    func acquireTokenInteractiveForCurrentAccount(parentController : UIViewController, forScopes scopes: [String], completion: @escaping (_ accessToken: String?, Error?) -> Void) {
+
+    func acquireTokenInteractiveForCurrentAccount(parentController: UIViewController, forScopes scopes: [String], completion: @escaping (_ accessToken: String?, Error?) -> Void) {
         do {
             let application = try createClientApplication()
             let account = try currentAccount()
-            
+
             let webParameters = MSALWebviewParameters(authPresentationViewController: parentController)
             let parameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webParameters)
             parameters.account = account
             parameters.promptType = .default
-            
+
             application.acquireToken(with: parameters) {
                 (result: MSALResult?, error: Error?) in
-                
+
                 guard let acquireTokenResult = result, error == nil else {
                     completion(nil, error)
                     return
                 }
-                
+
                 completion(acquireTokenResult.accessToken, nil)
             }
         } catch let error {
             completion(nil, error)
         }
     }
-    
+
     func acquireTokenForCurrentAccount(parentController: UIViewController, forScopes scopes: [String], completion: @escaping (_ accessToken: String?, Error?) -> Void) {
         acquireTokenSilentForCurrentAccount(forScopes: scopes) {
             (token: String?, error: Error?) in
@@ -225,23 +212,23 @@ extension SampleMSALAuthentication {
                 completion(token, nil)
                 return
             }
-            
+
             // What an app does on an InteractionRequired error will vary from app to app. Most apps
             // will want to present a notification to the user in an unobtrusive way (such as on a
             // status bar in the application UI) before bringing up the modal interactive login dialog,
             // otherwise it can appear to be out of context for the user, and confuse them as to why
             // they are seeing an authentication prompt.
-            
+
             let nsError = error! as NSError
 
             if (nsError.domain == MSALErrorDomain &&
-                nsError.code == MSALError.interactionRequired.rawValue) {
+                    nsError.code == MSALError.interactionRequired.rawValue) {
                 DispatchQueue.main.async {
                     self.acquireTokenInteractiveForCurrentAccount(parentController: parentController, forScopes: scopes, completion: completion)
                 }
                 return
             }
-            
+
             completion(nil, error)
         }
     }
@@ -249,33 +236,33 @@ extension SampleMSALAuthentication {
 
 // MARK: Sign out and clean up
 extension SampleMSALAuthentication {
-    
+
     func signOut() throws {
 
         cleanupLocalState()
-        
+
         let accountToDelete = try? currentAccount()
-        
+
         // Signing out an account requires removing this from MSAL and cleaning up any extra state that the application
         // might be maintaining outside of MSAL for the account.
-        
+
         // This remove call only removes the account's tokens for this client ID in the local keychain cache. It does
         // not sign the account completely out of the device or remove tokens for the account for other client IDs. If
         // you have multiple applications sharing a client ID this will make the account effectively "disappear" for
         // those applications as well if you are using Keychain Cache Sharing (not currently available in MSAL
         // build preview). We do not recommend sharing a ClientID among multiple apps.
-        
+
         if let accountToDelete = accountToDelete {
             let application = try createClientApplication()
             try application.remove(accountToDelete)
         }
     }
-    
+
     fileprivate func cleanupLocalState() {
-        
+
         SampleCalendarUtil.shared.clearCache()
         SamplePhotoUtil.shared.clearPhotoCache()
-        
+
         self.clearCurrentAccount()
     }
 }
