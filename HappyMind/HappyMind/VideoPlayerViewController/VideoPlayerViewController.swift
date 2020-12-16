@@ -26,8 +26,8 @@ final class VideoPlayerViewController: AVPlayerViewController {
     func getToken() {
         LocalStorageRepository().getData(key: .token).sink { (completion) in
             
-        } receiveValue: { (value: String) in
-            self.setupPlayer(token: value)
+        } receiveValue: { [weak self] (value: String) in
+            self?.setupPlayer(token: value)
         }.store(in: &subscriptions)
     }
 

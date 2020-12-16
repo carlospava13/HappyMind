@@ -30,6 +30,11 @@ import MSAL
 // MARK: Setup and initialization
 class SampleMSALAuthentication {
     
+//    let kClientID = "a251b868-7358-4356-95ab-031a1e8cce65"
+//    let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
+//    let kAuthority = "https://login.microsoftonline.com/consumers"
+//    let kGraphEndpoint = "https://graph.microsoft.com/"
+    
     let kClientID = "74f02f30-c9e1-4bbe-864f-709c1902b0a6"
     let kRedirectUri = "msauth.co.edu.sena.HappyMind://auth"
     let kAuthority = "https://login.microsoftonline.com/cbc2c381-2f2e-4d93-91d1-506c9316ace7"
@@ -38,7 +43,7 @@ class SampleMSALAuthentication {
     //let kClientId = "a251b868-7358-4356-95ab-031a1e8cce65"
     let kCurrentAccountIdentifier = "MSALCurrentAccountIdentifier"
     
-    //let kAuthority = "https://login.microsoftonline.com/"
+    //let kAuthority = "https://login.microsoftonline.com/"#imageLiteral(resourceName: "simulator_screenshot_E02586F8-7359-47B9-90FD-588D60BEDDB1.png")
     
     // Singleton instance
     static let shared = SampleMSALAuthentication()

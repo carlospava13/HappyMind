@@ -51,6 +51,14 @@ final class TextDetailViewController: BaseViewController {
         return textSettingsView
     }()
 
+    private lazy var sizeTextButton: UIButton = {
+        let imageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageButton.addTarget(self, action: #selector(onShowTextSettings), for: .touchUpInside)
+        let image = UIImage(resource: .textsize).withRenderingMode(.alwaysTemplate)
+        imageButton.setImage(image, for: .normal)
+        return imageButton
+    }()
+
     private var onwPresenter: TextDetailPresenterType! {
         presenter as? TextDetailPresenterType
     }
@@ -66,14 +74,11 @@ final class TextDetailViewController: BaseViewController {
         setTitleLabelConstraints()
         setImageViewConstraints()
         setTextViewConstraints()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "AA",
-            style: .plain,
-            target: self,
-            action: #selector(onShowTextSettings))
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sizeTextButton)
         set(darkMode: overrideUserInterfaceStyle == .dark)
         scrollView.addSubview(textSettingsView)
-        setBackButtonItem(tintColor: .gray)
+        setBackButtonItem()
         super.viewDidLoad()
     }
 
@@ -170,6 +175,7 @@ extension TextDetailViewController: TextSettingsViewDelegate {
         view.backgroundColor = color
         setNavigationTransparent(backgroundColor: color)
         textLabel.textColor = darkMode ? .white : .black
+        sizeTextButton.imageView?.image?.withTintColor( darkMode ? .white : .black)
     }
 }
 

@@ -39,10 +39,6 @@ class BaseViewController: UIViewController, BaseView {
         present(alerViewController, animated: true, completion: nil)
     }
 
-    func showSkeleton() { }
-
-    func hideSkeleton() { }
-
     @objc private func onBack() {
         navigationController?.popViewController(animated: true)
     }

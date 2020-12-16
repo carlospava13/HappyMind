@@ -40,13 +40,12 @@ final class SubCategoryPresenter: BasePresenter {
     }
 
     func getSubcategories(idCategory: String) {
-        ownView.showSkeleton()
         inputDependencies.getSubCatogoryInteractor.execute(idCategory).sink(receiveCompletion: { [weak self] (completion) in
             switch completion {
             case .failure(let error):
                 self?.ownView.show(error.localizedDescription)
             case .finished:
-                self?.ownView.hideSkeleton()
+                break
             }
         }) { [weak self] (subcategories) in
             let section = [Section<SubCategory>(data: subcategories)]

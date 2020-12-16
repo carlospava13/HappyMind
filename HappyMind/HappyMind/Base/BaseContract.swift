@@ -18,6 +18,4 @@ protocol BasePresenterType: AnyObject {
 protocol BaseView: AnyObject {
     var presenter: BasePresenterType? { get }
     func show(_ message: String)
-    func showSkeleton()
-    func hideSkeleton()
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import HappyMindCore
-import SkeletonView
 
 final class WelcomeViewController: BaseListViewController {
 
