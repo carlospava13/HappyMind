@@ -31,7 +31,7 @@ final class WelcomeDataSource: GenericDataSource<WelcomeCell, Theme> {
             return headerView
 
         default:
-            assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
 
