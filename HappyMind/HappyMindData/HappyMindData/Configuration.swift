@@ -30,12 +30,6 @@ public enum Configuration {
   }
   
   public static var baseURL: String {
-    var url = String()
-    //#if DEBUG
-    url = try! value(for: "baseUrl")
-//    #else
-//    url = try! value(for: "baseUrlProd")
-//    #endif
-    return url
+    return try! value(for: "baseUrl")
   }
 }

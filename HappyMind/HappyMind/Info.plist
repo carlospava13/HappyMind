@@ -91,7 +91,5 @@
 	</array>
 	<key>baseUrl</key>
 	<string>https://felizmenteqa.sena.edu.co/api/v1/</string>
-	<key>baseUrlProd</key>
-	<string>https://felizmente.sena.edu.co</string>
 </dict>
 </plist>
