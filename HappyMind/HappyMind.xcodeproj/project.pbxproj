@@ -10,7 +10,7 @@
 		6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */; };
 		6F97262725390CD700913342 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262625390CD700913342 /* InteractorModule.swift */; };
 		6F97262925390D0500913342 /* RepositoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262825390D0500913342 /* RepositoryModule.swift */; };
-		6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E556F983AE9AC6F35EE9272 /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BC1E25EBEF7AC6F4D058E9 /* Pods_HappyMind_HappyMindUITests.framework */; };
 		BFEAB8957CBEEFD62DACD86A /* Pods_HappyMindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA257DAFF5314A8C7C591AB /* Pods_HappyMindTests.framework */; };
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
@@ -155,7 +155,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */,
+				6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */,
 				D198CD3B258BDFFC004D26F6 /* HappyMindData.framework in Embed Frameworks */,
 				D198CD3D258BDFFF004D26F6 /* HappyMindCore.framework in Embed Frameworks */,
 			);
@@ -1307,7 +1307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = M597DBM4KS;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1329,7 +1329,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = M597DBM4KS;
 				INFOPLIST_FILE = HappyMind/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
