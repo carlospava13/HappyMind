@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>co.edu.sena.happymind</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -25,12 +29,12 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>msauth.co.edu.sena.HappyMind</string>
+				<string>msauth.co.edu.sena.happymind</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>msauthv2</string>
@@ -89,9 +93,5 @@
 	<string>https://felizmenteqa.sena.edu.co/api/v1/</string>
 	<key>baseUrlProd</key>
 	<string>https://felizmente.sena.edu.co</string>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
-	<array>
-		<string>co.edu.sena.happymind</string>
-	</array>
 </dict>
 </plist>

@@ -16,12 +16,12 @@
 		6FE1D09E2537DF1100E78A4C /* HappyMindCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE1D0902537DF1100E78A4C /* HappyMindCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE1D0A92537DF3400E78A4C /* GetCategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D0A82537DF3400E78A4C /* GetCategoriesInteractor.swift */; };
 		6FE1D0AC2537DF6500E78A4C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D0AB2537DF6500E78A4C /* Category.swift */; };
-		6FE1D0B42537E46600E78A4C /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B32537E46600E78A4C /* HappyMindData.framework */; };
 		98B020E03A06EAC760547AA9 /* Pods_HappyMindCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC422C85CDECBC508604AC67 /* Pods_HappyMindCore.framework */; };
 		D15A93BA2550D33600447A55 /* MediaFileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A93B92550D33600447A55 /* MediaFileInteractor.swift */; };
 		D15A93BD2550D35800447A55 /* MediaFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A93BC2550D35800447A55 /* MediaFile.swift */; };
 		D15C95752547AE4D0028B881 /* GetThemeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95742547AE4D0028B881 /* GetThemeInteractor.swift */; };
 		D15C95782547AE650028B881 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C95772547AE650028B881 /* Theme.swift */; };
+		D198CD5C258BFD4F004D26F6 /* HappyMindData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B32537E46600E78A4C /* HappyMindData.framework */; };
 		D1A1C02F2545266200F09B59 /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C02E2545266200F09B59 /* SubCategory.swift */; };
 		D1A1C031254526D800F09B59 /* GetSubCatogoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1C030254526D800F09B59 /* GetSubCatogoryInteractor.swift */; };
 		D1AC71DF253E5AFC00D89D14 /* FirstTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC71DE253E5AFC00D89D14 /* FirstTimeInteractor.swift */; };
@@ -83,7 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98B020E03A06EAC760547AA9 /* Pods_HappyMindCore.framework in Frameworks */,
-				6FE1D0B42537E46600E78A4C /* HappyMindData.framework in Frameworks */,
+				D198CD5C258BFD4F004D26F6 /* HappyMindData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +504,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M597DBM4KS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -532,6 +533,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M597DBM4KS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
