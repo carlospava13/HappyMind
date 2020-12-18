@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66F6FAF646D35F98FCEEA73A /* Pods_HappyMindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BF6AA0CA31BF179787B4B6 /* Pods_HappyMindTests.framework */; };
 		6F61722125392C1300B7D9D8 /* UIFont+Calibri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */; };
 		6F97262725390CD700913342 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262625390CD700913342 /* InteractorModule.swift */; };
 		6F97262925390D0500913342 /* RepositoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F97262825390D0500913342 /* RepositoryModule.swift */; };
-		6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E556F983AE9AC6F35EE9272 /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BC1E25EBEF7AC6F4D058E9 /* Pods_HappyMind_HappyMindUITests.framework */; };
+		BFEAB8957CBEEFD62DACD86A /* Pods_HappyMindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA257DAFF5314A8C7C591AB /* Pods_HappyMindTests.framework */; };
 		D107011125410AB00079E0FD /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011025410AB00079E0FD /* BaseListViewController.swift */; };
 		D107011525412C600079E0FD /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107011425412C600079E0FD /* UIImageView+loadImage.swift */; };
 		D12EB6E3255209810045A4BC /* TextDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EB6E2255209810045A4BC /* TextDetailPresenter.swift */; };
@@ -69,7 +70,6 @@
 		D198CD3B258BDFFC004D26F6 /* HappyMindData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0532537BA7100E78A4C /* HappyMindData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D198CD3C258BDFFF004D26F6 /* HappyMindCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; };
 		D198CD3D258BDFFF004D26F6 /* HappyMindCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D198CD4C258BEB07004D26F6 /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338189514EE2AF96359940B /* Pods_HappyMind.framework */; };
 		D198CD62258BFE61004D26F6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D193D672253E953F00635A2B /* AVFoundation.framework */; };
 		D1A821F42564989000EB5F81 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A821F32564989000EB5F81 /* LoadingViewController.swift */; };
 		D1AC39E5257718720055C1AC /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = D1AC39E4257718720055C1AC /* animation.json */; };
@@ -97,6 +97,7 @@
 		D1C43162253CFE4700DA44A6 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43161253CFE4700DA44A6 /* WelcomeCell.swift */; };
 		D1C43164253D047D00DA44A6 /* WelcomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43163253D047D00DA44A6 /* WelcomeHeader.swift */; };
 		D1C43166253D15B400DA44A6 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C43165253D15B400DA44A6 /* UIColor+Color.swift */; };
+		D1CA87FF7FF26735F5FC5EC7 /* Pods_HappyMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176D17191E0AC709BF42F40E /* Pods_HappyMind.framework */; };
 		D1CB5D0B2546350000A66F32 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D0A2546350000A66F32 /* VideoPlayerViewController.swift */; };
 		D1CB5D182546353200A66F32 /* VideoPlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB5D172546353200A66F32 /* VideoPlayerCoordinator.swift */; };
 		D1D3FE4C2586C19600DD0C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1D3FE4B2586C19600DD0C13 /* GoogleService-Info.plist */; };
@@ -128,7 +129,6 @@
 		D1EF978E25255BCA00B738B0 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF978D25255BCA00B738B0 /* UIView+Shadow.swift */; };
 		D1EF97902525773900B738B0 /* SubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF978F2525773900B738B0 /* SubCategoryCell.swift */; };
 		D1EF97932525788600B738B0 /* SubCategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF97922525788600B738B0 /* SubCategoryDataSource.swift */; };
-		F7421B8E39029F0250F41900 /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F71D2DD7D1972F010909E4 /* Pods_HappyMind_HappyMindUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +155,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6FE1CFDD2537B6BB00E78A4C /* (null) in Embed Frameworks */,
+				6FE1CFDD2537B6BB00E78A4C /* BuildFile in Embed Frameworks */,
 				D198CD3B258BDFFC004D26F6 /* HappyMindData.framework in Embed Frameworks */,
 				D198CD3D258BDFFF004D26F6 /* HappyMindCore.framework in Embed Frameworks */,
 			);
@@ -165,10 +165,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0E63153A6DB5AB09E52A9CC6 /* Pods-HappyMindTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.debug.xcconfig"; sourceTree = "<group>"; };
-		58F71D2DD7D1972F010909E4 /* Pods_HappyMind_HappyMindUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind_HappyMindUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6FF1A432D9B947327AE17C /* Pods-HappyMind-HappyMindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.release.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.release.xcconfig"; sourceTree = "<group>"; };
-		680650ED80B5CD8BC66883A9 /* Pods-HappyMindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.release.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.release.xcconfig"; sourceTree = "<group>"; };
+		0F44095FEF7CA999B39D3338 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		176D17191E0AC709BF42F40E /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E36CEAFC341CA0679A4B539 /* Pods-HappyMindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.release.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.release.xcconfig"; sourceTree = "<group>"; };
+		2110C45565FFF4F58DCD6491 /* Pods-HappyMind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind/Pods-HappyMind.debug.xcconfig"; sourceTree = "<group>"; };
+		3BA257DAFF5314A8C7C591AB /* Pods_HappyMindTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F61722025392C1300B7D9D8 /* UIFont+Calibri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Calibri.swift"; sourceTree = "<group>"; };
 		6F97262625390CD700913342 /* InteractorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorModule.swift; sourceTree = "<group>"; };
 		6F97262825390D0500913342 /* RepositoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModule.swift; sourceTree = "<group>"; };
@@ -178,11 +179,9 @@
 		6FE1CFDE2537B8D600E78A4C /* HappyMindData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HappyMindData; sourceTree = "<group>"; };
 		6FE1D0532537BA7100E78A4C /* HappyMindData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE1D0B02537E40500E78A4C /* HappyMindCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HappyMindCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7338189514EE2AF96359940B /* Pods_HappyMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		74E6B54332B8A6266511D228 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		915518E8ED2679BC6C330C5A /* Pods-HappyMind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind.release.xcconfig"; path = "Target Support Files/Pods-HappyMind/Pods-HappyMind.release.xcconfig"; sourceTree = "<group>"; };
-		B8BF6AA0CA31BF179787B4B6 /* Pods_HappyMindTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMindTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC4DB949F21FE4FB3BB51DA5 /* Pods-HappyMind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind.debug.xcconfig"; path = "Target Support Files/Pods-HappyMind/Pods-HappyMind.debug.xcconfig"; sourceTree = "<group>"; };
+		89BC1E25EBEF7AC6F4D058E9 /* Pods_HappyMind_HappyMindUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMind_HappyMindUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1CF3CB0F35EE7CCCE911C8 /* Pods-HappyMind-HappyMindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind-HappyMindUITests.release.xcconfig"; path = "Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9E1FF0ABFE51CC99FF449719 /* Pods-HappyMind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMind.release.xcconfig"; path = "Target Support Files/Pods-HappyMind/Pods-HappyMind.release.xcconfig"; sourceTree = "<group>"; };
 		D107011025410AB00079E0FD /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		D107011425412C600079E0FD /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		D12EB6E2255209810045A4BC /* TextDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetailPresenter.swift; sourceTree = "<group>"; };
@@ -302,6 +301,7 @@
 		D1EF978D25255BCA00B738B0 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		D1EF978F2525773900B738B0 /* SubCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCell.swift; sourceTree = "<group>"; };
 		D1EF97922525788600B738B0 /* SubCategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDataSource.swift; sourceTree = "<group>"; };
+		EB78F6D56B87CAEDD7F6AB4C /* Pods-HappyMindTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMindTests.debug.xcconfig"; path = "Target Support Files/Pods-HappyMindTests/Pods-HappyMindTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +312,7 @@
 				D198CD62258BFE61004D26F6 /* AVFoundation.framework in Frameworks */,
 				D198CD3C258BDFFF004D26F6 /* HappyMindCore.framework in Frameworks */,
 				D198CD3A258BDFFC004D26F6 /* HappyMindData.framework in Frameworks */,
-				D198CD4C258BEB07004D26F6 /* Pods_HappyMind.framework in Frameworks */,
+				D1CA87FF7FF26735F5FC5EC7 /* Pods_HappyMind.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66F6FAF646D35F98FCEEA73A /* Pods_HappyMindTests.framework in Frameworks */,
+				BFEAB8957CBEEFD62DACD86A /* Pods_HappyMindTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7421B8E39029F0250F41900 /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */,
+				9E556F983AE9AC6F35EE9272 /* Pods_HappyMind_HappyMindUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +346,9 @@
 				6FE1CFD22537B5C500E78A4C /* HappyMindData.framework */,
 				6FE1CFCE2537B4F300E78A4C /* HappyMindData.framework */,
 				D1535E1B251FE03900FF375D /* HappyMindData.framework */,
-				7338189514EE2AF96359940B /* Pods_HappyMind.framework */,
-				58F71D2DD7D1972F010909E4 /* Pods_HappyMind_HappyMindUITests.framework */,
-				B8BF6AA0CA31BF179787B4B6 /* Pods_HappyMindTests.framework */,
+				176D17191E0AC709BF42F40E /* Pods_HappyMind.framework */,
+				89BC1E25EBEF7AC6F4D058E9 /* Pods_HappyMind_HappyMindUITests.framework */,
+				3BA257DAFF5314A8C7C591AB /* Pods_HappyMindTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -772,12 +772,12 @@
 		E389C03E04F3661C690B39E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CC4DB949F21FE4FB3BB51DA5 /* Pods-HappyMind.debug.xcconfig */,
-				915518E8ED2679BC6C330C5A /* Pods-HappyMind.release.xcconfig */,
-				74E6B54332B8A6266511D228 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */,
-				5A6FF1A432D9B947327AE17C /* Pods-HappyMind-HappyMindUITests.release.xcconfig */,
-				0E63153A6DB5AB09E52A9CC6 /* Pods-HappyMindTests.debug.xcconfig */,
-				680650ED80B5CD8BC66883A9 /* Pods-HappyMindTests.release.xcconfig */,
+				2110C45565FFF4F58DCD6491 /* Pods-HappyMind.debug.xcconfig */,
+				9E1FF0ABFE51CC99FF449719 /* Pods-HappyMind.release.xcconfig */,
+				0F44095FEF7CA999B39D3338 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */,
+				8D1CF3CB0F35EE7CCCE911C8 /* Pods-HappyMind-HappyMindUITests.release.xcconfig */,
+				EB78F6D56B87CAEDD7F6AB4C /* Pods-HappyMindTests.debug.xcconfig */,
+				1E36CEAFC341CA0679A4B539 /* Pods-HappyMindTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -789,12 +789,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1535DEB251FDA8800FF375D /* Build configuration list for PBXNativeTarget "HappyMind" */;
 			buildPhases = (
-				33C6016DC1B911C70DD2CB68 /* [CP] Check Pods Manifest.lock */,
+				C9A0D07662D197CF2EAB1B07 /* [CP] Check Pods Manifest.lock */,
 				D1535DBA251FDA8600FF375D /* Sources */,
 				D1535DBB251FDA8600FF375D /* Frameworks */,
 				D1535DBC251FDA8600FF375D /* Resources */,
 				6FE1CFDA2537B69B00E78A4C /* Embed Frameworks */,
-				8AB449EED241EFD9BB07870A /* [CP] Embed Pods Frameworks */,
+				C15F4306941401180F1BD9F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -809,7 +809,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1535DEE251FDA8800FF375D /* Build configuration list for PBXNativeTarget "HappyMindTests" */;
 			buildPhases = (
-				D24C5B5DDAB9F2A0D07D6E14 /* [CP] Check Pods Manifest.lock */,
+				B3926FE7D5494A961BD0D2E0 /* [CP] Check Pods Manifest.lock */,
 				D1535DD3251FDA8800FF375D /* Sources */,
 				D1535DD4251FDA8800FF375D /* Frameworks */,
 				D1535DD5251FDA8800FF375D /* Resources */,
@@ -828,11 +828,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1535DF1251FDA8800FF375D /* Build configuration list for PBXNativeTarget "HappyMindUITests" */;
 			buildPhases = (
-				62C5E8057DD647276E809A4D /* [CP] Check Pods Manifest.lock */,
+				FF9E809729CE59F736CD9450 /* [CP] Check Pods Manifest.lock */,
 				D1535DDE251FDA8800FF375D /* Sources */,
 				D1535DDF251FDA8800FF375D /* Frameworks */,
 				D1535DE0251FDA8800FF375D /* Resources */,
-				4F059689CB20A7DC8C7AD43A /* [CP] Embed Pods Frameworks */,
+				CEFCEFDD6A22B79E66E87BBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -921,7 +921,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33C6016DC1B911C70DD2CB68 /* [CP] Check Pods Manifest.lock */ = {
+		B3926FE7D5494A961BD0D2E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HappyMindTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C15F4306941401180F1BD9F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9A0D07662D197CF2EAB1B07 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -943,7 +982,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F059689CB20A7DC8C7AD43A /* [CP] Embed Pods Frameworks */ = {
+		CEFCEFDD6A22B79E66E87BBD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -960,7 +999,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HappyMind-HappyMindUITests/Pods-HappyMind-HappyMindUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		62C5E8057DD647276E809A4D /* [CP] Check Pods Manifest.lock */ = {
+		FF9E809729CE59F736CD9450 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -976,45 +1015,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-HappyMind-HappyMindUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8AB449EED241EFD9BB07870A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HappyMind/Pods-HappyMind-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D24C5B5DDAB9F2A0D07D6E14 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HappyMindTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1302,7 +1302,7 @@
 		};
 		D1535DEC251FDA8800FF375D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC4DB949F21FE4FB3BB51DA5 /* Pods-HappyMind.debug.xcconfig */;
+			baseConfigurationReference = 2110C45565FFF4F58DCD6491 /* Pods-HappyMind.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
@@ -1324,7 +1324,7 @@
 		};
 		D1535DED251FDA8800FF375D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 915518E8ED2679BC6C330C5A /* Pods-HappyMind.release.xcconfig */;
+			baseConfigurationReference = 9E1FF0ABFE51CC99FF449719 /* Pods-HappyMind.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HappyMind/HappyMind.entitlements;
@@ -1346,7 +1346,7 @@
 		};
 		D1535DEF251FDA8800FF375D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E63153A6DB5AB09E52A9CC6 /* Pods-HappyMindTests.debug.xcconfig */;
+			baseConfigurationReference = EB78F6D56B87CAEDD7F6AB4C /* Pods-HappyMindTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1369,7 +1369,7 @@
 		};
 		D1535DF0251FDA8800FF375D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 680650ED80B5CD8BC66883A9 /* Pods-HappyMindTests.release.xcconfig */;
+			baseConfigurationReference = 1E36CEAFC341CA0679A4B539 /* Pods-HappyMindTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1392,7 +1392,7 @@
 		};
 		D1535DF2251FDA8800FF375D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74E6B54332B8A6266511D228 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */;
+			baseConfigurationReference = 0F44095FEF7CA999B39D3338 /* Pods-HappyMind-HappyMindUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1413,7 +1413,7 @@
 		};
 		D1535DF3251FDA8800FF375D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A6FF1A432D9B947327AE17C /* Pods-HappyMind-HappyMindUITests.release.xcconfig */;
+			baseConfigurationReference = 8D1CF3CB0F35EE7CCCE911C8 /* Pods-HappyMind-HappyMindUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -31,11 +31,11 @@ public enum Configuration {
   
   public static var baseURL: String {
     var url = String()
-    #if DEBUG
+    //#if DEBUG
     url = try! value(for: "baseUrl")
-    #else
-    url = try! value(for: "baseUrlProd")
-    #endif
+//    #else
+//    url = try! value(for: "baseUrlProd")
+//    #endif
     return url
   }
 }
