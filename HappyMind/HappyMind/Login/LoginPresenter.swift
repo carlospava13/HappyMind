@@ -40,17 +40,16 @@ final class LoginPresenter: BasePresenter {
     }
 
     func doLogin(email: String) {
-        ownView.showLoading()
+        inputDependencies.coordinator?.showLoading()
         inputDependencies.loginInteractor.execute(
             LoginParams(email: email.lowercased(), password: "")
-        ).sink(receiveCompletion: { (completion) in
+        ).sink(receiveCompletion: { [weak self] (completion) in
+            self?.inputDependencies.coordinator?.hideLoading()
             switch completion {
             case .failure:
-                self.ownView.hideLoading()
-                self.ownView.show(CustomError.notLogin.rawValue)
+                self?.ownView.show(CustomError.notLogin.rawValue)
             case .finished:
-                self.ownView.hideLoading()
-                self.isFirtsTimeInteractor()
+                self?.isFirtsTimeInteractor()
             }
         }) { (user) in
             print(user)

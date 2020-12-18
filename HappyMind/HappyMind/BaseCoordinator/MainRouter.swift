@@ -39,6 +39,12 @@ final class MainRouter: NSObject, RouterType {
     func present(_ module: Presentable, animated: Bool) {
         makePresent(with: module.toPresent(), animated: animated)
     }
+    
+    func present(_ viewController: UIViewController, animated: Bool) {
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.modalPresentationStyle = .overCurrentContext
+        makePresent(with: viewController, animated: true)
+    }
 
     private func makePresent(
         with controller: UIViewController,

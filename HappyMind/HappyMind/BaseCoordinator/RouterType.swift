@@ -14,7 +14,7 @@ protocol RouterType: AnyObject, Presentable {
     
     func present(_ module: Presentable)
     func present(_ module: Presentable, animated: Bool)
-    
+    func present(_ viewController: UIViewController, animated: Bool)
     func push(
         _ module: Presentable,
           transition: UIViewControllerAnimatedTransitioning?,

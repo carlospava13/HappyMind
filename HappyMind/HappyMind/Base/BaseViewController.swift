@@ -42,17 +42,4 @@ class BaseViewController: UIViewController, BaseView {
     @objc private func onBack() {
         navigationController?.popViewController(animated: true)
     }
-    
-    func showLoading() {
-        loadingViewController = LoadingViewController()
-        loadingViewController?.modalTransitionStyle = .crossDissolve
-        loadingViewController?.modalPresentationStyle = .overCurrentContext
-        present(loadingViewController!, animated: false, completion: nil)
-    }
-
-    func hideLoading() {
-        loadingViewController?.dismiss(animated: false, completion: {
-            self.loadingViewController = nil
-        })
-    }
 }

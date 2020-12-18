@@ -15,6 +15,8 @@ protocol LoginFlowDelegate: AnyObject {
 protocol LoginCoordinatorDelegate: AnyObject {
     func showCategories()
     func showWelcomeFlow()
+    func showLoading()
+    func hideLoading()
 }
 
 final class LoginCoordinator: BaseCoordinator {
@@ -22,7 +24,7 @@ final class LoginCoordinator: BaseCoordinator {
 
     private var welcomeCoordinator: BaseCoordinator?
     private var categoryCoordinator: BaseCoordinator?
-
+    private var loadingViewController: LoadingViewController?
     weak var loginFlowDelegate: LoginFlowDelegate?
 
     init(router: RouterType,
@@ -52,6 +54,21 @@ final class LoginCoordinator: BaseCoordinator {
         coordinator.removeReferenceDelegete = self
         addDependency(coordinator)
         categoryCoordinator = coordinator
+    }
+    
+    func showLoading() {
+        loadingViewController = LoadingViewController()
+        router.present(loadingViewController!, animated: true)
+    }
+
+    func hideLoading() {
+        guard let loadingViewController = self.loadingViewController else {
+            print("Does not remove loading viewcontroller")
+            return
+        }
+        loadingViewController.dismiss(animated: false, completion: {
+            self.loadingViewController = nil
+        })
     }
 }
 

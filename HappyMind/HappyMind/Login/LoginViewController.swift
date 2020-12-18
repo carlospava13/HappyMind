@@ -125,7 +125,6 @@ extension LoginViewController: LoginContainerDelegate {
                 return
             }
             self?.ownPresenter.setLogin(email: username)
-            
         })
     }
 }
